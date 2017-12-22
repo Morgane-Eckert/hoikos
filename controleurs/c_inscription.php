@@ -1,18 +1,11 @@
 <?php 
 
-function connexion(){
-	include ('vues/v_connexion.php');
-}
-
-function decouverte(){
-	include ('vues/v_decouverte.php');
-}
+include ('modeles/m_inscription.php');
 
 function inscription_utilisateur(){
 	include ('vues/v_ajout_utilisateur.php');
 }
 
-include ('./modeles/m_ajout_utilisateur.php');
 function ajout_utilisateur2($type_utilisateur,$nom_utilisateur,$prenom_utilisateur,$telephone_1_utilisateur,$date_de_naissance_utilisateur,$adresse_mail_utilisateur,$mot_de_passe_utilisateur){
 
 	$affectedLines = ajout_utilisateur($type_utilisateur,$nom_utilisateur,$prenom_utilisateur,$telephone_1_utilisateur,$date_de_naissance_utilisateur,$adresse_mail_utilisateur,$mot_de_passe_utilisateur);
@@ -24,6 +17,8 @@ function ajout_utilisateur2($type_utilisateur,$nom_utilisateur,$prenom_utilisate
         header('Location: index.php?target=inscription&action=inscription_logement');
     }
 }
+
+
 
 
 ?>
