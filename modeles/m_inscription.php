@@ -1,5 +1,5 @@
 <?php /*On ajoute l'article à la base de donnée*/
-session_start();
+//session_start();
 
 function connexion_bdd(){
 	try
