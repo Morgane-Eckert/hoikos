@@ -20,10 +20,10 @@
   					 <p><input type="password" name="mot_de_passe" placeholder="Mot de passe" class="Case" size="27" required></p>
   					 <input type="submit" value="Connexion" class="Onglet" />
 				</form><br/>
-				<a href="" class="lienn">Mot de passe oublié ?</a>
+				<a href="conditionsgenerales.html" class="lienn">Mot de passe oublié ?</a>
 			</article >
 			<article id="boutons">
-				<a href="index.php?target=decouverte" class="Grandonglet"> Découverte </a>
+				<a href="index.php?target=description" class="Grandonglet"> Découverte </a>
 				<a href="index.php?target=inscription" class="Grandonglet"> Inscription </a>
 			</article>
 			<article id="image">

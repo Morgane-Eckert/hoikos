@@ -11,7 +11,7 @@
 	<body>
 		<?php include("vues/v_base-header-sans-bouton-deconnexion.php"); ?>
 		<nav>
-			<a href="connexion.php" class="Onglet">Retour</a>
+			<a href="index.php" class="Onglet">Retour</a>
 		</nav>
 		
 		<section>
@@ -23,7 +23,7 @@
 						<label for='prénom'> Prénom :  </label><br/>
 						<input type='text' name='prenom' id='prenom' required><br><br />
 						<label for='telephone'> Téléphone :  </label><br/>
-						<input type='number' name='telephone1' id='telephone1' maxlength='10' required><br><br />
+						<input type='text' name='telephone1' id='telephone1' maxlength='10' required><br><br />
 						<label for='adresse_mail'> Adresse mail :  </label><br/>
 						<input type='email' name='adresse_mail' id='adresse_mail'  required><br><br />
 						<label for='date_naissance'> Date de naissance:  </label><br/>
