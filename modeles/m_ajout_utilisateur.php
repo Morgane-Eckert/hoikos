@@ -17,14 +17,6 @@ function ajout_utilisateur($type_utilisateur,$nom_utilisateur,$prenom_utilisateu
 	$bdd=connexion_bdd();
 	$mailexist=0;
 	$entrees = $bdd->query('SELECT adresse_mail_utilisateur FROM utilisateur');
-	while ($mailcheck = $entrees->fetch()){
-		if ($mailcheck[0] == $_POST["adresse_mail"]){
-		$mailexist=1;
-		break;
-		}
-	}
-
-	/*if ((preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#', $_POST["mot_de_passe"])) && ($_POST["mot_de_passe2"] == $_POST["mot_de_passe"] ) && ($mailexist == 0)){*/
 			$requete = $bdd->prepare("INSERT INTO `utilisateur` (`ID_utilisateur`, `ID_logement`, `type_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `telephone_1_utilisateur`, `date_de_naissance_utilisateur`, `adresse_mail_utilisateur`, `mot_de_passe_utilisateur`, `date_d_ajout_utilisateur`) VALUES (NULL, NULL, :type_utilisateur, :nom_utilisateur, :prenom_utilisateur, :telephone_1_utilisateur, :date_de_naissance_utilisateur, :adresse_mail_utilisateur, PASSWORD(:mot_de_passe_utilisateur),NOW());");
 			/*On crée une ligne utilisateur*/
 			$affectedLines = $requete->execute(array(
@@ -42,12 +34,7 @@ function ajout_utilisateur($type_utilisateur,$nom_utilisateur,$prenom_utilisateu
 			$donnees1 = $reponse1->fetch();
 			/*On le met dans une variable session pour qu'il soit accessible depuis da'utres pages du site*/
 			$_SESSION['id_utilisateur'] = $donnees1['ID_utilisateur'];
-			echo 'bien';
-		/*}
-	
-	else{
-			echo 'pas bien';
-		}*/
 }
+
 
 ?>
