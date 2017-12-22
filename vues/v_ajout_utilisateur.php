@@ -3,13 +3,13 @@
 	
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../inscription.css">
-		<link rel="stylesheet" href="../base-header-sans-bouton.css">
-		<link rel="stylesheet" href="../footer.css">
+		<link rel="stylesheet" href="public/css/inscription.css">
+		<link rel="stylesheet" href="public/css/base-header-sans-bouton.css">
+		<link rel="stylesheet" href="public/css/footer.css">
 	</head>
 	
 	<body>
-		<?php include("base-header-sans-bouton-deconnexion.php"); ?>
+		<?php include("vues/v_base-header-sans-bouton-deconnexion.php"); ?>
 		<nav>
 			<a href="connexion.php" class="Onglet">Retour</a>
 		</nav>
@@ -43,12 +43,12 @@
 		</section>
 		<section class="langues">
 				<a href="conditionsgenerales.php" >
-					<img alt="francais"  src="../francais.png" id="francais">
+					<img alt="francais"  src="public/images/francais.png" id="francais">
 				</a>
 				<a href="conditionsgenerales-en.php" >
-					<img alt="anglais"  src="../anglais.png" id="anglais">
+					<img alt="anglais"  src="public/images/anglais.png" id="anglais">
 				</a>
 		</section>
-		<?php include("footer.php"); ?>
+		<?php include("vues/v_footer.php"); ?>
 	</body>
 </html>
