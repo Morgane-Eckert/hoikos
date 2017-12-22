@@ -1,0 +1,53 @@
+/*HEADER*/
+header
+{
+	background-color: #FFFFFF;
+	margin-top: 0px;
+	padding-bottom: 0px; 
+	display: flex;
+	justify-content: space-between;
+}
+
+/*Réglages du logo et du slogan*/
+#Logo
+{
+	padding: 0px;
+	margin-top: 30px;
+	width: 250px;
+	height: 140px;
+}
+
+#Maisons
+{
+	margin-top: 30px;
+	margin-left: 100px;
+	margin-right: 35%;
+	width: 30%;
+	height: 30%;
+}
+
+/*Réglages du bouton de deconnexion*/
+.deconnex
+{
+	border: none;
+	color: #FFFFFF;
+	background-color: #990100;
+	margin-top: 90px;
+	margin-left: 10px;
+	border-radius: 10px;
+	text-decoration: unset;
+	text-align: center;
+	padding: 10px;
+	color: #FFFFFF;
+	background-color: #990100;
+	width: 7%;
+	height: 3%;
+}
+
+/*Le bouton de deconnexion change de couleur lorsque la souris passe dessus*/
+.deconnex:hover
+{
+	background-color: #DC143C;
+}
+
+

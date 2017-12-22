@@ -1,0 +1,173 @@
+/*Réglages de la taille, police, des marges*/
+body
+{
+	font-family: 'Eras full',Calibri,serif;
+	font-size: 13px;
+	margin: auto;
+}
+
+/*HEADER*/
+header
+{
+	background-color: #FFFFFF;
+	margin-top: 15px;
+	padding-bottom: 20px; 
+	display: flex;
+}
+
+/*Réglages du logo et du slogan*/
+#Logo
+{
+	width: 35%;
+	margin-left: 35%;
+}
+
+
+/*Réglages du menu déroulant langues*/
+#formulairelangue
+{
+	margin: 0px;
+	padding: 0px;
+	text-align: right;
+	margin-right: 10px;
+}
+
+
+/*MENU NAVIGATION*/
+nav
+{
+	padding-top: 20px;
+	display: flex;
+	justify-content: space-around;
+}
+
+
+
+
+#formulaire
+{
+	margin-top: 20px;
+	display: flex;
+	align-items:  center;
+	flex-direction: column;
+}
+
+#image
+{
+	display: flex;
+	justify-content: center;
+}
+
+
+
+/*SECTION*/
+section
+{
+	background-color: #F2F2F2;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	height: 70%;
+}
+
+.lienn
+{
+	text-decoration: unset;
+	color: #888888;
+}
+
+.lienn:hover
+{
+	text-decoration: underline;
+}
+
+.lienn:active
+{
+	color: red;
+	text-decoration: underline;
+}
+
+#demo
+{
+	width: 61.2%;
+	height: 150px;
+}
+
+/*Marges internes de l'article*/
+#corps
+{
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+}
+
+#boutons
+{
+	display: flex;
+	justify-content: space-around;
+}
+
+.Grandonglet
+{
+	padding: 10px;
+	margin-top: 2%;
+	margin-bottom: 20px;
+	border: none;
+	color: #FFFFFF;
+	background-color: #007879;
+	width: 9.5%;/*Modifier la largeur de l'onglet*/
+	margin-right: 3px;
+	color: white;
+	font-size: 17px;
+	text-decoration: unset;
+	text-align: center;
+}
+
+/*Réglages des onglets*/
+.Onglet
+{
+	font-size: 17px;
+	text-decoration: unset;
+	text-align: center;
+	padding: 10px;
+	margin-top: 2%;
+	border: none;
+	color: #FFFFFF;
+	background-color: #990100;
+	width: 100%;/*Modifier la largeur de l'onglet*/
+	margin-right: 3px;
+}
+
+/*L'onglet' change de couleur lorsque la souris passe dessus*/
+.Onglet:hover
+{
+	background-color: #DC143C;
+}
+
+
+/*Pour les grands onglets */
+
+
+.Grandonglet:hover
+{
+	background-color: #00AAAA;
+}
+
+aside
+{
+	display: flex ;
+	justify-content: flex-end;
+}
+
+#francais
+{
+	width: 30px ;
+	margin-right: 10px; 
+}
+
+#anglais
+{
+	width: 30px ;
+	height: 20px ;
+	margin-right: 10px;
+}

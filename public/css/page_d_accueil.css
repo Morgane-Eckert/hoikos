@@ -1,0 +1,139 @@
+/*Réglages de la taille, police, des marges*/
+body
+{
+	font-family: 'Eras full',Calibri,serif;
+	font-size: 13px;
+	margin: auto;
+}
+
+
+
+
+
+
+/*MENU NAVIGATION*/
+nav
+{
+	display: flex;
+}
+
+
+.Onglet
+{
+	font-size: 17px;
+	text-decoration: unset;
+	text-align: center;
+	padding: 10px;
+	margin-top: 2%;
+	border: none;
+	color: #FFFFFF;
+	background-color: #990100;
+	width: 9%;/*Modifier la largeur de l'onglet*/
+	height: 4%;
+	margin-right: 3px;
+	align-self: flex-end;
+}
+
+/*L'onglet' change de couleur lorsque la souris passe dessus*/
+.Onglet:hover
+{
+	background-color: #DC143C;
+}
+
+
+/*Pour les onglet en gris*/
+.actuel
+{
+	text-decoration: unset;
+	text-align: center;
+	font-size: 17px;
+	padding: 10px;
+	margin-top: 2%;
+	border: none;
+	color: #FFFFFF;
+	background-color: #F2F2F2;
+	width: 13%;/*Modifier la largeur de l'onglet*/
+	height: 4%;
+	margin-right: 3px;
+	color: black;
+	border-left: 1px #D4D4D4 solid;
+	border-top: 1px #D4D4D4 solid;
+	border-right: 1px #D4D4D4 solid;
+	align-self: flex-end;
+}
+
+/*Pour les grands onglets */
+.Grandonglet
+{
+	font-size: 17px;
+	padding: 10px;
+	margin-top: 2%;
+	border: none;
+	color: #FFFFFF;
+	background-color: #990100;
+	width: 23%;/*Modifier la largeur de l'onglet*/
+	height: 4%;
+	margin-right: 3px;
+	color: white;
+	text-decoration: unset;
+	text-align: center;
+	align-self: flex-end;
+}
+
+.Grandonglet:hover
+{
+	background-color: #DC143C;
+}
+
+
+button
+{
+	display: inline-block;
+}
+
+
+/*SECTION*/
+section
+{
+	background-color: #F2F2F2;
+	display: flex;
+	justify-content: center;
+	height: 70%;
+}
+
+#titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
+{
+	padding-bottom: 3px;
+	padding-left: 2px;
+	background-color: #990100;
+	color: white;
+	font-size: 20px;
+}
+
+article
+{
+	margin: 50px;
+	background-color: white;
+	width: 40%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
+	max-height: 500px;
+	overflow: auto;
+	border: 6px #990100 solid;
+	border-radius: 10px;
+}
+
+/*Marges internes de l'article*/
+#corps
+{
+	padding: 20px;
+
+}
+
+strong
+{
+	font-weight: bold;
+}
+
+
+
+
+

@@ -1,0 +1,33 @@
+/*FOOTER*/
+footer
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.lien
+{
+	text-decoration: none;
+	color: blue;
+}
+
+/*Le texte est souligné lorsque la souris passe dessus*/
+.lien:hover
+{
+	text-decoration: underline;
+}
+
+/*Le texte devient rouge au moment du clic*/
+.lien:active
+{
+	text-decoration: underline;
+	color: red;
+}
+
+/*Taille de l'image point d'intérogation*/
+#help
+{
+	width: 25px;
+	height: 25px;
+}
