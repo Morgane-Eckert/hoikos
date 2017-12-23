@@ -23,7 +23,7 @@
 				<a href="conditionsgenerales.html" class="lienn">Mot de passe oublié ?</a>
 			</article >
 			<article id="boutons">
-				<a href="index.php?target=description" class="Grandonglet"> Découverte </a>
+				<a href="index.php?target=decouverte" class="Grandonglet"> Découverte </a>
 				<a href="index.php?target=inscription" class="Grandonglet"> Inscription </a>
 			</article>
 			<article id="image">
