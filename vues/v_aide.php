@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="public/css/footer.css">
 	</head>
 	<body>
-		<?php include("vues/base-header-sans-bouton-deconnexion.php"); ?>
+		<?php include("vues/v_base-header-sans-bouton-deconnexion.php"); ?>
 		<nav>
 			<a href="index.php" class="Onglet">Retour</a>
 		</nav>		
