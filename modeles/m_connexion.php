@@ -38,14 +38,16 @@ function verification($email,$password){
 			$_SESSION["prenom_utilisateur"] = $account["prenom_utilisateur"];
 			$_SESSION["adresse_mail_utilisateur"] = $account["adresse_mail_utilisateur"];
 			$_SESSION["type_utilisateur"] = $account["type_utilisateur"];
-			header("Location:index.php?target=compte");
+			$_SESSION["action"] = "connecte";
 		}
 		else{
 			echo "L'adresse a été reconnue, mais le mot de passe est erroné. Nous vous invitons à retourner sur la <a href='index.php'>page d'accueil</a> pour réessayer.";
+			$_SESSION["action"] = "mot_de_passe_incorrect";
 		}
 	}
 	else{
 		echo "L'adresse n'a pas été reconnue. Nous vous invitons à retourner sur la <a href='..\index.php'>page d'accueil</a> pour réessayer.";
+		$_SESSION["action"] = "adresse_mail_inconnue";
 	}
 }
 ?>
