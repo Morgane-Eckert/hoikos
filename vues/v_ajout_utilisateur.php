@@ -16,8 +16,9 @@
 		
 		<section>
 			<article>
+
 				<div id="titre">Mon profil</div><br/>
-				<form method='post' action='index.php?target=inscription&action=inscription_utilisateur' id='corps'>
+				<form name='formulaire_inscription' method='post' action='index.php?target=inscription&action=utilisateur&reaction=rempli' id='corps'  >
 						<label for='nom' id='test'> Nom : </label><br/>
 						<input type='text' name='nom' id='nom' required><br><br>
 						<label for='prénom'> Prénom :  </label><br/>
@@ -37,7 +38,10 @@
 	
 						<label for='Conditions'></label><input type='checkbox'  id='Conditions' required><a href='conditionsgenerales.php' id='Condition'>J'ai lu et accepté les conditions générales d'utilisation</a><br><br><br/>
 						<input type='submit' value='Valider' id='bouton'>
-			</form>
+				</form>
+
+
+
 			<p class='NB'> Tous les champs sont obligatoires.<br></p>
 			</article>
 		</section>
@@ -49,6 +53,8 @@
 					<img alt="anglais"  src="public/images/anglais.png" id="anglais">
 				</a>
 		</section>
+
 		<?php include("vues/v_footer.php"); ?>
+		<script src="public/js/valider_formulaire_inscription.js" ></script> <!-- Verifications formulaire en JS -->
 	</body>
 </html>

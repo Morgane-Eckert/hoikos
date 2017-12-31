@@ -14,7 +14,18 @@
 		</header>
 
 		<section>
+			<p id ='message_d_erreur'></p>
 			<article id="formulaire">
+				<script> //Eventuel affichage d'un message d'erreur
+					if (typeof <?php $_GET['action'] ?> != "undefined") {
+						paragraphe = document.getElementById('message_d_erreur');
+						if (action == mot_de_passe_incorrect){
+							paragraphe.innerHTML='mot de passe incorrect';
+						} else if (action == adresse_mail_inconnue){
+							paragraphe.innerHTML='mot de passe incorrect';
+						}
+					}
+				</script>
 				<form method="post" action="index.php?target=compte">
   					 <p><input type="text" name="adressemail" placeholder="Adresse mail" class="Case" size="27" required /></p>
   					 <p><input type="password" name="mot_de_passe" placeholder="Mot de passe" class="Case" size="27" required></p>

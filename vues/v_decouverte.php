@@ -19,7 +19,7 @@
 					<img alt="decouverte"  src="public/images/decouverte.png" id="decouverte">
 				</div>
 			</article>
-			<a href="index.php?target=inscription" class="Grandonglet">Inscription</a>
+			<a href="index.php?target=inscription&action=utilisateur" class="Grandonglet">Inscription</a>
 		</section>
 		<section class="langues">
 				<a href="decouverte.php" >
@@ -31,10 +31,7 @@
 		</section>
 
 		<footer>
-				<a href="conditionsgenerales.php" class="lien">Conditions générales d'utilisation</a>
-				<div >Hoikos™ - Tous droits de reproduction réservés</div>
-				<a href="mentionslegales.php" class="lien">Mentions légales</a>
-				<img src="public/images/aide.png" id="help" >
+			<?php include("vues/v_footer.php"); ?>
 		</footer>
 		
 	</body>
