@@ -46,7 +46,7 @@ nav
 
 #formulaire
 {
-	margin-top: 20px;
+	margin-top: 3px;
 	display: flex;
 	align-items:  center;
 	flex-direction: column;
@@ -93,6 +93,16 @@ section
 	height: 150px;
 }
 
+/*Reglages message d'erreur*/
+#message_d_erreur{
+	color: red;
+}
+
+#conteneur_message_d_erreur{
+	display: flex;
+	justify-content: center;
+}
+
 /*Marges internes de l'article*/
 #corps
 {
@@ -122,6 +132,8 @@ section
 	text-decoration: unset;
 	text-align: center;
 }
+
+
 
 /*Réglages des onglets*/
 .Onglet
