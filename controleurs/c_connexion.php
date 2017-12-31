@@ -1,6 +1,6 @@
 <?php
 
-include ('./modeles/m_connexion.php');
+include ('/modeles/m_connexion.php');
 
 function verification2($email,$password){
 
@@ -10,7 +10,7 @@ function verification2($email,$password){
         die('Impossible d\'ajouter le commentaire !');
     }
     else {
-        header('Location: index.php?target=compte&action=connecte');
+        header('Location: index.php?target=compte&action=' . $_SESSION["action"]);
     }
 }
 
