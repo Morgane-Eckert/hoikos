@@ -15,6 +15,7 @@ PAGES EN TRAIN D'ETRE CODEES :
   - page profil (Philippe)
   - Ajouter défilement de photos en JS sur la page d'aide
   - tests en php sur les inscriptions (Ilan si t'as la foi de reprendre ca et de faire les redirections en MVC... :/ )
+  - tests en JS sur les inscritpions
   
   
 MVC :
