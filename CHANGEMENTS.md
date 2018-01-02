@@ -19,7 +19,6 @@ PAGES EN TRAIN D'ETRE CODEES :
   
   
 MVC :
-  - Ajouter inscriptions logement et utilisateurs secondaires (Charlotte)
   - Ajouter les petits drapeaux sur toutes les pages et mettre les liens à jour
   - mettre les liens en anglais (changement d'URL : dans l'index mettre un paramètre autre que target, par exemple "nom.php?langue=anglais" pour les pages en anglais) (Marie ?)
   - Passer page profil en MVC
