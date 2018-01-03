@@ -16,6 +16,7 @@ PAGES EN TRAIN D'ETRE CODEES :
   - Ajouter défilement de photos en JS sur la page d'aide
   - tests en php sur les inscriptions (Ilan si t'as la foi de reprendre ca et de faire les redirections en MVC... :/ )
   - tests en JS sur les inscritpions
+  - tests en php sur la page de connexion
   
   
 MVC :
@@ -29,3 +30,6 @@ MVC :
 
 
 2. A faire (plus tard, si on a le temps) :
+
+3. Fait : 
+  - Tests en JS sur la page de connexion
