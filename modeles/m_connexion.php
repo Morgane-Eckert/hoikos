@@ -34,6 +34,7 @@ function verification($email,$password){
 		if(isset($account["nom_utilisateur"])){
 			$_SESSION["connect"] = true;
 			$_SESSION["ID_utilisateur"] = $account["ID_utilisateur"];
+			$_SESSION["ID_logement"] = $account["ID_logement"];
 			$_SESSION["nom_utilisateur"] = $account["nom_utilisateur"];
 			$_SESSION["prenom_utilisateur"] = $account["prenom_utilisateur"];
 			$_SESSION["adresse_mail_utilisateur"] = $account["adresse_mail_utilisateur"];
@@ -46,8 +47,26 @@ function verification($email,$password){
 		}
 	}
 	else{
-		echo "L'adresse n'a pas été reconnue. Nous vous invitons à retourner sur la <a href='..\index.php'>page d'accueil</a> pour réessayer.";
+		echo "L'adresse n'a pas été reconnue. Nous vous invitons à retourner sur la <a href='index.php'>page d'accueil</a> pour réessayer.";
 		$_SESSION["action"] = "adresse_mail_inconnue";
 	}
 }
+
+function ajout_nouvel_onglet($nom_salle,$superficie_salle){
+	$bdd=connexion_bdd();
+	$requete = $bdd->prepare("INSERT INTO salle (ID_salle, ID_logement, ID_cemac, ID_type_salle, nom_salle, superficie_salle) VALUES (NULL, NULL, NULL, NULL, :nom_salle, :superficie_salle)");
+	$affectedLines = $requete->execute(array(
+		//'ID_logement' => '3',
+	    'nom_salle' => $nom_salle,
+	    'superficie_salle' => $superficie_salle
+	    ));
+	$req = $bdd->prepare('UPDATE salle SET ID_logement = :ID_logement ORDER BY ID_salle DESC LIMIT 1');
+	$req->execute(array(
+    'ID_logement' => $_SESSION['ID_logement'],
+    ));
+}
+
+
+
+
 ?>
