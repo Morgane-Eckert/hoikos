@@ -15,13 +15,6 @@ function ajout_utilisateur2($type_utilisateur,$nom_utilisateur,$prenom_utilisate
     }
     else {
         header('Location: index.php?target=inscription&action=logement');
-        $_SESSION["connect"] = true;
-        $_SESSION["ID_utilisateur"] = $account["ID_utilisateur"];
-        $_SESSION["nom_utilisateur"] = $account["nom_utilisateur"];
-        $_SESSION["prenom_utilisateur"] = $account["prenom_utilisateur"];
-        $_SESSION["adresse_mail_utilisateur"] = $account["adresse_mail_utilisateur"];
-        $_SESSION["type_utilisateur"] = $account["type_utilisateur"];
-
     }
 }
 
