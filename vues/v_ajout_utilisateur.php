@@ -16,7 +16,6 @@
 		
 		<section>
 			<article>
-
 				<div id="titre">Mon profil</div><br/>
 				<form name='formulaire_inscription' method='post' action='index.php?target=inscription&action=utilisateur&reaction=rempli' id='corps'  >
 						<label for='nom' id='test'> Nom : </label><br/>
