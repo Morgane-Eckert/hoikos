@@ -27,27 +27,19 @@
 
 		<section>
 			<article>
-				<div id="titre"> Ajouter une pièce</div><br/>
+				<div id="titre">Ajouter une nouvelle fonction</div><br/>
 				<div id="corps">
-					<form method="post" action="index.php?target=compte&action=connecte&reaction=nouvel_onglet_rempli">
-						<label for='nom_salle' id=''> Nom de la nouvelle pièce : </label><br/>
-	  					<input type="text" name="nom_salle" placeholder="" class="Case" size="27" required /><br/><br/>
-	  					<label for="type_de_salle">Type de la nouvelle pièce :</label><br>
+					<form method="post" action="index.php?target=compte&action=connecte&reaction=nouvelle_fonction_rempli">
+						<label for='nom_capteur' id=''> Nom de la nouvelle fonction : </label><br/>
+	  					<input type="text" name="nom_capteur" placeholder="Température" class="Case" size="27" required /><br/><br/>
+	  					<label for="type_de_capteur">Type de la nouvelle fonction :</label><br>
 						<select name="type_de_salle" id="" required>
-							<option value="chambre" selected >Chambre</option>
-							<option value="salon">Salon</option>
-							<option value="cuisine">Cuisine</option>
-							<option value="salle_de_bain">Salle de bain</option>
-							<option value="bibliotheque">Bibliothèque</option>
-							<option value="dressing">Dressing</option>
-						</select><br><br>
-						<label for="superficie_salle">Superficie de la nouvelle pièce :</label><br>
-						<input type="text" name="superficie_salle" placeholder="" class="Case" size="27" required /><br/><br/>
-	  					
-						<label for="acces">Utilisateurs secondaires autorisés à accéder aux fonctions de la pièce :</label><br>
-						<select name="type_de_salle" id="" required>
-							<option value="utilisateur_secondaire_1">Utilisateur secondaire 1</option>
-							<option value="utilisateur_secondaire_2">Utilisateur secondaire 2</option>
+							<option value="temperature" selected >Température</option>
+							<option value="humidité">Humidité</option>
+							<option value="climatisation">Climatisation</option>
+							<option value="mvc">MVC</option>
+							<option value="musique">Musique</option>
+							<option value="volets">Volets</option>
 						</select><br><br>
 						<input type='submit' value='Valider' id='bouton'>
 					</form>

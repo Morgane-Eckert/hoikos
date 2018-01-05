@@ -25,3 +25,18 @@ function afficher_onglets(){
 	}
 	return $onglets;
 }
+
+function afficher_fonctions(){
+	$bdd=connexion_bdd2();
+	$reponse = $bdd->prepare('SELECT nom_capteur FROM capteur WHERE ID_logement=:ID_logement');
+	$reponse->execute(array(
+		'ID_logement' => $_SESSION['ID_logement']
+		));
+
+	$i=0;
+	while ($donnees = $reponse->fetch()){
+	    $capteurs[$i]= $donnees['nom_capteur']; 
+	    $i++; 
+	}
+	return $capteurs;
+}
