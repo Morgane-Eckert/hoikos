@@ -33,6 +33,8 @@ MVC :
 
 3. Fait : 
   - Tests en JS sur la page de connexion
+  - Module de récupération de mot de passe (Back-End + HTML)
+  - Module de contact (Back-End + HTML)
 
 4. Modifications : 
   - Dans la table 'capteur' ajouter une ligne ID_logement en clef étrangère après ID_capteur
