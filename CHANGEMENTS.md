@@ -5,7 +5,7 @@ Inscrivez votre nom sur les tâches que vous êtes en train d'exécuter/allez ex
 
 
 CODER DE NOUVELLES PAGES : 
-  - page d'accueil de l'utilisateur (La page la plus importante !!)
+  - page d'accueil de l'utilisateur (charlotte)
   - pages de l'utilisateur secondaire (accueil, consommation, profil)
   - page consommation
   - page création routine
@@ -33,3 +33,7 @@ MVC :
 
 3. Fait : 
   - Tests en JS sur la page de connexion
+
+4. Modifications : 
+  - Dans la table 'capteur' ajouter une ligne ID_logement en clef étrangère après ID_capteur
+  - dans les tables utilisateur, capteur (et toutes celles qui contiennent une date d'ajout) mettre DATE dans la ligne date d'ajout (ou changez la requette SQL, chez moi ca fonctionnait pas)
