@@ -66,6 +66,18 @@ function ajout_nouvel_onglet($nom_salle,$superficie_salle){
     ));
 }
 
+function ajout_nouveau_capteur($nom_capteur){
+	$bdd=connexion_bdd();
+	$requete = $bdd->prepare("INSERT INTO capteur (ID_capteur, ID_logement, ID_cemac, ID_type_de_capteur, nom_capteur, date_d_ajout_capteur, donnee_envoyee_capteur, donnee_recue_capteur) VALUES (NULL, NULL, NULL, NULL, :nom_capteur, NOW(), NULL, NULL)");
+	$affectedLines = $requete->execute(array(
+	    'nom_capteur' => $nom_capteur
+	    ));
+	$req = $bdd->prepare('UPDATE capteur SET ID_logement = :ID_logement ORDER BY ID_capteur DESC LIMIT 1');
+	$req->execute(array(
+    'ID_logement' => $_SESSION['ID_logement'],
+    ));
+}
+
 
 
 
