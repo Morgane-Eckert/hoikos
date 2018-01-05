@@ -36,4 +36,4 @@ MVC :
 
 4. Modifications : 
   - Dans la table 'capteur' ajouter une ligne ID_logement en clef étrangère après ID_capteur
-  - dans les tables utilisateur, capteur (et toutes celles qui contiennent une date d'ajout) mettre DATE dans la ligne date d'ajout (ou changez la requette SQL, chez moi ca fonctionnait pas)
+  - dans les tables utilisateur, capteur (et toutes celles qui contiennent une date d'ajout) mettre DATE dans la ligne date d'ajout (ou changez la requete SQL, chez moi ca fonctionnait pas)
