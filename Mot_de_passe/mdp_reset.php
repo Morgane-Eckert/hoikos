@@ -21,8 +21,8 @@ if (isset($_GET['token']) AND isset($_GET['id']))
 		'id' => $id
 	));
 		
-	while ($donnees = $req->fetch())
-	{
+	$donnees = $req->fetch();
+	
 		if($donnees['existant'] == 0)  //Non existant et/ou concordant
 		{
 			echo "Le lien a expiré, veuillez remplir le formulaire de récupération de mot de passe une nouvelle fois";	
@@ -31,7 +31,6 @@ if (isset($_GET['token']) AND isset($_GET['id']))
 		{
 			include("vue_mdp_reset.php");
 		}
-	}
 }
 
 if (isset($_POST['token']) AND isset($_POST['id']) AND isset($_POST['mdp']) AND isset($_POST['mdp2']))
