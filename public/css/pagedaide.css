@@ -89,16 +89,35 @@ nav
 
 
 /*SECTION*/
-section
+.overall
 {
 	background-color: #F2F2F2;
 	display: flex;
-	flex-direction: column;
+	flex-direction: line;
 	flex-wrap: wrap;
 	align-items: center;
-	max-height: 700px;
+
 }
 
+.right
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	margin: auto;
+
+}
+
+.left
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	margin: auto;
+
+}
 .titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
 {
 	padding-bottom: 3px;
@@ -108,12 +127,13 @@ section
 	font-size: 20px;
 }
 
+
 .articlea
 {
-	margin: 30px;
+	margin: 10px;
 	background-color: white;
-	width: 40%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
-	height: 60%;
+	width: 120%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
+	height: 40%;
 	overflow: auto;
 	border: 6px #990100 solid;
 	border-radius: 10px;
@@ -121,24 +141,83 @@ section
 
 .articleb
 {
-	margin: 30px;
+	margin: 10px;
 	background-color: white;
-	width: 20%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
-	height: 20%;
+	width: 100%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
+	height: 10%;
 	overflow: auto;
 	border: 6px #990100 solid;
 	border-radius: 10px;
 }
 
+.articlec
+{
+	margin: 10px;
+	background-color: white;
+	width: 100%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
+	height: 50%;
+	overflow: auto;
+	border: 6px #990100 solid;
+	border-radius: 10px;
+}
 
 /*Marges internes de l'article*/
 .corps
 {
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-top: 0px;
 }
 
+.corps2
+{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-top: -10px;
+	text-align: center;
+}
+
+.form
+{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	text-align: center;	
+}
+.input
+{
+	border: 2px #990100 solid;
+	border-radius: 3px;
+	background-color: #F8F8F8;
+	padding: 2px;
+}
+
+.inputm
+{
+	border: 2px #990100 solid;
+    border-radius: 10px;
+    background-color: #F8F8F8;
+    padding: 5px;
+
+}
+
+.inputm:focus /* Quand le visiteur sélectionne le form */
+{
+    outline:  none;
+    border: 2px black solid;
+    border-radius: 10px;
+    background-color: #DEDEDE;
+}
+
+.input:focus /* Quand le visiteur sélectionne le form */
+{
+    outline:  none;
+    border: 2px black solid;
+	border-radius: 3px;
+    background-color: #DEDEDE;
+}
 /*Réglages du bouton de deconnexion*/
 
 
@@ -165,7 +244,7 @@ section
 
 .boutonb
 {
-	font-size: 17px;
+	font-size: 20px;
 	border: none;
 	color: #FFFFFF;
 	background-color: #007879;
@@ -176,10 +255,31 @@ section
 	height: 3%;
 	margin: 30px;
 	overflow: auto;
-	width: 12%;
+	width: 50%;
 }
 
 .boutonb:hover
+{
+	background-color: #00AAAA;
+}
+
+.boutonc
+{
+	font-size: 17px;
+	border: none;
+	color: #FFFFFF;
+	background-color: #007879;
+	border-radius: 10px;
+	text-decoration: unset;
+	text-align: center;
+	padding: 5px;
+	height: 2%;
+	margin: 10px;
+	overflow: auto;
+	width: 30%;
+}
+
+.boutonc:hover
 {
 	background-color: #00AAAA;
 }
@@ -196,5 +296,12 @@ strong
 	color: #007879;
 }
 
+textarea 
+{
+    resize: none;
+}
 
-
+.vmessage
+{
+	font-size: 15px;
+}
