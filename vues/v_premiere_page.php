@@ -26,14 +26,14 @@
   					 <p><input type="password" name="mot_de_passe" placeholder="Mot de passe" class="Case" size="27" required></p>
   					 <input type="submit" value="Connexion" class="Onglet" />
 				</form><br/>
-				<a href="index.php" class="lienn">Mot de passe oublié ?</a>
+				<a href="index.php?target=mot_de_passe_oublié" class="lienn">Mot de passe oublié ?</a>
 			</article >
 			<article id="boutons">
 				<a href="index.php?target=decouverte" class="Grandonglet"> Découverte </a>
 				<a href="index.php?target=inscription&action=utilisateur" class="Grandonglet"> Inscription </a>
 			</article>
 			<article id="image">
-				<img alt="demo" src="public/images/demo.jpg" id="demo">
+				<img alt="demo" src="public/images/petitesmaisons.png" id="demo">
 			</article>
 			<aside>
 			<a href="index.php" >

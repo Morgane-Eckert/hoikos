@@ -11,28 +11,38 @@
 	<body>
 		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
 		<nav>
-            <a href="index.php?target=compte&action=connecte&reaction=home" class="actuel">Home</a>
+            <a href="index.php?target=compte&action=connecte&reaction=home" class="Onglet">Home</a>
              <?php //Affichage des onglets
                 include("accueil_onglets.php");
                 $onglets = afficher_onglets();
+                if ($onglets!=NULL)
                 foreach($onglets as $element){//On parcourt le tableau
+                    if ($_GET['reaction']==$element){
+                    ?>
+
+                        <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="actuel"> <?php echo $element; ?> </a>
+                    <?php
+                    } else {
                         ?>
-                        <a href="index.php?target=compte&action=connecte" class="Onglet"> <?php echo $element; ?> </a>
+                        <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="Onglet"> <?php echo $element; ?> </a>
                         <?php
                     }
+                }
              ?>
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="Onglet" id='nouvel_onglet'>+</a>
+            <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
             <a href="index.php" class="Onglet">Profil</a>
         </nav>
 
 		<section>
             <article>
-                <div id="titre">Fonctions de la maison<a href="" class="Routine">Routine</a></div> 
+                <div id="titre">Fonctions de la pièce <?php echo $_GET['reaction']; ?><a href="" class="Routine">Routine</a></div> 
                     <br/><!-- Titre dans le bandeau rouge-->
                     <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
                         <?php //Affichage des onglets
                             $capteurs = afficher_fonctions();
+                            if ($capteurs!=NULL){
                             foreach($capteurs as $element){//On parcourt le tableau
                                 ?>
                                 <div class="Capteurs">
@@ -48,9 +58,10 @@
                                 </div>
                                 <?php 
                             }
+                        }
                             ?>
 
-                        <div class="Capteurs"><h1 class="Titre">Ajouter une fonction</h1><br><a href="index.php?target=compte&action=connecte&reaction=nouvelle_fonction"><img alt="Add" id = "Add" src="public/images/Ajouter.png"></a>
+                        <div class="Capteurs"><h1 class="Titre">Ajouter une fonction</h1><br><a href="index.php?target=compte&action=connecte&reaction=nouvelle_fonction&anticipation=<?php echo $_GET['reaction']; ?>"><img alt="Add" id = "Add" src="public/images/Ajouter.png"></a>
                         </div>
                 </div>
 

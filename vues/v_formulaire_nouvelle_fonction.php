@@ -10,17 +10,34 @@
 		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
 
 		<nav>
-			<a href="index.php?target=compte&action=connecte&reaction=home" class="Onglet">Home</a>
-	         <?php //Affichage des onglets
-	            include("accueil_onglets.php");
-	            $onglets = afficher_onglets();
-	            foreach($onglets as $element){//On parcourt le tableau
-	                    ?>
-	                    <a href="index.php?target=compte&action=connecte" class="Onglet"> <?php echo $element; ?> </a>
-	                    <?php
-	                }
-	         ?>
-            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="actuel" id='nouvel_onglet'>+</a>
+            <?php 
+			if ($_GET['anticipation']=='home'){
+				?>			
+				<a href="index.php?target=compte&action=connecte&reaction=home" class="actuel">Home</a>
+			<?php 
+			} else {
+				?>
+				<a href="index.php?target=compte&action=connecte&reaction=home" class="Onglet">Home</a>
+			<?php
+			}
+                include("accueil_onglets.php");
+                $onglets = afficher_onglets();
+                if ($onglets!=NULL)
+                foreach($onglets as $element){//On parcourt le tableau
+                    if ($_GET['anticipation']==$element){
+                    ?>
+
+                        <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="actuel"> <?php echo $element; ?> </a>
+                    <?php
+                    } else {
+                        ?>
+                        <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="Onglet"> <?php echo $element; ?> </a>
+                        <?php
+                    }
+                }
+             ?>
+            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet&anticipation=<?php echo $_GET['reaction']; ?>" class="Onglet" id='nouvel_onglet'>+</a>
+            <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
             <a href="index.php" class="Onglet">Profil</a>
         </nav>
@@ -29,17 +46,24 @@
 			<article>
 				<div id="titre">Ajouter une nouvelle fonction</div><br/>
 				<div id="corps">
-					<form method="post" action="index.php?target=compte&action=connecte&reaction=nouvelle_fonction_rempli">
-						<label for='nom_capteur' id=''> Nom de la nouvelle fonction : </label><br/>
-	  					<input type="text" name="nom_capteur" placeholder="Température" class="Case" size="27" required /><br/><br/>
-	  					<label for="type_de_capteur">Type de la nouvelle fonction :</label><br>
-						<select name="type_de_salle" id="" required>
-							<option value="temperature" selected >Température</option>
-							<option value="humidité">Humidité</option>
-							<option value="climatisation">Climatisation</option>
-							<option value="mvc">MVC</option>
-							<option value="musique">Musique</option>
-							<option value="volets">Volets</option>
+					<form method="post" action="index.php?target=compte&action=connecte&reaction=nouvelle_fonction_rempli&anticipation=<?php echo $_GET['anticipation'] ?>">
+	  					<label for="type">Type de la nouvelle fonction :</label><br>
+						<select name="type" required>
+							<?php 
+							try
+							{
+						    	$bdd = new PDO('mysql:host=localhost;dbname=hoikos;charset=utf8', 'root', '');
+							}
+							catch(Exception $e)
+							{
+						        die('Erreur : '.$e->getMessage());
+							}
+							$reponse1 = $bdd->query('SELECT * FROM type_de_capteur');
+
+							while ($donnees1 = $reponse1->fetch()){
+							?>
+								<option value=<?php echo $donnees1['ID_type_de_capteur']; ?>> <?php echo $donnees1['nom_type_de_capteur']; ?> </option>
+							<?php }?>
 						</select><br><br>
 						<input type='submit' value='Valider' id='bouton'>
 					</form>

@@ -60,7 +60,7 @@
             <p id='NB'> Tous les champs sont obligatoires.<br></p>
             </article>
             <aside>
-                <a href="index.php?target=compte&action=connecte" class="Grandonglet">Ignorer et finir l'inscription</a>
+                <a href="index.php?target=compte&action=connecte&reaction=home" class="Grandonglet">Ignorer et finir l'inscription</a>
             </aside>
         </section>
         <?php include("vues/v_footer.php"); ?>

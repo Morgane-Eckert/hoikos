@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<form action="../controleurs/c_mail_reset.php" method="post">
+	<form action="./controleurs/c_mail_reset.php" method="post">
 	
 	<label for="nom">Votre adresse mail:</label> <input type="email" name="mail"><br>
 

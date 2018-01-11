@@ -15,15 +15,15 @@
              <?php //Affichage des onglets
                 include("accueil_onglets.php");
                 $onglets = afficher_onglets();
-                if (isset ($onglets)){
+                if ($onglets!=NULL)
                 foreach($onglets as $element){//On parcourt le tableau
-                        ?>
-                        <a href="index.php?target=compte&action=connecte" class="Onglet"> <?php echo $element; ?> </a>
-                        <?php
-                    }
+                    ?>
+                        <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="Onglet"> <?php echo $element; ?> </a>
+                    <?php
                 }
              ?>
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="Onglet" id='nouvel_onglet'>+</a>
+            <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
             <a href="index.php" class="Onglet">Profil</a>
         </nav>
@@ -34,7 +34,8 @@
                     <br/><!-- Titre dans le bandeau rouge-->
                     <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
                         <?php //Affichage des onglets
-                            $capteurs = afficher_fonctions();
+                            $capteurs = afficher_fonctions_home();
+                            if ($capteurs!=NULL)
                             foreach($capteurs as $element){//On parcourt le tableau
                                 ?>
                                 <div class="Capteurs">
@@ -51,9 +52,6 @@
                                 <?php 
                             }
                             ?>
-
-                    	<div class="Capteurs"><h1 class="Titre">Ajouter une fonction</h1><br><a href="index.php?target=compte&action=connecte&reaction=nouvelle_fonction"><img alt="Add" id = "Add" src="public/images/Ajouter.png"></a>
-                        </div>
                 </div>
 
 
