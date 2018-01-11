@@ -13,7 +13,6 @@ body
 nav
 {
 	display: flex;
-	width: 100%;
 }
 
 
@@ -181,8 +180,8 @@ article
 {
 	margin: 80px;
 	background-color: white;
-	width: 70%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
-	max-height: 500px;
+	width: 30%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
+	max-height: 1000px;
 	overflow: auto;
 	border: 3px #990100 solid;
 	border-radius: 10px;
@@ -192,6 +191,7 @@ article
 /*Marges internes de l'article*/
 #corps
 {
+	padding: 30px;
 	display:flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
