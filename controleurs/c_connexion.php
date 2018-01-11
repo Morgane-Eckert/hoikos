@@ -10,7 +10,7 @@ function verification2($email,$password){
         die('Impossible d\'ajouter le commentaire !');
     }
     else {
-        header('Location: index.php?target=compte&action=' . $_SESSION["action"]);
+        header('Location: index.php?target=compte&action=' . $_SESSION["action"].'&reaction=home');
     }
 }
 
@@ -32,7 +32,7 @@ function ajout_nouvel_onglet2($nom_salle,$superficie_salle){
         die('Impossible d\'ajouter l\'onglet !');
     }
     else {
-        header('Location: index.php?target=compte&action=connecte');
+        header('Location: index.php?target=compte&action=connecte&reaction='.$_POST['nom_salle']);
     }
 }
 
@@ -40,13 +40,13 @@ function formulaire_nouveau_capteur(){
     include ('vues/v_formulaire_nouvelle_fonction.php');
 }
 
-function ajout_nouveau_capteur2($nom_capteur){
-    $affectedLines = ajout_nouveau_capteur($nom_capteur); 
+function ajout_nouveau_capteur2(){
+    $affectedLines = ajout_nouveau_capteur(); 
     if ($affectedLines === false) {
         die('Impossible d\'ajouter la fonction !');
     }
     else {
-        header('Location: index.php?target=compte&action=connecte');
+        header('Location: index.php?target=compte&action=connecte&reaction='.$_GET['anticipation']);
     }
 }
 

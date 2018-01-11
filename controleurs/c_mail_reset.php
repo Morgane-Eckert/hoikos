@@ -1,13 +1,8 @@
 <?php
-session_start();
-
 $_SESSION["mailexist"]=1;
-
-include ('../modeles/m_mail_reset.php');
-
-
 if (isset($_POST['mail']))
 {
+	include ('../modeles/m_mail_reset.php');
 	$email = htmlentities($_POST['mail']);
 	
 		if(mail_exist($email) == 0)  //Le mail n'existe pas
@@ -19,7 +14,6 @@ if (isset($_POST['mail']))
 		else  //Le mail existe
 		{
 			$token = token_mdp($email); //Génère un token random et le stock dans la base de données
-
 			$id = id_utilisateur($email); //Récupère l'ID de l'utilisateur(à partir du mail)
 			
 			//Envoyer un mail contenant un lien vers la page permettant la modificationtion du mot de passe
@@ -34,9 +28,7 @@ if (isset($_POST['mail']))
 			$headers .= 'Delivered-to: '.$destinataire."\n"; // Destinataire
 			$headers .= 'Cc: '.$copie."\n"; // Copie Cc
 			$headers .= 'Bcc: '.$copie_cachee."\n\n"; // Copie cachée Bcc        
-
 			$message = "Bonjour, vous avez oubliez votre mot de passe Hoikos, cliquez sur le lien suivant pour le réinitialiser : http://localhost/hoikos-master/controleurs/c_mdp_reset.php?token=$token&id=$id";
-
 			if (mail($destinataire, $objet, $message, $headers)) // Envoi du message
 			{
 			    echo 'Un mail vous a été envoyé afin de réinitialiser votre mot de passe';
@@ -49,6 +41,6 @@ if (isset($_POST['mail']))
 }
 else
 {
-	include("../vues/v_formulaire_reset.php");
+	include("/vues/v_formulaire_reset.php");
 }
 ?>
