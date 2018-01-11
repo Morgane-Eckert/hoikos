@@ -56,7 +56,9 @@ if (isset($_GET['target'])) {
                     } else if ($_GET['reaction']=='nouvelle_fonction') {
                         formulaire_nouveau_capteur();
                     } else if ($_GET['reaction']=='nouvelle_fonction_rempli') {
-                        ajout_nouveau_capteur2($_POST["nom_capteur"]);
+                        ajout_nouveau_capteur2();
+                    } else {
+                        accueil();
                     }
                 } else {
                     accueil_home();
@@ -84,7 +86,9 @@ if (isset($_GET['target'])) {
 	} elseif ($_GET['target']=='aide'){
 		include('controleurs/c_aide.php');
 		aide();
-	}
+	} elseif ($_GET['target']=='mot_de_passe_oublié'){
+        include('controleurs/c_mail_reset.php');
+    }
 } else {
 	include('controleurs/c_premiere_page.php');
 	afficher_premiere_page();
