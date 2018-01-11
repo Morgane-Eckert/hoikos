@@ -1,5 +1,4 @@
 <?php
-
 function connexion_bdd()
 {
 		try
@@ -12,7 +11,6 @@ function connexion_bdd()
         die('Erreur : '.$e->getMessage());
 	}	
 }
-
 function token_id_check($token,$id) //Vérification de l'existance et concordance du token et id (Return 0 si pas bon)
 {
 	$bdd=connexion_bdd();
@@ -23,10 +21,8 @@ function token_id_check($token,$id) //Vérification de l'existance et concordanc
 	));
 		
 	$donnees = $req->fetch();
-
 	return $donnees['existant'];
 }
-
 function change_mdp($mdp,$token,$id) //Modification du mot de passe dans la BDD
 {
 	$bdd=connexion_bdd();
@@ -37,7 +33,6 @@ function change_mdp($mdp,$token,$id) //Modification du mot de passe dans la BDD
 	    'id' => $id
 	));	
 }
-
 function reset_token($id) //Enlève le token de la BDD
 {
 	$bdd=connexion_bdd();
@@ -47,6 +42,4 @@ function reset_token($id) //Enlève le token de la BDD
 	    'id' => $id
 	));
 }
-
-
 ?>

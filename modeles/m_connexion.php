@@ -54,9 +54,10 @@ function verification($email,$password){
 
 function ajout_nouvel_onglet($nom_salle,$superficie_salle){
 	$bdd=connexion_bdd();
-	$requete = $bdd->prepare("INSERT INTO salle (ID_salle, ID_logement, ID_cemac, ID_type_salle, nom_salle, superficie_salle) VALUES (NULL, NULL, NULL, NULL, :nom_salle, :superficie_salle)");
+	$requete = $bdd->prepare("INSERT INTO salle (ID_salle, ID_logement, ID_cemac, ID_type_salle, nom_salle, superficie_salle) VALUES (NULL, NULL, NULL, :ID_type_salle, :nom_salle, :superficie_salle)");
 	$affectedLines = $requete->execute(array(
 		//'ID_logement' => '3',
+		'ID_type_salle' => $_POST['type'],
 	    'nom_salle' => $nom_salle,
 	    'superficie_salle' => $superficie_salle
 	    ));
@@ -66,11 +67,19 @@ function ajout_nouvel_onglet($nom_salle,$superficie_salle){
     ));
 }
 
-function ajout_nouveau_capteur($nom_capteur){
+function ajout_nouveau_capteur(){
 	$bdd=connexion_bdd();
-	$requete = $bdd->prepare("INSERT INTO capteur (ID_capteur, ID_logement, ID_cemac, ID_type_de_capteur, nom_capteur, date_d_ajout_capteur, donnee_envoyee_capteur, donnee_recue_capteur) VALUES (NULL, NULL, NULL, NULL, :nom_capteur, NOW(), NULL, NULL)");
+		$reponsea = $bdd->prepare('SELECT nom_type_de_capteur FROM type_de_capteur WHERE ID_type_de_capteur=:ID_type_de_capteur');
+		$reponsea->execute(array(
+			'ID_type_de_capteur' => $_POST['type']
+			));
+		$i=0;
+		$donneesa = $reponsea->fetch();
+	$requete = $bdd->prepare("INSERT INTO capteur (ID_capteur, ID_logement, ID_cemac, ID_type_de_capteur, nom_salle, nom_capteur, date_d_ajout_capteur, donnee_envoyee_capteur, donnee_recue_capteur) VALUES (NULL, NULL, NULL, :ID_type_capteur, :nom_salle, :nom_capteur, NOW(), NULL, NULL)");
 	$affectedLines = $requete->execute(array(
-	    'nom_capteur' => $nom_capteur
+		'ID_type_capteur' => $_POST['type'],
+		'nom_salle' => $_GET['anticipation'],
+	    'nom_capteur' => $donneesa['nom_type_de_capteur']
 	    ));
 	$req = $bdd->prepare('UPDATE capteur SET ID_logement = :ID_logement ORDER BY ID_capteur DESC LIMIT 1');
 	$req->execute(array(
