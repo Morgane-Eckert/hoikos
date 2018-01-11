@@ -17,13 +17,12 @@ function ajout_utilisateur($type_utilisateur,$nom_utilisateur,$prenom_utilisateu
 	$bdd=connexion_bdd();
 	$_SESSION["mailcheck"]=0;
 	$_SESSION["mdpmatch"]=0;
-	$_SESSION["respectcriteres"]=0;
+	$_SESSION["respectcriteres"]=0;	
 	$count=1;	
 	$mailexist=0;
 	$entrees = $bdd->query('SELECT adresse_mail_utilisateur FROM utilisateur');
 	while ($checkmail = $entrees->fetch())
 {
-	echo $checkmail[0]."<=======";
 	if ($checkmail[0] == $_POST["adresse_mail"])
 	{
 		$mailexist=1;
