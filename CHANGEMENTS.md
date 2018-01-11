@@ -3,7 +3,7 @@ Inscrivez votre nom sur les tâches que vous êtes en train d'exécuter/allez ex
 
 1. A faire : 
   - Test en JS sur inscription
-  - 
+  - Forcer la mise en majuscule de la première lettre du prenom et nom lors de l'inscription + nom d'onglet lors de l'ajout de fonction. 
 
 CODER DE NOUVELLES PAGES : 
   - pages de l'utilisateur secondaire (accueil, consommation, profil)  
