@@ -13,27 +13,12 @@ body
 nav
 {
 	display: flex;
-	width: 100%;
 }
 
 
 
 
 /*Réglages des onglets*/
-.Vide
-{
-	margin-left: 0.2%;
-	font-size: 17px;
-	text-decoration: unset;
-	text-align: center;
-	padding: 10px;
-	margin-top: 2%;
-	width: 9%;/*Modifier la largeur de l'onglet*/
-	height: 4%;
-	align-self: flex-end;
-	flex:1;
-}
-
 .Onglet
 {
 	margin-left: 0.2%;
@@ -45,7 +30,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	width: 11%;/*Modifier la largeur de l'onglet*/
+	width: 9%;/*Modifier la largeur de l'onglet*/
 	height: 4%;
 	align-self: flex-end;
 }
@@ -61,7 +46,7 @@ nav
 	border: none;
 	color: #000000;
 	background-color: #F0E36B;
-	width: 11%;/*Modifier la largeur de l'onglet*/
+	width: 9%;/*Modifier la largeur de l'onglet*/
 	height: 4%;
 	align-self: flex-end;
 }
@@ -73,15 +58,13 @@ nav
 	text-align: center;
 	padding: 10px;
 	margin-top: 2%;
-	margin-left: 0.2%;
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
 	width: 9%;/*Modifier la largeur de l'onglet*/
 	height: 4%;
-	/*justify-content: flex-end;*/
 	align-self: flex-end;
-	float:right;
+	margin-left: 35%;
 }
 
 /*L'onglet' change de couleur lorsque la souris passe dessus*/
@@ -108,7 +91,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #F2F2F2;
-	width: 11%;/*Modifier la largeur de l'onglet*/
+	width: 9%;/*Modifier la largeur de l'onglet*/
 	height: 4%;
 	color: black;
 	border-left: 1px #D4D4D4 solid;

@@ -2,6 +2,45 @@
 
 include ('modeles/m_inscription.php');
 
+function verif_cond(){
+    if ((!isset($count))&&($_SESSION["count"]==5))
+        {
+            $_SESSION["mailcheck"]=0;
+            $_SESSION["mdpmatch"]=0;
+            $_SESSION["respectcriteres"]=0;
+        } 
+}
+
+function verif_mail(){
+    if ($_SESSION["mailcheck"]==1)
+        {
+    ?>
+        <span class='verif'>Adresse mail déjà existante. Veuillez entrer une adresse différente.</span><br/><br/>
+    <?php 
+        }  
+}
+
+function verif_mdp(){
+    if ($_SESSION["mdpmatch"]==1)
+            {
+        ?>
+            <span class='verif'>Le mot de passe et la confirmation du mot de passe doivent être identiques.</span><br/><br/>
+        <?php 
+            }
+            if ($_SESSION["respectcriteres"]==1)
+            {
+        ?>
+            <span class='verif'>Les mots de passe doivent contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial.</span><br/><br/>
+        <?php 
+            }
+            else
+            {
+        ?>
+            <span class="NB2">Le mot de passe doit contenir au moins 8 caractères dont une majuscule, une miniscule, un chiffre et un caractère spécial.</span><br/><br/>
+        <?php
+            }
+}
+
 function inscription_utilisateur(){
 	include ('vues/v_ajout_utilisateur.php');
 }
@@ -14,7 +53,10 @@ function ajout_utilisateur2($type_utilisateur,$nom_utilisateur,$prenom_utilisate
         die('Impossible d\'ajouter le commentaire !');
     }
     else {
-        header('Location: index.php?target=inscription&action=logement');
+        if ($affectedLines==0){
+            header('Location: index.php?target=inscription&action=logement');}
+        else{
+            header('Location: index.php?target=inscription&action=utilisateur');}
     }
 }
 

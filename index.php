@@ -9,6 +9,7 @@ if (isset($_GET['target'])) {
     			if (isset($_GET['reaction'])){
     				if ($_GET['reaction']=='rempli') {
         				ajout_utilisateur2("1",$_POST["nom"],$_POST["prenom"],$_POST["telephone1"], $_POST["date_naissance"],$_POST["adresse_mail"],$_POST["mot_de_passe"]);
+                            $count=0;
         			}
         		} else {
         			inscription_utilisateur();

@@ -9,7 +9,14 @@
 	</head>
 	
 	<body>
-		<?php include("vues/v_base-header-sans-bouton-deconnexion.php"); ?>
+		<?php include("vues/v_base-header-sans-bouton-deconnexion.php");
+		if ((!isset($count))&&($_SESSION["count"]==5))
+			{
+				$_SESSION["mailcheck"]=0;
+				$_SESSION["mdpmatch"]=0;
+				$_SESSION["respectcriteres"]=0;
+			} 
+		?>
 		<nav>
 			<a href="index.php" class="Onglet">Retour</a>
 		</nav>
@@ -19,16 +26,17 @@
 				<div id="titre">Mon profil</div><br/>
 				<form name='formulaire_inscription' method='post' action='index.php?target=inscription&action=utilisateur&reaction=rempli' id='corps'  >
 						<label for='nom' id='test'> Nom : </label><br/>
-						<input type='text' name='nom' id='nom' required><br><br>
+						<input type='text' pattern='^[a-zA-Z]+$' name='nom' id='nom' required><br><br>
 						<label for='prénom'> Prénom :  </label><br/>
-						<input type='text' name='prenom' id='prenom' required><br><br />
+						<input type='text' pattern='^[a-zA-Z]+$' name='prenom' id='prenom' required><br><br />
 						<label for='telephone'> Téléphone :  </label><br/>
-						<input type='text' name='telephone1' id='telephone1' maxlength='10' required><br><br />
+						<input type='tel' pattern='[0-9]{10}' name='telephone1' id='telephone1' maxlength='10' required><br><br />
+						<?php verif_mail();?>
 						<label for='adresse_mail'> Adresse mail :  </label><br/>
 						<input type='email' name='adresse_mail' id='adresse_mail'  required><br><br />
 						<label for='date_naissance'> Date de naissance:  </label><br/>
 						<input type='date' name='date_naissance' id='date_naissance'  required><br><br />
-						<span class="NB2">Le mot de passe doit contenir au moins 8 caractères dont une majuscule, une miniscule, un chiffre et un caractère spécial.</span><br/><br/>
+						<?php verif_mdp();?>
 						<label for='mot_de_passe'>Mot de passe : </label><br/>
 						<input type='password' name='mot_de_passe' id='mot_de_passe'  required><br><br />
 
@@ -53,7 +61,7 @@
 				</a>
 		</section>
 
-		<?php include("vues/v_footer.php"); ?>
+		<?php 	include("vues/v_footer.php");?>
 		<script src="public/js/valider_formulaire_inscription.js" ></script> <!-- Verifications formulaire en JS -->
 	</body>
 </html>
