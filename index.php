@@ -43,26 +43,39 @@ if (isset($_GET['target'])) {
 	} elseif ($_GET['target']=='decouverte'){	//decouverte
 		include ('controleurs/c_decouverte.php');
 		decouverte();
-	} elseif ($_GET['target']=='compte'){	//connexion
+	}  elseif ($_GET['target']=='compte'){	//connexion
 		include('controleurs/c_connexion.php');
 		if (isset($_GET['action'])){
 			if ($_GET['action']=='connecte') {//L'adresse mail et le mot de passe sont corrects
-                if (isset($_GET['reaction'])){
-                    if ($_GET['reaction']=='nouvel_onglet') {
-                        formulaire_nouvel_onglet();
-                    } else if ($_GET['reaction']=='nouvel_onglet_rempli') {
-                        ajout_nouvel_onglet2($_POST["nom_salle"],$_POST["superficie_salle"]);
-                    } else if ($_GET['reaction']=='home') {
-                        accueil_home();
-                    } else if ($_GET['reaction']=='nouvelle_fonction') {
-                        formulaire_nouveau_capteur();
-                    } else if ($_GET['reaction']=='nouvelle_fonction_rempli') {
-                        ajout_nouveau_capteur2();
+                if ($_SESSION["type_utilisateur"]==1){ //Si l'utilisateur est utilisateur principal
+                    if (isset($_GET['reaction'])){
+                        if ($_GET['reaction']=='nouvel_onglet') {
+                            formulaire_nouvel_onglet();
+                        } else if ($_GET['reaction']=='nouvel_onglet_rempli') {
+                            ajout_nouvel_onglet2($_POST["nom_salle"]);
+                        } else if ($_GET['reaction']=='home') {
+                            accueil_home();
+                        } else if ($_GET['reaction']=='nouvelle_fonction') {
+                            formulaire_nouveau_capteur();
+                        } else if ($_GET['reaction']=='nouvelle_fonction_rempli') {
+                            ajout_nouveau_capteur2();
+                        } else {
+                            accueil();
+                        }
                     } else {
-                        accueil();
+                        accueil_home();
                     }
-                } else {
-                    accueil_home();
+                } else {//Si l'utilisateur est utilisateur secondaire
+                    if (isset($_GET['reaction'])){
+                        if ($_GET['reaction']=='home') {
+                            accueil_home_secondaire();
+                        } else {
+                        accueil_secondaire();
+                    }
+                    } else {
+                        accueil_home_secondaire();
+                    
+                    }
                 }
 			} elseif ($_GET['action']=='mot_de_passe_incorrect' or $_GET['action']=='adresse_mail_inconnue'){//L'adresse mail et/ou le mot de passe sont incorrects, on renvoie vers la page d'accueil
                 include('controleurs/c_premiere_page.php');
