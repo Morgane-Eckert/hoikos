@@ -15,21 +15,21 @@
              <?php //Affichage des onglets
                 include("accueil_onglets.php");
                 $onglets = afficher_onglets();
-                if ($onglets!=NULL)
-                foreach($onglets as $element){//On parcourt le tableau
-                    if ($_GET['reaction']==$element){
-                    ?>
-
-                        <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="actuel"> <?php echo $element; ?> </a>
-                    <?php
-                    } else {
+                if ($onglets!=NULL){
+                    foreach($onglets as $element){//On parcourt le tableau
+                        if ($_GET['reaction']==$element){
                         ?>
-                        <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="Onglet"> <?php echo $element; ?> </a>
+
+                            <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="actuel"> <?php echo $element; ?> </a>
                         <?php
+                        } else {
+                            ?>
+                            <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="Onglet"> <?php echo $element; ?> </a>
+                            <?php
+                        }
                     }
                 }
              ?>
-            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="Onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
             <a href="index.php" class="Onglet">Profil</a>
@@ -57,12 +57,12 @@
                                     </form>
                                 </div>
                                 <?php 
-                                }
-                            }  
+                            }
+                        } else {
+                    echo '<p> L\'utilisateur principal n\'a pas encore ajouté de fonction dans cette pièce.</p>';
+                }
                             ?>
 
-                        <div class="Capteurs"><h1 class="Titre">Ajouter une fonction</h1><br><a href="index.php?target=compte&action=connecte&reaction=nouvelle_fonction&anticipation=<?php echo $_GET['reaction']; ?>"><img alt="Add" id = "Add" src="public/images/Ajouter.png"></a>
-                        </div>
                 </div>
 
 

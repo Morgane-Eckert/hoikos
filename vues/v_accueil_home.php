@@ -35,7 +35,7 @@
                     <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
                         <?php //Affichage des onglets
                             $capteurs = afficher_fonctions_home();
-                            if ($capteurs!=NULL)
+                            if ($capteurs!=NULL){
                             foreach($capteurs as $element){//On parcourt le tableau
                                 ?>
                                 <div class="Capteurs">
@@ -50,6 +50,9 @@
                                     </form>
                                 </div>
                                 <?php 
+                            }
+                            } else {
+                                echo '<p> Ajoutez votre première pièce afin de faire apparaître votre première fonction !<br><br> </p>';
                             }
                             ?>
                 </div>
