@@ -1,0 +1,111 @@
+body
+{
+	font-family: 'Eras full',Calibri,serif;
+	font-size: 15px;
+	margin: auto;
+}
+
+/*HEADER*/
+header
+{
+	background-color: #FFFFFF;
+	margin-top: 15px;
+	padding-bottom: 20px; 
+	display: flex;
+}
+
+/*Réglages du logo et du slogan*/
+#Logo
+{
+	width: 35%;
+	margin-left: 35%;
+}
+
+#formulaire
+{
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+section
+{
+	background-color: #F2F2F2;
+	display: flex;
+	justify-content: center;
+	align-items:  center;
+	flex-direction: column;
+	text-align: center;
+	height: 5%;
+}
+
+.bouton
+{
+	font-size: 17px;
+	text-decoration: unset;
+	text-align: center;
+	padding: 10px;
+	margin-top: 2%;
+	border: none;
+	color: #FFFFFF;
+	background-color: #990100;
+	width: 25%;/*Modifier la largeur de l'onglet*/
+	margin-right: 3px;
+}
+
+.bouton:hover
+{
+	background-color: #DC143C;
+}
+
+.input
+{
+	margin-bottom: 10px;
+	border: 2px black solid;
+	border-radius: 3px;
+	background-color: #F8F8F8;
+	padding: 2px;
+}
+
+.input:focus /* Quand le visiteur sélectionne le form */
+{
+    outline:  none;
+    border: 2px black solid;
+	border-radius: 3px;
+    background-color: #DEDEDE;
+}
+
+.wrong
+{
+	font-size: 18px;
+	text-decoration: unset;
+	text-align: center;
+
+	border: none;
+	color: #FF0101;
+}
+
+.normal
+{
+	font-size: 18px;
+	text-decoration: unset;
+	text-align: center;
+	border: none;
+}
+
+.good
+{
+	font-size: 18px;
+	text-decoration: unset;
+	text-align: center;
+	border: none;
+	color: #0D9900;
+}
+
+.changed
+{
+	font-size: 30px;
+	text-decoration: unset;
+	text-align: center;
+	margin-top: 30px;
+	color: black;
+}
