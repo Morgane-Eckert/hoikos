@@ -39,3 +39,15 @@ MVC :
 4. Modifications : 
   - Dans la table 'capteur' ajouter une ligne ID_logement en clef étrangère après ID_capteur
   - dans les tables utilisateur, capteur (et toutes celles qui contiennent une date d'ajout) mettre DATE dans la ligne date d'ajout (ou changez la requete SQL, chez moi ca fonctionnait pas)
+  
+5. A rendre : 
+
+Vous devez impérativement déposer (en utilisant la boîte de dépôt) ET envoyer (par email) à votre tuteur ET aux membres de votre jury :
+  a. Vos différents livrables, sous forme d'un fichier PDF (documents concaténés) ou de plusieurs fichiers PDF (pas besoin de les imprimer pour la soutenance) :
+    - Document de spécification fonctionnelle (mis à jour) : Il s'agit du même document que celui fourni à votre client. Vous devez le mettre à jour suite aux remarques de votre client et/ou votre tuteur.
+    - Document de conception technique qui doit contenir la base de données ainsi que vos choix technologiques.
+    - Manuel Utilisateur : Il s'agit d'un nouveau document. Il devra expliquer à un utilisateur comment utiliser et naviguer sur votre site. N'hésitez pas à intégrer autant de captures d'écran que nécessaire.
+Manuel de déploiement : Il s'agit d'un nouveau document. Il a pour objectif d'expliquer à votre tuteur comment installer et lancer localement votre site Web. N'oubliez pas d'y indiquer comment récupérer les sources (GIT; SVN ou autres), quelles versions de MAMP ou LAMP ou XAMP, quelle version de PHP, sur quels navigateurs fonctionne votre site, est-il sécurisé ? etc.
+    - Le lien vers vos documents de suivi APP.
+
+  b. Un fichier zip contenant l'ensemble de votre site ou un lien vers SVN ou GIT (pensez à ajouter votre tuteur à votre projet) (sans oublier un dump de la base de données).
