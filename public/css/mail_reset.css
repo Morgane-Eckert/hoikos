@@ -95,3 +95,26 @@ section
 	border: none;
 	color: #0D9900;
 }
+
+.articlea
+{
+	margin-left : auto; 
+	margin-right: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background-color: white;
+	width: 25%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
+	height: 10%;
+	overflow: auto;
+	border: 6px #990100 solid;
+	border-radius: 10px;
+}
+
+.titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
+{
+	padding-bottom: 3px;
+	padding-left: 2px;
+	background-color: #990100;
+	color: white;
+	font-size: 20px;
+}
