@@ -51,6 +51,7 @@ if ((preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#', $_POST["mo
 			$donnees1 = $reponse1->fetch();
 			/*On le met dans une variable session pour qu'il soit accessible depuis da'utres pages du site*/
 			$_SESSION['id_utilisateur'] = $donnees1['ID_utilisateur'];
+			$_SESSION["type_utilisateur"] = 1;
 			return 0;
 }
 else{
