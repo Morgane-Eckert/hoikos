@@ -14,7 +14,7 @@ PAGES EN TRAIN D'ETRE CODEES :
   - page d'accueil de l'utilisateur (charlotte)
   - page consommation (Mike)
   - page création routine (Marie)
-  - Ajouter défilement de photos en JS sur la page d'aide
+  - Ajouter défilement de photos en JS sur la page d'aide (Marie)
   - tests en php sur les inscriptions (Ilan si t'as la foi de reprendre ca et de faire les redirections en MVC... :/ )
   - tests en JS sur les inscritpions
   - tests en php sur la page de connexion
