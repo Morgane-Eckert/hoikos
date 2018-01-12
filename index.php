@@ -101,7 +101,13 @@ if (isset($_GET['target'])) {
 		
 	} elseif ($_GET['target']=='mot_de_passe_oublié'){
         include('controleurs/c_mail_reset.php');
-        }
+        
+	} elseif ($_GET['target']=='mail_non_exist'){
+        include('controleurs/c_mail_reset.php');    
+    
+   	 } elseif ($_GET['target']=='mail_sent'){
+        include('controleurs/c_mail_reset.php');    
+    } 
 } else {
 	include('controleurs/c_premiere_page.php');
 	afficher_premiere_page();
