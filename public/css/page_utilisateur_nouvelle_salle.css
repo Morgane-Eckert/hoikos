@@ -45,7 +45,10 @@ nav
 	color: #FFFFFF;
 	background-color: #990100;
 	width: 11%;/*Modifier la largeur de l'onglet*/
-	height: 4%;
+	height: 21px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	max-height: 22px;
 	align-self: flex-end;
 }
 
@@ -61,7 +64,10 @@ nav
 	color: #000000;
 	background-color: #F0E36B;
 	width: 11%;/*Modifier la largeur de l'onglet*/
-	height: 4%;
+	height: 21px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	max-height: 22px;
 	align-self: flex-end;
 }
 
@@ -77,7 +83,10 @@ nav
 	color: #FFFFFF;
 	background-color: #990100;
 	width: 9%;/*Modifier la largeur de l'onglet*/
-	height: 4%;
+	height: 21px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	max-height: 21px;
 	/*justify-content: flex-end;*/
 	align-self: flex-end;
 	float:right;
@@ -108,7 +117,10 @@ nav
 	color: #FFFFFF;
 	background-color: #F2F2F2;
 	width: 11%;/*Modifier la largeur de l'onglet*/
-	height: 4%;
+	height: 21px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	max-height: 21px;
 	color: black;
 	border-left: 1px #D4D4D4 solid;
 	border-top: 1px #D4D4D4 solid;
@@ -125,7 +137,10 @@ nav
 	color: #FFFFFF;
 	background-color: #990100;
 	width: 15%;/*Modifier la largeur de l'onglet*/
-	height: 4%;
+	height: 21px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	max-height: 21px;
 	color: white;
 	font-size: 17px;
 	text-decoration: unset;
@@ -138,7 +153,14 @@ nav
 	background-color: #DC143C;
 }
 
+.message_d_erreur{
+	color : red;
+	font-style: italic;
+}
 
+.instruction_nom_salle{
+	font-style: italic;
+}
 
 
 
