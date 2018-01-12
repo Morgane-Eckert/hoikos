@@ -14,6 +14,10 @@
 		</header>
 
 		<section>
+		
+		<article class="articlea">
+		<div class="titre"> Récupération du mot de passe</div><br/><!-- Titre dans le bandeau rouge-->
+
 		<article id="formulaire">
 
 		<?php if ($_GET["target"]=="mail_non_exist")
@@ -37,6 +41,7 @@
 		<input type="submit" value="Envoyer" class="Onglet">
 		</form>
 
+		</article>
 		</article>
 		</section>
 		<?php include("vues/v_footer.php"); ?>
