@@ -1,5 +1,5 @@
 <?php
-$_SESSION["mailexist"]=1;
+
 if (isset($_POST['mail']))
 {
 	include ('../modeles/m_mail_reset.php');
@@ -7,9 +7,8 @@ if (isset($_POST['mail']))
 	
 		if(mail_exist($email) == 0)  //Le mail n'existe pas
 		{	
-			$_SESSION["mailexist"]=0;
-			include("../vues/v_formulaire_reset.php");
-		//Rediriger vers la page précédent, ajouter un message d'erreur comme quoi l'utilisateur n'existe pas
+			header("location: ../index.php?target=mail_non_exist");
+			//Rediriger vers la page précédent, ajouter un message d'erreur comme quoi l'utilisateur n'existe pas
 		}
 		else  //Le mail existe
 		{
@@ -31,7 +30,7 @@ if (isset($_POST['mail']))
 			$message = "Bonjour, vous avez oubliez votre mot de passe Hoikos, cliquez sur le lien suivant pour le réinitialiser : http://localhost/hoikos-master/controleurs/c_mdp_reset.php?token=$token&id=$id";
 			if (mail($destinataire, $objet, $message, $headers)) // Envoi du message
 			{
-			    echo 'Un mail vous a été envoyé afin de réinitialiser votre mot de passe';
+			    header("location: ../index.php?target=mail_sent");
 			}
 			else // Non envoyé
 			{
@@ -41,6 +40,6 @@ if (isset($_POST['mail']))
 }
 else
 {
-	include("/vues/v_formulaire_reset.php");
+	include("vues/v_formulaire_reset.php");
 }
 ?>

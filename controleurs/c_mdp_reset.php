@@ -2,6 +2,7 @@
 session_start();
 $_SESSION["samemdp"]=0;
 $_SESSION["critmdp"]=0;
+$_SESSION["mdp_changed"]=0;
 include ('../modeles/m_mdp_reset.php');
 if (isset($_GET['token']) AND isset($_GET['id']))
 {
@@ -28,7 +29,8 @@ if (isset($_POST['token']) AND isset($_POST['id']) AND isset($_POST['mdp']) AND 
 	{
 		change_mdp($mdp,$token,$id); //Modification du mot de passe dans la BDD
 		reset_token($id); //Effacer le token de la BDD
-		echo "Votre mot de passe a bien été modifié";
+		$_SESSION["mdp_changed"]=1;
+		include("../vues/v_mdp_reset.php");
 	}
 	else
 	{
@@ -36,6 +38,11 @@ if (isset($_POST['token']) AND isset($_POST['id']) AND isset($_POST['mdp']) AND 
 		{
 			$_SESSION["critmdp"]=1;
 		}
+		else
+		{
+			$_SESSION["critmdp"]=2;	
+		}
+
 		if (!($mdp == $mdp2))
 		{
 			$_SESSION["samemdp"]=1;
