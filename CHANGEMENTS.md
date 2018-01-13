@@ -3,10 +3,11 @@ Inscrivez votre nom sur les tâches que vous êtes en train d'exécuter/allez ex
 
 1. A faire : 
 - Demande d'un numéro cemac/numero client au moment de l'inscription
+- verifications mot de passe page de connexion en PHP
  
 
 CODER DE NOUVELLES PAGES : 
-  - pages de l'utilisateur secondaire (accueil, consommation, profil)  
+
   
 TACHES EN COURS D'EXECUTION :
   - Forcer la mise en majuscule de la première lettre du prenom et nom lors de l'inscription + nom d'onglet lors de l'ajout de fonction (Ilan)
