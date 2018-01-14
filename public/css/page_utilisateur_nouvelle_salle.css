@@ -47,7 +47,7 @@ nav
 	width: 11%;/*Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
-	overflow-y: hidden;
+	overflow-y: auto;
 	max-height: 22px;
 	align-self: flex-end;
 }
@@ -66,7 +66,7 @@ nav
 	width: 11%;/*Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
-	overflow-y: hidden;
+	overflow-y: auto;
 	max-height: 22px;
 	align-self: flex-end;
 }
@@ -85,7 +85,7 @@ nav
 	width: 9%;/*Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
-	overflow-y: hidden;
+	overflow-y: auto;
 	max-height: 21px;
 	/*justify-content: flex-end;*/
 	align-self: flex-end;
@@ -119,7 +119,7 @@ nav
 	width: 11%;/*Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
-	overflow-y: hidden;
+	overflow-y: auto;
 	max-height: 21px;
 	color: black;
 	border-left: 1px #D4D4D4 solid;
@@ -139,7 +139,7 @@ nav
 	width: 15%;/*Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
-	overflow-y: hidden;
+	overflow-y: auto;
 	max-height: 21px;
 	color: white;
 	font-size: 17px;
