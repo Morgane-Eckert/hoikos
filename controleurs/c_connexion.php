@@ -18,20 +18,29 @@ function accueil(){
 	include ('vues/v_accueil.php');
 }
 
+function accueil_secondaire(){
+    include ('vues/v_accueil_secondaire.php');
+}
+
 function accueil_home(){
     include ('vues/v_accueil_home.php');
+}
+
+function accueil_home_secondaire(){
+    include ('vues/v_accueil_home_secondaire.php');
 }
 
 function formulaire_nouvel_onglet(){
 	include ('vues/v_formulaire_nouvel_onglet.php');
 }
 
-function ajout_nouvel_onglet2($nom_salle,$superficie_salle){
-	$affectedLines = ajout_nouvel_onglet($nom_salle,$superficie_salle);	
+function ajout_nouvel_onglet2($nom_salle){
+	$affectedLines = ajout_nouvel_onglet($nom_salle);	
 	if ($affectedLines === false) {
         die('Impossible d\'ajouter l\'onglet !');
-    }
-    else {
+    } elseif ($affectedLines == 'nom déjà existant'){
+        header('Location: index.php?target=compte&action=connecte&reaction=nouvel_onglet&anticipation=erreur');
+    } else {
         header('Location: index.php?target=compte&action=connecte&reaction='.$_POST['nom_salle']);
     }
 }
