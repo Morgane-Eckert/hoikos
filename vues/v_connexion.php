@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/connexion.css">
 		<link rel="stylesheet" href="public/css/footer.css">
+		<title>Connexion</title>
 	</head>
 	<body>
 		<header>
