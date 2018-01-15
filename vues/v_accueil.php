@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="public/css/page_utilisateur.css">
 		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
-		<title>Acceuil</title>
+		<title>Accueil</title>
 	</head>
 	
 	<body>
