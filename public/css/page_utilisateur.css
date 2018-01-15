@@ -206,6 +206,7 @@ section
 	padding: 5px;
 	border: none;
 	color: #FFFFFF;
+	overflow: hidden;
 	background-color: #007879;
 	width: 7%;/*Modifier la largeur de l'onglet*/
 }
