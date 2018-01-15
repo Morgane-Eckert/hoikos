@@ -68,7 +68,8 @@ function afficher_onglets(){
 
 
 function afficher_fonctions(){
-	$bdd=connexion_bdd2();
+
+$bdd=connexion_bdd2();
 
 	$reponse = $bdd->prepare('SELECT COUNT(*) AS nombre FROM capteur WHERE ID_logement=:ID_logement AND nom_salle=:nom_salle');
 	$reponse->execute(array(
@@ -84,8 +85,17 @@ function afficher_fonctions(){
 			'nom_salle' => $_GET['reaction']
 			));
 		$i=0;
+		$a=0;
 		while ($donneesa = $reponsea->fetch()){
-		    $capteurs[$i]= $donneesa['nom_capteur']; 
+			if ($i==0){
+				$capteurs[$a] = $donneesa['nom_capteur'];
+				$a++;
+			} else {
+				if (!(in_array($donneesa['nom_capteur'], $capteurs))){
+		    	$capteurs[$a] = $donneesa['nom_capteur'];
+		    	$a++;
+		    	}
+			}
 		    $i++; 
 		}
 		return $capteurs;

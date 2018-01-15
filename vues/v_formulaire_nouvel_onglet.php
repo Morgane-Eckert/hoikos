@@ -5,7 +5,6 @@
 		<link rel="stylesheet" href="public/css/page_utilisateur_nouvelle_salle.css">
 		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
-		<title>Ajouter une piéce</title>
 	</head>
 	<body>
 		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
@@ -21,7 +20,7 @@
                         <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="Onglet"> <?php echo $element; ?> </a>
                     <?php
                 }	         ?>
-            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="actuel" id='nouvel_onglet'>+</a>
+            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="actuel_nouvel_onglet" id='actuel'>+</a>
             <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
             <a href="index.php" class="Onglet">Profil</a>

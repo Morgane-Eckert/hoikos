@@ -6,7 +6,6 @@
 		<link rel="stylesheet" href="public/css/page_utilisateur.css">
 		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
-		<title>Accueil</title>
 	</head>
 	
 	<body>
@@ -30,10 +29,10 @@
                     }
                 }
              ?>
-            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="Onglet" id='nouvel_onglet'>+</a>
+            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
-            <a href="index.php?target=compte&action=connecte&reaction=profil" class="Onglet">Profil</a>
+            <a href="index.php" class="Onglet">Profil</a>
         </nav>
 
 		<section>
@@ -55,6 +54,7 @@
                                     </div><br>
                                     <form method="post" action="traitement.php">
                                         <input type="range" min="15" mex="30">
+                                        <input type='submit' value='Valider' id='bouton'><br>
                                     </form>
                                 </div>
                                 <?php 

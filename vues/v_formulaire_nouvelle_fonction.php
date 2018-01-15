@@ -5,13 +5,13 @@
 		<link rel="stylesheet" href="public/css/page_utilisateur_nouvelle_salle.css">
 		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
-		<title>Ajouter une fonction</title>
 	</head>
 	<body>
 		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
 
 		<nav>
             <?php 
+
 			if ($_GET['anticipation']=='home'){
 				?>			
 				<a href="index.php?target=compte&action=connecte&reaction=home" class="actuel">Home</a>
@@ -37,7 +37,7 @@
                     }
                 }
              ?>
-            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet&anticipation=<?php echo $_GET['reaction']; ?>" class="Onglet" id='nouvel_onglet'>+</a>
+            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet&anticipation=<?php echo $_GET['reaction']; ?>" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
             <a href="index.php" class="Onglet">Profil</a>
@@ -65,6 +65,19 @@
 							?>
 								<option value=<?php echo $donnees1['ID_type_de_capteur']; ?>> <?php echo $donnees1['nom_type_de_capteur']; ?> </option>
 							<?php }?>
+						</select><br><br>
+						<label for="cemac">Choix du CeMAC :</label><br>
+						<select name="cemac" required>
+						<?php
+							$reponse3 = $bdd->prepare('SELECT * FROM cemac WHERE ID_logement = :ID_logement');
+							$reponse3->execute(array(
+							    'ID_logement' => $_SESSION['ID_logement']
+							    ));
+
+							while ($donnees3 = $reponse3->fetch()){
+							?>
+								<option value=<?php echo $donnees3['ID_cemac']; ?>> <?php echo $donnees3['numero_de_cemac']; ?> </option>
+							<?php } ?>
 						</select><br><br>
 						<input type='submit' value='Valider' id='bouton'>
 					</form>

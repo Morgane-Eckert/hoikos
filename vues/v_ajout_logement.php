@@ -5,7 +5,6 @@
 		<link rel="stylesheet" href="public/css/inscription.css">
 		<link rel="stylesheet" href="public/css/base-header-sans-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
-		<title>Ajouter un logment</title>
 		<script type="text/javascript" src="public/js/adresse.js"></script>
 	</head>
 	<body>
@@ -19,12 +18,14 @@
 				<form method='post' action='index.php?target=inscription&action=logement&reaction=rempli' id='corps'>
 						<label for='type_logement'>Vous habitez dans : </label>
 						<input type='radio' id='Maison' name='type_logement' value='Maison' required> Une maison
+						<input type='radio' id='Appartement' name='type_logement' value='Appartement' required> Un appartement<br><br>
+						<label for='superficie' id='superficie'> Superficie : </label><br/>
+						<input type='text' name='superficie' id='superficie' required>  m&sup2;<br><br>
+						
+						
 
-						<input type='radio' id='Appartement' name='type_logement' value='Appartement' required> Un appartement
-						<br><br>
-
-						<label for='id_cemac' id='id_cemac'> Identifiant de votre CeMAC : </label><br/>
-						<input type='text' name='id_cemac' id='id_cemac'maxlength="10" required>
+						<label for='numero_de_cemac'> Numéro de série de votre CeMAC (ce numéro vous a été fourni en magasin lors de votre premier achat) : </label><br/>
+						<input type='text' name='numero_de_cemac' maxlength="5" required>
 						<br><br>
 
 

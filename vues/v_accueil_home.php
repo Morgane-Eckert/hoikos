@@ -6,7 +6,6 @@
 		<link rel="stylesheet" href="public/css/page_utilisateur.css">
 		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
-		<title>Home</title>
 	</head>
 	
 	<body>
@@ -23,10 +22,10 @@
                     <?php
                 }
              ?>
-            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="Onglet" id='nouvel_onglet'>+</a>
+            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
-            <a href="index.php?target=compte&action=connecte&reaction=profil" class="Onglet">Profil</a>
+            <a href="index.php" class="Onglet">Profil</a>
         </nav>
 
 		<section>
@@ -37,21 +36,21 @@
                         <?php //Affichage des onglets
                             $capteurs = afficher_fonctions_home();
                             if ($capteurs!=NULL){
-                            foreach($capteurs as $element){//On parcourt le tableau
-                                ?>
-                                <div class="Capteurs">
-                                    <div class = "BoiteVide">
-                                        <h3 class="Titre"> <?php echo $element; ?> </h3><h3 class="Affichage">25°C</h3>
+                                foreach($capteurs as $element){//On parcourt le tableau
+                                    ?>
+                                    <div class="Capteurs">
+                                        <div class = "BoiteVide">
+                                            <h3 class="Titre"> <?php echo $element; ?> </h3><h3 class="Affichage">25°C</h3>
+                                        </div>
+                                        <div class = "BoiteVide">
+                                            <span class="Titre">Ordre</span><h3 class="Affichage">27°C</h3>
+                                        </div><br>
+                                        <form method="post" action="traitement.php">
+                                            <input type="range" min="15" mex="30">
+                                        </form>
                                     </div>
-                                    <div class = "BoiteVide">
-                                        <span class="Titre">Ordre</span><h3 class="Affichage">27°C</h3>
-                                    </div><br>
-                                    <form method="post" action="traitement.php">
-                                        <input type="range" min="15" mex="30">
-                                    </form>
-                                </div>
-                                <?php 
-                            }
+                                    <?php 
+                                }
                             } else {
                                 echo '<p> Ajoutez votre première pièce afin de faire apparaître votre première fonction !<br><br> </p>';
                             }
