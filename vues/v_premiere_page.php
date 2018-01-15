@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="public/css/footer.css">
 		<script src="public/js/recuperer_variable_url.js" ></script>
 		<script src="public/js/valider_formulaire_connexion.js" ></script>
+		<title>Bienvenue chez Hoikos</title>
 	</head>
 	<body>
 		<header>
