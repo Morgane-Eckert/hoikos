@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="public/css/mentionslegales.css">
 		<link rel="stylesheet" href="public/css/base-header-sans-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
+		<title>Mentions légales</title>
 	</head>
 	
 		<body>
