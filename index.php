@@ -59,7 +59,21 @@ if (isset($_GET['target'])) {
                             formulaire_nouveau_capteur();
                         } else if ($_GET['reaction']=='nouvelle_fonction_rempli') {
                             ajout_nouveau_capteur2();
-                        } else {
+						} else if ($_GET['reaction']=='profil'){
+							include ('controleurs/c_profil.php');
+							if(isset($_GET['rempli'])){
+								if($_GET['rempli']=='compte'){
+									profil_editer_utilisateur_principal($_SESSION['ID_utilisateur'],$_POST['nom'],$_POST['prenom'],$_POST['telephone1'],$_POST['adresse_mail'],$_POST['date_naissance']);
+								} else if($_GET['rempli']=='adresse'){
+									profil_editer_adresse($_SESSION['ID_utilisateur'],$_POST['nom_rue_logement'],$_POST['ville_logement'],$_POST['numero_rue_logement'],$_POST['code_postale_logement'],$_POST['telephone_fixe']);								
+								} else if($_GET['rempli']=='secondaire'){
+									profil_editer_utilisateur_secondaire();
+								}
+							} else {
+							profil();	
+							}
+	
+						} else {
                             accueil();
                         }
                     } else {
