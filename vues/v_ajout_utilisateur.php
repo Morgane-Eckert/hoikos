@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="public/css/inscription.css">
 		<link rel="stylesheet" href="public/css/base-header-sans-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
+		<title>Ajouter un utilisateur</title>
 	</head>
 	
 	<body>
