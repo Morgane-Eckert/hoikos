@@ -1,6 +1,5 @@
 <?php 
 //session_start();
-
 function connexion_bdd(){
 	try
 	{
@@ -12,7 +11,6 @@ function connexion_bdd(){
         die('Erreur : '.$e->getMessage());
 	}
 }	
-
 function ajout_utilisateur($type_utilisateur,$nom_utilisateur,$prenom_utilisateur,$telephone_1_utilisateur,$date_de_naissance_utilisateur,$adresse_mail_utilisateur,$mot_de_passe_utilisateur){
 	$bdd=connexion_bdd();
 	$prenom_utilisateur=firstlettertoupper($prenom_utilisateur);
@@ -78,8 +76,6 @@ function ajout_logement($superficie_totale_logement,$type_logement,$telephone_fi
 	else{
     	$type_logement='1';
 	}
-
-
 	/*On crée une ligne logement*/
 	$requete = $bdd->prepare("INSERT INTO logement (superficie_totale_logement, type_logement, telephone_logement, numero_rue_logement, nom_rue_logement, code_postale_logement, ville_logement, pays_logement) VALUES (:superficie_totale_logement, :type_logement, :telephone_fixe, :numero_rue_logement, :nom_rue_logement, :code_postale_logement, :ville_logement, :pays_logement)");
 	$requete->execute(array(
@@ -92,7 +88,6 @@ function ajout_logement($superficie_totale_logement,$type_logement,$telephone_fi
 	    'ville_logement' => $ville_logement,
 	    'pays_logement' => $pays_logement
 	    ));
-
 	/*On récupère l'ID du logement qui vient d'être créé*/
 	$reponse2 = $bdd->query('SELECT ID_logement FROM logement ORDER BY ID_logement DESC LIMIT 1');
 	$donnees2 = $reponse2->fetch();
@@ -103,8 +98,13 @@ function ajout_logement($superficie_totale_logement,$type_logement,$telephone_fi
 	    'ID_logement' => $donnees2['ID_logement'],
 	    'ID_utilisateur' => $_SESSION['id_utilisateur']
 	    ));
-}
 
+	$req = $bdd->prepare('UPDATE cemac SET ID_logement = :ID_logement WHERE numero_de_cemac = :numero_de_cemac');
+	$req->execute(array(
+	    'ID_logement' => $donnees2['ID_logement'],
+	    'numero_de_cemac' => $_POST['numero_de_cemac']
+	    ));
+}
 /*Ajout utilisateurs secondaires*/
 function ajout_utilisateurs_secondaires($type_utilisateur,$nom_utilisateur,$prenom_utilisateur,$telephone_1_utilisateur,$date_de_naissance_utilisateur,$adresse_mail_utilisateur,$mot_de_passe_utilisateur){
 	$bdd=connexion_bdd();
@@ -133,5 +133,4 @@ $req->execute(array(
     'ID_utilisateur' => $donnees1['ID_utilisateur'],
     ));
 }
-
 ?>

@@ -42,29 +42,43 @@ function verification($email,$password){
 			$_SESSION["action"] = "connecte";
 		}
 		else{
-			echo "L'adresse a été reconnue, mais le mot de passe est erroné. Nous vous invitons à retourner sur la <a href='index.php'>page d'accueil</a> pour réessayer.";
 			$_SESSION["action"] = "mot_de_passe_incorrect";
 		}
 	}
 	else{
-		echo "L'adresse n'a pas été reconnue. Nous vous invitons à retourner sur la <a href='index.php'>page d'accueil</a> pour réessayer.";
 		$_SESSION["action"] = "adresse_mail_inconnue";
 	}
 }
 
-function ajout_nouvel_onglet($nom_salle,$superficie_salle){
+function ajout_nouvel_onglet($nom_salle){
 	$bdd=connexion_bdd();
-	$requete = $bdd->prepare("INSERT INTO salle (ID_salle, ID_logement, ID_cemac, ID_type_salle, nom_salle, superficie_salle) VALUES (NULL, NULL, NULL, :ID_type_salle, :nom_salle, :superficie_salle)");
+	$reponse3 = $bdd->prepare('SELECT COUNT(*) AS nombre_de_salle FROM salle WHERE ID_logement=:ID_logement AND nom_salle=:nom_salle');
+	$reponse3->execute(array(
+		'ID_logement' => $_SESSION['ID_logement'],
+		'nom_salle' => $nom_salle
+		));
+	$donnees3 = $reponse3->fetch();
+	if ($donnees3['nombre_de_salle']==0){
+	$reponse0 = $bdd->prepare('SELECT ID_type_de_salle FROM type_de_salle WHERE nom_type_de_salle=:nom_type_de_salle');
+	$reponse0->execute(array(
+    	'nom_type_de_salle' => $_POST['type']
+    ));
+    $donnees0 = $reponse0->fetch();
+
+	$requete = $bdd->prepare("INSERT INTO salle (ID_salle, ID_logement, ID_cemac, ID_type_salle, nom_salle, superficie_salle) VALUES (NULL, NULL, NULL, :ID_type_salle, :nom_salle, NULL)");
 	$affectedLines = $requete->execute(array(
 		//'ID_logement' => '3',
-		'ID_type_salle' => $_POST['type'],
-	    'nom_salle' => $nom_salle,
-	    'superficie_salle' => $superficie_salle
+		'ID_type_salle' => $donnees0['ID_type_de_salle'],
+	    'nom_salle' => $nom_salle
 	    ));
 	$req = $bdd->prepare('UPDATE salle SET ID_logement = :ID_logement ORDER BY ID_salle DESC LIMIT 1');
 	$req->execute(array(
-    'ID_logement' => $_SESSION['ID_logement'],
+    'ID_logement' => $_SESSION['ID_logement']
     ));
+} else {
+	$erreur = 'nom déjà existant';
+	return $erreur;
+}
 }
 
 function ajout_nouveau_capteur(){
@@ -75,8 +89,9 @@ function ajout_nouveau_capteur(){
 			));
 		$i=0;
 		$donneesa = $reponsea->fetch();
-	$requete = $bdd->prepare("INSERT INTO capteur (ID_capteur, ID_logement, ID_cemac, ID_type_de_capteur, nom_salle, nom_capteur, date_d_ajout_capteur, donnee_envoyee_capteur, donnee_recue_capteur) VALUES (NULL, NULL, NULL, :ID_type_capteur, :nom_salle, :nom_capteur, NOW(), NULL, NULL)");
+	$requete = $bdd->prepare("INSERT INTO capteur (ID_capteur, ID_logement, ID_cemac, ID_type_de_capteur, nom_salle, nom_capteur, date_d_ajout_capteur, donnee_envoyee_capteur, donnee_recue_capteur) VALUES (NULL, NULL, :ID_cemac, :ID_type_capteur, :nom_salle, :nom_capteur, NOW(), NULL, NULL)");
 	$affectedLines = $requete->execute(array(
+		'ID_cemac'=> $_POST['cemac'],
 		'ID_type_capteur' => $_POST['type'],
 		'nom_salle' => $_GET['anticipation'],
 	    'nom_capteur' => $donneesa['nom_type_de_capteur']
