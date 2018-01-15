@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/decouverte.css">
+		<title>Découverte</title>
 	<body>
 		<header>
 			<a href="index.php" >
