@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="public/css/conditionsgenerales.css">
 		<link rel="stylesheet" href="public/css/base-header-sans-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
+		<title>Conditions générales</title>
 	</head>
 	
 	<body>
