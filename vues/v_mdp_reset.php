@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="../public/css/mdp_reset.css">
 		<link rel="stylesheet" href="../public/css/footer.css">
+		<title>Réinitialiser votre mot de passe</title>
 	</head>
 	<body>
 		<header>
