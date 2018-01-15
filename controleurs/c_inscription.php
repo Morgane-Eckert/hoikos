@@ -4,8 +4,7 @@ include ('modeles/m_inscription.php');
 
 function firstlettertoupper($input){
     for ($i=0;$i<strlen($input);$i++)   
-    {
-        echo $input[$i]."<==LETTER AVANT";  
+    {  
         if ((preg_match("/^[A-Z]+$/",$input[$i])==true) && ($input[$i-1]!="-"))
         {
             $input[$i]=strtolower($input[$i]);
@@ -14,7 +13,6 @@ function firstlettertoupper($input){
         {
             $input[$i+1]=strtoupper($input[$i+1]);
         }
-        echo $input[$i]."<==LETTER APRES</br>";
     }
     $input[0]=strtoupper($input[0]);
     return $input;
