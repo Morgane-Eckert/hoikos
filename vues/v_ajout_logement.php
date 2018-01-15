@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="public/css/inscription.css">
 		<link rel="stylesheet" href="public/css/base-header-sans-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
+		<title>Ajouter un logment</title>
 		<script type="text/javascript" src="public/js/adresse.js"></script>
 	</head>
 	<body>
