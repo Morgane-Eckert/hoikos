@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="public/css/footer.css">
 		<script type='text/javascript' src='public/javascript/adresse.js'></script>
 		<script type='text/javascript' src='public/javascript/mdp.js'></script>
+		<title>Votre Profil</title>
 	</head>
 	
 	<body>
