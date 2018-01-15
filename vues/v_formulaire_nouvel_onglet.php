@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="public/css/page_utilisateur_nouvelle_salle.css">
 		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
+		<title>Ajouter une piéce</title>
 	</head>
 	<body>
 		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
