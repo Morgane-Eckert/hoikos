@@ -1,0 +1,7 @@
+Pour que le système d'envoi de mail fonctionne il faut :
+
+- Utiliser WAMP ; 
+- Télécharger le dossier "sendmail" et le mettre dans son dossier "wamp" ou "wamp64" ;
+- Modifier "php.ini" en suivant les instructions sur l'image "php.ini_modification_mail".
+
+Le plugin "sendmail" permet d'envoyer des mails localement via WAMP sans avoir à mettre son site Internet sur un vrai serveur en ligne. 
