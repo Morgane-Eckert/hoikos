@@ -25,20 +25,28 @@
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
-            <a href="index.php" class="Onglet">Profil</a>
+            <a href="index.php?target=compte&action=connecte&reaction=profil" class="Conso">Profil</a>
         </nav>
 
 		<section>
 			<article>
 				<div id="titre">Fonctions de la maison<a href="" class="Routine">Routine</a></div> 
                     <br/><!-- Titre dans le bandeau rouge-->
+                    <?php
+                     if (isset($_GET['anticipation'])){
+                        if ($_GET['anticipation']=='onglet_supprime'){
+                            echo "<p class='message_suppression'>La pièce a bien été supprimée.</p><br>";
+                        }
+                    }
+                    ?>
                     <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
                         <?php //Affichage des onglets
+
                             $capteurs = afficher_fonctions_home();
                             if ($capteurs!=NULL){
                                 foreach($capteurs as $element){//On parcourt le tableau
                                     ?>
-                                    <div class="Capteurs">
+                                    <div class="petit_capteur">
                                         <div class = "BoiteVide">
                                             <h3 class="Titre"> <?php echo $element; ?> </h3><h3 class="Affichage">25°C</h3>
                                         </div>

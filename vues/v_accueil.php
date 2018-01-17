@@ -32,41 +32,53 @@
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
-            <a href="index.php" class="Onglet">Profil</a>
+            <a href="index.php?target=compte&action=connecte&reaction=profil" class="Conso">Profil</a>
         </nav>
 
 		<section>
             <article>
                 <div id="titre">Fonctions de la pièce <?php echo $_GET['reaction']; ?><a href="" class="Routine">Routine</a></div> 
                     <br/><!-- Titre dans le bandeau rouge-->
+                    <?php 
+                        if (isset($_GET['anticipation'])){
+                            if ($_GET['anticipation']=='fonction_supprimee'){
+                                echo "<p class='message_suppression'>La fonction a bien été supprimée.</p><br>";
+                            }
+                        }
+                    ?>
                     <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
-                        <?php //Affichage des onglets
+                        <?php 
                             $capteurs = afficher_fonctions();
                             if ($capteurs!=NULL){
                             foreach($capteurs as $element){//On parcourt le tableau
                                 ?>
                                 <div class="Capteurs">
+                                    <!--<span  class="supprimer_conteneur"><a href="index.php?target=compte&action=connecte&reaction=<?php echo $_GET['reaction']; ?>&anticipation=suppression_onglet" class="supprimer">x</a></span>-->
+                                    
                                     <div class = "BoiteVide">
                                         <h3 class="Titre"> <?php echo $element; ?> </h3><h3 class="Affichage">25°C</h3>
                                     </div>
                                     <div class = "BoiteVide">
                                         <span class="Titre">Ordre</span><h3 class="Affichage">27°C</h3>
                                     </div><br>
-                                    <form method="post" action="traitement.php">
-                                        <input type="range" min="15" mex="30">
-                                        <input type='submit' value='Valider' id='bouton'><br>
+                                    <form method="post" action="index.php?target=compte&action=connecte&reaction=nouvel_ordre&anticipation=<?php echo $_GET['reaction'] ?>&comprehension=<?php echo $element; ?>">
+                                        <input type="range" name="ordre" min="15" max="30">
+                                        <input type='submit' value='Envoyer' id='bouton'>
                                     </form>
+                                    <span class="supprimer_conteneur"><a href="index.php?target=compte&action=connecte&reaction=<?php echo $_GET['reaction']; ?>&anticipation=suppression_fonction&comprehension=<?php echo $element; ?>" class="supprimer">Supprimer cette fonction</a></span>
                                 </div>
                                 <?php 
                                 }
                             }  
                             ?>
 
-                        <div class="Capteurs"><h1 class="Titre">Ajouter une fonction</h1><br><a href="index.php?target=compte&action=connecte&reaction=nouvelle_fonction&anticipation=<?php echo $_GET['reaction']; ?>"><img alt="Add" id = "Add" src="public/images/Ajouter.png"></a>
+                        <div class="petit_capteur"><h1 class="Titre">Ajouter une fonction</h1><a href="index.php?target=compte&action=connecte&reaction=nouvelle_fonction&anticipation=<?php echo $_GET['reaction']; ?>" class='plus'>+</a>
                         </div>
+
                 </div>
 
-
+                <div class="suppression_onglet_conteneur"><a href="index.php?target=compte&action=connecte&reaction=<?php echo $_GET['reaction']; ?>&anticipation=suppression_onglet" class="suppression_onglet">Supprimer cet onglet</a>
+                </div>
             </article>
 		</section>
 

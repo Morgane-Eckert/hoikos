@@ -17,13 +17,15 @@
              <?php //Affichage des onglets
                 include("accueil_onglets.php");
                 $onglets = afficher_onglets();
+                if ($onglets!=NULL)
                 foreach($onglets as $element){//On parcourt le tableau
-                        ?>
-                        <a href="index.php?target=compte&action=connecte" class="Onglet"> <?php echo $element; ?> </a>
-                        <?php
-                    }
+                    ?>
+                        <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="Onglet"> <?php echo $element; ?> </a>
+                    <?php
+                }
              ?>
-            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="Onglet" id='nouvel_onglet'>+</a>
+            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
+            <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
             <a href="index.php?target=compte&action=connecte&reaction=profil" class="actuel">Profil</a>
 		</nav>  
@@ -59,7 +61,7 @@
                         echo $date_d_ajout;
                         ?>
                         <br>
-                        <a href ="" onclick='mdpreset()'>Modifier le mot de passe</a>
+                        <a href ="" onclick='mdpreset()' class="supprimer">Modifier le mot de passe</a>
 						</div>
 						<?php
 					} else {
@@ -102,9 +104,7 @@
 								<?php
 								echo $date_d_ajout;
 								?>
-								<br><br>
-		
-								Modifier le mot de passe
+
 							</div>			
 
 						<?php
@@ -150,9 +150,7 @@
 								<?php
 								echo $date_d_ajout;
 								?>
-								<br><br>
-		
-								Modifier le mot de passe
+
 							</div>			
 					<?php
 				}
