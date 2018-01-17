@@ -98,11 +98,49 @@ function ajout_nouveau_capteur(){
 	    ));
 	$req = $bdd->prepare('UPDATE capteur SET ID_logement = :ID_logement ORDER BY ID_capteur DESC LIMIT 1');
 	$req->execute(array(
-    'ID_logement' => $_SESSION['ID_logement'],
+    'ID_logement' => $_SESSION['ID_logement']
     ));
 }
 
+function ajout_ordre(){
+	$bdd=connexion_bdd();
+	$reponsec = $bdd->prepare('SELECT ID_type_de_capteur FROM type_de_capteur WHERE nom_type_de_capteur=:nom_type_de_capteur');
+	$reponsec->execute(array(
+		'nom_type_de_capteur' => $_GET['comprehension']
+		));
+	$donneesc = $reponsec->fetch();
+	
+	$requeted = $bdd->prepare("INSERT INTO ordre (ID_ordre, ID_utilisateur, ID_logement, ID_type_de_capteur, valeur_ordre, etat_ordre, date_d_ajout_ordre) VALUES (NULL, :ID_utilisateur, :ID_logement, :ID_type_de_capteur, :valeur_ordre, :etat_ordre, NOW())");
+	$requeted->execute(array(
+		'ID_utilisateur' => (int)$_SESSION['ID_utilisateur'],
+		'ID_logement' => (int)$_SESSION['ID_logement'],
+		'ID_type_de_capteur' => (int)$donneesc['ID_type_de_capteur'],
+		'valeur_ordre' => $_POST['ordre'],
+	    'etat_ordre' => 1
+	    ));
+}
 
+function accueil_suppression(){
+	$bdd=connexion_bdd();
+	$requetef = $bdd->prepare("DELETE FROM salle WHERE nom_salle=:nom_salle AND ID_logement=:ID_logement");
+	$requetef->execute(array(
+		'nom_salle' => $_GET['reaction'],
+		'ID_logement' => $_SESSION['ID_logement']
+	    ));
+}
 
+function accueil_suppression_fonction(){
+	$bdd=connexion_bdd();
+	$reponseg = $bdd->prepare('SELECT ID_type_de_capteur FROM type_de_capteur WHERE nom_type_de_capteur=:nom_type_de_capteur');
+	$reponseg->execute(array(
+		'nom_type_de_capteur' => $_GET['comprehension']
+		));
+	$donneesg = $reponseg->fetch();
+	$requetef = $bdd->prepare("DELETE FROM capteur WHERE ID_type_de_capteur=:ID_type_de_capteur AND ID_logement=:ID_logement");
+	$requetef->execute(array(
+		'ID_type_de_capteur' => $donneesg['ID_type_de_capteur'],
+		'ID_logement' => $_SESSION['ID_logement']
+	    ));
+}
 
 ?>
