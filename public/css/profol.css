@@ -20,7 +20,7 @@ nav
 	text-align: center;
 	padding: 10px;
 	margin-top: 2%;
-	width: 9%;/*Modifier la largeur de l'onglet*/
+	/*width: 9%;Modifier la largeur de l'onglet*/
 	height: 4%;
 	align-self: flex-end;
 	flex:1;
@@ -37,7 +37,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	width: 11%;/*Modifier la largeur de l'onglet*/
+	/*width: 11%;Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -56,7 +56,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #701c1c;
-	width: 5%;/*Modifier la largeur de l'onglet*/
+	width: 3%;/*Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -75,7 +75,7 @@ nav
 	border: none;
 	color: #000000;
 	background-color: #F0E36B;
-	width: 11%;/*Modifier la largeur de l'onglet*/
+	/*width: 11%;Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -94,7 +94,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #701c1c;
-	width: 9%;/*Modifier la largeur de l'onglet*/
+	/*width: 9%;Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -132,7 +132,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #F2F2F2;
-	width: 11%;/*Modifier la largeur de l'onglet*/
+	/*width: 11%;Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -152,7 +152,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	width: 15%;/*Modifier la largeur de l'onglet*/
+	/*width: 15%;Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: hidden;
