@@ -44,7 +44,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	width: 11%;/*Modifier la largeur de l'onglet*/
+	/*width: 11%;Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -63,7 +63,7 @@ nav
 	border: none;
 	color: #000000;
 	background-color: #F0E36B;
-	width: 11%;/*Modifier la largeur de l'onglet*/
+	/*width: 11%;Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -82,7 +82,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	width: 5%;/*Modifier la largeur de l'onglet*/
+	width: 3%;/*Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -100,7 +100,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	width: 9%;/*Modifier la largeur de l'onglet*/
+	/*width: 9%;Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -134,7 +134,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #F2F2F2;
-	width: 11%;
+	/*width: 11%;*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -157,7 +157,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #F2F2F2;
-	width: 5%;
+	width: 3%;
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -179,7 +179,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	width: 15%;/*Modifier la largeur de l'onglet*/
+	/*width: 15%;Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;

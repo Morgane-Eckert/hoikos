@@ -20,6 +20,35 @@ nav
 
 
 /*Réglages des onglets*/
+
+.supprimer{
+	margin: 5px;
+	/*margin-left: 10px;
+	margin-right: 10px;*/
+	text-decoration: unset;
+	color: grey;
+	font-size: 9px;
+}
+
+ .supprimer:hover{
+ 	color: #990100;
+ }
+
+ .plus{
+ 	text-decoration: unset;
+ 	font-size: 70px;
+ 	color: #007978;
+ }
+
+ .plus:hover{
+ 	color: #990100;
+ }
+
+.supprimer_conteneur{
+	display: flex;
+	/*justify-content: flex-end;*/
+	justify-content: center;
+}
 .Vide
 {
 	margin-left: 0.2%;
@@ -28,7 +57,7 @@ nav
 	text-align: center;
 	padding: 10px;
 	margin-top: 2%;
-	width: 9%;/*Modifier la largeur de l'onglet*/
+	/*width: 9%;Modifier la largeur de l'onglet*/
 	height: 4%;
 	align-self: flex-end;
 	flex:1;
@@ -45,7 +74,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	width: 11%;/*Modifier la largeur de l'onglet*/
+	/*width: 11%;Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -63,8 +92,8 @@ nav
 	margin-top: 2%;
 	border: none;
 	color: #FFFFFF;
-	background-color: #990100;
-	width: 5%;/*Modifier la largeur de l'onglet*/
+	background-color: #701c1c;
+	width: 3%;/*Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -83,7 +112,7 @@ nav
 	border: none;
 	color: #000000;
 	background-color: #F0E36B;
-	width: 11%;/*Modifier la largeur de l'onglet*/
+	/*width: 11%;Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -101,19 +130,23 @@ nav
 	margin-left: 0.2%;
 	border: none;
 	color: #FFFFFF;
-	background-color: #990100;
-	width: 9%;/*Modifier la largeur de l'onglet*/
+	background-color: #701c1c;
+	/*width: 9%;Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
 	max-height: 21px;
-	/*justify-content: flex-end;*/
 	align-self: flex-end;
 	float:right;
 }
 
 /*L'onglet' change de couleur lorsque la souris passe dessus*/
 .Onglet:hover
+{
+	background-color: #DC143C;
+}
+
+.nouvel_onglet:hover
 {
 	background-color: #DC143C;
 }
@@ -136,7 +169,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #F2F2F2;
-	width: 11%;/*Modifier la largeur de l'onglet*/
+	/*width: 11%;Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -251,26 +284,33 @@ article
 	padding-right: 15px;
 }
 
-#Add
+.BoiteVide
 {
-	margin-top: 11px;
+	display: flex;
+	justify-content: space-between;
 }
 
-.BoiteVide
-{
-	display: flex;
-	justify-content: space-between;
-}
-.BoiteVide
-{
-	display: flex;
-	justify-content: space-between;
-}
 
 .Capteurs
 {
     margin: 20px;
     width: 200px;
+    /*height: 160px;*/
+    height: 150px;
+    text-align: center;
+    border: 2px #007879 solid;
+    color: #006579;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    overflow: auto;
+	padding: 0;
+}
+
+.petit_capteur
+{
+    margin: 20px;
+    width: 200px;
+    /*height: 160px;*/
     height: 130px;
     text-align: center;
     border: 2px #007879 solid;
@@ -280,6 +320,8 @@ article
     overflow: auto;
 	padding: 0;
 }
+
+
 
 .Capteur_alerte
 {
@@ -317,3 +359,61 @@ img
 {
 	font-weight: bold;
 }
+
+.suppression_onglet{
+	text-decoration: unset;
+	color: black;
+	padding: 5px;
+}
+
+.suppression_onglet:hover{
+	color: #DC143C;
+}
+
+.message_suppression{
+	color: red;
+	padding: 5px;
+}
+
+.gros_attention{
+	color: red;
+	font-size: 25px;
+	padding: 20px;
+}
+
+.conteneur{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.bouton_confimer_suppression
+{
+	border: none;
+	color: #FFFFFF;
+	background-color: #007879;
+	border-radius: 10px;
+	text-decoration: unset;
+	text-align: center;
+	padding: 10px;
+	color: #FFFFFF;
+	width: 11%;
+	height: 3%;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.attention{
+	margin: 40px;
+}
+
+.bouton_confimer_suppression:hover
+{
+	background-color: #00AAAA;
+}
+
+.suppression_onglet_conteneur{
+	display: flex;
+	justify-content: flex-end;
+}
+
