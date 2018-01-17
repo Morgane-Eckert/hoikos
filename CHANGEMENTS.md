@@ -2,8 +2,6 @@
 Inscrivez votre nom sur les tâches que vous êtes en train d'exécuter/allez executer
 
 1. A faire : 
-- Demande d'un numéro cemac/numero client au moment de l'inscription
-- verifications mot de passe page de connexion en PHP
  
 
 CODER DE NOUVELLES PAGES : 
@@ -19,20 +17,16 @@ TACHES EN COURS D'EXECUTION :
   - Ajouter défilement de photos en JS sur la page d'aide (Marie)
   - tests en php sur les inscriptions (Ilan)
   - tests en JS sur les inscritpions
-  - tests en php sur la page de connexion
   
   
 MVC :
-  - Ajouter les petits drapeaux sur toutes les pages et mettre les liens à jour
-  - mettre les liens en anglais (changement d'URL : dans l'index mettre un paramètre autre que target, par exemple "nom.php?langue=anglais" pour les pages en anglais) (Marie ?)
-  - Passer page profil en MVC
-  - Passer page consommation en MVC
-  - Passer page création routine en MVC
+  - Ajouter les petits drapeaux sur toutes les pages et mettre les liens à jour (Marie)
+  - mettre les liens en anglais (changement d'URL : dans l'index mettre un paramètre autre que target, par exemple "nom.php?langue=anglais" pour les pages en anglais) (Marie)
+
 
 
 
 2. A faire (plus tard, si on a le temps) :
-  - Utilisateur principal peut restreindre les accès aux autres utilisateurs.
 
 3. Fait : 
   - Tests en JS sur la page de connexion
