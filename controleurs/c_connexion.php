@@ -59,4 +59,42 @@ function ajout_nouveau_capteur2(){
     }
 }
 
+function ajout_ordre2(){
+    $affectedLines = ajout_ordre(); 
+    if ($affectedLines === false) {
+        die('Impossible d\'envoyer l\'ordre !');
+    } else {
+        header('Location: index.php?target=compte&action=connecte&reaction='.$_GET['anticipation']);
+    }
+}
+
+
+function accueil_formulaire_suppression(){
+    include ('vues/v_accueil_suppression_onglet.php');
+}
+
+function accueil_suppression2(){
+    $affectedLines = accueil_suppression(); 
+    if ($affectedLines === false) {
+        die('Impossible de supprimer la pièce !');
+    } else {
+        header('Location: index.php?target=compte&action=connecte&reaction=home&anticipation=onglet_supprime');
+    }
+    
+}
+
+function accueil_formulaire_suppression_fonction(){
+    include ('vues/v_accueil_suppression_fonction.php');
+}
+
+function accueil_suppression_fonction2(){
+    $affectedLines = accueil_suppression_fonction(); 
+    if ($affectedLines === false) {
+        die('Impossible de supprimer la fonction !');
+    } else {
+        header('Location: index.php?target=compte&action=connecte&reaction='.$_GET['reaction'].'&anticipation=fonction_supprimee');
+    }
+    
+}
+
 ?>
