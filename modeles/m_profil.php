@@ -10,7 +10,6 @@ function connexion_bdd3(){
         die('Erreur : '.$e->getMessage());
 	}
 }
-
 function donnees_utilisateur($id_utilisateur){
     $bdd = connexion_bdd3();
     $reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_utilisateur=:id');
@@ -31,7 +30,6 @@ function donnees_utilisateur($id_utilisateur){
 	
 	return array($ID_logement,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance,$date_d_ajout);
 }
-
 function donnees_logement($ID_logement){
     $bdd = connexion_bdd3();
 	$reponse = $bdd->prepare('SELECT * FROM logement WHERE ID_logement=:id');
@@ -51,9 +49,7 @@ function donnees_logement($ID_logement){
     $reponse->closeCursor();
 	
 	return array($numerorue,$nomrue,$codepostal,$ville,$pays,$telephonelogement);
-
 }
-
 function donnees_utilisateur_secondaire($ID_logement,$ID_utilisateur){
     $bdd = connexion_bdd3();
 	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_logement=:id_logement');
@@ -73,7 +69,6 @@ function donnees_utilisateur_secondaire($ID_logement,$ID_utilisateur){
 	
 	return array($i,$nom,$prenom);
 }
-
 function utilisateur_secondaire($ID_logement,$ID_utilisateur){
     $bdd = connexion_bdd3();
 	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_logement=:id_logement');
@@ -97,11 +92,7 @@ function utilisateur_secondaire($ID_logement,$ID_utilisateur){
 	
 	return array($nom,$prenom,$i);
 }
-
-
-
 function editer_utilisateur_secondaire(){
 	
 }
-
 ?>

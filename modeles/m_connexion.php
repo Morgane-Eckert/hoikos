@@ -51,6 +51,7 @@ function verification($email,$password){
 }
 
 function ajout_nouvel_onglet($nom_salle){
+	$nom_salle[0] = strtoupper($nom_salle[0]);
 	$bdd=connexion_bdd();
 	$reponse3 = $bdd->prepare('SELECT COUNT(*) AS nombre_de_salle FROM salle WHERE ID_logement=:ID_logement AND nom_salle=:nom_salle');
 	$reponse3->execute(array(
@@ -110,14 +111,23 @@ function ajout_ordre(){
 		));
 	$donneesc = $reponsec->fetch();
 	
-	$requeted = $bdd->prepare("INSERT INTO ordre (ID_ordre, ID_utilisateur, ID_logement, ID_type_de_capteur, valeur_ordre, etat_ordre, date_d_ajout_ordre) VALUES (NULL, :ID_utilisateur, :ID_logement, :ID_type_de_capteur, :valeur_ordre, :etat_ordre, NOW())");
+	$requeted = $bdd->prepare("INSERT INTO ordre (ID_ordre, ID_utilisateur, ID_logement, ID_type_de_capteur, nom_salle, valeur_ordre, etat_ordre, date_d_ajout_ordre) VALUES (NULL, :ID_utilisateur, :ID_logement, :ID_type_de_capteur, :nom_salle, :valeur_ordre, :etat_ordre, NOW())");
 	$requeted->execute(array(
 		'ID_utilisateur' => (int)$_SESSION['ID_utilisateur'],
 		'ID_logement' => (int)$_SESSION['ID_logement'],
 		'ID_type_de_capteur' => (int)$donneesc['ID_type_de_capteur'],
+		'nom_salle' => $_GET['anticipation'],
 		'valeur_ordre' => $_POST['ordre'],
 	    'etat_ordre' => 1
 	    ));
+	$req = $bdd->prepare('UPDATE capteur SET donnee_envoyee_capteur = :donnee_envoyee_capteur WHERE ID_logement=:ID_logement AND nom_salle=:nom_salle AND nom_capteur=:nom_capteur ');
+	$req->execute(array(
+	'donnee_envoyee_capteur' => $_POST['ordre'],
+    'ID_logement' => $_SESSION['ID_logement'],
+    'nom_salle' => $_GET['anticipation'],
+    'nom_capteur' => $_GET['comprehension']
+    ));
+
 }
 
 function accueil_suppression(){
