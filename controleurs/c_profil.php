@@ -1,13 +1,8 @@
 <?php
-
 include ('/modeles/m_profil.php');
-
-
-
 function profil(){
 	include('vues/v_profil.php');
 }
-
 function profil_editer_utilisateur_principal($id_utilisateur,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance){
 	$bdd = connexion_bdd3();
 	
@@ -30,11 +25,9 @@ function profil_editer_utilisateur_principal($id_utilisateur,$nom,$prenom,$telep
 		));
 	
 	}
-
 	header("Location:index.php?target=compte&action=connecte&reaction=profil");
 	
 }
-
 function profil_editer_adresse($id_utilisateur,$ruelogement,$villelogement,$numeroruelogement,$codepostallogement,$telephonefixe){
 	$bdd = connexion_bdd3();
     
@@ -57,9 +50,6 @@ function profil_editer_adresse($id_utilisateur,$ruelogement,$villelogement,$nume
 		'nvtelephone' => $telephonefixe,
 		'id' => $ID_logement,
 	));
-
 	header("Location:index.php?target=compte&action=connecte&reaction=profil");
 }
-
-
 ?>
