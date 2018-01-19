@@ -206,9 +206,10 @@ nav
 	background-color: #DC143C;
 }
 
-
-
-
+.message_d_erreur{
+	color : red;
+	font-style: italic;
+}
 
 
 /*SECTION*/
