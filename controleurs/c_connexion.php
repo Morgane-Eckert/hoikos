@@ -24,8 +24,10 @@ function verification2($email,$password){
 
 	if ($affectedLines === false) {
         die('Impossible d\'ajouter le commentaire !');
-    }
-    else {
+    } else if ($_SESSION["type_utilisateur"]==3){
+        echo 'a';
+        header('Location: index.php?target=compte&action=connecte&reaction=conditions_generales');
+    } else {
         header('Location: index.php?target=compte&action=' . $_SESSION["action"].'&reaction=home');
     }
 }
