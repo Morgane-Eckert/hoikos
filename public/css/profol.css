@@ -152,7 +152,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	/*width: 15%;Modifier la largeur de l'onglet*/
+	width: 15%;/*Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: hidden;

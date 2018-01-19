@@ -122,7 +122,7 @@ nav
 
 .Conso
 {
-	font-size: 17px;
+	font-size: 1.4vw;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -133,8 +133,8 @@ nav
 	background-color: #701c1c;
 	/*width: 9%;Modifier la largeur de l'onglet*/
 	height: 21px;
-	overflow-x: hidden;
 	overflow-y: auto;
+	overflow-x: hidden;
 	max-height: 21px;
 	align-self: flex-end;
 	float:right;
@@ -416,4 +416,5 @@ img
 	display: flex;
 	justify-content: flex-end;
 }
+
 
