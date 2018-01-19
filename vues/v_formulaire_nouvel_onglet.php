@@ -23,7 +23,7 @@
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="actuel_nouvel_onglet" id='actuel'>+</a>
             <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
-            <a href="index.php" class="Onglet">Profil</a>
+            <a href="index.php?target=compte&action=connecte&reaction=profil" class="Onglet">Profil</a>
         </nav>
 
 		<section>
@@ -59,8 +59,8 @@
 						</select><br><br>
 						<p class='instruction_nom_salle'> Le nom de la salle doit être unique dans votre foyer.</p>
 						<label for='nom_salle' id=''> Nom de la nouvelle pièce : </label><br/>
-	  					<input type="text" name="nom_salle" id="nom_onglet" placeholder="" value="Chambre" class="Case" size="27" required /><br/><br/>
-	  					<!--
+	  					<input type="text" name="nom_salle" id="nom_onglet" placeholder="" value="Chambre" class="Case" maxlength='20' required /><br/><br/>
+	  					<!-- Debut de code pour afficher la liste des utilisateurs secondaires afin de restreindre leurs droits. Fonctionnalité à rajouter.
 						Utilisateurs secondaires pouvant accéder aux fonctions de la pièce : <br>
 						<?php
 							try

@@ -40,7 +40,7 @@
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet&anticipation=<?php echo $_GET['reaction']; ?>" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
-            <a href="index.php" class="Onglet">Profil</a>
+            <a href="index.php?target=compte&action=connecte&reaction=profil&anticipation= <?php echo $_GET['reaction'];?>" class="Onglet">Profil</a>
         </nav>
 
 		<section>
