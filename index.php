@@ -114,7 +114,11 @@ if (isset($_GET['target'])) {
                             administrateur_slogan();
                         } else if ($_GET['reaction']=='types'){
                             administrateur_types();
-                        }
+                        } else if ($_GET['reaction']=='nouveau_type_de_salle'){
+                            nouveau_type_de_salle2($_POST['nom_nouveau_type_de_salle']);
+                        }  else if ($_GET['reaction']=='nouveau_type_de_capteur'){
+                            nouveau_type_de_capteur2($_POST['nom_nouveau_type_de_capteur']);
+                        } 
                     }
                 }
             } elseif ($_GET['action']=='mot_de_passe_incorrect' or $_GET['action']=='adresse_mail_inconnue'){//L'adresse mail et/ou le mot de passe sont incorrects, on renvoie vers la page d'accueil
