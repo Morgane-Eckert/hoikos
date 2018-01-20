@@ -18,22 +18,18 @@
 			<article class="articlea">
 				<div class="titre"> F.A.Q.</div><br/><!-- Titre dans le bandeau rouge-->
 				<div class="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
-					<p><strong>Comment ajouter un utilisateur secondaire ?</strong><br/>
-						Aller dans paramètres, puis dans utilisateurs secondaires, cliquer sur le bouton « + ».<br/><br/>
-						<strong>Comment ajouter une fonction ?</strong><br/>
-						Aller Home ou bien dans la pièce désirée, cliquer sur le bouton « Ajouter une fonction ».<br/><br/>
-					<strong>Comment ajouter un utilisateur secondaire ?</strong><br/>
-						Aller dans paramètres, puis dans utilisateurs secondaires, cliquer sur le bouton « + ».<br/><br/>
-						<strong>Comment ajouter une fonction ?</strong><br/>
-						Aller Home ou bien dans la pièce désirée, cliquer sur le bouton « Ajouter une fonction ».<br/><br/>
-					<strong>Comment ajouter un utilisateur secondaire ?</strong><br/>
-						Aller dans paramètres, puis dans utilisateurs secondaires, cliquer sur le bouton « + ».<br/><br/>
-						<strong>Comment ajouter une fonction ?</strong><br/>
-						Aller Home ou bien dans la pièce désirée, cliquer sur le bouton « Ajouter une fonction ».<br/><br/>
-					<strong>Comment ajouter un utilisateur secondaire ?</strong><br/>
-						Aller dans paramètres, puis dans utilisateurs secondaires, cliquer sur le bouton « + ».<br/><br/>
-						<strong>Comment ajouter une fonction ?</strong><br/>
-						Aller Home ou bien dans la pièce désirée, cliquer sur le bouton « Ajouter une fonction ».<br/><br/></p>
+					<?php 	include ("modeles/m_faq.php");
+						$question = afficher_question();
+						$reponse = afficher_reponse();
+						for ($i=0;$i<sizeof($question);$i++){
+							$question_reponse[$i] = $question[$i]."</br>".$reponse[$i];
+						} 
+						foreach ($question_reponse as $element){
+							echo "</br>".$element."</br>";
+						}
+						echo "</br>";
+			               	?>
+
 				</div>
 			</article>
 			<a href="" class="boutonb">Voir le tutoriel</a>

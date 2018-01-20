@@ -21,24 +21,10 @@
 
 			<article>
 				<div id="corps"> <!-- Tout ce qu'il y a dans le rectangle-->
-					<strong>Nom de la société : </strong>Hoikos<br/><br/>
-
-					<strong>Adresse : </strong>10, rue de Vanves 92170 Issy-les-Moulineaux<br/><br/>
-
-					<strong>Au Capital de :</strong> 0 €<br/><br/>
-
-					<strong>Adresse de courrier électronique : </strong>hoikos@gmail.com<br/><br/>
-
-					<strong>Le Créateur du site est : </strong>Groupe 4C<br/><br/>
-
-					<strong>Le Responsable de la publication est :</strong> Groupe 4C<br/><br/>
-
-					<strong>Le Webmaster est  : </strong>Groupe 4C<br/><br/>
-
-					<strong>Contactez le Webmaster : </strong>hoikos@gmail.com<br/><br/>
-
-					<strong>L’hébergeur du site est : </strong>ISEP - 75006 PARIS
-				</div>
+					<?php 	include ("modeles/m_conditions_generales.php");
+						echo afficher_mentions_legales();
+					?>
+				</div>			
 			</article>
 		</section>
 		<section class="langues">
