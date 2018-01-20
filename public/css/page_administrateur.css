@@ -1,0 +1,307 @@
+/*Réglages de la taille, police, des marges*/
+body
+{
+	font-family: 'Eras full',Calibri,serif;
+	font-size: 13px;
+	margin: auto;
+}
+
+
+
+
+/*MENU NAVIGATION*/
+nav
+{
+	display: flex;
+	width: 100%;
+}
+
+
+
+
+/*Réglages des onglets*/
+
+.supprimer{
+	margin: 5px;
+	/*margin-left: 10px;
+	margin-right: 10px;*/
+	text-decoration: unset;
+	color: grey;
+	font-size: 9px;
+}
+
+ .supprimer:hover{
+ 	color: #990100;
+ }
+
+ .plus{
+ 	text-decoration: unset;
+ 	font-size: 70px;
+ 	color: #007978;
+ }
+
+ .plus:hover{
+ 	color: #990100;
+ }
+
+.supprimer_conteneur{
+	display: flex;
+	/*justify-content: flex-end;*/
+	justify-content: center;
+}
+.Vide
+{
+	margin-left: 0.2%;
+	font-size: 17px;
+	text-decoration: unset;
+	text-align: center;
+	padding: 10px;
+	margin-top: 2%;
+	/*width: 9%;Modifier la largeur de l'onglet*/
+	height: 4%;
+	align-self: flex-end;
+	flex:1;
+}
+
+.Onglet
+{
+	margin-left: 0.2%;
+	font-size: 17px;
+	text-decoration: unset;
+	text-align: center;
+	padding: 10px;
+	margin-top: 2%;
+	border: none;
+	color: #FFFFFF;
+	background-color: #990100;
+	/*width: 11%;Modifier la largeur de l'onglet*/
+	height: 21px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 21px;
+	align-self: flex-end;
+}
+
+.nouvel_onglet
+{
+	margin-left: 0.2%;
+	font-size: 17px;
+	text-decoration: unset;
+	text-align: center;
+	padding: 10px;
+	margin-top: 2%;
+	border: none;
+	color: #FFFFFF;
+	background-color: #701c1c;
+	width: 3%;/*Modifier la largeur de l'onglet*/
+	height: 21px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 21px;
+	align-self: flex-end;
+}
+
+.Onglet_alerte
+{
+	margin-left: 0.2%;
+	font-size: 17px;
+	text-decoration: unset;
+	text-align: center;
+	padding: 10px;
+	margin-top: 2%;
+	border: none;
+	color: #000000;
+	background-color: #F0E36B;
+	/*width: 11%;Modifier la largeur de l'onglet*/
+	height: 21px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 21px;
+	align-self: flex-end;
+}
+
+.Conso
+{
+	font-size: 1.4vw;
+	text-decoration: unset;
+	text-align: center;
+	padding: 10px;
+	margin-top: 2%;
+	margin-left: 0.2%;
+	border: none;
+	color: #FFFFFF;
+	background-color: #701c1c;
+	/*width: 9%;Modifier la largeur de l'onglet*/
+	height: 21px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 21px;
+	align-self: flex-end;
+	float:right;
+}
+
+/*L'onglet' change de couleur lorsque la souris passe dessus*/
+.Onglet:hover
+{
+	background-color: #DC143C;
+}
+
+.nouvel_onglet:hover
+{
+	background-color: #DC143C;
+}
+
+.Conso:hover
+{
+	background-color: #DC143C;
+}
+
+
+/*Pour les onglet en gris*/
+.actuel
+{
+	margin-left: 0.2%;
+	text-decoration: unset;
+	text-align: center;
+	font-size: 17px;
+	padding: 10px;
+	margin-top: 2%;
+	border: none;
+	color: #FFFFFF;
+	background-color: #F2F2F2;
+	/*width: 11%;Modifier la largeur de l'onglet*/
+	height: 21px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 21px;
+	color: black;
+	border-left: 1px #D4D4D4 solid;
+	border-top: 1px #D4D4D4 solid;
+	border-right: 1px #D4D4D4 solid;
+	align-self: flex-end;
+}
+
+/*Pour les grands onglets */
+.Grandonglet
+{
+	padding: 10px;
+	margin-top: 2%;
+	border: none;
+	color: #FFFFFF;
+	background-color: #990100;
+	width: 15%;/*Modifier la largeur de l'onglet*/
+	height: 21px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	max-height: 21px;
+	color: white;
+	font-size: 17px;
+	text-decoration: unset;
+	text-align: center;
+	align-self: flex-end;
+}
+
+.Grandonglet:hover
+{
+	background-color: #DC143C;
+}
+
+
+
+
+
+
+/*SECTION*/
+section
+{
+	background-color: #F2F2F2;
+	display: flex;
+	justify-content: center;
+	height: 85%;
+}
+
+#titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
+{
+	padding: 10px;
+	background-color: #990100;
+	color: white;
+	font-size: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+
+article
+{
+	margin: 80px;
+	background-color: white;
+	width: 40%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
+	overflow: auto;
+	border: 3px #990100 solid;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+  
+}
+
+/*Marges internes de l'article*/
+#corps
+{
+	padding: 20px;
+	
+}
+
+
+.Titre
+{
+	text-align: left;
+	margin: 0px;
+	padding-top: 15px;
+	padding-left: 15px;
+}
+
+.Affichage
+{
+	text-align: right;
+	margin: 0;
+	padding-top: 15px;
+	padding-right: 15px;
+}
+
+
+
+
+
+.bouton:hover
+{
+	font-weight: bold;
+}
+
+.bouton_gris
+{
+	color: #666666;
+}
+
+.bouton_gris:hover
+{
+	font-weight: bold;
+}
+
+.categorie{
+	font-size: 19px;
+	color: #990100;
+}
+.sous-titre{
+	font-size: 15px;
+	color: #007978;
+}
+
+*{
+	font-size: 14px;
+}
+
+.message{
+	color: red;
+	font-style: italic;
+}
