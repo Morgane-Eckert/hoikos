@@ -6,6 +6,8 @@
 		<link rel="stylesheet" href="public/css/page_administrateur.css">
 		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
+      
+
 	</head>
 	
 	<body>
@@ -15,6 +17,7 @@
             <a href="index.php?target=compte&action=connecte&reaction=mentions_legales" class="Onglet">Mentions légales</a>
             <a href="index.php?target=compte&action=connecte&reaction=slogan" class="Onglet">Slogan</a>
             <a href="index.php?target=compte&action=connecte&reaction=types" class="actuel">Types de pièces et de fonctions</a>
+            <a href="index.php?target=compte&action=connecte&reaction=FAQ" class="Onglet">FAQ</a>
         </nav>
 
 		<section>
