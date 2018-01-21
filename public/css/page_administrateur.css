@@ -206,100 +206,111 @@ nav
 	background-color: #DC143C;
 }
 
+.message_d_erreur{
+	color : red;
+	font-style: italic;
+}
 
 
+.editer
+{
+	text-align:left;
+}
+.editer:hover
+{
+	background-color: #00AAAA;
+}
 
-
-
-/*SECTION*/
 section
 {
 	background-color: #F2F2F2;
 	display: flex;
 	justify-content: center;
-	height: 85%;
-}
-
-#titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
-{
-	padding: 10px;
-	background-color: #990100;
-	color: white;
-	font-size: 20px;
-	display: flex;
-	justify-content: space-between;
 }
 
 
-
-article
+.article_large
 {
-	margin: 80px;
+	margin: 50px;
 	background-color: white;
-	width: 40%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
-	overflow: auto;
+	width: 70%;
 	border: 3px #990100 solid;
 	border-radius: 10px;
-	display: flex;
 	justify-content: center;
-  
 }
 
-/*Marges internes de l'article*/
+.article_etroit
+{
+	margin: 50px;
+	background-color: white;
+	width: 40%;
+	border: 3px #990100 solid;
+	border-radius: 10px;
+	justify-content: center;
+}
+
+.editer
+{
+	border-radius: 8px;
+	font-size: 17px;
+	text-decoration: unset;
+	text-align: center;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: none;
+	color: #FFFFFF;
+	background-color: #007879;
+}
+
 #corps
 {
-	padding: 20px;
-	
-}
-
-
-.Titre
-{
-	text-align: left;
-	margin: 0px;
-	padding-top: 15px;
-	padding-left: 15px;
-}
-
-.Affichage
-{
-	text-align: right;
-	margin: 0;
-	padding-top: 15px;
-	padding-right: 15px;
+	text-align:justify;
+	font-size: 15px;
+	margin: 30px;
+	padding-bottom: 15px;
 }
 
 
 
-
-
-.bouton:hover
+.titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
 {
-	font-weight: bold;
+	font-size: 20px;
 }
 
-.bouton_gris
+
+
+em
 {
-	color: #666666;
+	font-style:normal;
+	margin: 15px;
 }
 
-.bouton_gris:hover
-{
-	font-weight: bold;
+.conteneur_editer{
+	display: flex;
+	justify-content: center;
+}
+
+.conteneur_deux_editer{
+	display: flex;
+	justify-content: space-around;
 }
 
 .categorie{
-	font-size: 19px;
+	font-size: 20px;
 	color: #990100;
 }
+
 .sous-titre{
 	font-size: 15px;
 	color: #007978;
+	font-weight: bold;
 }
 
-*{
-	font-size: 14px;
+.bleu{
+	color: #007978;
 }
+
 
 .message{
 	color: red;
