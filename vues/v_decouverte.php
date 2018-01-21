@@ -3,17 +3,26 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/decouverte.css">
+		<link rel="stylesheet" href="public/css/footer.css">
 		<title>Découverte</title>
 	<body>
 		<header>
 			<a href="index.php" >
-				<img alt="Logo"  src="public/images/logooo.png" id="Logo"><!--Photo du logo et du slogan-->
+				<img alt="Logo"  src="public/images/logo.png" id="Logo"><!--Photo du logo-->
 			</a>
+			<br/>
+			<p class="slogan">
+			<?php 
+			include('modeles/m_bddco.php'); 
+			include ('modeles/m_slogan.php');
+			echo slogan(); ?><p>
 		</header>
+		
+
 		<nav>
             <a href="index.php" class="Onglet">Retour</a>
         </nav>
-		<section>
+		<section class="content">
 			<article>
 				<div id="titre"> Notre Offre</div><br/><!-- Titre dans le bandeau rouge-->
 				<div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
@@ -31,9 +40,7 @@
 				</a>
 		</section>
 
-		<footer>
-			<?php include("vues/v_footer.php"); ?>
-		</footer>
+		<?php include("vues/v_footer.php"); ?>
 		
 	</body>
 </html>

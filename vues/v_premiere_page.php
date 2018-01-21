@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html>
-	
+
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/connexion.css">
 		<link rel="stylesheet" href="public/css/footer.css">
-		<!--<script src="public/js/recuperer_variable_url.js" ></script>
-		<script src="public/js/valider_formulaire_connexion.js" ></script>-->
+		<script src="public/js/recuperer_variable_url.js" ></script>
+		<script src="public/js/valider_formulaire_connexion.js" ></script>
+		<title>Bienvenue chez Hoikos</title>
 	</head>
 	<body>
 		<header>
 			<a href="index.php" >
-				<img alt="Logo"  src="public/images/logooo.png" id="Logo"><!--Photo du logo et du slogan-->
+				<img alt="Logo"  src="public/images/logo.png" id="Logo"><!--Photo du logo-->
 			</a>
+			<br/>
+			<p class="slogan">
+			<?php
+			include('modeles/m_bddco.php');  
+			include ('modeles/m_slogan.php');
+			echo slogan(); ?><p>
 		</header>
 
 		<section>
@@ -20,15 +27,6 @@
 				<p id ='message_d_erreur'></p>
 			</div>
 			<article id="formulaire">
-			<?php 
-			if (isset($_GET['action'])) {
-				if ($_GET['action'] == 'mot_de_passe_incorrect'){
-					echo "<p id='message_d_erreur'>Le mot de passe entré est incorrect.</p>";
-				} else if ($_GET['action'] == 'adresse_mail_inconnue'){
-					echo "<p id='message_d_erreur'>L'adresse mail entrée ne correspond à aucun compte</p>";
-				}
-			}
-			?>
 
 				<form method="post" action="index.php?target=compte">
   					 <p><input type="text" name="adressemail" placeholder="Adresse mail" class="Case" size="27" required /></p>

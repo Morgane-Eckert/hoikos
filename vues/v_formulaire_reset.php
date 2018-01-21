@@ -10,8 +10,14 @@
 	<body>
 		<header>
 			<a href="index.php" >
-				<img alt="Logo"  src="public/images/logooo.png" id="Logo"><!--Photo du logo et du slogan-->
+				<img alt="Logo"  src="public/images/logo.png" id="Logo"><!--Photo du logo-->
 			</a>
+			<br/>
+			<p class="slogan">
+			<?php
+			include('modeles/m_bddco.php'); 
+			include ('modeles/m_slogan.php');
+			echo slogan(); ?><p>
 		</header>
 
 		<section>
