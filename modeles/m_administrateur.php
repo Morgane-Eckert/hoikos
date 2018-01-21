@@ -2,6 +2,7 @@
 
 function nouveau_type_de_salle($nom_nouveau_type_de_salle){
 	$bdd=connexion_bdd();
+	$nom_nouveau_type_de_salle[0] = strtoupper($nom_nouveau_type_de_salle[0]);
 	$reponse0 = $bdd->prepare('SELECT COUNT(*) AS nombre_type_de_salle FROM type_de_salle WHERE nom_type_de_salle=:nom_type_de_salle');
 	$reponse0->execute(array(
 		'nom_type_de_salle' => $nom_nouveau_type_de_salle
@@ -36,7 +37,6 @@ function nouveau_type_de_capteur($nom_nouveau_type_de_capteur){
 		return $nom_deja_existant;
 	}
 }
-
 function get_conditions_generales(){
 		$bdd=connexion_bdd();
 		$reponse = $bdd->query('SELECT conditions_generales from administration');

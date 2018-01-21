@@ -67,7 +67,7 @@ if ($mailexist == 1)
 		}}return 1;
 }
 /*Ajout logement*/
-function ajout_logement($superficie_totale_logement,$type_logement,$telephone_fixe,$numero_rue_logement,$nom_rue_logement,$code_postale_logement,$ville_logement,$pays_logement){
+function ajout_logement($type_logement,$telephone_fixe,$numero_rue_logement,$nom_rue_logement,$code_postale_logement,$ville_logement,$pays_logement){
 	$bdd=connexion_bdd();
 	$type_logement='0';
 	if ($_POST["type_logement"]=='Maison'){
@@ -77,9 +77,8 @@ function ajout_logement($superficie_totale_logement,$type_logement,$telephone_fi
     	$type_logement='1';
 	}
 	/*On crée une ligne logement*/
-	$requete = $bdd->prepare("INSERT INTO logement (superficie_totale_logement, type_logement, telephone_logement, numero_rue_logement, nom_rue_logement, code_postale_logement, ville_logement, pays_logement) VALUES (:superficie_totale_logement, :type_logement, :telephone_fixe, :numero_rue_logement, :nom_rue_logement, :code_postale_logement, :ville_logement, :pays_logement)");
+	$requete = $bdd->prepare("INSERT INTO logement (type_logement, telephone_logement, numero_rue_logement, nom_rue_logement, code_postale_logement, ville_logement, pays_logement) VALUES (:type_logement, :telephone_fixe, :numero_rue_logement, :nom_rue_logement, :code_postale_logement, :ville_logement, :pays_logement)");
 	$requete->execute(array(
-	    'superficie_totale_logement' => $superficie_totale_logement,
 	    'type_logement' => $type_logement,
 	    'telephone_fixe' => $telephone_fixe,
 	    'numero_rue_logement' => $numero_rue_logement,

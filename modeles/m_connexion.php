@@ -120,22 +120,39 @@ function ajout_ordre(){
 		'valeur_ordre' => $_POST['ordre'],
 	    'etat_ordre' => 1
 	    ));
-	$req = $bdd->prepare('UPDATE capteur SET donnee_envoyee_capteur = :donnee_envoyee_capteur WHERE ID_logement=:ID_logement AND nom_salle=:nom_salle AND nom_capteur=:nom_capteur ');
-	$req->execute(array(
-	'donnee_envoyee_capteur' => $_POST['ordre'],
-    'ID_logement' => $_SESSION['ID_logement'],
-    'nom_salle' => $_GET['anticipation'],
-    'nom_capteur' => $_GET['comprehension']
+	if ($_GET['anticipation']=='home'){
+		$req = $bdd->prepare('UPDATE capteur SET donnee_envoyee_capteur = :donnee_envoyee_capteur WHERE ID_logement=:ID_logement AND nom_capteur=:nom_capteur ');
+		$req->execute(array(
+		'donnee_envoyee_capteur' => $_POST['ordre'],
+	    'ID_logement' => $_SESSION['ID_logement'],
+	    'nom_capteur' => $_GET['comprehension']
+	    ));
+	} else {
+		$req = $bdd->prepare('UPDATE capteur SET donnee_envoyee_capteur = :donnee_envoyee_capteur WHERE ID_logement=:ID_logement AND nom_salle=:nom_salle AND nom_capteur=:nom_capteur ');
+		$req->execute(array(
+		'donnee_envoyee_capteur' => $_POST['ordre'],
+	    'ID_logement' => $_SESSION['ID_logement'],
+	    'nom_salle' => $_GET['anticipation'],
+	    'nom_capteur' => $_GET['comprehension']
+	
     ));
+	}
 
 }
 
 function accueil_suppression(){
 	$bdd=connexion_bdd();
+	/*Suppression de la salle*/
 	$requetef = $bdd->prepare("DELETE FROM salle WHERE nom_salle=:nom_salle AND ID_logement=:ID_logement");
 	$requetef->execute(array(
 		'nom_salle' => $_GET['reaction'],
 		'ID_logement' => $_SESSION['ID_logement']
+	    ));
+	/*Suppression des capteurs de la salle*/
+	$requeteg = $bdd->prepare("DELETE FROM capteur WHERE ID_logement=:ID_logement AND nom_salle=:nom_salle");
+	$requeteg->execute(array(
+		'ID_logement' => $_SESSION['ID_logement'],
+		'nom_salle' => $_GET['reaction']
 	    ));
 }
 
