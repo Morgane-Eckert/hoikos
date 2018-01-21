@@ -17,20 +17,8 @@ function administrateur_types(){
     include ('vues/v_administrateur_types.php');
 }
 
-function firstlettertoupper($input){
-    for ($i=0;$i<strlen($input);$i++)   
-    {  
-        if ((preg_match("/^[A-Z]+$/",$input[$i])==true) && ($input[$i-1]!="-"))
-        {
-            $input[$i]=strtolower($input[$i]);
-        }
-        if ($input[$i]=="-")
-        {
-            $input[$i+1]=strtoupper($input[$i+1]);
-        }
-    }
-    $input[0]=strtoupper($input[0]);
-    return $input;
+function administrateur_faq(){
+    include ('vues/v_administrateur_faq.php');
 }
 
 function nouveau_type_de_salle2($nom_nouveau_type_de_salle){
