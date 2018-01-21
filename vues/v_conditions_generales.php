@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="public/css/conditionsgenerales.css">
 		<link rel="stylesheet" href="public/css/base-header-sans-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
+
 		<title>Conditions générales</title>
 	</head>
 	
@@ -14,7 +15,13 @@
 		<?php include("vues/v_base-header-sans-bouton-deconnexion.php"); ?>
 
 		<nav>
-			<a href="index.php" class="Onglet">Retour</a><a href="index.php?target=conditions_generales" class="actuel">Conditions générales d'utilisation</a><a href="index.php?target=mentions_legales" class="Grandonglet">Mentions légales</a>
+			<?php 
+			if (isset($_SESSION["connect"])){
+				echo "<a href='index.php?target=compte&action=connecte&reaction=home' class='Onglet'>Retour</a><a href='index.php?target=conditions_generales' class='actuel'>Conditions générales d'utilisation</a><a href='index.php?target=mentions_legales' class='Grandonglet'>Mentions légales</a>";				
+			} else {
+				echo "<a href='index.php' class='Onglet'>Retour</a><a href='index.php?target=conditions_generales' class='actuel'>Conditions générales d'utilisation</a><a href='index.php?target=mentions_legales' class='Grandonglet'>Mentions légales</a>";
+			} 
+			?>
 		</nav>
 		
 		<section>

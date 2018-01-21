@@ -29,7 +29,9 @@
 					<img alt="decouverte"  src="public/images/decouverte.png" id="decouverte">
 				</div>
 			</article>
-			<a href="index.php?target=inscription&action=utilisateur" class="Grandonglet">Inscription</a>
+			<p>
+				<a href="index.php?target=inscription&action=utilisateur" class="Grandonglet">Inscription</a>
+			</p>
 		</section>
 		<section class="langues">
 				<a href="decouverte.php" >

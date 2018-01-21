@@ -3,7 +3,7 @@
 	
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="public/css/page_utilisateur.css">
+		<link rel="stylesheet" href="public/css/page_utilisateur_confirmation_suppression.css">
 		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
 	</head>
@@ -39,7 +39,7 @@
             <article>
                 <div id="titre">Suppression de la pièce <?php echo $_GET['reaction']; ?><a href="" class="Routine">Routine</a></div> <div class='conteneur'>
                     <span class=gros_attention> Attention ! </span><br><br>
-                    Vous vous apprettez à supprimer cet onglet. Êtes-vous sûr de vouloir continuer ? <br><br>
+                    Vous vous apprettez à supprimer cette pièce. Êtes-vous sûr de vouloir continuer ? <br><br>
                     <span class='attention'>
                         <a href="index.php?target=compte&action=connecte&reaction=<?php echo $_GET['reaction']; ?>" class="bouton_confimer_suppression">Annuler</a> <a href="index.php?target=compte&action=connecte&reaction=<?php echo $_GET['reaction']; ?>&anticipation=suppression_onglet_confirme" class="bouton_confimer_suppression">Confirmer</a>
                     </span>

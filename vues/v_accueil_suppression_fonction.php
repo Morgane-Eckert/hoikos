@@ -3,7 +3,7 @@
 	
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="public/css/page_utilisateur.css">
+		<link rel="stylesheet" href="public/css/page_utilisateur_confirmation_suppression.css">
 		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
 	</head>
@@ -37,13 +37,16 @@
 
 		<section>
             <article>
-                <div id="titre">Suppression de la fonction <?php echo $_GET['comprehension']; ?><a href="" class="Routine">Routine</a></div> <div class='conteneur'>
+                <div id="titre">Suppression de la fonction <?php echo $_GET['comprehension']; ?><a href="" class="Routine">Routine</a></div>
+                <div id='corps'>
+                 <div class='conteneur'>
                     <span class=gros_attention> Attention ! </span><br><br>
                     Vous vous apprettez à supprimer la fonction <?php echo $_GET['comprehension']; ?> de la pièce <?php echo $_GET['reaction']; ?>. Êtes-vous sûr de vouloir continuer ? <br><br>
                     <span class='attention'>
                         <a href="index.php?target=compte&action=connecte&reaction=<?php echo $_GET['reaction']; ?>" class="bouton_confimer_suppression">Annuler</a> <a href="index.php?target=compte&action=connecte&reaction=<?php echo $_GET['reaction']; ?>&anticipation=suppression_fonction_confirme&comprehension=<?php echo $_GET['comprehension']; ?>" class="bouton_confimer_suppression">Confirmer</a>
                     </span>
                 </div>
+            </div>
             </article>
 		</section>
 

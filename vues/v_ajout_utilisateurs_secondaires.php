@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="public/css/base-header-sans-bouton.css">
         <link rel="stylesheet" href="public/css/inscription_secondaire.css">
         <link rel="stylesheet" href="public/css/footer.css">
-        <title>Ajouter un utilisateur secondaire</title>
     </head>
     
     <body>
@@ -24,7 +23,7 @@
                         <input type='text' name='nom' id='nom' required><br><br>
                         <label for='prenom'> Prénom :  </label><br/>
                         <input type='text' name='prenom' id='prenom' required><br><br />
-                        <label for='telephone'> Téléphone :  </label><br/>
+                        <label for='telephone'> Téléphone personnel : </label><br/>
                         <input type='text' name='telephone1' id='telephone1' maxlenght='10' required><br><br />
                         <label for='email'> Adresse mail :  </label><br/>
                         <input type='email' name='adresse_mail' id='adresse_mail'  required><br><br />

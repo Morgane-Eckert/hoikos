@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="public/css/profol.css">
+		<link rel="stylesheet" href="public/css/profil.css">
 		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
 		<script type='text/javascript' src='public/javascript/adresse.js'></script>

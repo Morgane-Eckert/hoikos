@@ -6,7 +6,6 @@
 		<link rel="stylesheet" href="public/css/inscription.css">
 		<link rel="stylesheet" href="public/css/base-header-sans-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
-		<title>Ajouter un utilisateur</title>
 	</head>
 	
 	<body>
@@ -25,14 +24,14 @@
 						<input type='text' pattern='^[a-zA-Z]+$' name='nom' id='nom' required><br><br>
 						<label for='prénom'> Prénom :  </label><br/>
 						<input type='text' pattern='^[a-zA-Z]+$' name='prenom' id='prenom' required><br><br />
-						<label for='telephone'> Téléphone :  </label><br/>
-						<input type='tel' pattern='/^0[1-6]\d{8}$/' name='telephone1' id='telephone1' maxlength='10' required><br><br />
-						<!--<?php verif_mail();?>-->
+						<label for='telephone'> Téléphone personnel :  </label><br/>
+						<input type='tel'  name='telephone1' id='telephone1' maxlength='10' required><br><br />
+						<?php verif_mail();?>
 						<label for='adresse_mail'> Adresse mail :  </label><br/>
-						<input type='mail' name='adresse_mail' id='adresse_mail'  required><br><br />
+						<input type='email' name='adresse_mail' id='adresse_mail'  required><br><br />
 						<label for='date_naissance'> Date de naissance:  </label><br/>
 						<input type='date' name='date_naissance' id='date_naissance'  required><br><br />
-						<!--<?php verif_mdp();?>-->
+						<?php verif_mdp();?>
 						<label for='mot_de_passe'>Mot de passe : </label><br/>
 						<input type='password' name='mot_de_passe' id='mot_de_passe'  required><br><br />
 

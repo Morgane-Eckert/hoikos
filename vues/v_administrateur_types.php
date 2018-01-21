@@ -5,9 +5,6 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/page_administrateur.css">
 		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
-		<link rel="stylesheet" href="public/css/footer.css">
-      
-
 	</head>
 	
 	<body>
@@ -17,11 +14,11 @@
             <a href="index.php?target=compte&action=connecte&reaction=mentions_legales" class="Onglet">Mentions légales</a>
             <a href="index.php?target=compte&action=connecte&reaction=slogan" class="Onglet">Slogan</a>
             <a href="index.php?target=compte&action=connecte&reaction=types" class="actuel">Types de pièces et de fonctions</a>
-            <a href="index.php?target=compte&action=connecte&reaction=FAQ" class="Onglet">FAQ</a>
+            <a href="index.php?target=compte&action=connecte&reaction=FAQ" class="Onglet">F.A.Q.</a>
         </nav>
 
-		<section>
-			<article>
+        <section class="section">
+            <article class="article_etroit">
                     <div id="corps">
                         <p>
                             <?php 
@@ -58,9 +55,9 @@
                             <form method="post" action="index.php?target=compte&action=connecte&reaction=nouveau_type_de_salle">
                                 <fieldset>
                                     <legend><div class='sous-titre'>Ajouter un nouveau type de pièce : </div></legend><br>
-                                    Nom du type de pièce : </label><br/>
+                                    <label>Nom du type de pièce : </label><br/>
                                     <input type="text" name="nom_nouveau_type_de_salle" maxlength='20' required />
-                                    <input type='submit' value='Valider' id='bouton'>
+                                    <input type='submit' value='Valider' class='editer' id='bouton'>
                                 </fieldset>
                             </form> 
                         </p><br>
@@ -78,15 +75,14 @@
                             <form method="post" action="index.php?target=compte&action=connecte&reaction=nouveau_type_de_capteur">
                                 <fieldset>
                                     <legend><div class='sous-titre'>Ajouter un nouveau type de fonction : </div></legend><br>
-                                    Nom du type de fonction : </label><br/>
+                                    <label>Nom du type de fonction : </label><br/>
                                     <input type="text" name="nom_nouveau_type_de_capteur" maxlength='20' required />
-                                    <input type='submit' value='Valider' id='bouton'>
+                                    <input type='submit' value='Valider' class='editer' id='bouton'>
                                 </fieldset>
                             </form> 
                         </p>                       
                     </div>
 			</article>
 		</section>
-		<?php include("vues/v_footer.php"); ?>
 	</body>
 </html>

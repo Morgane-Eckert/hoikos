@@ -10,7 +10,7 @@
 		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
 
 		<nav>
-			<a href="index.php?target=compte&action=connecte&reaction=home" class="Onglet">Home</a>
+			<a href="index.php?target=compte&action=connecte&reaction=home" class="Conso">Home</a>
 	         <?php //Affichage des onglets
                 include("accueil_onglets.php");
                 $onglets = afficher_onglets();
@@ -23,7 +23,7 @@
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="actuel_nouvel_onglet" id='actuel'>+</a>
             <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
-            <a href="index.php?target=compte&action=connecte&reaction=profil" class="Onglet">Profil</a>
+            <a href="index.php?target=compte&action=connecte&reaction=profil" class="Conso">Profil</a>
         </nav>
 
 		<section>

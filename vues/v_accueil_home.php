@@ -1,3 +1,7 @@
+<?php 
+$bdd=connexion_bdd();
+include("accueil_onglets.php");
+?>
 <!DOCTYPE html>
 <html>
 	
@@ -9,11 +13,18 @@
 	</head>
 	
 	<body>
-		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
+		<?php 
+            include("vues/v_base-header-avec-bouton-deconnexion.php"); 
+            //Affichage d'un message d'erreur si un capteur ne fonctionne pas
+            list($erreur_capteur,$erreur_salles,$a) = afficher_erreur_capteur();
+            for($i=0;$i<$a;$i++){
+                echo "<p class='erreur_capteur'>Attention : La fonction ".$erreur_capteur[$i]." de la pièce ".$erreur_salles[$i]." rencontre un dysfonctionnement. <a href='index.php' class='lien_message_etat_capteur'>Contactez le SAV en cliquant ici</a>";
+            }
+            
+        ?>
 		<nav>
             <a href="index.php?target=compte&action=connecte&reaction=home" class="actuel">Home</a>
-             <?php //Affichage des onglets
-                include("accueil_onglets.php");
+             <?php //Affichage des onglets                
                 $onglets = afficher_onglets();
                 if ($onglets!=NULL)
                 foreach($onglets as $element){//On parcourt le tableau
@@ -30,7 +41,7 @@
 
 		<section>
 			<article>
-				<div id="titre">Fonctions de la maison<a href="" class="Routine">Routine</a></div> 
+				<div id="titre">Fonctions du foyer<a href="" class="Routine">Routine</a></div> 
                     <br/><!-- Titre dans le bandeau rouge-->
                     <?php
                      if (isset($_GET['anticipation'])){
@@ -39,33 +50,6 @@
                         }
                     }
                     ?>
-                    <!--<div id="corps"> 
-                        <?php //Affichage des onglets
-
-                            $capteurs = afficher_fonctions_home();
-                            if ($capteurs!=NULL){
-                                foreach($capteurs as $element){//On parcourt le tableau
-                                    ?>
-                                    <div class="petit_capteur">
-                                        <div class = "BoiteVide">
-                                            <h3 class="Titre"> <?php echo $element; ?> </h3><h3 class="Affichage">25°C</h3>
-                                        </div>
-                                        <div class = "BoiteVide">
-                                            <span class="Titre">Ordre</span><h3 class="Affichage">27°C</h3>
-                                        </div><br>
-                                        <form method="post" action="index.php?target=compte&action=connecte&reaction=nouvel_ordre&anticipation=<?php echo $_GET['reaction'] ?>&comprehension=<?php echo $element; ?>">
-                                            <input type="range" name="ordre" min="15" max="30">
-                                            <input type='submit' value='Envoyer' id='bouton'>
-                                        </form>
-                                    </div>
-                                    <?php 
-                                }
-                            } else {
-                                echo '<p> Ajoutez votre première pièce afin de faire apparaître votre première fonction !<br><br> </p>';
-                            }
-                            ?>
-                    </div>-->
-
                     <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
                         <?php //Affichage des onglets
 
@@ -77,29 +61,34 @@
                                     <div class = "BoiteVide">
                                         <h3 class="Titre"> <?php echo $element; ?> </h3><h3 class="Affichage">
                                             <?php
-   
-                                        try
-                                        {
-                                            $bdd = new PDO('mysql:host=localhost;dbname=hoikos;charset=utf8', 'root', '');
-                                        }
-                                        catch(Exception $e)
-                                        {
-                                            die('Erreur : '.$e->getMessage());
-                                        }
+                                            /*
+                                            Affichage statique au cas ou le donnees_recue_capteur marche pas
+                                            if ($element=='Température'){
+                                                echo '21°C';
+                                            } else if ($element=='Humidité'){
+                                                echo '54%';
+                                            } else if ($element=='Eau' or $element=='Electricité' or $element=='Fumée' or $element=='VMC' or $element=='Mouvement' or $element=='Caméra'){
+                                                echo 'ON';
+                                            } else if ($element=='Volets'){
+                                                echo 'Ouverts';  
+                                            } else if ($element=='Lumière'){
+                                                echo 'Allumé';
+                                            }*/     
 
                                         $reponseg = $bdd->prepare('SELECT ID_type_de_capteur FROM type_de_capteur WHERE nom_type_de_capteur=:nom_type_de_capteur');
                                         $reponseg->execute(array(
                                                 'nom_type_de_capteur' => $element
                                                 ));
                                         $donneesg = $reponseg->fetch();
-                                        $reponseh = $bdd->prepare('SELECT * FROM capteur WHERE ID_logement=:ID_logement AND ID_type_de_capteur=:ID_type_de_capteur LIMIT 1');
+                                        $reponseh = $bdd->prepare('SELECT * FROM capteur WHERE ID_logement=:ID_logement AND ID_type_de_capteur=:ID_type_de_capteur AND nom_salle=:nom_salle');
                                         $reponseh->execute(array(
                                             'ID_logement' => $_SESSION['ID_logement'],
-                                            'ID_type_de_capteur' => $donneesg['ID_type_de_capteur']
+                                            'ID_type_de_capteur' => $donneesg['ID_type_de_capteur'],
+                                            'nom_salle' => $_GET['reaction']
                                             ));
                                        $donneesh = $reponseh->fetch();
                                         if ($donneesh['donnee_recue_capteur']==NULL){
-                                            echo 'non';
+                                            echo '';
                                         } else {
                                             echo $donneesh['donnee_recue_capteur'];
                                             if ($element=='Humidité'){
@@ -115,7 +104,6 @@
                                     <div class = "BoiteVide">
                                         <?php 
 
-                                            /*POSSIBILITE 1 : RECUPERER ORDRE DANS TABLE ORDRE
                                             $reponsea = $bdd->prepare('SELECT * FROM ordre WHERE ID_logement=:ID_logement AND ID_type_de_capteur=:ID_type_de_capteur AND nom_salle=:nom_salle ORDER BY ID_ordre DESC LIMIT 1');
                                             $reponsea->execute(array(
                                                 'ID_logement' => $_SESSION['ID_logement'],
@@ -132,18 +120,20 @@
                                                 echo "<span class='Titre'>Ordre</span><h3 class='Affichage'>".$donneesa['valeur_ordre']."°C</h3>";
                                             } else {
                                                 echo "<span class='Titre'>Ordre</span><h3 class='Affichage'>".$donneesa['valeur_ordre']."</h3>";
-                                            }*/
+                                            }
 
-                                            /*POSSIBILITE 2 : RECUPERER ORDRE DANS TABLE ORDRE*/
+                                            /*POSSIBILITE 2 : RECUPERER ORDRE DANS TABLE CAPTEUR
                                             if ($donneesh['donnee_envoyee_capteur']==NULL){
                                                 echo '<h3></h3>';
-                                            } else if ($element=='Humidité'){
+                                            } else if ($element=='Humidité' and $donneesh['donnee_envoyee_capteur']!=$donneesh['donnee_recue_capteur']){
                                                 echo "<span class='Titre'>Ordre</span><h3 class='Affichage'>".$donneesh['donnee_envoyee_capteur']."%</h3>";
-                                            } else if ($element=='Température'){
+                                            } else if ($element=='Température'and $donneesh['donnee_envoyee_capteur']!=$donneesh['donnee_recue_capteur']){
                                                 echo "<span class='Titre'>Ordre</span><h3 class='Affichage'>".$donneesh['donnee_envoyee_capteur']."°C</h3>";
-                                            } else {
+                                            } else if ($donneesh['donnee_envoyee_capteur']!=$donneesh['donnee_recue_capteur']){
                                                 echo "<span class='Titre'>Ordre</span><h3 class='Affichage'>".$donneesh['donnee_envoyee_capteur']."</h3>";
-                                            }
+                                            } else {
+                                                echo '<h3></h3>';
+                                            }*/
                                         
                                         ?>
                                         
@@ -197,7 +187,6 @@
                                         <?php
                                         }
                                         ?>
-                                    <span class="supprimer_conteneur"><a href="index.php?target=compte&action=connecte&reaction=<?php echo $_GET['reaction']; ?>&anticipation=suppression_fonction&comprehension=<?php echo $element; ?>" class="supprimer">Supprimer cette fonction</a></span>
                                 </div>
                                 <?php 
                                 }
