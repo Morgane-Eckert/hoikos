@@ -107,18 +107,58 @@ if (isset($_GET['target'])) {
                     include ('controleurs/c_administrateur.php');
                     if (isset($_GET['reaction'])){
                         if ($_GET['reaction']=='conditions_generales') {
-                            administrateur_conditions_generales();
+                            if(isset($_GET['rempli'])){ 
+                                if ($_GET['rempli']=='OK'){     
+                                    update_cgu($_POST["conditions_generales"]);
+                                } else if ($_GET['rempli']=='administrateur'){     
+                                    administrateur_conditions_generales();
+                                }
+
+                            }
+                            else {
+                                administrateur_conditions_generales();
+                            }
                         } else if ($_GET['reaction']=='mentions_legales'){
-                            administrateur_mentions_legales();
+                            if(isset($_GET['rempli'])){ 
+                                if ($_GET['rempli']=='OK'){     
+                                    update_mentions_legales($_POST["mentions_legales"]);
+                                } else if ($_GET['rempli']=='administrateur'){     
+                                    administrateur_mentions_legales();
+                                }
+                            }
+                            else {
+                                administrateur_mentions_legales();
+                            }
                         } else if ($_GET['reaction']=='slogan'){
-                            administrateur_slogan();
+                            if(isset($_GET['rempli'])){ 
+                                if ($_GET['rempli']=='OK'){     
+                                    update_slogan();
+                                } else if ($_GET['rempli']=='administrateur'){     
+                                    administrateur_slogan();
+                                }
+                            }
+                            else {
+                                administrateur_slogan();
+                            }
                         } else if ($_GET['reaction']=='types'){
                             administrateur_types();
                         } else if ($_GET['reaction']=='nouveau_type_de_salle'){
                             nouveau_type_de_salle2($_POST['nom_nouveau_type_de_salle']);
-                        }  else if ($_GET['reaction']=='nouveau_type_de_capteur'){
+                        } else if ($_GET['reaction']=='nouveau_type_de_capteur'){
                             nouveau_type_de_capteur2($_POST['nom_nouveau_type_de_capteur']);
-                        } 
+                        } else if ($_GET['reaction']=='FAQ'){
+                            if(isset($_GET['rempli'])){ 
+                                if ($_GET['rempli']=='OK_edit'){
+                                    update_faq_edit();
+                                } else if ($_GET['rempli']=='OK_add'){
+                                    update_faq_add();
+                                }else {     
+                                    administrateur_faq();
+                                }
+                            }else{
+                                administrateur_faq();
+                            }
+                        }
                     }
                 }
             } elseif ($_GET['action']=='mot_de_passe_incorrect' or $_GET['action']=='adresse_mail_inconnue'){//L'adresse mail et/ou le mot de passe sont incorrects, on renvoie vers la page d'accueil
