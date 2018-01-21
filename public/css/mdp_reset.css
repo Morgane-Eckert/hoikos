@@ -9,16 +9,26 @@ body
 header
 {
 	background-color: #FFFFFF;
-	margin-top: 15px;
-	padding-bottom: 20px; 
+	margin: auto;						
+	align-items: center;
 	display: flex;
+	flex-direction: column;
+}
+/*Réglages du logo et du slogan*/
+.slogan
+{
+	font-family: 'Eras full',Calibri,serif;
+	font-size: 30px;
+	margin: auto;
+	text-align: center;
 }
 
 /*Réglages du logo et du slogan*/
 #Logo
 {
-	width: 35%;
-	margin-left: 35%;
+	max-width: 100%;
+	height: auto;
+	margin-top: 10px; 
 }
 
 #formulaire

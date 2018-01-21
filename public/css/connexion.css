@@ -10,16 +10,24 @@ body
 header
 {
 	background-color: #FFFFFF;
-	margin-top: 15px;
-	padding-bottom: 20px; 
+	margin: auto;						
+	align-items: center;
 	display: flex;
+	flex-direction: column;
 }
-
 /*Réglages du logo et du slogan*/
+.slogan
+{
+	font-family: 'Eras full',Calibri,serif;
+	font-size: 30px;
+	margin: auto;
+	text-align: center;
+}
 #Logo
 {
-	width: 35%;
-	margin-left: 35%;
+	max-width: 100%;
+	height: auto;
+	margin-top: 10px; 
 }
 
 
@@ -54,8 +62,12 @@ nav
 
 #image
 {
-	display: flex;
+	display:flex;
+	align-items: center;
+	margin: auto;
 	justify-content: center;
+	max-width: 60%;
+	height: auto;
 }
 
 
@@ -66,6 +78,7 @@ section
 	background-color: #F2F2F2;
 	display: flex;
 	justify-content: center;
+
 	flex-direction: column;
 	height: 70%;
 }
@@ -89,7 +102,8 @@ section
 
 #demo
 {
-	width: 40%;
+	height: 150px;
+	max-width: 500px;
 }
 
 /*Reglages message d'erreur*/
@@ -124,7 +138,7 @@ section
 	border: none;
 	color: #FFFFFF;
 	background-color: #007879;
-	width: 9.5%;/*Modifier la largeur de l'onglet*/
+	min-width: 9.5%;/*Modifier la largeur de l'onglet*/
 	margin-right: 3px;
 	color: white;
 	font-size: 17px;
@@ -168,6 +182,8 @@ aside
 {
 	display: flex ;
 	justify-content: flex-end;
+	align-items: right;
+
 }
 
 #francais

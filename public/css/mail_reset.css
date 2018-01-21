@@ -9,16 +9,26 @@ body
 header
 {
 	background-color: #FFFFFF;
-	margin-top: 15px;
-	padding-bottom: 20px; 
+	margin: auto;						
+	align-items: center;
 	display: flex;
+	flex-direction: column;
+}
+/*Réglages du logo et du slogan*/
+.slogan
+{
+	font-family: 'Eras full',Calibri,serif;
+	font-size: 30px;
+	margin: auto;
+	text-align: center;
 }
 
 /*Réglages du logo et du slogan*/
 #Logo
 {
-	width: 35%;
-	margin-left: 35%;
+	max-width: 100%;
+	height: auto;
+	margin-top: 10px; 
 }
 
 #formulaire
@@ -103,8 +113,9 @@ section
 	margin-top: 50px;
 	margin-bottom: 50px;
 	background-color: white;
-	width: 25%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
-	height: 10%;
+	min-width: 35%;
+	max-width: 100%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
+	height: auto;
 	overflow: auto;
 	border: 6px #990100 solid;
 	border-radius: 10px;

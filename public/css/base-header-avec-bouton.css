@@ -5,18 +5,30 @@
 header
 {
 	background-color: #FFFFFF;
-	margin-top: 0px;
-	padding-bottom: 0px; 
+	margin: auto;
 	display: flex;
 	justify-content: space-between;
 }
 
 /*Réglages du logo et du slogan*/
+.slogan
+{
+	font-family: 'Eras full',Calibri,serif;
+	font-size: 30px;
+	margin: auto;
+	text-align: center;
+}
+a
+{
+	text-decoration:none;
+	color: black;
 #Logo
 {
+	padding: 0px;
 	margin-top: 30px;
-	width: 250px;
-	height: 140px;
+	margin-left: 30px;
+	max-width: auto;
+	height: auto;
 }
 
 #Maisons
@@ -24,8 +36,8 @@ header
 	margin-top: 30px;
 	margin-left: 100px;
 	margin-right: 100px;
-	width: 30%;
-	height: 30%;
+	width: auto;
+	height: auto;
 }
 
 /*Réglages du bouton de deconnexion*/

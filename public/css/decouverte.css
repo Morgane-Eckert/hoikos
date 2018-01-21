@@ -10,21 +10,30 @@ body
 header
 {
 	background-color: #FFFFFF;
-	margin-top: 15px;
-	padding-bottom: 20px; 
+	margin: auto;						
+	align-items: center;
 	display: flex;
+	flex-direction: column;
+}
+/*Réglages du logo et du slogan*/
+.slogan
+{
+	font-family: 'Eras full',Calibri,serif;
+	font-size: 30px;
+	margin: auto;
+	text-align: center;
 }
 
-/*Réglages du logo et du slogan*/
 #Logo
 {
-	width: 35%;
-	margin-left: 35%;
+	max-width: 100%;
+	height: auto;
+	margin-top: 10px; 
 }
 
 #decouverte
 {
-	width: 80%;
+	width: 100%;
 }
 
 
@@ -43,12 +52,11 @@ nav
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
-	margin-top: 2%;
 	margin-left: 0.2%;
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	width: 9%;/*Modifier la largeur de l'onglet*/
+	width: 15%;/*Modifier la largeur de l'onglet*/
 	height:30%;
 	margin-right: 3px;
 }
@@ -68,11 +76,11 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #007879;
-	width: 10%;/*Modifier la largeur de l'onglet*/
+	width: 25%;/*Modifier la largeur de l'onglet*/
 	height: 50%;
 	margin-right: 3px;
 	color: white;
-	font-size: 17px;
+	font-size: 25px;
 	text-decoration: unset;
 	text-align: center;
 	border-radius: 10px;
@@ -85,13 +93,6 @@ nav
 }
 
 
-/*FOOTER*/
-footer
-{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
 
 .lien
 {
@@ -128,6 +129,16 @@ section
 	align-items: center;
 }
 
+.content
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+
 #titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
 {
 	padding-bottom: 3px;
@@ -139,7 +150,7 @@ section
 
 article
 {
-	margin: 50px;
+	margin-top: 50px;
 	background-color: white;
 	width: 60%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
 	overflow: auto;
