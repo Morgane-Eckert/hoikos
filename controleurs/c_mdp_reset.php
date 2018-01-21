@@ -3,7 +3,10 @@ session_start();
 $_SESSION["samemdp"]=0;
 $_SESSION["critmdp"]=0;
 $_SESSION["mdp_changed"]=0;
+
 include ('../modeles/m_mdp_reset.php');
+$slogan=slogan();
+
 if (isset($_GET['token']) AND isset($_GET['id']))
 {
 	//Recuperation du token et id dans le lien 
