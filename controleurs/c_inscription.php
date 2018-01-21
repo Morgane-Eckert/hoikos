@@ -72,8 +72,8 @@ function ajout_utilisateur2($type_utilisateur,$nom_utilisateur,$prenom_utilisate
 function inscription_logement(){
     include ('vues/v_ajout_logement.php');
 }
-function ajout_logement2($superficie_totale_logement,$type_logement,$telephone_fixe,$numero_rue_logement,$nom_rue_logement,$code_postale_logement,$ville_logement,$pays_logement){
-    $affectedLines = ajout_logement($superficie_totale_logement,$type_logement,$telephone_fixe,$numero_rue_logement,$nom_rue_logement,$code_postale_logement,$ville_logement,$pays_logement);
+function ajout_logement2($type_logement,$telephone_fixe,$numero_rue_logement,$nom_rue_logement,$code_postale_logement,$ville_logement,$pays_logement){
+    $affectedLines = ajout_logement($type_logement,$telephone_fixe,$numero_rue_logement,$nom_rue_logement,$code_postale_logement,$ville_logement,$pays_logement);
     if ($affectedLines === false) {
         die('Impossible d\'ajouter le commentaire !');
     }

@@ -2,22 +2,6 @@
 
 include ('/modeles/m_connexion.php');
 
-function firstlettertoupper($input){
-    for ($i=0;$i<strlen($input);$i++)   
-    {  
-        if ((preg_match("/^[A-Z]+$/",$input[$i])==true) && ($input[$i-1]!="-"))
-        {
-            $input[$i]=strtolower($input[$i]);
-        }
-        if ($input[$i]=="-")
-        {
-            $input[$i+1]=strtoupper($input[$i+1]);
-        }
-    }
-    $input[0]=strtoupper($input[0]);
-    return $input;
-}
-
 function verification2($email,$password){
 
 	$affectedLines = verification($email,$password);
