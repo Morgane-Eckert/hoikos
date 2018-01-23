@@ -3,10 +3,8 @@ session_start();
 $_SESSION["samemdp"]=0;
 $_SESSION["critmdp"]=0;
 $_SESSION["mdp_changed"]=0;
-
 include ('../modeles/m_mdp_reset.php');
 $slogan=slogan();
-
 if (isset($_GET['token']) AND isset($_GET['id']))
 {
 	//Recuperation du token et id dans le lien 
@@ -45,7 +43,6 @@ if (isset($_POST['token']) AND isset($_POST['id']) AND isset($_POST['mdp']) AND 
 		{
 			$_SESSION["critmdp"]=2;	
 		}
-
 		if (!($mdp == $mdp2))
 		{
 			$_SESSION["samemdp"]=1;

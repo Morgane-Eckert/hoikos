@@ -1,5 +1,6 @@
 <?php 
 include ('modeles/m_inscription.php');
+
 function firstlettertoupper($input){
     for ($i=0;$i<strlen($input);$i++)   
     {  
@@ -15,7 +16,8 @@ function firstlettertoupper($input){
     $input[0]=strtoupper($input[0]);
     return $input;
 }
-function verif_cond(){
+
+function verif_cond_utilisateur(){
     if ((!(isset($count)))&&(isset($_SESSION["count"]))&&($_SESSION["count"]==5))
             {
                 $_SESSION["mailcheck"]=0;
@@ -23,6 +25,14 @@ function verif_cond(){
                 $_SESSION["respectcriteres"]=0;
             }    
 }
+
+function verif_cond_logement(){
+    if (!(isset($_SESSION["cemac_check"])))
+            {
+                $_SESSION["cemac_check"]=0;
+            }    
+}
+
 function verif_mail(){
     if (isset($_SESSION["mailcheck"]) && $_SESSION["mailcheck"]==1)
         {
@@ -32,6 +42,7 @@ function verif_mail(){
         }  
         $_SESSION["mailcheck"]=0;
 }
+
 function verif_mdp(){
             if (isset($_SESSION["mdpmatch"]) && $_SESSION["mdpmatch"]==1)
             {   
@@ -54,9 +65,20 @@ function verif_mdp(){
             $_SESSION["respectcriteres"]=0;
             $_SESSION["mdpmatch"]=0;
 }
+
+function verif_cemac(){
+    if ((isset($_SESSION["cemac_check"])) && ($_SESSION["cemac_check"]==1)){
+        ?>
+        <span class='verif'>CEMAC non existant. Veuillez entrer un identifiant de CEMAC valide.</span><br/><br/>
+    <?php 
+        }  
+}
+
+
 function inscription_utilisateur(){
     include ('vues/v_ajout_utilisateur.php');
 }
+
 function ajout_utilisateur2($type_utilisateur,$nom_utilisateur,$prenom_utilisateur,$telephone_1_utilisateur,$date_de_naissance_utilisateur,$adresse_mail_utilisateur,$mot_de_passe_utilisateur){
     $affectedLines = ajout_utilisateur($type_utilisateur,$nom_utilisateur,$prenom_utilisateur,$telephone_1_utilisateur,$date_de_naissance_utilisateur,$adresse_mail_utilisateur,$mot_de_passe_utilisateur);
     if ($affectedLines === false) {
@@ -69,21 +91,29 @@ function ajout_utilisateur2($type_utilisateur,$nom_utilisateur,$prenom_utilisate
             header('Location: index.php?target=inscription&action=utilisateur');}
     }
 }
+
 function inscription_logement(){
     include ('vues/v_ajout_logement.php');
 }
+
 function ajout_logement2($type_logement,$telephone_fixe,$numero_rue_logement,$nom_rue_logement,$code_postale_logement,$ville_logement,$pays_logement){
     $affectedLines = ajout_logement($type_logement,$telephone_fixe,$numero_rue_logement,$nom_rue_logement,$code_postale_logement,$ville_logement,$pays_logement);
     if ($affectedLines === false) {
         die('Impossible d\'ajouter le commentaire !');
     }
     else {
-        header('Location: index.php?target=inscription&action=utilisateurs_secondaires');
+        if ($affectedLines==2){
+            header('Location: index.php?target=inscription&action=utilisateurs_secondaires');}
+        else{
+            header('Location: index.php?target=inscription&action=logement');}
+        ;
     }
 }
+
 function inscription_utilisateurs_secondaires(){
     include ('vues/v_ajout_utilisateurs_secondaires.php');
 }
+
 function ajout_utilisateurs_secondaires2($type_utilisateur,$nom_utilisateur,$prenom_utilisateur,$telephone_1_utilisateur,$date_de_naissance_utilisateur,$adresse_mail_utilisateur,$mot_de_passe_utilisateur){
     $affectedLines = ajout_utilisateurs_secondaires($type_utilisateur,$nom_utilisateur,$prenom_utilisateur,$telephone_1_utilisateur,$date_de_naissance_utilisateur,$adresse_mail_utilisateur,$mot_de_passe_utilisateur);
     if ($affectedLines === false) {
@@ -93,7 +123,9 @@ function ajout_utilisateurs_secondaires2($type_utilisateur,$nom_utilisateur,$pre
         header('Location: index.php?target=inscription&action=autres_utilisateurs_secondaires');
     }
 }
+
 function inscription_autres_utilisateurs_secondaires(){
     include ('vues/v_ajout_autres_utilisateurs_secondaires.php');
 }
+
 ?>
