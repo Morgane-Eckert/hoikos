@@ -6,75 +6,6 @@ body
 	margin: auto;
 }
 
-
-
-/*HEADER*/
-header
-{
-	background-color: #FFFFFF;
-	margin-top: 0px;
-	padding-bottom: 0px; 
-	display: flex;
-	justify-content: space-between;
-}
-
-/*Réglages du logo et du slogan*/
-#Logo
-{
-	margin-top: 30px;
-	width: 250px;
-	height: 140px;
-}
-
-#Maisons
-{
-	margin-top: 30px;
-	margin-left: 100px;
-	margin-right: 300px;
-	width: 30%;
-	height: 30%;
-}
-
-/*Réglages du bandeau de notifications
-#notification
-{
-	border: 1px #007879 solid;
-	border-radius: 10px;
-	width: 40%;
-	padding: 10px;
-	background-color: #F2F2F2;
-	margin-top: 50px;
-	max-width: 1050px;
-	max-height: 70px;
-	margin-left: 100px;
-	margin-bottom: 5px;
-	overflow: auto;
-}*/
-
-/*Réglages du bouton de deconnexion*/
-.deconnex
-{
-	border: none;
-	color: #FFFFFF;
-	background-color: #990100;
-	margin-top: 90px;
-	margin-left: 10px;
-	border-radius: 10px;
-	text-decoration: unset;
-	text-align: center;
-	padding: 10px;
-	color: #FFFFFF;
-	background-color: #990100;
-	width: 7%;
-	height: 3%;
-}
-
-/*Le bouton de deconnexion change de couleur lorsque la souris passe dessus*/
-.deconnex:hover
-{
-	background-color: #DC143C;
-}
-
 /*Réglages du menu déroulant langues*/
 #formulairelangue
 {
@@ -83,11 +14,6 @@ header
 	text-align: right;
 	margin-right: 10px;
 }
-
-
-
-
-
 
 /*MENU NAVIGATION*/
 nav

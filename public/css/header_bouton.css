@@ -11,7 +11,7 @@ header
 .slogan
 {
 	font-family: 'Eras full',Calibri,serif;
-	font-size: 30px;;
+	font-size: 18px;;
 }
 
 .logoslogan
@@ -23,7 +23,7 @@ header
 #Logo
 {
 	margin-top: 30px;
-	max-width: 75%;
+	max-width: 50%;
 	height: auto;
 }
 

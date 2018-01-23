@@ -6,31 +6,6 @@ body
 	margin: auto;
 }
 
-/*HEADER*/
-header
-{
-	background-color: #FFFFFF;
-	margin: auto;						
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-}
-/*Réglages du logo et du slogan*/
-.slogan
-{
-	font-family: 'Eras full',Calibri,serif;
-	font-size: 30px;
-	margin: auto;
-	text-align: center;
-}
-
-#Logo
-{
-	max-width: 100%;
-	height: auto;
-	margin-top: 10px; 
-}
-
 #decouverte
 {
 	width: 100%;

@@ -6,30 +6,6 @@ body
 	margin: auto;
 }
 
-
-
-
-
-
-
-/*HEADER*/
-header
-{
-	background-color: #FFFFFF;
-	margin-top: 0px;
-	padding-bottom: 0px; 
-	display: flex;
-	justify-content: space-between;
-}
-
-/*Réglages du logo et du slogan*/
-#Logo
-{
-	margin-top: 30px;
-	width: 250px;
-	height: 140px;
-}
-
 /*Réglages du bandeau de notifications*/
 #notification
 {
@@ -46,30 +22,6 @@ header
 	overflow: auto;
 }
 
-/*Réglages du bouton de deconnexion*/
-.deconnex
-{
-	border: none;
-	color: #FFFFFF;
-	background-color: #990100;
-	margin-top: 90px;
-	margin-left: 200px;
-	border-radius: 10px;
-	text-decoration: unset;
-	text-align: center;
-	padding: 10px;
-	color: #FFFFFF;
-	background-color: #990100;
-	width: 7%;
-	height: 3%;
-}
-
-/*Le bouton de deconnexion change de couleur lorsque la souris passe dessus*/
-.deconnex:hover
-{
-	background-color: #DC143C;
-}
-
 /*Réglages du menu déroulant langues*/
 #formulairelangue
 {
@@ -78,13 +30,6 @@ header
 	text-align: right;
 	margin-right: 10px;
 }
-
-
-
-
-
-
-
 
 /*MENU NAVIGATION*/
 nav
