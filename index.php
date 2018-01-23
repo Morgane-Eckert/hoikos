@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('modeles/m_bdd_slogan.php');
+$_SESSION['slogan']=slogan();
 if (isset($_GET['target'])) {
     if ($_GET['target']=='inscription'){
         include('controleurs/c_inscription.php');
