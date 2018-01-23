@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/profil.css">
+		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
 		<script type='text/javascript' src='public/js/adresse.js'></script>
 		<title>Votre Profil</title>
@@ -19,7 +20,7 @@
 	</head>
 
 	<body>
-	<?php include("vues/v_header_bouton.php"); ?>
+	<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
         <nav>
             <a href="index.php?target=compte&action=connecte&reaction=home" class="Onglet">Home</a>
              <?php //Affichage des onglets
@@ -207,8 +208,8 @@
 							$c = nv_cemac($ID_logement);
 							if($c!=0){
 								?>
-								<label for="cemac">ID nouveau CeMAC :</label><br>
-								<input type='text' name='id_cemac' id='id_cemac' maxlenght='10'><br><br />
+								<label for="id_cemac">ID nouveau CeMAC :</label><br>
+								<input type='text' name='id_cemac' id='id_cemac' maxlenght='5'><br><br />
 								<?php
 							} else {
 								echo "";
@@ -348,7 +349,7 @@
 												<?php
 												if(isset($_GET["edition"])){
 													if($_GET["edition"]=="modifier_secondaire"){
-														
+
 											 ?>
 												<a class = "supprimer" href ="index.php?target=inscription&action=utilisateurs_secondaires&profil">Ajouter un utilisateur</a>
 												<?php
