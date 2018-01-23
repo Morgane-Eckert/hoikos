@@ -1,19 +1,6 @@
 <?php
 //session_start();
 
-function connexion_bdd(){
-	try
-	{
-    	$bdd = new PDO('mysql:host=localhost;dbname=hoikos;charset=utf8', 'root', '');
-    	return $bdd;
-	}
-	catch(Exception $e)
-	{
-        die('Erreur : '.$e->getMessage());
-	}
-}
-
-
 function verification($email,$password){
 	$bdd=connexion_bdd();
 	$reponse = $bdd->prepare('SELECT COUNT(*) FROM utilisateur WHERE adresse_mail_utilisateur = :adresse_mail_utilisateur');

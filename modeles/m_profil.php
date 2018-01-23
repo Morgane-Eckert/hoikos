@@ -1,21 +1,10 @@
 <?php
-function connexion_bdd3(){
-	try
-	{
-    	$bdd = new PDO('mysql:host=localhost;dbname=hoikos;charset=utf8', 'root', '');
-    	return $bdd;
-	}
-	catch(Exception $e)
-	{
-        die('Erreur : '.$e->getMessage());
-	}
-}
 
 function token_mdp($email) //Génère un token random et le sotck dans la base de données
 {
 	$token = md5(uniqid(rand(), true));
 
-	$bdd=connexion_bdd3();
+	$bdd=connexion_bdd();
 	$req = $bdd->prepare("UPDATE utilisateur SET token_mdp = :token WHERE adresse_mail_utilisateur = :mail");
 	$req->execute(array(
 		'token' => $token,
@@ -25,7 +14,7 @@ function token_mdp($email) //Génère un token random et le sotck dans la base d
 }
 function id_utilisateur($email) //Récupère l'ID de l'utilisateur(à partir du mail)
 {
-	$bdd=connexion_bdd3();
+	$bdd=connexion_bdd();
 	$req = $bdd->prepare("SELECT ID_utilisateur FROM utilisateur WHERE adresse_mail_utilisateur = :mail");
 	$req->execute(array('mail' => $email));
 	$donnees = $req->fetch();
@@ -62,7 +51,7 @@ function changement($email){
 		}
 
 function donnees_utilisateur($id_utilisateur){
-    $bdd = connexion_bdd3();
+    $bdd = connexion_bdd();
     $reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_utilisateur=:id');
     $reponse->execute(array(
     'id'=> $id_utilisateur,
@@ -83,7 +72,7 @@ function donnees_utilisateur($id_utilisateur){
 }
 
 function donnees_logement($ID_logement){
-    $bdd = connexion_bdd3();
+    $bdd = connexion_bdd();
 	$reponse = $bdd->prepare('SELECT * FROM logement WHERE ID_logement=:id');
     $reponse->execute(array(
     'id'=> $ID_logement,
@@ -105,7 +94,7 @@ function donnees_logement($ID_logement){
 }
 
 function donnees_utilisateur_secondaire($ID_logement,$ID_utilisateur){
-    $bdd = connexion_bdd3();
+    $bdd = connexion_bdd();
 	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_logement=:id_logement');
 	$reponse->execute(array(
 	'id_logement'=> $ID_logement,
@@ -126,7 +115,7 @@ function donnees_utilisateur_secondaire($ID_logement,$ID_utilisateur){
 }
 
 function utilisateur_secondaire($ID_logement,$ID_utilisateur){
-    $bdd = connexion_bdd3();
+    $bdd = connexion_bdd();
 	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_logement=:id_logement');
 	$reponse->execute(array(
 	'id_logement'=> $ID_logement,
@@ -153,7 +142,7 @@ function utilisateur_secondaire($ID_logement,$ID_utilisateur){
 
 function cemac($ID_logement){
 
-	$bdd = connexion_bdd3();
+	$bdd = connexion_bdd();
 	$reponse3 = $bdd->prepare('SELECT * FROM cemac WHERE ID_logement = :ID_logement');
 	$reponse3->execute(array(
 			'ID_logement' => 81,
@@ -170,7 +159,7 @@ function cemac($ID_logement){
 
 function nv_cemac($ID_logement){
 
-	$bdd = connexion_bdd3();
+	$bdd = connexion_bdd();
 	$reponse = $bdd->prepare('SELECT COUNT(*) FROM cemac WHERE ID_logement = :ID_logement AND etat_cemac = :etat');
 	$reponse->execute(array(
 			'ID_logement' => 81,
@@ -181,7 +170,7 @@ function nv_cemac($ID_logement){
 }
 
 function supprimer($id){
-	$bdd=connexion_bdd3();
+	$bdd=connexion_bdd();
 	$req = $bdd->prepare("DELETE FROM utilisateur WHERE id_utilisateur = :id");
 	$req->execute(array(
 		"id"=>$id,
