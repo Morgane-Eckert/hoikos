@@ -1,6 +1,6 @@
 <?php
 
-include ('/modeles/m_connexion.php');
+include ('modeles/m_connexion.php');
 
 function verification2($email,$password){
 
