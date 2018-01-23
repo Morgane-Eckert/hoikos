@@ -43,4 +43,16 @@ function reset_token($id) //Enlève le token de la BDD
 	    'id' => $id
 	));
 }
+
+function slogan() //Récupère le slogan
+{
+	$bdd=connexion_bdd_mail();
+	$req = $bdd->prepare("SELECT slogan FROM administration");
+	$req->execute();
+	$donnees = $req->fetch();
+	
+	return $donnees['slogan'];
+}
+
+
 ?>
