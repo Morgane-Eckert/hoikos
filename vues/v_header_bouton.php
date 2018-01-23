@@ -25,8 +25,10 @@
 	} ?>
 	</span>
 	</a>
+	
 	<img alt="Maisons"  src="public/images/petitesmaisons.png" id="Maisons">
-
+	<block></block>
+	<block></block>
 	<span class="nom_compte">
   	<?php 
   	if (isset($_SESSION["prenom_utilisateur"]))
@@ -36,5 +38,6 @@
   	?>
  	<a href="index.php?target=deconnexion" class="deconnex">Déconnexion</a>
  	</span>
+ 	<block></block>
 
 </header>

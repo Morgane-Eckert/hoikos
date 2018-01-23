@@ -24,5 +24,6 @@
 	</span>
 	</a>
 	<img alt="Maisons"  src="public/images/petitesmaisons.png" id="Maisons">
+	<block></block>
 
 </header>
