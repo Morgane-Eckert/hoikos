@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('modeles/m_bdd_slogan.php');
 if (isset($_GET['target'])) {
     if ($_GET['target']=='inscription'){
         include('controleurs/c_inscription.php');
@@ -16,6 +17,7 @@ if (isset($_GET['target'])) {
             } elseif ($_GET['action']=='logement') {
                 if (isset($_GET['reaction'])){
                     if ($_GET['reaction']=='rempli') {
+                        unset($count);
                         ajout_logement2($_SESSION['type_logement'],$_POST["telephone_fixe"],$_POST["numero_rue_logement"],$_POST["nom_rue_logement"],$_POST["code_postale_logement"],$_POST["ville_logement"],$_POST["pays_logement"]);
                     }
                 } else {
@@ -199,9 +201,18 @@ if (isset($_GET['target'])) {
     } elseif ($_GET['target']=='mail_non_exist'){
         include('controleurs/c_mail_reset.php');    
     
-     } elseif ($_GET['target']=='mail_sent'){
-        include('controleurs/c_mail_reset.php');    
-    } 
+    } elseif ($_GET['target']=='mail_sent'){
+        include('controleurs/c_mail_reset.php');
+
+    } elseif ($_GET['target']=='sav'){
+        include('controleurs/c_sav.php');
+        
+    } elseif ($_GET['target']=='sav_message_envoyé'){
+        include('controleurs/c_sav.php');
+        
+    } elseif ($_GET['target']=='sav_message_bug'){
+        include('controleurs/c_sav.php');
+    }
 } else {
     include('controleurs/c_premiere_page.php');
     afficher_premiere_page();
