@@ -10,9 +10,9 @@
 	<br/>
 	<p class = "slogan">
 	<?php
-	if (isset($slogan)) //Si le slogan de la bdd existe
+	if (isset($_SESSION['slogan'])) //Si le slogan de la bdd existe
 	{ 
-	echo $slogan;	
+	echo $_SESSION['slogan'];	
 	}
 	else
 	{
