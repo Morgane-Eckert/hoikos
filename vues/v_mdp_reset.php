@@ -5,10 +5,27 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="../public/css/mdp_reset.css">
 		<link rel="stylesheet" href="../public/css/footer.css">
+		<link rel="stylesheet" href="../public/css/header_home.css">
 		<title>Réinitialiser votre mot de passe</title>
 	</head>
 	<body>
-		<?php include("vues/v_header_home.php"); ?>
+		<head>
+
+	<header>
+			<img alt="Logo"  src="../public/images/logo.png" id="Logo"><!--Photo du logo-->
+		</a>
+		<p class = "slogan">
+		<?php
+		if (isset($slogan)) //Si le slogan de la bdd existe
+		{ 
+		echo $slogan;	
+		}
+		else
+		{
+		echo "Pour que la maison idéale soit votre maison de demain !";
+		} ?>
+		</p>
+	</header>
 
 		<section>
 		
