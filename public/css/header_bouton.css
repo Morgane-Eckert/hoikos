@@ -1,0 +1,63 @@
+header
+{
+	background-color: #FFFFFF;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+/*Réglages du logo et du slogan*/
+.slogan
+{
+	font-family: 'Eras full',Calibri,serif;
+	font-size: 30px;;
+}
+
+.logoslogan
+{
+	text-decoration:none;
+	color: black;
+	text-align: center;
+}
+#Logo
+{
+	margin-top: 30px;
+	max-width: 75%;
+	height: auto;
+}
+
+#Maisons
+{
+	margin-top: 30px;
+	width: 25%;
+	height: 25%;
+}
+
+/*Réglages du bouton de deconnexion*/
+.deconnex
+{
+	border: none;
+	color: #FFFFFF;
+	background-color: #990100;
+	border-radius: 10px;
+	text-decoration: unset;
+	text-align: center;
+	padding: 10px;
+	color: #FFFFFF;
+	background-color: #990100;
+	width: 10%;
+	height: 5%;
+}
+
+.nom_compte
+{
+	margin-top: 30px;
+	font-size: 20px;;
+}
+/*Le bouton de deconnexion change de couleur lorsque la souris passe dessus*/
+.deconnex:hover
+{
+	background-color: #DC143C;
+}
+

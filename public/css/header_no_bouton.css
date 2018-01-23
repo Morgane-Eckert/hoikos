@@ -1,0 +1,34 @@
+header
+{
+	background-color: #FFFFFF;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+/*Réglages du logo et du slogan*/
+.slogan
+{
+	font-family: 'Eras full',Calibri,serif;
+	font-size: 30px;;
+}
+
+.logoslogan
+{
+	text-decoration:none;
+	color: black;
+	text-align: center;
+}
+#Logo
+{
+	margin-top: 30px;
+	max-width: 75%;
+	height: auto;
+}
+
+#Maisons
+{
+	margin-top: 20px;
+	width: 50%;
+	height: 50%;
+}
