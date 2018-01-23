@@ -74,20 +74,26 @@ if (isset($_GET['target'])) {
                             } if ($_GET['anticipation']=='fonction_supprimee') {
                                 accueil();
                             }
-                        }  else if ($_GET['reaction']=='profil'){
-                            include ('controleurs/c_profil.php');
-                            if(isset($_GET['rempli'])){
-                                if($_GET['rempli']=='compte'){
-                                    profil_editer_utilisateur_principal($_SESSION['ID_utilisateur'],$_POST['nom'],$_POST['prenom'],$_POST['telephone1'],$_POST['adresse_mail'],$_POST['date_naissance']);
-                                } else if($_GET['rempli']=='adresse'){
-                                    profil_editer_adresse($_SESSION['ID_utilisateur'],$_POST['nom_rue_logement'],$_POST['ville_logement'],$_POST['numero_rue_logement'],$_POST['code_postale_logement'],$_POST['telephone_fixe']);                              
-                                } else if($_GET['rempli']=='secondaire'){
-                                    profil_editer_utilisateur_secondaire();
-                                }
+                        } else if ($_GET['reaction']=='profil'){
+            							include ('controleurs/c_profil.php');
+            							if(isset($_GET["mdp"])){
+            								changement($_GET["mdp"]);
+            							}
+            							if(isset($_GET["supprimer"])){
+            								supprimer($_GET["supprimer"]);
+            							}
+            							if(isset($_GET['rempli'])){
+            								if($_GET['rempli']=='compte'){
+            									profil_editer_utilisateur_principal($_SESSION['ID_utilisateur'],$_POST['nom'],$_POST['prenom'],$_POST['telephone1'],$_POST['adresse_mail'],$_POST['date_naissance']);
+            								} else if($_GET['rempli']=='adresse'){
+            									profil_editer_adresse($_SESSION['ID_utilisateur'],$_POST['nom_rue_logement'],$_POST['ville_logement'],$_POST['numero_rue_logement'],$_POST['code_postale_logement'],$_POST['telephone_fixe']);
+            								} else if($_GET['rempli']=='secondaire'){
+            									profil_editer_utilisateur_secondaire();
+            								}
                             } else {
-                                profil();   
+                                profil();
                             }
-    
+
                         } else {
                             accueil();
                         }
@@ -98,21 +104,35 @@ if (isset($_GET['target'])) {
                     if (isset($_GET['reaction'])){
                         if ($_GET['reaction']=='home') {
                             accueil_home_secondaire();
-                        } else {
+                        } else if ($_GET['reaction']=='profil'){
+													include ('controleurs/c_profil.php');
+													if(isset($_GET["mdp"])){
+														changement($_GET["mdp"]);
+													}
+													if(isset($_GET['rempli'])){
+														if($_GET['rempli']=='compte'){
+															profil_editer_utilisateur_principal($_SESSION['ID_utilisateur'],$_POST['nom'],$_POST['prenom'],$_POST['telephone1'],$_POST['adresse_mail'],$_POST['date_naissance']);
+														}
+													} else {
+													profil_secondaire();
+													}
+
+												}
+												else {
                         accueil_secondaire();
                     }
                     } else {
                         accueil_home_secondaire();
-                    
+
                     }
                 } else if ($_SESSION["type_utilisateur"]==3){//Si l'utilisateur est administrateur
                     include ('controleurs/c_administrateur.php');
                     if (isset($_GET['reaction'])){
                         if ($_GET['reaction']=='conditions_generales') {
-                            if(isset($_GET['rempli'])){ 
-                                if ($_GET['rempli']=='OK'){     
+                            if(isset($_GET['rempli'])){
+                                if ($_GET['rempli']=='OK'){
                                     update_cgu($_POST["conditions_generales"]);
-                                } else if ($_GET['rempli']=='administrateur'){     
+                                } else if ($_GET['rempli']=='administrateur'){
                                     administrateur_conditions_generales();
                                 }
 
@@ -121,10 +141,10 @@ if (isset($_GET['target'])) {
                                 administrateur_conditions_generales();
                             }
                         } else if ($_GET['reaction']=='mentions_legales'){
-                            if(isset($_GET['rempli'])){ 
-                                if ($_GET['rempli']=='OK'){     
+                            if(isset($_GET['rempli'])){
+                                if ($_GET['rempli']=='OK'){
                                     update_mentions_legales($_POST["mentions_legales"]);
-                                } else if ($_GET['rempli']=='administrateur'){     
+                                } else if ($_GET['rempli']=='administrateur'){
                                     administrateur_mentions_legales();
                                 }
                             }
@@ -132,10 +152,10 @@ if (isset($_GET['target'])) {
                                 administrateur_mentions_legales();
                             }
                         } else if ($_GET['reaction']=='slogan'){
-                            if(isset($_GET['rempli'])){ 
-                                if ($_GET['rempli']=='OK'){     
+                            if(isset($_GET['rempli'])){
+                                if ($_GET['rempli']=='OK'){
                                     update_slogan();
-                                } else if ($_GET['rempli']=='administrateur'){     
+                                } else if ($_GET['rempli']=='administrateur'){
                                     administrateur_slogan();
                                 }
                             }
@@ -149,12 +169,12 @@ if (isset($_GET['target'])) {
                         } else if ($_GET['reaction']=='nouveau_type_de_capteur'){
                             nouveau_type_de_capteur2($_POST['nom_nouveau_type_de_capteur']);
                         } else if ($_GET['reaction']=='FAQ'){
-                            if(isset($_GET['rempli'])){ 
+                            if(isset($_GET['rempli'])){
                                 if ($_GET['rempli']=='OK_edit'){
                                     update_faq_edit();
                                 } else if ($_GET['rempli']=='OK_add'){
                                     update_faq_add();
-                                }else {     
+                                }else {
                                     administrateur_faq();
                                 }
                             }else{
@@ -170,7 +190,7 @@ if (isset($_GET['target'])) {
         }  else{
             verification2($_POST["adressemail"],$_POST["mot_de_passe"]);
         }
-            
+
     } elseif ($_GET['target']=='deconnexion'){
         include('controleurs/c_deconnexion.php');
         deconnexion();
@@ -183,33 +203,33 @@ if (isset($_GET['target'])) {
     } elseif ($_GET['target']=='aide'){
         include('controleurs/c_aide.php');
         aide();
-        
+
     } elseif ($_GET['target']=='aide_message'){
         include('controleurs/c_aide.php');
-        
+
         } elseif ($_GET['target']=='aide_message_envoyé'){
         include('controleurs/c_aide.php');
         aide();
-        
+
         } elseif ($_GET['target']=='aide_message_bug'){
         include('controleurs/c_aide.php');
         aide();
-        
+
     } elseif ($_GET['target']=='mot_de_passe_oublié'){
         include('controleurs/c_mail_reset.php');
-        
+
     } elseif ($_GET['target']=='mail_non_exist'){
-        include('controleurs/c_mail_reset.php');    
-    
+        include('controleurs/c_mail_reset.php');
+
     } elseif ($_GET['target']=='mail_sent'){
         include('controleurs/c_mail_reset.php');
 
     } elseif ($_GET['target']=='sav'){
         include('controleurs/c_sav.php');
-        
+
     } elseif ($_GET['target']=='sav_message_envoyé'){
         include('controleurs/c_sav.php');
-        
+
     } elseif ($_GET['target']=='sav_message_bug'){
         include('controleurs/c_sav.php');
     }
