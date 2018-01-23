@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/profil.css">
-		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
 		<script type='text/javascript' src='public/js/adresse.js'></script>
 		<title>Votre Profil</title>
@@ -20,7 +19,7 @@
 	</head>
 
 	<body>
-	<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
+	<?php include("vues/v_header_bouton.php"); ?>
         <nav>
             <a href="index.php?target=compte&action=connecte&reaction=home" class="Onglet">Home</a>
              <?php //Affichage des onglets

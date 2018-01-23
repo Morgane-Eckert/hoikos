@@ -4,11 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/page_administrateur.css">
-		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 	</head>
 	
 	<body>
-		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
+		<?php include("vues/v_header_bouton.php"); ?>
 		<nav>
             <a href="index.php?target=compte&action=connecte&reaction=conditions_generales" class="Onglet">Conditions générales d'utilisation</a>
             <a href="index.php?target=compte&action=connecte&reaction=mentions_legales" class="Onglet">Mentions légales</a>
@@ -38,14 +37,7 @@
                             <div class='sous-titre'>Type de pièces existants :</div>
                                 <ul>
                                 <?php 
-                                try
-                                {
-                                    $bdd = new PDO('mysql:host=localhost;dbname=hoikos;charset=utf8', 'root', '');
-                                }
-                                catch(Exception $e)
-                                {
-                                    die('Erreur : '.$e->getMessage());
-                                }
+                                $bdd=connexion_bdd();
                                 $reponse1 = $bdd->query('SELECT * FROM type_de_salle');
                                 while ($donnees1 = $reponse1->fetch()){
                                     echo '<li>'.$donnees1['nom_type_de_salle'].'</li>'; 

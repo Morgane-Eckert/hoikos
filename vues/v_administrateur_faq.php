@@ -3,12 +3,11 @@
 	
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/page_administrateur.css">
 	</head>
 	
 	<body>
-		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
+		<?php include("vues/v_header_bouton.php"); ?>
 		<nav>
             <a href="index.php?target=compte&action=connecte&reaction=conditions_generales" class="Onglet">Conditions générales d'utilisation</a>
             <a href="index.php?target=compte&action=connecte&reaction=mentions_legales" class="Onglet">Mentions légales</a>
@@ -47,9 +46,9 @@
 		                            <form method='post' action='index.php?target=compte&action=connecte&reaction=FAQ&rempli=OK_add'>
 		                            	<label for='nom' class="categorie"><br> Ajout d'une question et d'une réponse </label><br><br>
 										<label for='question' >Nouvelle question : </label><br>
-										<textarea rows='3' cols='50' for='question' name='addquestion' id='FAQ'></textarea></br></br>
+										<textarea rows='3' cols='50' for='question' name='addquestion' id='FAQ' required></textarea></br></br>
 										<label for='reponse' >Nouvelle réponse :</label><br>
-										<textarea rows='3' cols='50' name='addreponse' for='reponse' id='FAQ'></textarea><br><br>
+										<textarea rows='3' cols='50' name='addreponse' for='reponse' id='FAQ' required></textarea><br><br>
 										<input type='submit' value='Valider les changements' id='bouton'><br>
 									</form>
 								</div>

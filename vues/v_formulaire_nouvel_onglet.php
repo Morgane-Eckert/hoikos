@@ -3,11 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/page_utilisateur_nouvelle_salle.css">
-		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
 	</head>
 	<body>
-		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
+		<?php include("vues/v_header_bouton.php"); ?>
 
 		<nav>
 			<a href="index.php?target=compte&action=connecte&reaction=home" class="Conso">Home</a>
@@ -42,14 +41,7 @@
 	  					<label for="type">Type de la nouvelle pièce :</label><br>
 						<select name="type" id="type_onglet" required>
 							<?php 
-							try
-							{
-						    	$bdd = new PDO('mysql:host=localhost;dbname=hoikos;charset=utf8', 'root', '');
-							}
-							catch(Exception $e)
-							{
-						        die('Erreur : '.$e->getMessage());
-							}
+							$bdd=connexion_bdd();
 							$reponse1 = $bdd->query('SELECT * FROM type_de_salle');
 
 							while ($donnees1 = $reponse1->fetch()){
@@ -63,14 +55,7 @@
 	  					<!-- Debut de code pour afficher la liste des utilisateurs secondaires afin de restreindre leurs droits. Fonctionnalité à rajouter.
 						Utilisateurs secondaires pouvant accéder aux fonctions de la pièce : <br>
 						<?php
-							try
-							{
-						    	$bdd = new PDO('mysql:host=localhost;dbname=hoikos;charset=utf8', 'root', '');
-							}
-							catch(Exception $e)
-							{
-						        die('Erreur : '.$e->getMessage());
-							}
+						$bdd=connexion_bdd();
 		                $reponse21 = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_logement=:ID_logement AND type_utilisateur=:type_utilisateur');
 		                $reponse21->execute(array(
 		                    'type_utilisateur' => '2',

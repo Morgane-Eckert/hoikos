@@ -26,35 +26,6 @@ function afficher_onglets(){
 
 }
 
-
-
-/*function afficher_fonctions(){
-	$bdd=connexion_bdd2();
-
-	$reponse = $bdd->prepare('SELECT COUNT(*) AS nombre FROM capteur WHERE ID_logement=:ID_logement');
-	$reponse->execute(array(
-		'ID_logement' => $_SESSION['ID_logement']
-		));
-	$reponse = $reponse->fetch();
-	if ($reponse['nombre']!=0){
-		$bdd=connexion_bdd2();
-		$reponsea = $bdd->prepare('SELECT nom_capteur FROM capteur WHERE ID_logement=:ID_logement');
-		$reponsea->execute(array(
-			'ID_logement' => $_SESSION['ID_logement']
-			));
-		$i=0;
-		while ($donneesa = $reponsea->fetch()){
-		    $capteurs[$i]= $donneesa['nom_capteur']; 
-		    $i++; 
-		}
-		return $capteurs;
-	} else {
-		return NULL;
-	}
-
-}*/
-
-
 function afficher_fonctions(){
 
 $bdd=connexion_bdd();

@@ -3,11 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/page_utilisateur_nouvelle_salle.css">
-		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
 	</head>
 	<body>
-		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
+		<?php include("vues/v_header_bouton.php"); ?>
 
 		<nav>
             <?php 
@@ -51,16 +50,8 @@
 	  					<label for="type">Type de la nouvelle fonction :</label><br>
 						<select name="type" required>
 							<?php 
-							try
-							{
-						    	$bdd = new PDO('mysql:host=localhost;dbname=hoikos;charset=utf8', 'root', '');
-							}
-							catch(Exception $e)
-							{
-						        die('Erreur : '.$e->getMessage());
-							}
+							$bdd=connexion_bdd();
 							$reponse1 = $bdd->query('SELECT * FROM type_de_capteur');
-
 							while ($donnees1 = $reponse1->fetch()){
 							?>
 								<option value=<?php echo $donnees1['ID_type_de_capteur']; ?>> <?php echo $donnees1['nom_type_de_capteur']; ?> </option>

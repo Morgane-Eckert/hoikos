@@ -8,13 +8,7 @@
 		<title>Réinitialiser votre mot de passe</title>
 	</head>
 	<body>
-		<header>
-			<a href="../index.php" >
-				<img alt="Logo"  src="../public/images/logo.png" id="Logo"><!--Photo du logo-->
-			</a>
-			<br/>
-			<p class="slogan"><?php echo $slogan; ?><p>
-		</header>
+		<?php include("vues/v_header_home.php"); ?>
 
 		<section>
 		

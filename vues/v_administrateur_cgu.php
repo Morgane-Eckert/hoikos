@@ -4,11 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/page_administrateur.css">
-		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 	</head>
 	
 	<body>
-		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
+			<?php include("vues/v_header_bouton.php"); ?>
 		<nav>
             <a href="index.php?target=compte&action=connecte&reaction=conditions_generales" class="actuel">Conditions générales d'utilisation</a>
             <a href="index.php?target=compte&action=connecte&reaction=mentions_legales" class="Onglet">Mentions légales</a>

@@ -7,17 +7,7 @@
 		<link rel="stylesheet" href="public/css/footer.css">
 	</head>
 	<body>
-		<header>
-			<a href="index.php" >
-				<img alt="Logo"  src="public/images/logo.png" id="Logo"><!--Photo du logo-->
-			</a>
-			<br/>
-			<p class="slogan">
-			<?php
-			include('modeles/m_bddco.php');  
-			include ('modeles/m_slogan.php');
-			echo slogan(); ?><p>
-		</header>
+		<?php include("vues/v_header_home.php"); ?>
 
 		<section>
 			<p id ='message_d_erreur'></p>
@@ -39,12 +29,10 @@
 				</form><br/>
 				<a href="" class="lienn">Mot de passe oublié ?</a>
 			</article >
-
 			<article id="boutons">
 				<a href="index.php?target=decouverte" class="Grandonglet"> Découverte </a>
 				<a href="index.php?target=inscription" class="Grandonglet"> Inscription </a>
 			</article>
-
 			<article id="image">
 				<img alt="demo" src="public/images/demo.jpg" id="demo">
 			</article>
@@ -57,7 +45,6 @@
 			</a>
 			</aside>
 		</section>
-
 		<?php include("vues/v_footer.php"); ?>
 	</body>
 </html>

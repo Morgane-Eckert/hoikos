@@ -4,8 +4,11 @@
 </head>
 
 <header>
-
+	<?php if(isset($_SESSION["connect"]) && ($_SESSION["connect"] == true)){?>
+	<a href="index.php?target=compte&action=connecte&reaction=home" class= "logoslogan">
+	<?php }else{ ?>
 	<a href="index.php" class= "logoslogan">
+	<?php }?>
 		<img alt="Logo"  src="public/images/logo.png" id="Logo"><!--Photo du logo-->
 	<br/>
 	<span class = "slogan">

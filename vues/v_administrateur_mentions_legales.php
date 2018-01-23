@@ -8,7 +8,7 @@
 	</head>
 	
 	<body>
-		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
+		<?php include("vues/v_header_bouton.php"); ?>
 		<nav>
             <a href="index.php?target=compte&action=connecte&reaction=conditions_generales" class="Onglet">Conditions générales d'utilisation</a>
             <a href="index.php?target=compte&action=connecte&reaction=mentions_legales" class="actuel">Mentions légales</a>

@@ -5,14 +5,13 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/conditionsgenerales.css">
-		<link rel="stylesheet" href="public/css/base-header-sans-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
 
 		<title>Conditions générales</title>
 	</head>
 	
 	<body>
-		<?php include("vues/v_base-header-sans-bouton-deconnexion.php"); ?>
+		<?php include("vues/v_header_no_bouton.php"); ?>
 
 		<nav>
 			<?php 
