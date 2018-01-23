@@ -13,7 +13,7 @@ function profil_secondaire(){
 }
 
 function profil_editer_utilisateur_principal($id_utilisateur,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance){
-	$bdd = connexion_bdd();
+	$bdd = connexion_bdd3();
 
 	$reponse = $bdd->prepare('SELECT COUNT(*) FROM utilisateur WHERE adresse_mail_utilisateur = :adresse_mail_utilisateur');
 	$reponse->execute(array(
@@ -40,7 +40,7 @@ function profil_editer_utilisateur_principal($id_utilisateur,$nom,$prenom,$telep
 }
 
 function profil_editer_adresse($id_utilisateur,$ruelogement,$villelogement,$numeroruelogement,$codepostallogement,$telephonefixe){
-	$bdd = connexion_bdd();
+	$bdd = connexion_bdd3();
 
 	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_utilisateur=:id');
     $reponse->execute(array(
