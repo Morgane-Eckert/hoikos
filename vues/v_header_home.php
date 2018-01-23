@@ -7,7 +7,6 @@
 	<a href="index.php" >
 		<img alt="Logo"  src="public/images/logo.png" id="Logo"><!--Photo du logo-->
 	</a>
-	<br/>
 	<p class = "slogan">
 	<?php
 	if (isset($_SESSION['slogan'])) //Si le slogan de la bdd existe
