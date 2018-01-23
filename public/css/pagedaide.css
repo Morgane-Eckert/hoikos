@@ -6,6 +6,8 @@ body
 	margin: auto;
 }
 
+
+
 /*MENU NAVIGATION*/
 nav
 {
@@ -87,35 +89,16 @@ nav
 
 
 /*SECTION*/
-.overall
-{
+
+
+section{
 	background-color: #F2F2F2;
 	display: flex;
-	flex-direction: line;
-	flex-wrap: wrap;
-	align-items: center;
-
-}
-
-.right
-{
-	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	justify-content: space-around;
-	margin: auto;
-
 }
 
-.left
-{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-	margin: auto;
-
-}
 .titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
 {
 	padding-bottom: 3px;
@@ -126,46 +109,19 @@ nav
 }
 
 
-.articlea
+.article
 {
-	margin: 10px;
+	margin: 30px;
 	background-color: white;
-	width: 120%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
-	height: 40%;
 	overflow: auto;
-	border: 6px #990100 solid;
-	border-radius: 10px;
-}
-
-.articleb
-{
-	margin: 10px;
-	background-color: white;
-	width: 100%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
-	height: 10%;
-	overflow: auto;
-	border: 6px #990100 solid;
-	border-radius: 10px;
-}
-
-.articlec
-{
-	margin: 10px;
-	background-color: white;
-	width: 100%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
-	height: 50%;
-	overflow: auto;
-	border: 6px #990100 solid;
+	border: 3px #990100 solid;
 	border-radius: 10px;
 }
 
 /*Marges internes de l'article*/
 .corps
 {
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-bottom: 5px;
-	padding-top: 0px;
+	padding: 20px;
 }
 
 .corps2
@@ -186,82 +142,21 @@ nav
 }
 .input
 {
-	border: 2px #990100 solid;
+	border: 1px #990100 solid;
 	border-radius: 3px;
-	background-color: #F8F8F8;
 	padding: 2px;
 }
 
-.inputm
-{
-	border: 2px #990100 solid;
-    border-radius: 10px;
-    background-color: #F8F8F8;
-    padding: 5px;
-
-}
-
-.inputm:focus /* Quand le visiteur sélectionne le form */
-{
-    outline:  none;
-    border: 2px black solid;
-    border-radius: 10px;
-    background-color: #DEDEDE;
-}
 
 .input:focus /* Quand le visiteur sélectionne le form */
 {
     outline:  none;
-    border: 2px black solid;
-	border-radius: 3px;
-    background-color: #DEDEDE;
-}
-/*Réglages du bouton de deconnexion*/
-
-
-.boutona
-{
-	font-size: 17px;
-	border: none;
-	color: #FFFFFF;
-	background-color: #007879;
-	border-radius: 10px;
-	text-decoration: unset;
-	text-align: center;
-	padding: 10px;
-	height: 3%;
-	margin: 30px;
-	overflow: auto;
-	width: 16%;
+    border: 1px black solid;
 }
 
-.boutona:hover
-{
-	background-color: #00AAAA;
-}
 
-.boutonb
-{
-	font-size: 20px;
-	border: none;
-	color: #FFFFFF;
-	background-color: #007879;
-	border-radius: 10px;
-	text-decoration: unset;
-	text-align: center;
-	padding: 10px;
-	height: 3%;
-	margin: 30px;
-	overflow: auto;
-	width: 50%;
-}
 
-.boutonb:hover
-{
-	background-color: #00AAAA;
-}
-
-.boutonc
+.bouton
 {
 	font-size: 17px;
 	border: none;
@@ -271,16 +166,13 @@ nav
 	text-decoration: unset;
 	text-align: center;
 	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
 	height: 2%;
 	margin: 10px;
 	overflow: auto;
-	width: 30%;
 }
 
-.boutonc:hover
-{
-	background-color: #00AAAA;
-}
 
 /*Le bouton de deconnexion change de couleur lorsque la souris passe dessus*/
 .bouton:hover
@@ -302,4 +194,13 @@ textarea
 .vmessage
 {
 	font-size: 15px;
+}
+
+.bleu{
+	color: #007978;
+}
+
+.conteneur{
+	display: flex;
+	justify-content: center;
 }

@@ -6,12 +6,17 @@ body
 	margin: auto;
 }
 
+
+
+
 /*MENU NAVIGATION*/
 nav
 {
 	display: flex;
 	width: 100%;
 }
+
+
 
 
 /*Réglages des onglets*/
@@ -200,113 +205,234 @@ nav
 	background-color: #DC143C;
 }
 
-.message_d_erreur{
-	color : red;
-	font-style: italic;
-}
 
 
-.editer
-{
-	text-align:left;
-}
-.editer:hover
-{
-	background-color: #00AAAA;
-}
 
+
+
+/*SECTION*/
 section
 {
 	background-color: #F2F2F2;
 	display: flex;
 	justify-content: center;
+	height: 85%;
 }
 
-
-.article_large
+#titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
 {
-	margin: 50px;
-	background-color: white;
-	width: 70%;
-	border: 3px #990100 solid;
-	border-radius: 10px;
-	justify-content: center;
+	padding: 10px;
+	background-color: #990100;
+	color: white;
+	font-size: 20px;
+	display: flex;
+	justify-content: space-between;
 }
 
-.article_etroit
-{
-	margin: 50px;
-	background-color: white;
-	width: 40%;
-	border: 3px #990100 solid;
-	border-radius: 10px;
-	justify-content: center;
-}
-
-.editer
+.Routine
 {
 	border-radius: 8px;
 	font-size: 17px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 5px;
-	padding-left: 10px;
-	padding-right: 10px;
 	border: none;
 	color: #FFFFFF;
+	overflow: hidden;
 	background-color: #007879;
+	width: 7%;/*Modifier la largeur de l'onglet*/
 }
 
+
+article
+{
+	margin: 80px;
+	background-color: white;
+	width: 70%;
+	height: 40%;
+	border: 3px #990100 solid;
+	border-radius: 10px;
+  
+}
+
+/*Marges internes de l'article*/
 #corps
 {
-	text-align:justify;
-	font-size: 15px;
-	margin: 30px;
-	padding-bottom: 15px;
+	padding: 30px;
+	
 }
 
 
 
-.titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
+.Titre
 {
-	font-size: 20px;
+	text-align: left;
+	margin: 0px;
+	padding-top: 15px;
+	padding-left: 15px;
 }
 
-
-
-em
+.Affichage
 {
-	font-style:normal;
-	margin: 15px;
+	text-align: right;
+	margin: 0;
+	padding-top: 15px;
+	padding-right: 15px;
 }
 
-.conteneur_editer{
+.BoiteVide
+{
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.Capteurs
+{
+    margin: 20px;
+    width: 200px;
+    /*height: 160px;*/
+    height: 150px;
+    text-align: center;
+    border: 2px #007879 solid;
+    color: #006579;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    overflow: auto;
+	padding: 0;
+}
+
+.message_etat_capteur{
 	display: flex;
 	justify-content: center;
 }
 
-.conteneur_deux_editer{
-	display: flex;
-	justify-content: space-around;
+.lien_message_etat_capteur{
+	text-decoration: unset;
+	color: black;
+	font-size: 14px;
 }
 
-.categorie{
-	font-size: 20px;
-	color: #990100;
+.lien_message_etat_capteur:hover{
+	text-decoration: underline;
+	color: red;
 }
 
-.sous-titre{
-	font-size: 15px;
-	color: #007978;
+.erreur_capteur{
+	color: red;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.petit_capteur
+{
+    margin: 20px;
+    width: 200px;
+    /*height: 160px;*/
+    height: 130px;
+    text-align: center;
+    border: 2px #007879 solid;
+    color: #006579;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    overflow: auto;
+	padding: 0;
+}
+
+
+
+.Capteur_alerte
+{
+    margin: 20px;
+    width: 200px;
+    height: 130px;
+    text-align: center;
+    border: 2px #007879 solid;
+    color: #006579;
+    background-color: #F0E36B;
+    border-radius: 10px;
+    overflow: auto;
+	padding: 0;
+}
+
+
+img
+{
+	margin: 0;
+	padding: 0;
+}
+
+
+.bouton:hover
+{
 	font-weight: bold;
 }
 
-.bleu{
-	color: #007978;
+.bouton_gris
+{
+	color: #666666;
 }
 
+.bouton_gris:hover
+{
+	font-weight: bold;
+}
 
-.message{
+.suppression_onglet{
+	text-decoration: unset;
+	color: black;
+	padding: 5px;
+}
+
+.suppression_onglet:hover{
+	color: #DC143C;
+}
+
+.message_suppression{
 	color: red;
-	font-style: italic;
+	padding: 5px;
 }
+
+.gros_attention{
+	color: red;
+	font-size: 25px;
+	padding: 20px;
+}
+
+.conteneur{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.bouton_confimer_suppression
+{
+	border: none;
+	color: #FFFFFF;
+	background-color: #007879;
+	border-radius: 10px;
+	text-decoration: unset;
+	text-align: center;
+	padding: 10px;
+	color: #FFFFFF;
+	width: 11%;
+	height: 3%;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.attention{
+	margin: 40px;
+}
+
+.bouton_confimer_suppression:hover
+{
+	background-color: #00AAAA;
+}
+
+.suppression_onglet_conteneur{
+	display: flex;
+	justify-content: flex-end;
+}
+
+

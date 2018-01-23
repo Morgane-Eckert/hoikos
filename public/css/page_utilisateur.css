@@ -115,7 +115,7 @@ nav
 
 .Conso
 {
-	font-size: 1.4vw;
+	font-size: 17px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -289,14 +289,11 @@ article
 {
     margin: 20px;
     width: 200px;
-    /*height: 160px;*/
-    height: 150px;
     text-align: center;
     border: 2px #007879 solid;
     color: #006579;
     background-color: #F2F2F2;
     border-radius: 10px;
-    overflow: auto;
 	padding: 0;
 }
 
@@ -304,7 +301,6 @@ article
 {
     margin: 20px;
     width: 200px;
-    /*height: 160px;*/
     height: 130px;
     text-align: center;
     border: 2px #007879 solid;
@@ -409,6 +405,29 @@ img
 .suppression_onglet_conteneur{
 	display: flex;
 	justify-content: flex-end;
+}
+
+
+.message_etat_capteur{
+	display: flex;
+	justify-content: center;
+}
+
+.lien_message_etat_capteur{
+	text-decoration: unset;
+	color: black;
+	font-size: 14px;
+}
+
+.lien_message_etat_capteur:hover{
+	text-decoration: underline;
+	color: red;
+}
+
+.erreur_capteur{
+	color: red;
+	font-weight: bold;
+	font-size: 14px;
 }
 
 
