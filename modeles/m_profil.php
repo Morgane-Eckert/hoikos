@@ -180,11 +180,23 @@ function ajouter_cemac($id_cemac,$id_logement){
 
 function supprimer($id){
 	$bdd=connexion_bdd();
+
+	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE id_utilisateur = :id');
+	$reponse->execute(array(
+	'id'=> $id,
+	));
+
+	while ($donnees = $reponse->fetch()){
+	$nom=$donnees['nom_utilisateur'];
+	}
+
+
 	$req = $bdd->prepare("DELETE FROM utilisateur WHERE id_utilisateur = :id");
 	$req->execute(array(
 		"id"=>$id,
 	));
-	header("Location:index.php?target=compte&action=connecte&reaction=profil");
+
+	header("Location:index.php?target=compte&action=connecte&reaction=profil&suppression=".$nom);
 }
 
 ?>
