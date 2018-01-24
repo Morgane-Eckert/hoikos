@@ -1,9 +1,9 @@
-<?php 
+<?php
 include ('modeles/m_inscription.php');
 
 function firstlettertoupper($input){
-    for ($i=0;$i<strlen($input);$i++)   
-    {  
+    for ($i=0;$i<strlen($input);$i++)
+    {
         if ((preg_match("/^[A-Z]+$/",$input[$i])==true) && ($input[$i-1]!="-"))
         {
             $input[$i]=strtolower($input[$i]);
@@ -23,14 +23,14 @@ function verif_cond_utilisateur(){
                 $_SESSION["mailcheck"]=0;
                 $_SESSION["mdpmatch"]=0;
                 $_SESSION["respectcriteres"]=0;
-            }    
+            }
 }
 
 function verif_cond_logement(){
     if (!(isset($_SESSION["cemac_check"])))
             {
                 $_SESSION["cemac_check"]=0;
-            }    
+            }
 }
 
 function verif_mail(){
@@ -38,23 +38,23 @@ function verif_mail(){
         {
     ?>
         <span class='verif'>Adresse mail déjà existante. Veuillez entrer une adresse différente.</span><br/><br/>
-    <?php 
-        }  
+    <?php
+        }
         $_SESSION["mailcheck"]=0;
 }
 
 function verif_mdp(){
             if (isset($_SESSION["mdpmatch"]) && $_SESSION["mdpmatch"]==1)
-            {   
+            {
         ?>
             <span class='verif'>Le mot de passe et la confirmation du mot de passe doivent être identiques.</span><br/><br/>
-        <?php 
+        <?php
             }
             if (isset($_SESSION["respectcriteres"]) && $_SESSION["respectcriteres"]==1)
             {
         ?>
             <span class='verif'>Les mots de passe doivent contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial.</span><br/><br/>
-        <?php 
+        <?php
             }
             else
             {
@@ -70,8 +70,8 @@ function verif_cemac(){
     if ((isset($_SESSION["cemac_check"])) && ($_SESSION["cemac_check"]==1)){
         ?>
         <span class='verif'>CEMAC non existant. Veuillez entrer un identifiant de CEMAC valide.</span><br/><br/>
-    <?php 
-        }  
+    <?php
+        }
 }
 
 
@@ -120,7 +120,12 @@ function ajout_utilisateurs_secondaires2($type_utilisateur,$nom_utilisateur,$pre
         die('Impossible d\'ajouter le commentaire !');
     }
     else {
-        header('Location: index.php?target=inscription&action=autres_utilisateurs_secondaires');
+      if(isset($_GET["profil"])){
+      header('Location: index.php?target=compte&action=connecte&reaction=profil&ajout='.$nom_utilisateur);
+      } else {
+      header('Location: index.php?target=inscription&action=autres_utilisateurs_secondaires');
+      }
+
     }
 }
 
