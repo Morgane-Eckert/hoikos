@@ -129,7 +129,16 @@ if (isset($_GET['target'])) {
                         accueil_home_secondaire();
 
                     }
-                } else if ($_SESSION["type_utilisateur"]==3){//Si l'utilisateur est administrateur
+                } else if ($_SESSION["type_utilisateur"]==4){//Si l'utilisateur est commercial
+                    include ('controleurs/c_commercial.php');
+                    if (isset($_GET['reaction'])){
+                        if ($_GET['reaction']=='nouveau_cemac'){
+                            nouveau_cemac2($_POST['numero_cemac']);
+                        } else if ($_GET['reaction']=='cemac'){
+                        commercial_cemac();
+                        }
+                    }
+                }else if ($_SESSION["type_utilisateur"]==3){//Si l'utilisateur est administrateur
                     include ('controleurs/c_administrateur.php');
                     if (isset($_GET['reaction'])){
                         if ($_GET['reaction']=='conditions_generales') {
