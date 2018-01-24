@@ -33,7 +33,7 @@
                 </div>
             </article>  
             <article class="grand_article">
-                <div id="titre">Ajouter un nouvel secondaire</div><br/>
+                <div id="titre">Ajouter un nouvel utilisateur secondaire</div><br/>
                 <form method='post' action='index.php?target=inscription&action=autres_utilisateurs_secondaires&reaction=rempli' id='corps'>
                        <label for='nom' id='test'> Nom : </label><br/>
                         <input type='text' pattern='^[a-zA-Z]+$' name='nom' id='nom' required><br><br>
