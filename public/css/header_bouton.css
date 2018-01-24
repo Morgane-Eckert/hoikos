@@ -53,7 +53,7 @@ header
 .nom_compte
 {
 	margin-top: 30px;
-	font-size: 20px;;
+	font-size: 13px;;
 }
 /*Le bouton de deconnexion change de couleur lorsque la souris passe dessus*/
 .deconnex:hover
