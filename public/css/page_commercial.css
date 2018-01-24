@@ -2,7 +2,7 @@
 body
 {
 	font-family: 'Eras full',Calibri,serif;
-	font-size: 15px;
+	font-size: 13px;
 	margin: auto;
 }
 
@@ -10,8 +10,40 @@ body
 nav
 {
 	display: flex;
+	width: 100%;
 }
 
+
+/*Réglages des onglets*/
+
+.supprimer{
+	margin: 5px;
+	/*margin-left: 10px;
+	margin-right: 10px;*/
+	text-decoration: unset;
+	color: grey;
+	font-size: 9px;
+}
+
+ .supprimer:hover{
+ 	color: #990100;
+ }
+
+ .plus{
+ 	text-decoration: unset;
+ 	font-size: 70px;
+ 	color: #007978;
+ }
+
+ .plus:hover{
+ 	color: #990100;
+ }
+
+.supprimer_conteneur{
+	display: flex;
+	/*justify-content: flex-end;*/
+	justify-content: center;
+}
 .Vide
 {
 	margin-left: 0.2%;
@@ -85,7 +117,6 @@ nav
 
 .Conso
 {
-	font-size: 17px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -96,8 +127,8 @@ nav
 	background-color: #701c1c;
 	/*width: 9%;Modifier la largeur de l'onglet*/
 	height: 21px;
-	overflow-x: hidden;
 	overflow-y: auto;
+	overflow-x: hidden;
 	max-height: 21px;
 	align-self: flex-end;
 	float:right;
@@ -152,7 +183,7 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	/*width: 15%;Modifier la largeur de l'onglet*/
+	width: 15%;/*Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
 	overflow-y: hidden;
@@ -169,32 +200,47 @@ nav
 	background-color: #DC143C;
 }
 
+.message_d_erreur{
+	color : red;
+	font-style: italic;
+}
 
-/*SECTION*/
+
+.editer
+{
+	text-align:left;
+}
+.editer:hover
+{
+	background-color: #00AAAA;
+}
 
 section
 {
 	background-color: #F2F2F2;
 	display: flex;
-	justify-content: space-around;
-	height: 85%;
+	justify-content: center;
 }
 
 
-#titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
+.article_large
 {
-	padding: 10px;
-	background-color: #990100;
-	color: white;
-	font-size: 20px;
-	display: flex;
-	justify-content: space-between;
+	margin: 50px;
+	background-color: white;
+	width: 70%;
+	border: 3px #990100 solid;
+	border-radius: 10px;
+	justify-content: center;
 }
 
-#message
+.article_etroit
 {
-	font-style: italic;
-	color: red;
+	margin: 50px;
+	background-color: white;
+	width: 40%;
+	border: 3px #990100 solid;
+	border-radius: 10px;
+	justify-content: center;
 }
 
 .editer
@@ -204,66 +250,63 @@ section
 	text-decoration: unset;
 	text-align: center;
 	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
 	border: none;
 	color: #FFFFFF;
 	background-color: #007879;
-	width: 15%;/*Modifier la largeur de l'onglet*/
-}
-
-.m
-{
-	color: red;
-	text-align: center;
-	font-style: italic;
-	padding: 0px;
-	margin: 0px;
 }
 
 #corps
 {
+	text-align:justify;
 	font-size: 15px;
-	margin-left: 5px;
+	margin: 30px;
 	padding-bottom: 15px;
 }
 
-#corps_compte
+
+
+.titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
 {
-	color: #007879;
+	font-size: 20px;
+}
+
+
+
+em
+{
+	font-style:normal;
+	margin: 15px;
+}
+
+.conteneur_editer{
+	display: flex;
+	justify-content: center;
+}
+
+.conteneur_deux_editer{
+	display: flex;
+	justify-content: space-around;
+}
+
+.categorie{
+	font-size: 20px;
+	color: #990100;
+}
+
+.sous-titre{
+	font-size: 15px;
+	color: #007978;
 	font-weight: bold;
-	font-size: 15px;
-	margin-left: 5px;
-	padding-bottom: 15px;
 }
 
-.supprimer{
-	text-decoration: unset;
-	color: black;
-	font-style: italic;
+.bleu{
+	color: #007978;
 }
 
- .supprimer:hover{
- 	color: #990100;
-	text-decoration: underline;
- }
 
-article
-{
-	margin: 50px;
-	background-color: white;
-	width: 35%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
-	max-height: 730px;
-	overflow: hidden;
-	border: 3px #990100 solid;
-	border-radius: 10px;
-}
-
-.verif
-{
+.message{
 	color: red;
 	font-style: italic;
-}
-
-.intitule
-{
-	font-weight:bold;
 }
