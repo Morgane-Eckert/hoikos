@@ -210,6 +210,15 @@ section
 	width: 15%;/*Modifier la largeur de l'onglet*/
 }
 
+.m
+{
+	color: red;
+	text-align: center;
+	font-style: italic;
+	padding: 0px;
+	margin: 0px;
+}
+
 #corps
 {
 	font-size: 15px;
