@@ -38,7 +38,6 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	width: 9%;/*Modifier la largeur de l'onglet*/
 	height: 4%;
 	margin-right: 3px;
 	align-self: flex-end;
@@ -62,7 +61,6 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #F2F2F2;
-	width: 13%;/*Modifier la largeur de l'onglet*/
 	height: 4%;
 	margin-right: 3px;
 	color: black;
@@ -81,7 +79,6 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	width: 23%;/*Modifier la largeur de l'onglet*/
 	height: 4%;
 	margin-right: 3px;
 	color: white;
