@@ -12,7 +12,7 @@
 	<body>
 	<?php include("vues/v_header_bouton.php"); ?>
         <nav>
-            <a href="index.php?target=compte&action=connecte&reaction=home" class="Onglet">Home</a>
+            <a href="index.php?target=compte&action=connecte&reaction=home" class="Conso">Home</a>
              <?php //Affichage des onglets
                 include("accueil_onglets.php");
                 $onglets = afficher_onglets();
