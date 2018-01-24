@@ -9,7 +9,15 @@
 	<body>
 	<?php include("vues/v_header_bouton.php"); ?>
 	<nav>
-           <a href="index.php?target=compte&action=connecte&reaction=home" class="Onglet">Retour</a>
+		<?php if((isset($_SESSION["connect"])) && ($_SESSION["connect"] == true) && ((isset($_SESSION["type_utilisateur"])) && (($_SESSION["type_utilisateur"]==1) || ($_SESSION["type_utilisateur"]==2)))) {?>
+		<a href="index.php?target=compte&action=connecte&reaction=home" class= "Onglet">Retour</a>
+		<?php }else if ((isset($_SESSION["connect"])) && ($_SESSION["connect"] == true) && ((isset($_SESSION["type_utilisateur"])) && (($_SESSION["type_utilisateur"])==4))) {?>
+		<a href="index.php?target=compte&action=connecte&reaction=cemac" class= "Onglet">Retour</a>
+		<?php }else if ((isset($_SESSION["connect"])) && ($_SESSION["connect"] == true) && ((isset($_SESSION["type_utilisateur"])) && (($_SESSION["type_utilisateur"])==3))) {?>
+		<a href="index.php?target=compte&action=connecte&reaction=conditions_generales" class= "Onglet">Retour</a>
+		<?php }else{ ?>
+		<a href="index.php" class= "Onglet">Retour</a>
+		<?php }?>
     </nav>
     	<section>
 			<article class="article">

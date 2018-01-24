@@ -3,10 +3,19 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/profil.css">
-		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
 		<script type='text/javascript' src='public/js/adresse.js'></script>
 		<title>Votre Profil</title>
+		<script>
+			test(){
+				var nv = prompt('Voulez vous ajoutez un nouveau CeMAC');
+				if(nv==true){
+
+				} else{
+
+				}
+			}
+		</script>
 	</head>
 
 	<body>
@@ -21,21 +30,20 @@
                     ?>
                         <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="Onglet"> <?php echo $element; ?> </a>
                     <?php
-
                 }
              ?>
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
-						<?php
-						list($ID_logement,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance,$date_d_ajout) = donnees_utilisateur($_SESSION['ID_utilisateur']);
-						if(isset($_GET['ajout'])){
-							echo "<p class='m'>L'ajout de votre utilisateur secondaire ".$_GET["ajout"]." est un succès !</p><br><br/>";
-						} elseif(isset($_GET['suppression'])){
-							echo "<p class='m'>La suppression de votre utilisateur secondaire ".$_GET["suppression"]." est un succès !</p><br><br/>";
-						} elseif(isset($_GET["Mail"])){
-							echo "<p class='m'>Nous venons d'envoyer un mail à ".$adresse_mail." pour le changement de votre mot de passe.<br> Surveillez votre boite de réception ainsi que vos courriers spams/indésirables !</p><br/><br/>";
-						}
-						?>
+           		 <?php
+					list($ID_logement,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance,$date_d_ajout) = donnees_utilisateur($_SESSION['ID_utilisateur']);
+					if(isset($_GET['ajout'])){
+						echo "<p class='m'>L'ajout de votre utilisateur secondaire ".$_GET["ajout"]." est un succès !</p><br><br/>";
+					} elseif(isset($_GET['suppression'])){
+						echo "<p class='m'>La suppression de votre utilisateur secondaire ".$_GET["suppression"]." est un succès !</p><br><br/>";
+					} elseif(isset($_GET["Mail"])){
+						echo "<p class='m'>Nous venons d'envoyer un mail à ".$adresse_mail." pour le changement de votre mot de passe.<br> Surveillez votre boite de réception ainsi que vos courriers spams/indésirables !</p><br/><br/>";
+					}
+				?>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
             <a href="index.php?target=compte&action=connecte&reaction=profil" class="actuel">Profil</a>
 		</nav>
@@ -46,23 +54,24 @@
 				if(isset($_GET['edition'])){
 					echo '';
 					if($_GET['edition']=='principal'){
+						echo "<a href='index.php?target=compte&action=connecte&reaction=profil' class='editer'>Profil</a>";
 						?>
 				</div>
 				<div id='corps'>
 					<br/><!-- Titre dans le bandeau rouge-->
                         <form method='post' action='index.php?target=compte&action=connecte&reaction=profil&rempli=compte'>
-                            <label for='nom'> Nom : </label><br>
-                            <input type='text' name='nom' id='nom' value ="<?php echo $nom;?>"required><br><br>
-                            <label for='prénom'> Prénom :  </label><br>
+                            <label for='nom' class='intitule'> Nom : </label><br>
+                            <input type='text' name='nom' id='nom' value ="<?php echo $nom;?>" required><br><br>
+                            <label for='prénom' class='intitule'> Prénom :  </label><br>
                             <input type='text' name='prenom' id='prenom' value="<?php echo $prenom;?>" required><br><br />
-                            <label for='telephone'> Téléphone :  </label><br>
-                            <input type='text' name='telephone1' id='telephone1' maxlenght='10' value ="<?php echo $telephone;?>"required><br><br />
-                            <label for='adresse_mail'> Adresse mail :  </label><br>
+                            <label for='telephone' class='intitule'> Téléphone :  </label><br>
+                            <input type='text' name='telephone1' id='telephone1' maxlenght='10' value ="<?php echo $telephone;?>" required><br><br />
+                            <label for='adresse_mail' class='intitule'> Adresse mail :  </label><br>
                             <input type='email' name='adresse_mail' id='adresse_mail' value ="<?php echo $adresse_mail;?>" required><br><br />
-                            <label for='date_naissance'> Date de naissance:  </label><br>
+                            <label for='date_naissance' class='intitule'> Date de naissance:  </label><br>
                             <input type='date' name='date_naissance' id='date_naissance' value ="<?php echo $date_de_naissance;?>" required><br />
                             <br/>
-														Date de création du compte :
+								<span class='intitule'>Date de création du compte :</span>
 		                        <?php
 		                        echo $date_d_ajout;
 		                        ?>
@@ -80,37 +89,37 @@
 				</div>
 					<br/><!-- Titre dans le bandeau rouge-->
 							<div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
-								 Nom :
+								<span class='intitule'>Nom :</span>
 								<?php
 								echo $nom;
 								?>
 								<br><br>
 
-								Prénom :
+								<span class='intitule'>Prénom :</span>
 								<?php
 								echo $prenom;
 								?>
 								<br><br>
 
-								Téléphone :
+								<span class='intitule'>Téléphone :</span>
 								<?php
 								echo $telephone;
 								?>
 								<br><br>
 
-								Adresse mail :
+								<span class='intitule'>Adresse mail :</span>
 								<?php
 								echo $adresse_mail;
 								?>
 								<br><br>
 
-								Date de naissance :
+								<span class='intitule'>Date de naissance :</span>
 								<?php
 								echo $date_de_naissance;
 								?>
 								<br><br>
 
-								Date de création du compte :
+								<span class='intitule'>Date de création du compte :</span>
 								<?php
 								echo $date_d_ajout;
 								?>
@@ -126,37 +135,37 @@
 				</div>
 					<br/><!-- Titre dans le bandeau rouge-->
 							<div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
-								 Nom :
+								 <span class='intitule'>Nom :</span>
 								<?php
 								echo $nom;
 								?>
 								<br><br>
 
-								Prénom :
+								<span class='intitule'>Prénom :</span>
 								<?php
 								echo $prenom;
 								?>
 								<br><br>
 
-								Téléphone :
+								<span class='intitule'>Téléphone :</span>
 								<?php
 								echo $telephone;
 								?>
 								<br><br>
 
-								Adresse mail :
+								<span class='intitule'>Adresse mail :</span>
 								<?php
 								echo $adresse_mail;
 								?>
 								<br><br>
 
-								Date de naissance :
+								<span class='intitule'>Date de naissance :</span>
 								<?php
 								echo $date_de_naissance;
 								?>
 								<br><br>
 
-								Date de création du compte :
+								<span class='intitule'>Date de création du compte :</span>
 								<?php
 								echo $date_d_ajout;
 								?>
@@ -176,34 +185,34 @@
 				if(isset($_GET['edition'])){
 					echo '';
 					if($_GET['edition']=='adresse'){
-						echo '';
+						echo "<a href='index.php?target=compte&action=connecte&reaction=profil' class='editer'>Profil</a>";
 						?>
 				</div>
                     <br/><!-- Titre dans le bandeau rouge-->
                     <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
 						<form method='post' action='index.php?target=compte&action=connecte&reaction=profil&rempli=adresse'>
-							<label for='telephone_fixe'> Téléphone fixe :  </label><br/>
-							<input type='text' name='telephone_fixe' id='telephone_fixe' maxlenght='10' value = "<?php echo $telephonelogement?>" required><br><br />
+							<label for='telephone_fixe' class='intitule'> Téléphone fixe :  </label><br/>
+							<input type='text' name='telephone_fixe' id='telephone_fixe' maxlenght='10' value = "<?php echo $telephonelogement?>"  required><br><br />
 
-							<label>Addresse</label><br>
+							<label class='intitule'>Addresse</label><br>
 							<input id="autocomplete" placeholder="Taper votre adresse..."
 				 onFocus="geolocate()" type="text" class='adresse' style="width:300px;"><br><br>
 
-							<label for='numero_rue_logement' id='numero_rue_logement'> Numéro de rue : </label><br/>
+							<label for='numero_rue_logement' id='numero_rue_logement' class='intitule'> Numéro de rue : </label><br/>
 							<input type='text' name='numero_rue_logement' id='street_number' value = "<?php echo $numerorue;?>"required ><br><br>
-							<label for='nom_rue_logement' id='nom_rue_logement'> Nom de rue : </label><br/>
+							<label for='nom_rue_logement' id='nom_rue_logement' class='intitule'> Nom de rue : </label><br/>
 							<input type='text' name='nom_rue_logement' id='route' value="<?php echo $nomrue;?>" required><br><br>
-							<label for="ville_logement">Ville :</label><br>
+							<label for="ville_logement" class='intitule'>Ville :</label><br>
 							<input type='text' name="ville_logement" id="locality" value ="<?php echo $ville;?>"required >   <br><br>
-							<label for='code_postale_logement' id='code_postale_logement'> Code postal : </label><br/>
+							<label for='code_postale_logement' id='code_postale_logement' class='intitule'> Code postal : </label><br/>
 							<input type='text' name='code_postale_logement' id='postal_code' value="<?php echo $codepostal;?>" required><br><br>
-							<label for="pays_logement">Pays :</label><br>
+							<label for="pays_logement" class='intitule'>Pays :</label><br>
 							<input type='text' name="pays_logement" id="country" value='<?php echo $pays;?>' /><br><br>
 							<?php
 							$c = nv_cemac($ID_logement);
 							if($c!=0){
 								?>
-								<label for="id_cemac">ID nouveau CeMAC :</label><br>
+								<label for="id_cemac" class='intitule'>ID nouveau CeMAC :</label><br>
 								<input type='text' name='id_cemac' id='id_cemac' maxlenght='5'><br><br />
 								<?php
 							} else {
@@ -223,20 +232,20 @@
 				</div>
                     <br/><!-- Titre dans le bandeau rouge-->
                     <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
-                        Adresse :
+                        <span class='intitule'>Adresse :</span>
                         <?php
                         echo $numerorue.' rue '.$nomrue.', '.$codepostal.' '.$ville.' '.$pays;
                         ?>
                         <br><br>
 
-                        Numéro de téléphone du logement :
+                        <span class='intitule'>Numéro de téléphone du logement :</span>
                         <?php
                         echo $telephonelogement;
                         ?>
 												<br><br>
 												<?php
 												list($table_cemac,$c) = cemac($ID_logement);
-												echo "CeMAC de l'appartement :";
+												echo "<span class='intitule'>CeMAC de l'appartement :</span>";
 												?>
 												<ul>
 												<?php
@@ -261,20 +270,20 @@
 				</div>
                     <br/><!-- Titre dans le bandeau rouge-->
                     <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
-                        Adresse :
+                        <span class='intitule'>Adresse :</span>
                         <?php
                         echo $numerorue.' rue '.$nomrue.', '.$codepostal.' '.$ville.' '.$pays;
                         ?>
                         <br><br>
 
-                        Numéro de téléphone du logement :
+                        <span class='intitule'>Numéro de téléphone du logement :</span>
                         <?php
                         echo $telephonelogement;
                         ?>
 												<br><br>
 												<?php
 												list($table_cemac,$c) = cemac($ID_logement);
-												echo "CeMAC de l'appartement :";
+												echo "<span class='intitule'>CeMAC de l'appartement :</span>";
 												?>
 												<ul>
 												<?php
@@ -310,7 +319,7 @@
 				} else {
 					if ($i==False){
                             ?>
-                            <a href="index.php?target=inscription&action=utilisateurs_secondaires&profil" class="editer">Ajouter</a>
+                            <a href="index.php?target=inscription&action=utilisateurs_secondaires&reaction=profil" class="editer">Ajouter</a>
                             <?php
                         } else {
                             ?>
@@ -327,20 +336,23 @@
                         if ($i==0){
                             echo 'Pour ajouter un utilisateur secondaire cliquer sur le bouton "Ajouter" ci-dessus';
                         } else{
+                        	echo "<ul>";
 							for ($c=0;$c<$i;$c++){
-								echo $table_nom[$c]."  ".$table_prenom[$c];
+								echo "<li>".$table_nom[$c]."  ".$table_prenom[$c];
 								if(isset($_GET["edition"])){
 									if($_GET["edition"]=="modifier_secondaire"){
 									?>
-										<a  class ="supprimer" href="index.php?target=compte&action=connecte&reaction=profil&supprimer=<?php echo $table_id[$c];?>">X</a>
+										<a  class ="supprimer" href="index.php?target=compte&action=connecte&reaction=profil&supprimer=<?php echo $table_id[$c];?>" style='margin:5%'>Supprimer</a>
 									<?php
 								}
 								}
+								echo "</li>";
 								?>
 								<br><br>
 								<?php
 
 							}
+							echo "</ul>";
 						}
                         ?>
 												<?php
@@ -348,7 +360,7 @@
 													if($_GET["edition"]=="modifier_secondaire"){
 
 											 ?>
-												<a class = "supprimer" href ="index.php?target=inscription&action=utilisateurs_secondaires&profil">Ajouter un utilisateur</a>
+												<a class = "supprimer" style='margin:5%' href ="index.php?target=inscription&action=utilisateurs_secondaires&profil">Ajouter un utilisateur secondaire</a>
 												<?php
 											}
 										}

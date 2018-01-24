@@ -12,7 +12,7 @@
 
 		?>
 		<nav>
-			<a href="index.php" class="Onglet">Retour</a>
+			<a href="index.php?target=inscription&action=utilisateur" class="Onglet">Retour</a>
 		</nav>
 		<section>
 			<article>

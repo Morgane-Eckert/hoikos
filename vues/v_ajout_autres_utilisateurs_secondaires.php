@@ -12,10 +12,10 @@
        <?php include("vues/v_header_no_bouton.php"); ?>
         
         <nav>
-            <a href="index.php" class="Onglet">Retour</a>
+            <a href="index.php?target=inscription&action=utilisateurs_secondaires" class="Onglet">Retour</a>
         </nav>
         
-        <section>
+       <section>
             <article class="petit_article">
                 <div id="titre">Utilisateurs secondaires déjà créés</div>
                 <div class="liste_utilisateurs">
