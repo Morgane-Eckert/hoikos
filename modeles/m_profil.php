@@ -1,4 +1,5 @@
 <?php
+
 function token_mdp($email) //Génère un token random et le sotck dans la base de données
 {
 	$token = md5(uniqid(rand(), true));
@@ -180,7 +181,6 @@ function ajouter_cemac($id_cemac,$id_logement){
 
 function supprimer($id){
 	$bdd=connexion_bdd();
-
 	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE id_utilisateur = :id');
 	$reponse->execute(array(
 	'id'=> $id,
