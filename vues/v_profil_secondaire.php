@@ -6,16 +6,6 @@
 		<link rel="stylesheet" href="public/css/footer.css">
 		<script type='text/javascript' src='public/js/adresse.js'></script>
 		<title>Votre Profil</title>
-		<script>
-			test(){
-				var nv = prompt('Voulez vous ajoutez un nouveau CeMAC');
-				if(nv==true){
-
-				} else{
-
-				}
-			}
-		</script>
 	</head>
 
 	<body>
