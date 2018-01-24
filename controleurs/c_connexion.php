@@ -4,13 +4,14 @@ include ('modeles/m_connexion.php');
 
 function verification2($email,$password){
 
-	$affectedLines = verification($email,$password);
+    $affectedLines = verification($email,$password);
 
-	if ($affectedLines === false) {
+    if ($affectedLines === false) {
         die('Impossible d\'ajouter le commentaire !');
     } else if ($_SESSION["type_utilisateur"]==3){
-        echo 'a';
         header('Location: index.php?target=compte&action=connecte&reaction=conditions_generales');
+    } else if ($_SESSION["type_utilisateur"]==4){
+        header('Location: index.php?target=compte&action=connecte&reaction=cemac');
     } else {
         header('Location: index.php?target=compte&action=' . $_SESSION["action"].'&reaction=home');
     }
