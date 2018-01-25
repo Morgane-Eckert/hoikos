@@ -26,7 +26,8 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	width: 9%;/*Modifier la largeur de l'onglet*/
+	padding-left: 20px;
+	padding-right: 20px;
 	height: 4%;
 	margin-right: 3px;
 	align-self: flex-end;
@@ -50,7 +51,6 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #F2F2F2;
-	width: 9%;/*Modifier la largeur de l'onglet*/
 	height: 4%;
 	margin-right: 3px;
 	color: black;
@@ -68,7 +68,6 @@ nav
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
-	width: 15%;/*Modifier la largeur de l'onglet*/
 	height: 4%;
 	margin-right: 3px;
 	color: white;
@@ -166,7 +165,6 @@ section{
 	padding: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
-	height: 2%;
 	margin: 10px;
 	overflow: auto;
 }
