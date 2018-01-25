@@ -50,11 +50,11 @@ function changement($email){
 			header("Location:index.php?target=compte&action=connecte&reaction=profil&Mail");
 		}
 
-function donnees_utilisateur($id_utilisateur){
+function donnees_utilisateur($adresse_mail){
     $bdd = connexion_bdd();
-    $reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_utilisateur=:id');
+    $reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE adresse_mail_utilisateur=:adresse');
     $reponse->execute(array(
-    'id'=> $id_utilisateur,
+    'adresse'=> $adresse_mail,
     ));
 
     while ($donnees = $reponse->fetch()){
@@ -62,7 +62,6 @@ function donnees_utilisateur($id_utilisateur){
     $nom = $donnees['nom_utilisateur'];
     $prenom = $donnees['prenom_utilisateur'];
     $telephone = $donnees['telephone_1_utilisateur'];
-    $adresse_mail = $donnees['adresse_mail_utilisateur'];
     $date_de_naissance = $donnees['date_de_naissance_utilisateur'];
     $date_d_ajout = $donnees['date_d_ajout_utilisateur'];
     }
@@ -93,7 +92,7 @@ function donnees_logement($ID_logement){
 
 }
 
-function donnees_utilisateur_secondaire($ID_logement,$ID_utilisateur){
+function donnees_utilisateur_secondaire($ID_logement,$adresse_mail_utilisateur){
     $bdd = connexion_bdd();
 	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_logement=:id_logement');
 	$reponse->execute(array(
@@ -102,9 +101,9 @@ function donnees_utilisateur_secondaire($ID_logement,$ID_utilisateur){
 
 	$i=0;
 	while ($donnees = $reponse->fetch()){
-	if ($donnees['ID_utilisateur']==$ID_utilisateur){
+	if ($donnees['adresse_mail_utilisateur']==$adresse_mail_utilisateur){
 	}  else {
-		list($nom,$prenom,$i,$id) = utilisateur_secondaire($ID_logement,$ID_utilisateur);
+		list($nom,$prenom,$i,$id) = utilisateur_secondaire($ID_logement,$donnees["ID_utilisateur"]);
 	}
 	}
 
