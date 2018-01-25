@@ -169,14 +169,23 @@ function nv_cemac($ID_logement){
 		return $c;
 }
 
-function ajouter_cemac($id_cemac,$id_logement){
+function ajouter_cemac($id_cemac,$id_utilisateur){
 	$bdd = connexion_bdd();
+
+	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_utilisateur=:id');
+	$reponse->execute(array(
+	'id'=> $id_utilisateur,
+	));
+
+	$donnees=$reponse->fetch();
+
 	$req = $bdd->prepare('UPDATE cemac SET etat_cemac = 1 WHERE ID_logement = :id AND numero_de_cemac = :num');
 	$req->execute(array(
-			'id' => $ID_logement,
-			'num'=>$id_cemac,
+			'id' => $donnees["ID_logement"],
+			'num'=> $id_cemac
 			));
 }
+
 
 
 function supprimer($id){
