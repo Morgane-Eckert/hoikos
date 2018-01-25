@@ -6,16 +6,6 @@
 		<link rel="stylesheet" href="public/css/footer.css">
 		<script type='text/javascript' src='public/js/adresse.js'></script>
 		<title>Votre Profil</title>
-		<script>
-			test(){
-				var nv = prompt('Voulez vous ajoutez un nouveau CeMAC');
-				if(nv==true){
-
-				} else{
-
-				}
-			}
-		</script>
 	</head>
 
 	<body>
@@ -42,6 +32,8 @@
 						echo "<p class='m'>La suppression de votre utilisateur secondaire ".$_GET["suppression"]." est un succès !</p><br><br/>";
 					} elseif(isset($_GET["Mail"])){
 						echo "<p class='m'>Nous venons d'envoyer un mail à ".$adresse_mail." pour le changement de votre mot de passe.<br> Surveillez votre boite de réception ainsi que vos courriers spams/indésirables !</p><br/><br/>";
+					} elseif (isset($_GET["conflit"])) {
+						echo "<p class='m'>L'adresse mail ".$_GET["conflit"]." est déjà présente dans notre base de donnée!</p><br/><br/>";
 					}
 				?>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
@@ -61,13 +53,13 @@
 					<br/><!-- Titre dans le bandeau rouge-->
                         <form method='post' action='index.php?target=compte&action=connecte&reaction=profil&rempli=compte'>
                             <label for='nom' class='intitule'> Nom : </label><br>
-                            <input type='text' name='nom' id='nom' value ="<?php echo $nom;?>" required><br><br>
+                            <input type='text' name='nom' pattern='^[a-zA-Z]+$' id='nom' value ="<?php echo $nom;?>" required><br><br>
                             <label for='prénom' class='intitule'> Prénom :  </label><br>
-                            <input type='text' name='prenom' id='prenom' value="<?php echo $prenom;?>" required><br><br />
+                            <input type='text' name='prenom' pattern='^[a-zA-Z]+$' id='prenom' value="<?php echo $prenom;?>" required><br><br />
                             <label for='telephone' class='intitule'> Téléphone :  </label><br>
-                            <input type='text' name='telephone1' id='telephone1' maxlenght='10' value ="<?php echo $telephone;?>" required><br><br />
-                            <label for='adresse_mail' class='intitule'> Adresse mail :  </label><br>
-                            <input type='email' name='adresse_mail' id='adresse_mail' value ="<?php echo $adresse_mail;?>" required><br><br />
+                            <input type='text' name='telephone1'  pattern='^0[1-9]\d{8}$' id='telephone1' maxlenght='10' value ="<?php echo $telephone;?>" required><br><br />
+														<label for='adresse_mail' class='intitule'> Adresse mail :  </label><br>
+                            <input type='email' name='adresse_mail'  id='adresse_mail' value ="<?php echo $adresse_mail;?>" required><br><br />
                             <label for='date_naissance' class='intitule'> Date de naissance:  </label><br>
                             <input type='date' name='date_naissance' id='date_naissance' value ="<?php echo $date_de_naissance;?>" required><br />
                             <br/>
@@ -192,7 +184,7 @@
                     <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
 						<form method='post' action='index.php?target=compte&action=connecte&reaction=profil&rempli=adresse'>
 							<label for='telephone_fixe' class='intitule'> Téléphone fixe :  </label><br/>
-							<input type='text' name='telephone_fixe' id='telephone_fixe' maxlenght='10' value = "<?php echo $telephonelogement?>"  required><br><br />
+							<input type='text' pattern='^0[1-9]\d{8}$' name='telephone_fixe' id='telephone_fixe' maxlenght='10' value = "<?php echo $telephonelogement?>"  required><br><br />
 
 							<label class='intitule'>Addresse</label><br>
 							<input id="autocomplete" placeholder="Taper votre adresse..."
@@ -210,7 +202,7 @@
 							<input type='text' name="pays_logement" id="country" value='<?php echo $pays;?>' /><br><br>
 							<?php
 							$c = nv_cemac($ID_logement);
-							if($c!=0){
+							if($c>0){
 								?>
 								<label for="id_cemac" class='intitule'>ID nouveau CeMAC :</label><br>
 								<input type='text' name='id_cemac' id='id_cemac' maxlenght='5'><br><br />
@@ -319,7 +311,7 @@
 				} else {
 					if ($i==False){
                             ?>
-                            <a href="index.php?target=inscription&action=utilisateurs_secondaires&reaction=profil" class="editer">Ajouter</a>
+                            <a href="index.php?target=inscription&action=utilisateurs_secondaires&profil" class="editer">Ajouter</a>
                             <?php
                         } else {
                             ?>
