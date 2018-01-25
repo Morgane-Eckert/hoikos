@@ -86,6 +86,7 @@ function ajout_utilisateur2($type_utilisateur,$nom_utilisateur,$prenom_utilisate
     }
     else {
         if ($affectedLines==0){
+            $_SESSION['adresse_mail_utilisateur'] = $adresse_mail_utilisateur;
             header('Location: index.php?target=inscription&action=logement');}
         else{
             header('Location: index.php?target=inscription&action=utilisateur');}
