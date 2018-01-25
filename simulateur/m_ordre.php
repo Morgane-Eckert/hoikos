@@ -40,13 +40,13 @@
         #  echo $valeur;
         #  echo $table_id_capteur[$i];
         #  echo $_POST['etat'.$table_id_capteur[$i]]."<br/>";
-          $req = $bdd->prepare('UPDATE capteur SET ID_etat_capteur = :nvnomrue, donnee_recue_capteur = :nvville WHERE ID_capteur = :id');
+          $req = $bdd->prepare('UPDATE capteur SET etat_capteur = :nvnomrue, donnee_recue_capteur = :nvville WHERE ID_capteur = :id');
         	$req->execute(array(
         		'nvnomrue' => $_POST["etat".$table_id_capteur[$i]],
         		'nvville' => $valeur,
         		'id' => $table_id_capteur[$i],
         	));
-          #$update = $bdd->prepare("UPDATE capteur SET ID_etat_capteur = :etat, donnee_recue_capteur = :valeur WHERE ID_capteur = :id)");
+          #$update = $bdd->prepare("UPDATE capteur SET etat_capteur = :etat, donnee_recue_capteur = :valeur WHERE ID_capteur = :id)");
           #$update->execute(array(
           #  'etat'=>$_POST['etat'.$table_id_capteur[$i]],
           #  'valeur'=>$valeur,
