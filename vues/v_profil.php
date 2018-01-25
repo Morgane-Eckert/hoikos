@@ -25,7 +25,7 @@
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
            		 <?php
-					list($ID_logement,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance,$date_d_ajout) = donnees_utilisateur($_SESSION['ID_utilisateur']);
+					list($ID_logement,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance,$date_d_ajout) = donnees_utilisateur($_SESSION['adresse_mail_utilisateur']);
 					if(isset($_GET['ajout'])){
 						echo "<p class='m'>L'ajout de votre utilisateur secondaire ".$_GET["ajout"]." est un succès !</p><br><br/>";
 					} elseif(isset($_GET['suppression'])){
@@ -301,7 +301,7 @@
 				<div id="titre">Utilisateurs secondaires
 
                 <?php
-				list($i,$table_nom,$table_prenom,$table_id) = donnees_utilisateur_secondaire($ID_logement,$_SESSION['ID_utilisateur']);
+				list($i,$table_nom,$table_prenom,$table_id) = donnees_utilisateur_secondaire($ID_logement,$_SESSION['adresse_mail_utilisateur']);
 				if(isset($_GET['edition'])){
 					if($_GET['edition']=="modifier_secondaire"){
 					?>
