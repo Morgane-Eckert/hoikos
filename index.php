@@ -63,7 +63,10 @@ if (isset($_GET['target'])) {
                             ajout_nouveau_capteur2();
                         } else if ($_GET['reaction']=='nouvel_ordre') {
                             ajout_ordre2();
-                        } else if (isset($_GET['anticipation'])) {
+                        } else if ($_GET['reaction']=='consommation') {
+                            include('controleurs/c_consommation.php');
+                            consommation();   	    
+			  } else if (isset($_GET['anticipation'])) {
                             if ($_GET['anticipation']=='suppression_onglet') {
                                 accueil_formulaire_suppression();
                             } else if ($_GET['anticipation']=='suppression_onglet_confirme') {
@@ -74,6 +77,7 @@ if (isset($_GET['target'])) {
                                 accueil_suppression_fonction2();
                             } if ($_GET['anticipation']=='fonction_supprimee') {
                                 accueil();
+				    
                             }
                         } else if ($_GET['reaction']=='profil'){
             							include ('controleurs/c_profil.php');
