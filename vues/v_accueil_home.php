@@ -31,7 +31,7 @@ include("accueil_onglets.php");
              ?>
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
-            <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
+            <a href="index.php?target=compte&action=connecte&reaction=consommation" class="Conso">Consommations</a>
             <a href="index.php?target=compte&action=connecte&reaction=profil" class="Conso">Profil</a>
         </nav>
 
