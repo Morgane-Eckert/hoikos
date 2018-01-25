@@ -1,50 +1,58 @@
+<?php include("accueil_onglets.php");?>
 <!DOCTYPE html>
 <html>
 
 	<head>
-	<link rel="stylesheet" href="public/css/consommation.css">
-	<link rel="stylesheet" href="public/css/base-header-sans-bouton.css">
-	<link rel="stylesheet" href="public/css/footer.css">
-     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-     <link rel="stylesheet" href="/resources/demos/style.css">
-     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+  	<link rel="stylesheet" href="public/css/consommation.css">
+  	<link rel="stylesheet" href="public/css/base-header-sans-bouton.css">
+  	<link rel="stylesheet" href="public/css/footer.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
     <title>Votre Consommation</title>
-     <?php include("vues/v_base-header-sans-bouton-deconnexion.php");?>
-
-
-		</head>
-		<body>
- <nav>
-            
-             <?php //Affichage des onglets
-                include("accueil_onglets.php");
+  </head>
+	<body>
+    <?php 
+            include("vues/v_header_bouton.php");
+            //Affichage d'un message d'erreur si un capteur ne fonctionne pas
+            list($erreur_capteur,$erreur_salles,$a) = afficher_erreur_capteur();
+            for($i=0;$i<$a;$i++){
+                echo "<p class='erreur_capteur'>Attention : La fonction ".$erreur_capteur[$i]." de la pièce ".$erreur_salles[$i]." rencontre un dysfonctionnement. <a href='index.php?target=sav' class='lien_message_etat_capteur'>Contactez le SAV en cliquant ici</a>";
+            }
+        ?>
+    <nav>
+            <a href="index.php?target=compte&action=connecte&reaction=home" class="Conso">Home</a>
+             <?php //Affichage des onglets                
                 $onglets = afficher_onglets();
                 if ($onglets!=NULL)
                 foreach($onglets as $element){//On parcourt le tableau
+                    if ($_GET['reaction']==$element){
                     ?>
-                        <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="Onglet"> <?php echo $element; ?> </a>
+                        <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="actuel"> <?php echo $element; ?> </a>
                     <?php
+                    } else {
+                        ?>
+                        <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="Onglet"> <?php echo $element; ?> </a>
+                        <?php
+                    }
                 }
              ?>
-              <a href="index.php?target=consommation&action=connecte" class="onglets">Home</a>
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
-            
-           <div class="Vide"></div>
-            
-            <a href="index.php?target=compte&action=connecte&reaction=home" class="actuel">Consommation</a>
-            <a href="index.php" class="Onglet">Profil</a>
-  </nav>
+            <div class="Vide"></div>
+            <a href="index.php?target=compte&action=connecte&reaction=consommation" class="Conso">Consommations</a>
+            <a href="index.php?target=compte&action=connecte&reaction=profil" class="Conso">Profil</a>
+        </nav>
 				<section>	
 					<article>
-						<div id="titre">Consommation de la maison
+						<div id="titre">Consommation du foyer
             </br>
         <form>
           <label for="from">De</label>
-          <input type="text" id="from_date" name="from_date" class="form-control" placeholder="De" />
+          <input type="text" id="from_date" size='10' name="from_date" class="form-control"/>
           <label for="to">à</label>
-          <input type="text" id="to_date" name="to_date" class="form-control" placeholder="à"/>
+          <input type="text" id="to_date" size='10' name="to_date" class="form-control"/>
 <!-- <button onclick="javascript:randomize();">RANDOM!</button>-->
          <!-- <input type="button" name="date" id="date" value="Date" class="btn btn-info" /> -->
         </form>
