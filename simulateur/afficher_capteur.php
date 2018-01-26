@@ -50,7 +50,7 @@ foreach ($table_capteur as $element) {
 
   echo "<strong>Humidité</strong> dans ".$table_salle[$i];
   ?>
-  <input type="range" name="ordre" min="0" max="30" onchange="afficher(this.value,<?php echo $table_id_capteur[$i];?>);" value="<?php echo $table_valeur_capteur[$i];?>">
+  <input type="range" name="ordre" min="0" max="100" onchange="afficher(this.value,<?php echo $table_id_capteur[$i];?>);" value="<?php echo $table_valeur_capteur[$i];?>">
   <input type="text"  name ="<?php echo $table_id_capteur[$i];?>" id = "<?php echo $table_id_capteur[$i];?>" size='2' value="<?php echo $table_valeur_capteur[$i];?>">&nbsp;%&nbsp;
   <?php
 } elseif ($table_type_capteur[$i]==4) {
