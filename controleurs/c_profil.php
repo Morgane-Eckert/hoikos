@@ -12,8 +12,15 @@ function profil_secondaire(){
 	include("vues/v_profil_secondaire.php");
 }
 
-function profil_editer_utilisateur_principal($id_utilisateur,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance){
+function profil_editer_utilisateur_principal($session_adresse,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance){
 	$bdd = connexion_bdd();
+
+	$rep = $bdd->prepare('SELECT * FROM utilisateur WHERE adresse_mail_utilisateur = :adresse');
+	$rep->execute(array(
+	'adresse' => $session_adresse
+	));
+	$donnees = $rep->fetch();
+	$id_utilisateur = $donnees["ID_utilisateur"];
 
 	$reponse = $bdd->prepare('SELECT COUNT(*) FROM utilisateur WHERE adresse_mail_utilisateur = :adresse_mail_utilisateur AND ID_utilisateur != :id');
 	$reponse->execute(array(
@@ -33,6 +40,7 @@ function profil_editer_utilisateur_principal($id_utilisateur,$nom,$prenom,$telep
 			'nvtelephone' => $telephone,
 			'id' => $id_utilisateur,
 		));
+		$_SESSION["adresse_mail_utilisateur"] = $adresse_mail;
 			header("Location:index.php?target=compte&action=connecte&reaction=profil");
 
 	} else {
@@ -51,8 +59,15 @@ function profil_editer_utilisateur_principal($id_utilisateur,$nom,$prenom,$telep
 
 }
 
-function profil_editer_adresse($id_utilisateur,$ruelogement,$villelogement,$numeroruelogement,$codepostallogement,$telephonefixe){
+function profil_editer_adresse($session_adresse,$ruelogement,$villelogement,$numeroruelogement,$codepostallogement,$telephonefixe){
 	$bdd = connexion_bdd();
+
+	$rep = $bdd->prepare('SELECT * FROM utilisateur WHERE adresse_mail_utilisateur = :adresse');
+	$rep->execute(array(
+	'adresse' => $session_adresse
+	));
+	$donnees = $rep->fetch();
+	$id_utilisateur = $donnees["ID_utilisateur"];
 
 			$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_utilisateur=:id');
 		  $reponse->execute(array(
