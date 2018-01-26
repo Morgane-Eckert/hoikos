@@ -11,6 +11,7 @@
 	<body>
 	<?php include("vues/v_header_bouton.php"); ?>
         <nav>
+
             <a href="index.php?target=compte&action=connecte&reaction=home" class="Conso">Home</a>
              <?php //Affichage des onglets
                 include("accueil_onglets.php");
@@ -200,19 +201,8 @@
 							<input type='text' name='code_postale_logement' id='postal_code' value="<?php echo $codepostal;?>" required><br><br>
 							<label for="pays_logement" class='intitule'>Pays :</label><br>
 							<input type='text' name="pays_logement" id="country" value='<?php echo $pays;?>' /><br><br>
-							<?php
-							$c = nv_cemac($ID_logement);
-							if($c>0){
-								?>
-								<label for="id_cemac" class='intitule'>ID nouveau CeMAC :</label><br>
-								<input type='text' name='id_cemac' id='id_cemac' maxlenght='5'><br><br />
-								<?php
-							} else {
-								echo "";
-							}
-							?>
-
-
+							<label for="id_cemac" class='intitule'>ID nouveau CeMAC :</label><br>
+							<input type='text' name='id_cemac' id='id_cemac' maxlength="5"><br><br />
 							<input type='submit' value='Confirmer' id='bouton' onclick='activate()'>
 					</form>
 				</div>
