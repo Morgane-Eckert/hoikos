@@ -142,7 +142,7 @@ function utilisateur_secondaire($ID_logement,$ID_utilisateur){
 function cemac($ID_logement){
 
 	$bdd = connexion_bdd();
-	$reponse3 = $bdd->prepare('SELECT * FROM cemac WHERE ID_logement = :ID_logement AND etat_cemac = 1');
+	$reponse3 = $bdd->prepare('SELECT * FROM cemac WHERE ID_logement = :ID_logement');
 	$reponse3->execute(array(
 			'ID_logement' => $ID_logement
 			));
@@ -156,29 +156,18 @@ function cemac($ID_logement){
 		return array($table_cemac,$c);
 }
 
-function nv_cemac($ID_logement){
 
-	$bdd = connexion_bdd();
-	$reponse = $bdd->prepare('SELECT COUNT(*) FROM cemac WHERE ID_logement = :ID_logement AND etat_cemac = :etat');
-	$reponse->execute(array(
-			'ID_logement' => $ID_logement,
-			'etat'=>2,
-			));
-	$c = $reponse->fetchColumn();
-		return $c;
-}
-
-function ajouter_cemac($id_cemac,$id_utilisateur){
+function ajouter_cemac($id_cemac,$session_adresse){
 	$bdd = connexion_bdd();
 
-	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_utilisateur=:id');
+	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE adresse_mail_utilisateur=:id');
 	$reponse->execute(array(
-	'id'=> $id_utilisateur,
+	'id'=> $session_adresse,
 	));
 
 	$donnees=$reponse->fetch();
 
-	$req = $bdd->prepare('UPDATE cemac SET etat_cemac = 1 WHERE ID_logement = :id AND numero_de_cemac = :num');
+	$req = $bdd->prepare('UPDATE cemac SET etat_cemac = 1, ID_logement = :id WHERE numero_de_cemac = :num');
 	$req->execute(array(
 			'id' => $donnees["ID_logement"],
 			'num'=> $id_cemac
