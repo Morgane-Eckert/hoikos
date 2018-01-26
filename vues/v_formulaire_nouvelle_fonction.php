@@ -13,11 +13,11 @@
 
 			if ($_GET['anticipation']=='home'){
 				?>			
-				<a href="index.php?target=compte&action=connecte&reaction=home" class="actuel">Home</a>
+				<a href="index.php?target=compte&action=connecte&reaction=home" class="Conso">Home</a>
 			<?php 
 			} else {
 				?>
-				<a href="index.php?target=compte&action=connecte&reaction=home" class="Onglet">Home</a>
+				<a href="index.php?target=compte&action=connecte&reaction=home" class="Conso">Home</a>
 			<?php
 			}
                 include("accueil_onglets.php");
@@ -38,8 +38,8 @@
              ?>
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet&anticipation=<?php echo $_GET['reaction']; ?>" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
-            <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
-            <a href="index.php?target=compte&action=connecte&reaction=profil&anticipation= <?php echo $_GET['reaction'];?>" class="Onglet">Profil</a>
+            <a href="index.php?target=compte&action=connecte&reaction=consommation" class="Conso">Consommations</a>
+            <a href="index.php?target=compte&action=connecte&reaction=profil&anticipation= <?php echo $_GET['reaction'];?>" class="Conso">Profil</a>
         </nav>
 
 		<section>

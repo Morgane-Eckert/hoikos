@@ -43,7 +43,7 @@
                         <input type='tel'  name='telephone1' id='telephone1' maxlength='10' required><br><br />
                         <?php verif_mail();?>
                         <label for='adresse_mail'> Adresse mail :  </label><br/>
-                        <input type='email' name='adresse_mail' id='adresse_mail'  required><br><br />
+                        <input type='email' name='adresse_mail' size='30' id='adresse_mail'  required><br><br />
                         <label for='date_naissance'> Date de naissance:  </label><br/>
                         <input type='date' name='date_naissance' id='date_naissance'  required><br><br />
                         <?php verif_mdp();?>

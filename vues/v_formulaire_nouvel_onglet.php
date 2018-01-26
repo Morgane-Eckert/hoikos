@@ -21,7 +21,7 @@
                 }	         ?>
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="actuel_nouvel_onglet" id='actuel'>+</a>
             <div class="Vide"></div>
-            <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
+            <a href="index.php?target=compte&action=connecte&reaction=consommation" class="Conso">Consommations</a>
             <a href="index.php?target=compte&action=connecte&reaction=profil" class="Conso">Profil</a>
         </nav>
 
@@ -52,21 +52,6 @@
 						<p class='instruction_nom_salle'> Le nom de la salle doit être unique dans votre foyer.</p>
 						<label for='nom_salle' id=''> Nom de la nouvelle pièce : </label><br/>
 	  					<input type="text" name="nom_salle" id="nom_onglet" placeholder="" value="Chambre" class="Case" maxlength='20' required /><br/><br/>
-	  					<!-- Debut de code pour afficher la liste des utilisateurs secondaires afin de restreindre leurs droits. Fonctionnalité à rajouter.
-						Utilisateurs secondaires pouvant accéder aux fonctions de la pièce : <br>
-						<?php
-						$bdd=connexion_bdd();
-		                $reponse21 = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_logement=:ID_logement AND type_utilisateur=:type_utilisateur');
-		                $reponse21->execute(array(
-		                    'type_utilisateur' => '2',
-		                    'ID_logement' => $_SESSION['ID_logement']
-		                    ));
-		                    while ($donnees21 = $reponse21->fetch()){
-		                    	?>
-		                    	<input type="checkbox" name=<?php echo $donnees21['ID_utilisateur']; ?> checked />								<label for=<?php echo $donnees21['ID_utilisateur']; ?>> <?php echo $donnees21['prenom_utilisateur']; ?></label><br><br>
-		                        <?php
-		                    }
-		                    ?>-->
 						<input type='submit' value='Valider' id='bouton'>
 					</form>
 				</div>

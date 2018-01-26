@@ -21,7 +21,7 @@
 		</nav>		
 		
 		<section >
-			<article class="article">
+			<article class="articlea">
 				<div class="titre"> F.A.Q.</div><br/><!-- Titre dans le bandeau rouge-->
 				<div class="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
 					<?php 	include ("modeles/m_faq.php");
@@ -39,7 +39,7 @@
 				</div>
 			</article>
 			
-			<article class="article">
+			<article class="articleb">
 				<div class="titre"> Nos coordonnées :</div><br/><!-- Titre dans le bandeau rouge-->
 				<div class="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
 					<span class='bleu'>Téléphone : </span>06 59 91 80 18 <br><br>

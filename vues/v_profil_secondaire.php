@@ -1,3 +1,4 @@
+<?php include("accueil_onglets.php");?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,16 +13,14 @@
 	<?php include("vues/v_header_bouton.php"); ?>
         <nav>
             <a href="index.php?target=compte&action=connecte&reaction=home" class="Onglet">Home</a>
-             <?php //Affichage des onglets
-                include("accueil_onglets.php");
-                $onglets = afficher_onglets();
-                if ($onglets!=NULL)
-                foreach($onglets as $element){//On parcourt le tableau
-                    ?>
-                        <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="Onglet"> <?php echo $element; ?> </a>
-                    <?php
-                }
-             ?>
+		<?php
+            //Affichage d'un message d'erreur si un capteur ne fonctionne pas
+		include("vues/v_header_bouton.php");
+            list($erreur_capteur,$erreur_salles,$a) = afficher_erreur_capteur();
+            for($i=0;$i<$a;$i++){
+                echo "<p class='erreur_capteur'>Attention : La fonction ".$erreur_capteur[$i]." de la pièce ".$erreur_salles[$i]." rencontre un dysfonctionnement. <a href='index.php?target=sav' class='lien_message_etat_capteur'>Contactez le SAV en cliquant ici</a>";
+            }
+        ?>
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>

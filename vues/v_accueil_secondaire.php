@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php 
+include("accueil_onglets.php");
+?><!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -17,7 +19,6 @@
             <a href="index.php?target=compte&action=connecte&reaction=home" class="Onglet">Home</a>
              <?php //Affichage des onglets
                 $bdd=connexion_bdd();
-                include("accueil_onglets.php");
                 $onglets = afficher_onglets();
                 if ($onglets!=NULL){
                     foreach($onglets as $element){//On parcourt le tableau
@@ -33,7 +34,7 @@
                     }
                 }
              ?>
-            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
+
             <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte&reaction=consommation" class="Conso">Consommations</a>
             <a href="index.php?target=compte&action=connecte&reaction=profil" class="Onglet">Profil</a>
@@ -95,7 +96,7 @@
                                         <div class = "BoiteVide">
                                             <?php 
                                                 if ($donneesh['etat_capteur'] =='2'){//Si le capteur ne marche pas
-                                                    echo '<div class=\'erreur_capteur\'><br>Cette fonction rencontre un dysfonctionnement.<br><a href="index.php?target=sav" class="lien_message_etat_capteur">Contactez le SAV</a></div>';
+                                                    echo '<div class=\'erreur_capteur_boite\'><br>Cette fonction rencontre un dysfonctionnement.<br><a href="index.php?target=sav" class="lien_message_etat_capteur">Contactez le SAV</a></div>';
                                                 } else if ($donneesh['donnee_envoyee_capteur']==NULL){
                                                     echo '<h3></h3>';
                                                 } else if ($element=='Humidité' and $donneesh['donnee_envoyee_capteur']!=$donneesh['donnee_recue_capteur']){
@@ -168,7 +169,7 @@
                                     <?php      
                                     }
                             } else {
-                                echo '<p> L\'utilisateur principal n\'a pas encore ajouté de fonction dans cette pièce.</p>';
+                                echo '<p class=\'message\'> L\'utilisateur principal n\'a pas encore ajouté de fonction dans cette pièce.</p>';
                             }
                             ?>
                 </div>

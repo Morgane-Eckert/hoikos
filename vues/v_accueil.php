@@ -92,7 +92,7 @@
                                     <div class = "BoiteVide">
                                         <?php 
                                             if ($donneesh['etat_capteur'] =='2'){//Si le capteur ne marche pas
-                                                echo '<div class=\'erreur_capteur\'><br>Cette fonction rencontre un dysfonctionnement.<br><a href="index.php?target=sav" class="lien_message_etat_capteur">Contactez le SAV</a></div>';
+                                                echo '<div class=\'erreur_capteur_boite\'><br>Cette fonction rencontre un dysfonctionnement.<br><a href="index.php?target=sav" class="lien_message_etat_capteur">Contactez le SAV</a></div>';
                                             } else if ($donneesh['donnee_envoyee_capteur']==NULL){
                                                 echo '<h3></h3>';
                                             } else if ($element=='Humidité' and $donneesh['donnee_envoyee_capteur']!=$donneesh['donnee_recue_capteur']){

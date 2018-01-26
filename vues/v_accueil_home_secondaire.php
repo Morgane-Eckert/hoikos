@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php 
+include("accueil_onglets.php");
+?><!DOCTYPE html>
 <html>
 	
 	<head>
@@ -19,7 +21,7 @@
 		<nav>
             <a href="index.php?target=compte&action=connecte&reaction=home" class="actuel">Home</a>
              <?php //Affichage des onglets
-                include("accueil_onglets.php");
+
                 $onglets = afficher_onglets();
                 if ($onglets!=NULL)
                 foreach($onglets as $element){//On parcourt le tableau
@@ -28,7 +30,6 @@
                     <?php
                 }
              ?>
-            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
             <a href="index.php?target=compte&action=connecte&reaction=consommation" class="Conso">Consommations</a>
             <a href="index.php?target=compte&action=connecte&reaction=profil" class="Onglet">Profil</a>
@@ -149,7 +150,7 @@
                                     <?php 
                                 }
                             } else {
-                                echo '<p> L\'utilisateur principal n\'a pas encore ajouté de fonction dans votre foyer.</p>';
+                                echo '<p class=\'message\'> L\'utilisateur principal n\'a pas encore ajouté de fonction dans votre foyer.</p>';
                             }
                             ?>
                 </div>

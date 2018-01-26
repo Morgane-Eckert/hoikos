@@ -41,7 +41,7 @@
              ?>
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
-            <a href="index.php?target=compte&action=connecte&reaction=consommation" class="Conso">Consommations</a>
+            <a href="index.php?target=compte&action=connecte&reaction=consommation" class="actuel">Consommations</a>
             <a href="index.php?target=compte&action=connecte&reaction=profil" class="Conso">Profil</a>
         </nav>
 				<section>	
@@ -67,7 +67,7 @@
                                         ?>
 
                              		       <div class = "BoiteVide">
-                               		         <span class="Titre">Votre consommation d'eau est :</span><h3 class="Affichage"><?php echo $element; ?>
+                               		         <span class="Titre"></span><h3 class="Affichage"><?php echo $element; ?>
                                            </h3>
                                		     </div><br>
 
@@ -125,7 +125,7 @@
                                   		          foreach($donnees_recue_donnees1 as $element1);//On parcourt le tableau
                                  		         ?>
                     		 		 <div class = "BoiteVide">
-                                  		      <span class="Titre">Votre consommation d'électricité est :</span><h3 class="Affichage"><?php echo $element1;?></h3>
+                                  		      <span class="Titre"></span><h3 class="Affichage"><?php echo $element1;?></h3>
 		                                    </div><br>
                                                        
 								

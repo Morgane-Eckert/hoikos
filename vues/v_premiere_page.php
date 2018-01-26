@@ -26,8 +26,8 @@
 			?>
 
 				<form method="post" action="index.php?target=compte">
-  					 <p><input type="text" name="adressemail" placeholder="Adresse mail" class="Case" size="27" required /></p>
-  					 <p><input type="password" name="mot_de_passe" placeholder="Mot de passe" class="Case" size="27" required></p>
+  					 <p><input type="text" name="adressemail" placeholder="Adresse mail" class="Case" size="30" required /></p>
+  					 <p><input type="password" name="mot_de_passe" placeholder="Mot de passe" class="Case" size="30" required></p>
   					 <input type="submit" value="Connexion" class="Onglet" />
 				</form><br/>
 				<a href="index.php?target=mot_de_passe_oublié" class="lienn">Mot de passe oublié ?</a>

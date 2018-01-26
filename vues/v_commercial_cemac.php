@@ -8,7 +8,7 @@
 	<body>
 		<?php include("vues/v_header_bouton.php"); ?>
 		<nav>
-            <a href="index.php?target=compte&action=connecte&reaction=cemac" class="Onglet">CeMac</a>
+            <a href="index.php?target=compte&action=connecte&reaction=cemac" class="actuel">CeMac</a>
         </nav>
         <section class="section">
             <article class="article_etroit">
