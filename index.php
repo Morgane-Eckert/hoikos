@@ -92,7 +92,7 @@ if (isset($_GET['target'])) {
             									profil_editer_utilisateur_principal($_SESSION['adresse_mail_utilisateur'],$_POST['nom'],$_POST['prenom'],$_POST['telephone1'],$_POST['adresse_mail'],$_POST['date_naissance']);
             								} else if($_GET['rempli']=='adresse'){
                               if(isset($_POST["id_cemac"])){
-                                ajouter_cemac($_POST["id_cemac"],$_SESSION["ID_utilisateur"]);
+                                ajouter_cemac($_POST["id_cemac"],$_SESSION["adresse_mail_utilisateur"]);
                               }
             									profil_editer_adresse($_SESSION['adresse_mail_utilisateur'],$_POST['nom_rue_logement'],$_POST['ville_logement'],$_POST['numero_rue_logement'],$_POST['code_postale_logement'],$_POST['telephone_fixe']);
             								} else if($_GET['rempli']=='secondaire'){
