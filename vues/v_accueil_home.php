@@ -157,7 +157,7 @@ include("accueil_onglets.php");
                                 <?php 
                                 }
                             } else {
-                                echo '<p class=\'message\'> Ajoutez votre première pièce afin de faire apparaître votre première fonction !<br><br> </p>';
+                                echo '<p class=\'message\'> Ajoutez votre première pièce afin de faire apparaître votre première fonction en cliquant sur l\'onglet "+" !<br><br> </p>';
                             }
                             ?>
                         </div>

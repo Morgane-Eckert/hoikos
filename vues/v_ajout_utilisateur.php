@@ -11,7 +11,7 @@
 		<?php 	include("vues/v_header_no_bouton.php");
 				verif_cond_utilisateur();
 		?>
-		<script src="public/js/valider_formulaire_inscription.js" ></script><!-- Verifications formulaire en JS -->
+		
 		<nav>
 			<a href="index.php" class="Onglet">Retour</a>
 		</nav>
@@ -24,7 +24,7 @@
 						<input type='text' pattern='^[a-zA-Z]+$' name='nom' id='nom' required><br><br>
 						<label for='prénom'> Prénom :  </label><br/>
 						<input type='text' pattern='^[a-zA-Z]+$' name='prenom' id='prenom' required><br><br />
-						<label for='telephone'> Téléphone personnel :  </label><br/>
+						<label for='telephone'> Téléphone portable :  </label><br/>
 						<input type='tel' pattern='^0[1-9]\d{8}$' name='telephone1' id='telephone1' maxlength='10' required><br><br />
 						<?php verif_mail();?>
 						<label for='adresse_mail'> Adresse mail :  </label><br/>
@@ -57,6 +57,6 @@
 		</section>
 
 		<?php 	include("vues/v_footer.php");?>
-		 
+		<script src="public/js/valider_formulaire_inscription.js" ></script>		 
 	</body>
 </html>

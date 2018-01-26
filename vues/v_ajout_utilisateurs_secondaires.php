@@ -34,7 +34,7 @@
                         <input type='text' pattern='^[a-zA-Z]+$' name='nom' id='nom' required><br><br>
                         <label for='prenom'> Prénom :  </label><br/>
                         <input type='text' pattern='^[a-zA-Z]+$' name='prenom' id='prenom' required><br><br />
-                        <label for='telephone'> Téléphone personnel :  </label><br/>
+                        <label for='telephone'> Téléphone portable :  </label><br/>
                         <input type='tel'  name='telephone1' id='telephone1' maxlength='10' required><br><br />
                         <?php verif_mail();?>
                         <label for='adresse_mail'> Adresse mail :  </label><br/>
