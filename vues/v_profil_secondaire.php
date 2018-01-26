@@ -1,4 +1,3 @@
-<?php include("accueil_onglets.php");?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,16 +12,26 @@
 	<?php include("vues/v_header_bouton.php"); ?>
         <nav>
             <a href="index.php?target=compte&action=connecte&reaction=home" class="Onglet">Home</a>
-		<?php
-            //Affichage d'un message d'erreur si un capteur ne fonctionne pas
-		include("vues/v_header_bouton.php");
-            list($erreur_capteur,$erreur_salles,$a) = afficher_erreur_capteur();
-            for($i=0;$i<$a;$i++){
-                echo "<p class='erreur_capteur'>Attention : La fonction ".$erreur_capteur[$i]." de la pièce ".$erreur_salles[$i]." rencontre un dysfonctionnement. <a href='index.php?target=sav' class='lien_message_etat_capteur'>Contactez le SAV en cliquant ici</a>";
-            }
-        ?>
+             <?php //Affichage des onglets
+                include("accueil_onglets.php");
+                $onglets = afficher_onglets();
+                if ($onglets!=NULL)
+                foreach($onglets as $element){//On parcourt le tableau
+                    ?>
+                        <a href="index.php?target=compte&action=connecte&reaction=<?php echo $element; ?>" class="Onglet"> <?php echo $element; ?> </a>
+                    <?php
+                }
+             ?>
             <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
+						<?php
+						list($ID_logement,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance,$date_d_ajout) = donnees_utilisateur($_SESSION['adresse_mail_utilisateur']);
+						if(isset($_GET["Mail"])){
+							echo "<p class='m'>Nous venons d'envoyer un mail à ".$adresse_mail." pour le changement de votre mot de passe.<br> Surveillez votre boite de réception ainsi que vos courriers spams/indésirables !</p><br/><br/>";
+						} elseif (isset($_GET["conflit"])) {
+							echo "<p class='m'>L'adresse mail ".$_GET["conflit"]." est déjà présente dans notre base de donnée!</p><br/><br/>";
+						}
+						?>
             <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
             <a href="index.php?target=compte&action=connecte&reaction=profil" class="actuel">Profil</a>
 		</nav>
@@ -30,7 +39,6 @@
 			<article>
 				<div id="titre">Données de votre compte
 				<?php
-				list($ID_logement,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance,$date_d_ajout) = donnees_utilisateur($_SESSION['ID_utilisateur']);
 				if(isset($_GET['edition'])){
 					echo '';
 					if($_GET['edition']=='principal'){
@@ -68,11 +76,6 @@
 				</div>
 					<br/><!-- Titre dans le bandeau rouge-->
 							<div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
-								<?php if(isset($_GET["Mail"])){
-								echo "Vous avez reçu un mail pour changer votre mot de passe";
-							} else {
-								echo "";
-							}?>
 								 Nom :
 								<?php
 								echo $nom;
@@ -119,11 +122,6 @@
 				</div>
 					<br/><!-- Titre dans le bandeau rouge-->
 							<div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
-								<?php if(isset($_GET["Mail"])){
-								echo "<i>Vous avez reçu un mail pour changer votre mot de passe</i><br/><br/>";
-							} else {
-								echo "";
-							}?>
 								 Nom :
 								<?php
 								echo $nom;
