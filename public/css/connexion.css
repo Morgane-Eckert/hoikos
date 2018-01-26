@@ -23,6 +23,9 @@ nav
 	display: flex;
 	justify-content: space-around;
 }
+option, input {
+	font-size: 18px;
+}
 
 #formulaire
 {
@@ -111,7 +114,7 @@ section
 	min-width: 9.5%;/*Modifier la largeur de l'onglet*/
 	margin-right: 3px;
 	color: white;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 }
@@ -121,7 +124,7 @@ section
 /*Réglages des onglets*/
 .Onglet
 {
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;

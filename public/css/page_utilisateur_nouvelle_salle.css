@@ -16,7 +16,7 @@ nav
 .Vide
 {
 	margin-left: 0.2%;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -30,7 +30,7 @@ nav
 .Onglet
 {
 	margin-left: 0.2%;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -49,7 +49,7 @@ nav
 .Onglet_alerte
 {
 	margin-left: 0.2%;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -68,14 +68,14 @@ nav
 .nouvel_onglet
 {
 	margin-left: 0.2%;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
 	margin-top: 2%;
 	border: none;
 	color: #FFFFFF;
-	background-color: #990100;
+	background-color: #701c1c;
 	width: 3%;/*Modifier la largeur de l'onglet*/
 	height: 21px;
 	overflow-x: hidden;
@@ -85,7 +85,7 @@ nav
 }
 .Conso
 {
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -122,7 +122,7 @@ nav
 	margin-left: 0.2%;
 	text-decoration: unset;
 	text-align: center;
-	font-size: 17px;
+	font-size: 20px;
 	padding: 10px;
 	margin-top: 2%;
 	border: none;
@@ -145,7 +145,7 @@ nav
 	margin-left: 0.2%;
 	text-decoration: unset;
 	text-align: center;
-	font-size: 17px;
+	font-size: 20px;
 	padding: 10px;
 	margin-top: 2%;
 	border: none;
@@ -179,7 +179,7 @@ nav
 	overflow-y: auto;
 	max-height: 21px;
 	color: white;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	align-self: flex-end;
@@ -205,10 +205,15 @@ nav
 /*SECTION*/
 section
 {
+	font-size: 18px;
 	background-color: #F2F2F2;
 	display: flex;
 	justify-content: center;
-	height: 85%;
+	height: 70%;
+}
+
+input, select, option {
+	font-size: 18px;
 }
 
 #titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
@@ -216,7 +221,7 @@ section
 	padding: 10px;
 	background-color: #990100;
 	color: white;
-	font-size: 20px;
+	font-size: 22px;
 	display: flex;
 	justify-content: space-between;
 }
@@ -224,7 +229,7 @@ section
 .Routine
 {
 	border-radius: 8px;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 5px;
@@ -239,7 +244,7 @@ article
 {
 	margin: 80px;
 	background-color: white;
-	width: 30%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
+	width: 35%;/*Modifier la largeur du rectangle blanc. Attention à bien la laisser en pourcentage*/
 	max-height: 1000px;
 	overflow: auto;
 	border: 3px #990100 solid;

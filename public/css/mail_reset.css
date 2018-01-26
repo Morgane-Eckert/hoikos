@@ -17,11 +17,16 @@ body
 
 section
 {
+	font-size: 18px;
 	background-color: #F2F2F2;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	height: 40%;
+}
+
+option, input {
+	font-size: 18px;
 }
 
 /*Réglages des onglets*/
@@ -102,5 +107,5 @@ section
 	padding-left: 2px;
 	background-color: #990100;
 	color: white;
-	font-size: 20px;
+	font-size: 22px;
 }

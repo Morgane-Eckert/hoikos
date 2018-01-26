@@ -47,7 +47,7 @@ nav
 .Vide
 {
 	margin-left: 0.2%;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -61,7 +61,7 @@ nav
 .Onglet
 {
 	margin-left: 0.2%;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -80,7 +80,7 @@ nav
 .nouvel_onglet
 {
 	margin-left: 0.2%;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -99,7 +99,7 @@ nav
 .Onglet_alerte
 {
 	margin-left: 0.2%;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -157,7 +157,7 @@ nav
 	margin-left: 0.2%;
 	text-decoration: unset;
 	text-align: center;
-	font-size: 17px;
+	font-size: 20px;
 	padding: 10px;
 	margin-top: 2%;
 	border: none;
@@ -189,7 +189,7 @@ nav
 	overflow-y: hidden;
 	max-height: 21px;
 	color: white;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	align-self: flex-end;
@@ -209,6 +209,7 @@ nav
 .editer
 {
 	text-align:left;
+	font-size: 17px;
 }
 .editer:hover
 {
@@ -217,11 +218,15 @@ nav
 
 section
 {
+	font-size: 18px;
 	background-color: #F2F2F2;
 	display: flex;
 	justify-content: center;
 }
 
+input, select, option{
+	font-size: 18px;
+}
 
 .article_large
 {
@@ -246,7 +251,7 @@ section
 .editer
 {
 	border-radius: 8px;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 5px;
@@ -260,7 +265,7 @@ section
 #corps
 {
 	text-align:justify;
-	font-size: 15px;
+	font-size: 18px;
 	margin: 30px;
 	padding-bottom: 15px;
 }
@@ -269,7 +274,7 @@ section
 
 .titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
 {
-	font-size: 20px;
+	font-size: 22px;
 }
 
 
@@ -291,12 +296,12 @@ em
 }
 
 .categorie{
-	font-size: 20px;
+	font-size: 22px;
 	color: #990100;
 }
 
 .sous-titre{
-	font-size: 15px;
+	font-size: 18px;
 	color: #007978;
 	font-weight: bold;
 }

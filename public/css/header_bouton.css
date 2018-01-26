@@ -37,6 +37,7 @@ header
 /*Réglages du bouton de deconnexion*/
 .deconnex
 {
+	font-size: 15px;
 	border: none;
 	color: #FFFFFF;
 	background-color: #990100;
@@ -52,6 +53,7 @@ header
 
 .nom_compte
 {
+	font-size: 18px;
 	margin-top: 30px;
 	max-width: 50%;
 	height: auto;

@@ -45,7 +45,7 @@ nav
 .Vide
 {
 	margin-left: 0.2%;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -59,7 +59,7 @@ nav
 .Onglet
 {
 	margin-left: 0.2%;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -78,7 +78,7 @@ nav
 .nouvel_onglet
 {
 	margin-left: 0.2%;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -97,7 +97,7 @@ nav
 .Onglet_alerte
 {
 	margin-left: 0.2%;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -115,7 +115,7 @@ nav
 
 .Conso
 {
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -156,7 +156,7 @@ nav
 	margin-left: 0.2%;
 	text-decoration: unset;
 	text-align: center;
-	font-size: 17px;
+	font-size: 20px;
 	padding: 10px;
 	margin-top: 2%;
 	border: none;
@@ -188,7 +188,7 @@ nav
 	overflow-y: hidden;
 	max-height: 21px;
 	color: white;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	align-self: flex-end;
@@ -219,7 +219,7 @@ section
 	padding: 10px;
 	background-color: #990100;
 	color: white;
-	font-size: 20px;
+	font-size: 22px;
 	display: flex;
 	justify-content: space-between;
 }
@@ -227,7 +227,7 @@ section
 .Routine
 {
 	border-radius: 8px;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 5px;
@@ -264,6 +264,7 @@ article
 
 .Titre
 {
+	font-size: 17px;
 	text-align: left;
 	margin: 0px;
 	padding-top: 15px;
@@ -289,6 +290,7 @@ article
 {
     margin: 20px;
     width: 200px;
+    height: 150px;
     text-align: center;
     border: 2px #007879 solid;
     color: #006579;
@@ -411,6 +413,7 @@ img
 .message_etat_capteur{
 	display: flex;
 	justify-content: center;
+	font-size: 18px;
 }
 
 .lien_message_etat_capteur{
@@ -424,10 +427,18 @@ img
 	color: red;
 }
 
+.message{
+	font-size: 19px;
+}
+
 .erreur_capteur{
+	color: red;
+	font-weight: bold;
+	font-size: 18px;
+}
+.erreur_capteur_boite{
 	color: red;
 	font-weight: bold;
 	font-size: 14px;
 }
-
 

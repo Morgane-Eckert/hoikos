@@ -18,7 +18,7 @@ nav
 /*Réglages des onglets*/
 .Onglet
 {
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -45,7 +45,7 @@ nav
 {
 	text-decoration: unset;
 	text-align: center;
-	font-size: 17px;
+	font-size: 20px;
 	padding: 10px;
 	margin-top: 2%;
 	border: none;
@@ -71,7 +71,7 @@ nav
 	height: 4%;
 	margin-right: 3px;
 	color: white;
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	align-self: flex-end;
@@ -91,13 +91,21 @@ nav
 
 
 section{
+	font-size: 18px;
 	background-color: #F2F2F2;
 	display: flex;
+	justify-content: column;
 	align-items: center;
 }
 
+input, select, option{
+	font-size: 18px;
+}
+
+
 .titre /*Titre de l'article contenu dans le bandeau. Pour avoir une section sans titre, mettre le paragraphe qui suit en commentaire*/
 {
+	font-size: 22px;
 	padding-bottom: 3px;
 	padding-left: 2px;
 	background-color: #990100;
@@ -108,17 +116,34 @@ section{
 
 .article
 {
-	margin: 30px;
+	margin: 20px;
 	background-color: white;
 	overflow: auto;
 	border: 3px #990100 solid;
 	border-radius: 10px;
 }
 
+.articlea{
+	margin: 20px;
+	background-color: white;
+	overflow: auto;
+	border: 3px #990100 solid;
+	border-radius: 10px;
+	width: 30%;
+}
+
+.articleb{
+	margin: 20px;
+	background-color: white;
+	overflow: auto;
+	border: 3px #990100 solid;
+	border-radius: 10px;
+	width: 20%;
+}
 /*Marges internes de l'article*/
 .corps
 {
-	padding: 20px;
+	padding: 10px;
 }
 
 .corps2
@@ -126,7 +151,6 @@ section{
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-bottom: 5px;
-	padding-top: -10px;
 	text-align: center;
 }
 
@@ -155,7 +179,7 @@ section{
 
 .bouton
 {
-	font-size: 17px;
+	font-size: 20px;
 	border: none;
 	color: #FFFFFF;
 	background-color: #007879;

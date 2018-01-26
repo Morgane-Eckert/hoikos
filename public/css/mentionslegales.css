@@ -30,7 +30,7 @@ nav
 
 .Onglet
 {
-	font-size: 17px;
+	font-size: 20px;
 	text-decoration: unset;
 	text-align: center;
 	padding: 10px;
@@ -55,7 +55,7 @@ nav
 {
 	text-decoration: unset;
 	text-align: center;
-	font-size: 17px;
+	font-size: 20px;
 	padding: 10px;
 	margin-top: 2%;
 	border: none;
@@ -73,7 +73,7 @@ nav
 /*Pour les grands onglets */
 .Grandonglet
 {
-	font-size: 17px;
+	font-size: 20px;
 	padding: 10px;
 	margin-top: 2%;
 	border: none;
@@ -131,8 +131,10 @@ article
 /*Marges internes de l'article*/
 #corps
 {
-	padding: 20px;
-
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	font-size: 18px;
 }
 
 strong
