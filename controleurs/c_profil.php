@@ -138,7 +138,7 @@ function changement($email){
 			$headers .= 'Delivered-to: '.$destinataire."\n"; // Destinataire
 			$headers .= 'Cc: '.$copie."\n"; // Copie Cc
 			$headers .= 'Bcc: '.$copie_cachee."\n\n"; // Copie cachée Bcc
-			$message = "Bonjour, Pour changer votre mot de passe Hoikos, cliquez sur le lien suivant pour le réinitialiser : http://localhost/thelast/h/controleurs/c_mdp_reset.php?token=$token&id=$id";
+			$message = "Bonjour, Pour changer votre mot de passe Hoikos, cliquez sur le lien suivant pour le réinitialiser : http://localhost/hoikos-master/controleurs/c_mdp_reset.php?token=$token&id=$id";
 			if (mail($destinataire, $objet, $message, $headers)) // Envoi du message
 			{
 				echo "";
