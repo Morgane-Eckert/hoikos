@@ -196,4 +196,373 @@ function accueil_suppression_fonction(){
 	    ));
 }
 
+function ajout_salle_routine($salles){
+	$bdd=connexion_bdd();
+	if (isset($_GET['comprehension'])) {
+		$donnees0 = $bdd->prepare("SELECT ID_routine FROM routine WHERE nom_routine=:nom_routine AND ID_logement=:ID_logement");
+		$affectedLines = $donnees0->execute(array(
+		'nom_routine' => $_GET['comprehension'],
+		'ID_logement' =>$_SESSION['ID_logement']
+		));
+		$donnees0 = $donnees0->fetch();
+		$supprime1 = $bdd->prepare("DELETE FROM routine_salle WHERE ID_routine=:ID_routine");
+		$supprime1->execute(array(
+		'ID_routine' => $donnees0['ID_routine']
+		));
+		foreach ($salles as $elements) {
+			$requete = $bdd->prepare("INSERT INTO routine_salle (ID_routine_salle, ID_salle, ID_routine) VALUES (NULL, :ID_salle, :ID_routine)");
+			$affectedLines = $requete->execute(array(
+				'ID_salle' => $elements,
+				'ID_routine' => $donnees0['ID_routine']
+		    ));
+		}
+
+		$requete1 = $bdd->prepare("SELECT * FROM routine_capteur INNER JOIN capteur ON routine_capteur.ID_capteur=capteur.ID_capteur WHERE ID_routine=:ID_routine");
+		$affectedLines = $requete1->execute(array(
+			'ID_routine' => $donnees0['ID_routine']
+		));
+		while ($donnees1 = $requete1->fetch()){ 
+			$requete2 = $bdd->prepare("SELECT nom_salle FROM capteur WHERE ID_capteur=:ID_capteur");
+			$affectedLines = $requete2->execute(array(
+				'ID_capteur' => $donnees1['ID_capteur']
+			)); 
+			$donnees2 = $requete2->fetch();
+			$requete3 = $bdd->prepare("SELECT ID_salle FROM salle WHERE nom_salle=:nom_salle AND ID_logement=:ID_logement");
+			$affectedLines = $requete3->execute(array(
+				'nom_salle' => $donnees2['nom_salle'],
+				'ID_logement' =>$_SESSION['ID_logement']
+			)); 
+			$donnees3 = $requete3->fetch();
+			$compteur=0;
+			foreach ($salles as $elements){
+				if ($elements==$donnees3['ID_salle']) {
+					$compteur++;
+				}
+			}if ($compteur==0){
+				$supprime2 = $bdd->prepare("DELETE FROM routine_capteur WHERE ID_capteur=:ID_capteur");
+				$supprime2->execute(array(
+					'ID_capteur' => $donnees1['ID_capteur']
+				));
+			}else{
+				$requete4 = $bdd->prepare("SELECT * FROM capteur INNER JOIN salle ON capteur.nom_salle=salle.nom_salle WHERE ID_salle=:ID_salle AND capteur.ID_logement=:ID_logement");
+					$affectedLines = $requete4->execute(array(
+						'ID_salle' => $elements,
+						'ID_logement' =>$_SESSION['ID_logement']
+					)); 
+					while ($donnees4 = $requete4->fetch()) {
+						if ($donnees4['nom_capteur']==$donnees1['nom_capteur']) {
+							$requete2 = $bdd->prepare("INSERT INTO routine_capteur (ID_routine_capteur, ID_routine, ID_capteur, ordre) VALUES (NULL, :ID_routine, :ID_capteur, :ordre)");
+							$affectedLines = $requete2->execute(array(
+								'ID_routine' => $donnees0['ID_routine'],
+								'ID_capteur' => $donnees4['ID_capteur'],
+								'ordre' => $donnees1['ordre']
+
+							));
+							$requetea = $bdd->prepare("SELECT COUNT(*) AS nombre FROM routine_capteur WHERE ID_routine=:ID_routine AND ID_capteur=:ID_capteur");
+							$requetea->execute(array(
+								'ID_routine' => $donnees0['ID_routine'],
+								'ID_capteur' => $donnees4['ID_capteur']
+							)); 
+							$requetea = $requetea->fetch();
+							if ($requetea['nombre']>1) {
+								$supprime1 = $bdd->prepare("DELETE FROM routine_capteur WHERE ID_routine=:ID_routine AND ID_capteur=:ID_capteur ORDER BY ID_routine_capteur DESC LIMIT 1");
+								$supprime1->execute(array(
+								'ID_routine' => $donnees0['ID_routine'],
+								'ID_capteur' => $donnees4['ID_capteur']
+								));
+							}
+						}
+					}
+			}
+		}
+			
+			
+	}else{ 
+		if ($_GET['anticipation']== 'home'){
+			$donneesb = $bdd->prepare("INSERT INTO routine (ID_routine, ID_utilisateur, ID_logement, date_d_ajout_routine, nom_routine) VALUES (NULL, :ID_utilisateur, :ID_logement, NOW(), NULL)");
+			$affectedLines = $donneesb->execute(array(
+			'ID_utilisateur' => $_SESSION['ID_utilisateur'],
+			'ID_logement' => $_SESSION['ID_logement']
+			));
+			$routine1 = $bdd->query('SELECT * FROM routine ORDER BY ID_routine DESC LIMIT 1');
+					$routine2 = $routine1->fetch();
+					/*On le met dans une variable session pour qu'il soit accessible depuis da'utres pages du site*/
+					$_SESSION['ID_routine'] = $routine2['ID_routine'];
+			foreach ($salles as $elements) {
+				$requete = $bdd->prepare("INSERT INTO routine_salle (ID_routine_salle, ID_salle, ID_routine) VALUES (NULL, :ID_salle, :ID_routine)");
+					$affectedLines = $requete->execute(array(
+					'ID_salle' => $elements,
+					'ID_routine' => $_SESSION['ID_routine']
+			    	));
+			}
+		}
+	}
+}
+
+function ajout_capteur_routine($capteurs){
+	$bdd=connexion_bdd();
+	if (isset($_GET['comprehension'])) {
+		$donnees0 = $bdd->prepare("SELECT ID_routine FROM routine WHERE nom_routine=:nom_routine AND ID_logement=:ID_logement");
+		$affectedLines = $donnees0->execute(array(
+		'nom_routine' => $_GET['comprehension'],
+		'ID_logement' =>$_SESSION['ID_logement']
+		));
+		$donnees0 = $donnees0->fetch();
+		
+		$requete2 = $bdd->prepare("SELECT ID_capteur FROM routine_capteur WHERE ID_routine=:ID_routine");
+		$affectedLines = $requete2->execute(array(
+			'ID_routine' => $donnees0['ID_routine']
+		));
+		foreach ($capteurs as $elements) {
+			$requete1 = $bdd->prepare("SELECT ID_capteur FROM capteur WHERE nom_capteur=:nom_capteur AND ID_logement=:ID_logement");
+			$affectedLines = $requete1->execute(array(
+				'nom_capteur' => $elements,
+				'ID_logement' => $_SESSION['ID_logement']
+			));
+			while($donnees1 = $requete1->fetch()){
+				$requete3 = $bdd->prepare("INSERT INTO routine_capteur (ID_routine_capteur, ID_capteur, ID_routine, ordre) VALUES (NULL, :ID_capteur, :ID_routine, 'non')");
+				$requete3->execute(array(
+					'ID_capteur' => $donnees1['ID_capteur'],
+					'ID_routine' => $donnees0['ID_routine']
+				));
+			}
+		}$requete4 = $bdd->prepare("SELECT * FROM capteur INNER JOIN routine_capteur ON routine_capteur.ID_capteur=capteur.ID_capteur WHERE ID_routine=:ID_routine");
+		$affectedLines = $requete4->execute(array(
+			'ID_routine' => $donnees0['ID_routine']
+		));
+		while ($donnees4 = $requete4->fetch()) {
+			$requetea = $bdd->prepare("SELECT COUNT(*) AS nombre FROM routine_capteur INNER JOIN capteur ON routine_capteur.ID_capteur=capteur.ID_capteur WHERE ID_routine=:ID_routine AND nom_capteur=:nom_capteur");
+			$requetea->execute(array(
+				'ID_routine' => $donnees0['ID_routine'],
+				'nom_capteur' => $donnees4['nom_capteur']
+			)); 
+			$requetea = $requetea->fetch();
+			if ($requetea['nombre']>1) {
+				$supprime1 = $bdd->prepare("DELETE FROM routine_capteur WHERE ID_capteur=:ID_capteur AND ID_routine=:ID_routine AND ordre='non' ");
+				$supprime1->execute(array(
+					'ID_capteur' => $donnees4['ID_capteur'],
+					'ID_routine' => $donnees0['ID_routine'],
+				));
+			}
+		}
+		while ($donnees4 = $requete4->fetch()) {
+			$requetea = $bdd->prepare("SELECT COUNT(*) AS nombre FROM routine_capteur INNER JOIN capteur ON routine_capteur.ID_capteur=capteur.ID_capteur WHERE ID_routine=:ID_routine AND nom_capteur=:nom_capteur");
+			$requetea->execute(array(
+				'ID_routine' => $donnees0['ID_routine'],
+				'nom_capteur' => $donnees4['nom_capteur']
+			)); 
+			$requetea = $requetea->fetch();
+			if ($requetea['nombre']==1) {
+				$supprime1 = $bdd->prepare("DELETE FROM routine_capteur WHERE ID_capteur=:ID_capteur AND ID_routine=:ID_routine AND ordre!='non' ");
+				$supprime1->execute(array(
+					'ID_capteur' => $donnees4['ID_capteur'],
+					'ID_routine' => $donnees0['ID_routine'],
+				));
+			}
+		}
+
+		
+	}else{
+		if ($_GET['anticipation']!= 'home'){
+			$donneesb = $bdd->prepare("INSERT INTO routine (ID_routine, ID_utilisateur, ID_logement, date_d_ajout_routine, nom_routine) VALUES (NULL, :ID_utilisateur,:ID_logement, NOW(), NULL)");
+			/*On crée une ligne utilisateur*/
+			$affectedLines = $donneesb->execute(array(
+			'ID_utilisateur' => $_SESSION['ID_utilisateur'],
+			'ID_logement' => $_SESSION['ID_logement']
+			));
+			$routine1 = $bdd->query('SELECT * FROM routine ORDER BY ID_routine DESC LIMIT 1');
+					$routine2 = $routine1->fetch();
+					/*On le met dans une variable session pour qu'il soit accessible depuis da'utres pages du site*/
+					$_SESSION['ID_routine'] = $routine2['ID_routine'];
+			$requete0 = $bdd->prepare("SELECT ID_salle FROM salle WHERE nom_salle=:nom_salle AND ID_logement=:ID_logement ") ;
+			$affectedLines = $requete0->execute(array(
+				'nom_salle' => $_GET['anticipation'],
+				'ID_logement' => $_SESSION['ID_logement']
+			));
+			$requete0 = $requete0->fetch();
+			$requete = $bdd->prepare("INSERT INTO routine_salle (ID_routine_salle, ID_salle, ID_routine) VALUES (NULL, :ID_salle, :ID_routine)");
+					/*On crée une ligne utilisateur*/
+					$affectedLines = $requete->execute(array(
+					'ID_salle' => $requete0['ID_salle'],
+					'ID_routine' => $_SESSION['ID_routine']
+			    	));
+		}
+		foreach ($capteurs as $elements) {
+			$requete1 = $bdd->prepare("SELECT nom_salle FROM capteur WHERE nom_capteur=:nom_capteur AND ID_logement=:ID_logement");
+					/*On crée une ligne utilisateur*/
+					$affectedLines = $requete1->execute(array(
+					'nom_capteur' => $elements,
+					'ID_logement' => $_SESSION['ID_logement']
+			    	));
+			while ($donnees1 = $requete1->fetch()){
+				$requete2 = $bdd->prepare("SELECT nom_salle FROM salle INNER JOIN routine_salle ON routine_salle.ID_salle=salle.ID_salle WHERE ID_routine=:ID_routine");
+					/*On crée une ligne utilisateur*/
+					$affectedLines = $requete2->execute(array(
+					'ID_routine' => $_SESSION['ID_routine']
+			    	));
+				while ($donnees2 = $requete2->fetch()){
+					if ($donnees1['nom_salle']==$donnees2['nom_salle']) {
+						$requete3 = $bdd->prepare("SELECT ID_capteur FROM capteur WHERE nom_salle=:nom_salle AND nom_capteur=:nom_capteur AND ID_logement=:ID_logement");
+						$affectedLines = $requete3->execute(array(
+						'nom_salle' => $donnees2['nom_salle'],
+						'nom_capteur' => $elements,
+						'ID_logement' => $_SESSION['ID_logement']
+					   	));
+					   	$donnees3 = $requete3->fetch();
+						$requete4 = $bdd->prepare("INSERT INTO routine_capteur (ID_routine_capteur, ID_capteur, ID_routine, ordre) VALUES (NULL, :ID_capteur, :ID_routine, 'non')");
+						$affectedLines = $requete4->execute(array(
+						'ID_capteur' => $donnees3['ID_capteur'],
+						'ID_routine' => $_SESSION['ID_routine']
+					   	));
+					}
+				}
+			}
+		}
+	}
+}
+
+function ajout_consigne_routine($consignes){
+	$bdd=connexion_bdd();
+	if (isset($_GET['comprehension'])) {
+		$donnees0 = $bdd->prepare("SELECT ID_routine FROM routine WHERE nom_routine=:nom_routine AND ID_logement=:ID_logement");
+		$affectedLines = $donnees0->execute(array(
+		'nom_routine' => $_GET['comprehension'],
+		'ID_logement' =>$_SESSION['ID_logement']
+		));
+		$donnees0 = $donnees0->fetch();
+		foreach ($consignes as $clef => $elements) {
+			$requete1 = $bdd->prepare("SELECT ID_routine_capteur FROM routine_capteur INNER JOIN capteur ON routine_capteur.ID_capteur=capteur.ID_capteur WHERE ID_routine=:ID_routine AND nom_capteur=:nom_capteur");
+			$affectedLines = $requete1->execute(array(
+				'ID_routine' => $donnees0['ID_routine'],
+				'nom_capteur' => $clef
+			));
+			while ($donnees1 = $requete1->fetch()){
+				$requete2 = $bdd->prepare("UPDATE routine_capteur SET ordre=:ordre WHERE ID_routine=:ID_routine AND ID_routine_capteur=:ID_routine_capteur");
+				$affectedLines = $requete2->execute(array(
+				'ordre' => $elements,
+				'ID_routine_capteur' => $donnees1['ID_routine_capteur'],
+				'ID_routine' => $donnees0['ID_routine']
+				));	
+			}
+		}
+	}else{
+		foreach ($consignes as $clef => $elements) {
+			$requete1 = $bdd->prepare("SELECT ID_routine_capteur FROM routine_capteur INNER JOIN capteur ON routine_capteur.ID_capteur=capteur.ID_capteur WHERE ID_routine=:ID_routine AND nom_capteur=:nom_capteur");
+			$affectedLines = $requete1->execute(array(
+				'ID_routine' => $_SESSION['ID_routine'],
+				'nom_capteur' => $clef
+			));
+			while ($donnees1 = $requete1->fetch()){
+				$requete2 = $bdd->prepare("UPDATE routine_capteur SET ordre=:ordre WHERE ID_routine=:ID_routine AND ID_routine_capteur=:ID_routine_capteur");
+				$affectedLines = $requete2->execute(array(
+				'ordre' => $elements,
+				'ID_routine_capteur' => $donnees1['ID_routine_capteur'],
+				'ID_routine' => $_SESSION['ID_routine']
+				));	
+			}
+		}
+	}
+}
+
+function ajout_horaire_routine($jours,$debut,$fin){
+	$bdd=connexion_bdd();
+	if (isset($_GET['comprehension'])) {
+		$donnees0 = $bdd->prepare("SELECT ID_routine FROM routine WHERE nom_routine=:nom_routine AND ID_logement=:ID_logement");
+		$affectedLines = $donnees0->execute(array(
+		'nom_routine' => $_GET['comprehension'],
+		'ID_logement' =>$_SESSION['ID_logement']
+		));
+		$donnees0 = $donnees0->fetch();
+		$supprime1 = $bdd->prepare("DELETE FROM routine_jour WHERE ID_routine=:ID_routine");
+		$supprime1->execute(array(
+		'ID_routine' => $donnees0['ID_routine']
+		));
+		foreach ($jours as $elements) {
+			$requete = $bdd->prepare("INSERT INTO routine_jour (ID_routine_jour, jour_routine, ID_routine,heure_debut_routine, heure_fin_routine) VALUES (NULL, :jour_routine, :ID_routine, :heure_debut_routine, :heure_fin_routine)");
+			$affectedLines = $requete->execute(array(
+			'jour_routine' => $elements,
+			'ID_routine' => $donnees0['ID_routine'],
+			'heure_debut_routine' => $debut,
+			'heure_fin_routine' => $fin
+		   	));
+		}
+	}else{
+		foreach ($jours as $elements) {
+			$requete = $bdd->prepare("INSERT INTO routine_jour (ID_routine_jour, jour_routine, ID_routine,heure_debut_routine, heure_fin_routine) VALUES (NULL, :jour_routine, :ID_routine, :heure_debut_routine, :heure_fin_routine)");
+			$affectedLines = $requete->execute(array(
+			'jour_routine' => $elements,
+			'ID_routine' => $_SESSION['ID_routine'],
+			'heure_debut_routine' => $debut,
+			'heure_fin_routine' => $fin
+		   	));
+		}
+	}
+}
+
+function ajout_nom_routine($nom){
+	$bdd=connexion_bdd();
+	$requete = $bdd->prepare("SELECT COUNT(nom_routine) AS nombre FROM routine WHERE nom_routine=:nom_routine AND ID_logement=:ID_logement");
+	$requete->execute(array(
+		'nom_routine' =>$nom,
+		'ID_logement' => $_SESSION['ID_logement']
+	)); 
+	$requete = $requete->fetch();
+	if ($requete['nombre']==0) {
+		$donnee = $bdd->prepare("UPDATE routine SET nom_routine = :nom_routine WHERE ID_routine = :ID_routine");
+		$affectedLines = $donnee->execute(array(
+		'nom_routine' => $nom,
+		'ID_routine' => $_SESSION['ID_routine']
+		));
+	}else {
+		$erreur = 'nom déjà existant';
+		return $erreur;
+	}
+	  
+}
+
+function effacer_routine(){
+	$bdd=connexion_bdd();
+	$supprime1 = $bdd->prepare("DELETE FROM routine_salle WHERE ID_routine=:ID_routine");
+	$supprime1->execute(array(
+		'ID_routine' => $_SESSION['ID_routine']
+		));
+	$supprime2 = $bdd->prepare("DELETE FROM routine_capteur WHERE ID_routine=:ID_routine");
+	$supprime2->execute(array(
+		'ID_routine' => $_SESSION['ID_routine']
+		));
+	$supprime3 = $bdd->prepare("DELETE FROM routine_jour WHERE ID_routine=:ID_routine");
+	$supprime3->execute(array(
+		'ID_routine' => $_SESSION['ID_routine']
+		));
+	$supprime4 = $bdd->prepare("DELETE FROM routine WHERE ID_routine=:ID_routine");
+	$supprime4->execute(array(
+		'ID_routine' => $_SESSION['ID_routine']
+		));
+}
+
+function suppression_routine_confirme(){
+	$bdd=connexion_bdd();
+	$requete = $bdd->prepare("SELECT ID_routine FROM routine WHERE nom_routine=:nom_routine");
+	$requete->execute(array(
+		'nom_routine' =>$_GET['comprehension']
+	)); 
+	$requete = $requete->fetch();
+
+	$supprime1 = $bdd->prepare("DELETE FROM routine_salle WHERE ID_routine=:ID_routine");
+	$supprime1->execute(array(
+		'ID_routine' => $requete['ID_routine']
+		));
+	$supprime2 = $bdd->prepare("DELETE FROM routine_capteur WHERE ID_routine=:ID_routine");
+	$supprime2->execute(array(
+		'ID_routine' => $requete['ID_routine']
+		));
+	$supprime3 = $bdd->prepare("DELETE FROM routine_jour WHERE ID_routine=:ID_routine");
+	$supprime3->execute(array(
+		'ID_routine' => $requete['ID_routine']
+		));
+	$supprime4 = $bdd->prepare("DELETE FROM routine WHERE ID_routine=:ID_routine");
+	$supprime4->execute(array(
+		'ID_routine' => $requete['ID_routine']
+		));
+}
 ?>
