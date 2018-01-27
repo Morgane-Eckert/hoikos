@@ -40,7 +40,7 @@
 		<section>
             <article>
                 <?php $bdd=connexion_bdd();?>
-                <div id="titre">Fonctions de la pièce <?php echo $_GET['reaction']; ?><a href="" class="Routine">Routine</a></div> <br/>
+                <div id="titre">Fonctions de la pièce <?php echo $_GET['reaction']; ?><a href="index.php?target=compte&action=connecte&reaction=routine&anticipation=<?php echo $_GET['reaction']; ?>" class="Routine">Routine</a></div> <br/>
                 <?php 
                     if (isset($_GET['anticipation'])){
                         if ($_GET['anticipation']=='fonction_supprimee'){
