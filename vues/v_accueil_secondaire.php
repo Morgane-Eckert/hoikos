@@ -41,7 +41,7 @@ include("accueil_onglets.php");
         </nav>
 		<section>
             <article>
-                <div id="titre">Fonctions de la pièce <?php echo $_GET['reaction']; ?><a href="" class="Routine">Routine</a></div> 
+                <div id="titre">Fonctions de la pièce <?php echo $_GET['reaction']; ?><a href="index.php?target=compte&action=connecte&reaction=routine&anticipation=<?php echo $_GET['reaction']; ?>" class="Routine">Routine</a></div> 
                     <br/>
                     <div id="corps">
                         <?php //Affichage des onglets
