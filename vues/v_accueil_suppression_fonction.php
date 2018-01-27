@@ -40,7 +40,7 @@
                 <div id='corps'>
                  <div class='conteneur'>
                     <span class=gros_attention> Attention ! </span><br><br>
-                    Vous vous apprêtez à supprimer la fonction <?php echo $_GET['comprehension']; ?> de la pièce <?php echo $_GET['reaction']; ?>. Êtes-vous sûr de vouloir continuer ? <br><br>
+                    Vous vous apprêtez à supprimer la fonction <?php echo $_GET['comprehension']; ?> de la pièce <?php echo $_GET['reaction']; ?>. Cette fonction peut être impliquer dans une routine. Êtes-vous sûr de vouloir continuer ? <br><br>
                     <span class='attention'>
                         <a href="index.php?target=compte&action=connecte&reaction=<?php echo $_GET['reaction']; ?>" class="bouton_confimer_suppression">Annuler</a> <a href="index.php?target=compte&action=connecte&reaction=<?php echo $_GET['reaction']; ?>&anticipation=suppression_fonction_confirme&comprehension=<?php echo $_GET['comprehension']; ?>" class="bouton_confimer_suppression">Confirmer</a>
                     </span>
