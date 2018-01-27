@@ -129,12 +129,38 @@ function ajout_ordre(){
 
 function accueil_suppression(){
 	$bdd=connexion_bdd();
+	/*Suppression de la salle dans la routine*/
+	$reponse = $bdd->prepare('SELECT ID_salle FROM salle WHERE nom_salle=:nom_salle AND ID_logement=:ID_logement');
+	$reponse->execute(array(
+		'ID_logement' => $_SESSION['ID_logement'],
+		'nom_salle' => $_GET['reaction']
+
+		));
+	$donnees = $reponse->fetch();
+	$supprime1 = $bdd->prepare("DELETE FROM routine_salle WHERE ID_salle=:ID_salle");
+	$supprime1->execute(array(
+		'ID_salle' => $donnees['ID_salle']
+	));
 	/*Suppression de la salle*/
 	$requetef = $bdd->prepare("DELETE FROM salle WHERE nom_salle=:nom_salle AND ID_logement=:ID_logement");
 	$requetef->execute(array(
 		'nom_salle' => $_GET['reaction'],
 		'ID_logement' => $_SESSION['ID_logement']
 	    ));
+	/*Suppression des capteurs de la salle dans la routine*/
+	$reponse2 = $bdd->prepare('SELECT ID_capteur FROM capteur INNER JOIN salle ON capteur.nom_salle=salle.nom_salle WHERE capteur.nom_salle=:nom_salle AND capteur.ID_logement=:ID_logement');
+	$reponse2->execute(array(
+		'nom_capteur' => $_GET['comprehension'],
+		'nom_salle' => $_GET['reaction'],
+		'ID_logement' => $_SESSION['ID_logement']
+
+		));
+	while($donnees2 = $reponse2->fetch()){
+		$supprime2 = $bdd->prepare("DELETE FROM routine_capteur WHERE ID_capteur=:ID_capteur");
+		$supprime2->execute(array(
+			'ID_capteur' => $donnees2['ID_capteur']
+		));
+	}
 	/*Suppression des capteurs de la salle*/
 	$requeteg = $bdd->prepare("DELETE FROM capteur WHERE ID_logement=:ID_logement AND nom_salle=:nom_salle");
 	$requeteg->execute(array(
@@ -144,7 +170,19 @@ function accueil_suppression(){
 }
 
 function accueil_suppression_fonction(){
+
 	$bdd=connexion_bdd();
+	$reponse = $bdd->prepare('SELECT ID_capteur FROM capteur INNER JOIN salle ON capteur.nom_salle=salle.nom_salle WHERE nom_capteur=:nom_capteur AND capteur.nom_salle=:nom_salle');
+	$reponse->execute(array(
+		'nom_capteur' => $_GET['comprehension'],
+		'nom_salle' => $_GET['reaction']
+
+		));
+	$donnees = $reponse->fetch();
+	$supprime1 = $bdd->prepare("DELETE FROM routine_capteur WHERE ID_capteur=:ID_capteur");
+	$supprime1->execute(array(
+		'ID_capteur' => $donnees['ID_capteur']
+	));
 	$reponseg = $bdd->prepare('SELECT ID_type_de_capteur FROM type_de_capteur WHERE nom_type_de_capteur=:nom_type_de_capteur');
 	$reponseg->execute(array(
 		'nom_type_de_capteur' => $_GET['comprehension']
