@@ -363,6 +363,7 @@ img
 }
 
 .message_suppression{
+	font-size: 18px;
 	color: red;
 	padding: 5px;
 }
