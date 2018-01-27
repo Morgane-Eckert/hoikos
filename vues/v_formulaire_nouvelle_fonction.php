@@ -1,3 +1,4 @@
+<?php include("accueil_onglets.php");?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,7 +7,14 @@
 		<link rel="stylesheet" href="public/css/footer.css">
 	</head>
 	<body>
-		<?php include("vues/v_header_bouton.php"); ?>
+    <?php 
+            include("vues/v_header_bouton.php");
+            //Affichage d'un message d'erreur si un capteur ne fonctionne pas
+            list($erreur_capteur,$erreur_salles,$a) = afficher_erreur_capteur();
+            for($i=0;$i<$a;$i++){
+                echo "<p class='erreur_capteur'>Attention : La fonction ".$erreur_capteur[$i]." de la pièce ".$erreur_salles[$i]." rencontre un dysfonctionnement. <a href='index.php?target=sav' class='lien_message_etat_capteur'>Contactez le SAV en cliquant ici</a>";
+            }
+    ?>
 
 		<nav>
             <?php 
@@ -20,7 +28,6 @@
 				<a href="index.php?target=compte&action=connecte&reaction=home" class="Conso">Home</a>
 			<?php
 			}
-                include("accueil_onglets.php");
                 $onglets = afficher_onglets();
                 if ($onglets!=NULL)
                 foreach($onglets as $element){//On parcourt le tableau
