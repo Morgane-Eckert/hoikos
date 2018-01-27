@@ -92,7 +92,7 @@ function supprimer($id){
 	'id'=> $id,
 	));
 
-	$nom=$donnees['nom_utilisateur'];
+	$prenom=$donnees['prenom_utilisateur'];
 
 
 
@@ -101,7 +101,7 @@ function supprimer($id){
 		"id"=>$id,
 	));
 
-	header("Location:index.php?target=compte&action=connecte&reaction=profil&suppression=".$nom);
+	header("Location:index.php?target=compte&action=connecte&reaction=profil&suppression=".$prenom);
 }
 
 function ajouter_cemac($id_cemac,$session_adresse){
