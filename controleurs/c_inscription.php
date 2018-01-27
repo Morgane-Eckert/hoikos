@@ -122,7 +122,7 @@ function ajout_utilisateurs_secondaires2($type_utilisateur,$nom_utilisateur,$pre
     }
     else {
       if(isset($_GET["profil"])){
-      header('Location: index.php?target=compte&action=connecte&reaction=profil&ajout='.$nom_utilisateur);
+      header('Location: index.php?target=compte&action=connecte&reaction=profil&ajout='.$prenom_utilisateur);
       } else {
       header('Location: index.php?target=inscription&action=autres_utilisateurs_secondaires');
       }
