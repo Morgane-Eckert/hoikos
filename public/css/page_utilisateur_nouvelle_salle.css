@@ -346,3 +346,43 @@ img
 {
 	font-weight: bold;
 }
+
+.gros_attention{
+	color: red;
+	font-size: 25px;
+	padding: 20px;
+}
+
+.conteneur{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.message_etat_capteur{
+	display: flex;
+	justify-content: center;
+	font-size: 18px;
+}
+
+.lien_message_etat_capteur{
+	text-decoration: unset;
+	color: black;
+	font-size: 14px;
+}
+.lien_message_etat_capteur:hover{
+	text-decoration: underline;
+	color: red;
+}
+.message{
+	font-size: 19px;
+}
+.erreur_capteur{
+	color: red;
+	font-weight: bold;
+	font-size: 18px;
+}
+.erreur_capteur_boite{
+	color: red;
+	font-weight: bold;
+	font-size: 14px;
+}
