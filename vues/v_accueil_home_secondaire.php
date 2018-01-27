@@ -37,7 +37,7 @@ include("accueil_onglets.php");
 
 		<section>
 			<article>
-				<div id="titre">Fonctions de la maison<a href="" class="Routine">Routine</a></div> 
+				<div id="titre">Fonctions de la maison<a href="index.php?target=compte&action=connecte&reaction=routine&anticipation=home" class="Routine">Routine</a></div> 
                     <br/><!-- Titre dans le bandeau rouge-->
                     <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
                         <?php //Affichage des onglets
