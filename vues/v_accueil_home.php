@@ -37,7 +37,7 @@ include("accueil_onglets.php");
 
 		<section>
 			<article>
-				<div id="titre">Fonctions du foyer<a href="" class="Routine">Routine</a></div> 
+				<div id="titre">Fonctions du foyer<a href="index.php?target=compte&action=connecte&reaction=routine&anticipation=home" class="Routine">Routine</a></div> 
                     <br/>
                     <?php
                      if (isset($_GET['anticipation'])){
