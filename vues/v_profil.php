@@ -58,7 +58,7 @@
                             <label for='prénom' class='intitule'> Prénom :  </label><br>
                             <input type='text' name='prenom' pattern='^[a-zA-Z]+$' id='prenom' value="<?php echo $prenom;?>" required><br><br />
                             <label for='telephone' class='intitule'> Téléphone :  </label><br>
-                            <input type='text' name='telephone1'  pattern='^0[1-9]\d{8}$' id='telephone1' maxlenght='10' value ="<?php echo $telephone;?>" required><br><br />
+                            <input type='text' name='telephone1'  pattern='^0[1-9]\d{8}$' id='telephone1' maxlength="10" value ="<?php echo $telephone;?>" required><br><br />
 														<label for='adresse_mail' class='intitule'> Adresse mail :  </label><br>
                             <input type='email' name='adresse_mail'  id='adresse_mail' value ="<?php echo $adresse_mail;?>" required><br><br />
                             <label for='date_naissance' class='intitule'> Date de naissance:  </label><br>
@@ -185,7 +185,7 @@
                     <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
 						<form method='post' action='index.php?target=compte&action=connecte&reaction=profil&rempli=adresse'>
 							<label for='telephone_fixe' class='intitule'> Téléphone fixe :  </label><br/>
-							<input type='text' pattern='^0[1-9]\d{8}$' name='telephone_fixe' id='telephone_fixe' maxlenght='10' value = "<?php echo $telephonelogement?>"  required><br><br />
+							<input type='text' pattern='^0[1-9]\d{8}$' name='telephone_fixe' id='telephone_fixe' maxlength="10" value = "<?php echo $telephonelogement?>"  required><br><br />
 
 							<label class='intitule'>Addresse</label><br>
 							<input id="autocomplete" placeholder="Taper votre adresse..."
@@ -203,7 +203,7 @@
 							<input type='text' name="pays_logement" id="country" value='<?php echo $pays;?>' /><br><br>
 							<label for="id_cemac" class='intitule'>ID nouveau CeMAC :</label><br>
 							<input type='text' name='id_cemac' id='id_cemac' maxlength="5"><br><br />
-							<input type='submit' value='Confirmer' id='bouton' onclick='activate()'>
+							<input type='submit' value='Confirmer' id='bouton' >
 					</form>
 				</div>
 
