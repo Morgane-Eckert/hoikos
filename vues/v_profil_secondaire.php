@@ -22,7 +22,6 @@
                     <?php
                 }
              ?>
-            <a href="index.php?target=compte&action=connecte&reaction=nouvel_onglet" class="nouvel_onglet" id='nouvel_onglet'>+</a>
             <div class="Vide"></div>
 						<?php
 						list($ID_logement,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance,$date_d_ajout) = donnees_utilisateur($_SESSION['adresse_mail_utilisateur']);
@@ -32,7 +31,7 @@
 							echo "<p class='m'>L'adresse mail ".$_GET["conflit"]." est déjà présente dans notre base de donnée!</p><br/><br/>";
 						}
 						?>
-            <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
+            <a href="index.php?target=compte&action=connecte&reaction=consommation" class="Conso">Consommations</a>
             <a href="index.php?target=compte&action=connecte&reaction=profil" class="actuel">Profil</a>
 		</nav>
         <section>

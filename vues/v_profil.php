@@ -37,7 +37,7 @@
 						echo "<p class='m'>L'adresse mail ".$_GET["conflit"]." est déjà présente dans notre base de donnée!</p><br/><br/>";
 					}
 				?>
-            <a href="index.php?target=compte&action=connecte" class="Conso">Consommations</a>
+            <a href="index.php?target=compte&action=connecte&reaction=consommation" class="Conso">Consommations</a>
             <a href="index.php?target=compte&action=connecte&reaction=profil" class="actuel">Profil</a>
 		</nav>
         <section>
