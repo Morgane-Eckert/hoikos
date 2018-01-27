@@ -443,3 +443,38 @@ img
 	font-size: 14px;
 }
 
+.section_routine{
+	background-color: #F2F2F2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 85%;
+}
+
+.suppression_routine_conteneur{
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+.BoiteVide2
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.Capteurs2
+{
+    margin: 20px;
+    width: 200px;
+    /*height: 160px;*/
+    text-align: center;
+    border: 2px #007879 solid;
+    color: #006579;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    overflow: auto;
+	padding: 0;
+}
