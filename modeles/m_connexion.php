@@ -150,10 +150,11 @@ function accueil_suppression_fonction(){
 		'nom_type_de_capteur' => $_GET['comprehension']
 		));
 	$donneesg = $reponseg->fetch();
-	$requetef = $bdd->prepare("DELETE FROM capteur WHERE ID_type_de_capteur=:ID_type_de_capteur AND ID_logement=:ID_logement");
+	$requetef = $bdd->prepare("DELETE FROM capteur WHERE ID_type_de_capteur=:ID_type_de_capteur AND ID_logement=:ID_logement AND nom_salle=:nom_salle");
 	$requetef->execute(array(
 		'ID_type_de_capteur' => $donneesg['ID_type_de_capteur'],
-		'ID_logement' => $_SESSION['ID_logement']
+		'ID_logement' => $_SESSION['ID_logement'],
+		'nom_salle' => $_GET['reaction']
 	    ));
 }
 
