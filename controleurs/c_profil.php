@@ -92,6 +92,7 @@ function supprimer($id){
 	'id'=> $id,
 	));
 
+	$donnees = $reponse->fetch();
 	$prenom=$donnees['prenom_utilisateur'];
 
 
