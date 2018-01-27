@@ -44,7 +44,7 @@
 						<input type='text' name="ville_logement" id="locality" class='adresse' required> <br><br>
 						<label for="pays_logement">Pays :</label><br>
 						<input type='text' name="pays_logement" id="country" class='adresse' required> <br><br>
-						<input type='submit' value='Valider' id='bouton' onclick='activate()'>
+						<input type='submit' value='Valider' id='bouton'>
 				</form>
 				<p class='NB'> Tous les champs sont obligatoires.<br></p>
 			</article>
