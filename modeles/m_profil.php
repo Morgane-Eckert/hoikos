@@ -12,6 +12,7 @@ function token_mdp($email) //Génère un token random et le sotck dans la base d
 	));
 	return $token;
 }
+
 function id_utilisateur($email) //Récupère l'ID de l'utilisateur(à partir du mail)
 {
 	$bdd=connexion_bdd();
@@ -22,49 +23,23 @@ function id_utilisateur($email) //Récupère l'ID de l'utilisateur(à partir du 
 	return $donnees['ID_utilisateur'];
 }
 
-function changement($email){
-
-			$token = token_mdp($email); //Génère un token random et le stock dans la base de données
-			$id = id_utilisateur($email); //Récupère l'ID de l'utilisateur(à partir du mail)
-			//Envoyer un mail contenant un lien vers la page permettant la modificationtion du mot de passe
-			$destinataire = $email;
-			$expediteur = 'hoikosg4c@gmail.com';
-			$copie = '';
-			$copie_cachee = 'hoikosg4c@gmail.com';
-			$objet = 'Changement du mot de passe Hoikos'; // Objet du message
-			$headers  = 'MIME-Version: 1.0' . "\n"; // Version MIME
-			$headers .= 'Reply-To: '.$expediteur."\n"; // Mail de reponse
-			$headers .= 'From: "Hoikos"<'.$expediteur.'>'."\n"; // Expediteur
-			$headers .= 'Delivered-to: '.$destinataire."\n"; // Destinataire
-			$headers .= 'Cc: '.$copie."\n"; // Copie Cc
-			$headers .= 'Bcc: '.$copie_cachee."\n\n"; // Copie cachée Bcc
-			$message = "Bonjour, Pour changer votre mot de passe Hoikos, cliquez sur le lien suivant pour le réinitialiser : http://localhost/thelast/h/controleurs/c_mdp_reset.php?token=$token&id=$id";
-			if (mail($destinataire, $objet, $message, $headers)) // Envoi du message
-			{
-				echo "";
-			}
-			else // Non envoyé
-			{
-			    echo "Erreur lors de l'envoi du mail, veuillez contacter directement Hoikos";
-			}
-			header("Location:index.php?target=compte&action=connecte&reaction=profil&Mail");
-		}
 
 function donnees_utilisateur($adresse_mail){
     $bdd = connexion_bdd();
-    $reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE adresse_mail_utilisateur=:adresse');
+
+		$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE adresse_mail_utilisateur=:adresse');
     $reponse->execute(array(
     'adresse'=> $adresse_mail,
     ));
 
-    while ($donnees = $reponse->fetch()){
+    $donnees = $reponse->fetch();
     $ID_logement = $donnees['ID_logement'];
     $nom = $donnees['nom_utilisateur'];
     $prenom = $donnees['prenom_utilisateur'];
     $telephone = $donnees['telephone_1_utilisateur'];
     $date_de_naissance = $donnees['date_de_naissance_utilisateur'];
     $date_d_ajout = $donnees['date_d_ajout_utilisateur'];
-    }
+
     $reponse->closeCursor();
 
 	return array($ID_logement,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance,$date_d_ajout);
@@ -72,19 +47,20 @@ function donnees_utilisateur($adresse_mail){
 
 function donnees_logement($ID_logement){
     $bdd = connexion_bdd();
-	$reponse = $bdd->prepare('SELECT * FROM logement WHERE ID_logement=:id');
+
+		$reponse = $bdd->prepare('SELECT * FROM logement WHERE ID_logement=:id');
     $reponse->execute(array(
     'id'=> $ID_logement,
     ));
 
-	while ($donnees = $reponse->fetch()){
+		$donnees = $reponse->fetch();
     $nomrue = $donnees['nom_rue_logement'];
     $numerorue = $donnees['numero_rue_logement'];
     $codepostal = $donnees['code_postale_logement'];
     $ville = $donnees['ville_logement'];
     $pays = $donnees['pays_logement'];
     $telephonelogement = $donnees['telephone_logement'];
-    }
+
 
     $reponse->closeCursor();
 
@@ -92,56 +68,49 @@ function donnees_logement($ID_logement){
 
 }
 
-function donnees_utilisateur_secondaire($ID_logement,$adresse_mail_utilisateur){
-    $bdd = connexion_bdd();
-	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_logement=:id_logement');
+function donnees_utilisateur_secondaire($ID_logement){
+  $bdd = connexion_bdd();
+
+	$reponse2 = $bdd->prepare('SELECT COUNT(*) FROM utilisateur WHERE ID_logement=:id_logement AND type_utilisateur = :type');
+	$reponse2->execute(array(
+		'id_logement'=> $ID_logement,
+		'type' => 2
+	));
+
+	$i=$reponse2->fetchColumn();
+
+	if($i!=0){
+	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_logement=:id_logement AND type_utilisateur = :type');
 	$reponse->execute(array(
 	'id_logement'=> $ID_logement,
+	'type' => 2
 	));
 
 	$i=0;
-	while ($donnees = $reponse->fetch()){
-	if ($donnees['adresse_mail_utilisateur']==$adresse_mail_utilisateur){
-	}  else {
-		list($nom,$prenom,$i,$id) = utilisateur_secondaire($ID_logement,$donnees["ID_utilisateur"]);
-	}
-	}
-
-    $reponse->closeCursor();
-	if($i!=0){
-	return array($i,$nom,$prenom,$id);
-}
-}
-
-function utilisateur_secondaire($ID_logement,$ID_utilisateur){
-    $bdd = connexion_bdd();
-	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE ID_logement=:id_logement');
-	$reponse->execute(array(
-	'id_logement'=> $ID_logement,
-	));
-
-	$i = 0;
 	$nom = array();
 	$prenom = array();
 	$id=array();
+
 	while ($donnees = $reponse->fetch()){
-	if ($donnees['ID_utilisateur']==$ID_utilisateur){
-	}  else {
-		$i = $i + 1;
 		$nom[] = $donnees['prenom_utilisateur'];
 		$prenom[] = $donnees['nom_utilisateur'];
 		$id[] = $donnees['ID_utilisateur'];
-	}
+		$i = $i + 1;
 	}
 
-	$reponse->closeCursor();
 
-	return array($nom,$prenom,$i,$id);
+  $reponse->closeCursor();
+
+	return array($i,$nom,$prenom,$id);
+} else {
+	return array(0,NULL,NULL,NULL);
+}
 }
 
-function cemac($ID_logement){
 
+function cemac($ID_logement){
 	$bdd = connexion_bdd();
+
 	$reponse3 = $bdd->prepare('SELECT * FROM cemac WHERE ID_logement = :ID_logement');
 	$reponse3->execute(array(
 			'ID_logement' => $ID_logement
@@ -157,43 +126,6 @@ function cemac($ID_logement){
 }
 
 
-function ajouter_cemac($id_cemac,$session_adresse){
-	$bdd = connexion_bdd();
 
-	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE adresse_mail_utilisateur=:id');
-	$reponse->execute(array(
-	'id'=> $session_adresse,
-	));
-
-	$donnees=$reponse->fetch();
-
-	$req = $bdd->prepare('UPDATE cemac SET etat_cemac = 1, ID_logement = :id WHERE numero_de_cemac = :num');
-	$req->execute(array(
-			'id' => $donnees["ID_logement"],
-			'num'=> $id_cemac
-			));
-}
-
-
-
-function supprimer($id){
-	$bdd=connexion_bdd();
-	$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE id_utilisateur = :id');
-	$reponse->execute(array(
-	'id'=> $id,
-	));
-
-	while ($donnees = $reponse->fetch()){
-	$nom=$donnees['nom_utilisateur'];
-	}
-
-
-	$req = $bdd->prepare("DELETE FROM utilisateur WHERE id_utilisateur = :id");
-	$req->execute(array(
-		"id"=>$id,
-	));
-
-	header("Location:index.php?target=compte&action=connecte&reaction=profil&suppression=".$nom);
-}
 
 ?>
