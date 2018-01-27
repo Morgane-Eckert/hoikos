@@ -66,7 +66,70 @@ if (isset($_GET['target'])) {
                         } else if ($_GET['reaction']=='consommation') {
                             include('controleurs/c_consommation.php');
                             consommation();   	    
-			  } else if (isset($_GET['anticipation'])) {
+			  } 
+			    else if ($_GET['reaction']=='routine') {
+                            routine();
+                        }else if ($_GET['reaction']=='nouvelle_routine_salle') {
+                            formulaire_nouvelle_routine_salle();
+                        }else if ($_GET['reaction']=='nouvelle_routine_salle_rempli') {
+                            if (isset($_POST['salles'])) {
+                               ajout_salle_routine2($_POST['salles']);
+                            }else {
+                                if (isset($_GET['comprehension'])) {
+                                    routine();
+                                }else{
+                                formulaire_nouvelle_routine_erreur();
+                                }
+                            }    
+                        }else if ($_GET['reaction']=='nouvelle_routine_capteur') {
+                            formulaire_nouvelle_routine_capteur();
+                        }else if ($_GET['reaction']=='nouvelle_routine_capteur_rempli') {
+                            if (isset($_POST['capteurs'])) {
+                                ajout_capteur_routine2($_POST['capteurs']);
+                            }else {
+                                if (isset($_GET['comprehension'])) {
+                                    routine();
+                                }else{
+                                formulaire_nouvelle_routine_erreur();
+                                }
+                            }  
+                        }else if ($_GET['reaction']=='nouvelle_routine_consigne') {
+                            formulaire_nouvelle_routine_consigne();
+                        }else if ($_GET['reaction']=='nouvelle_routine_consigne_rempli') {
+                            ajout_consigne_routine2($_POST['consigne']);
+                        }else if ($_GET['reaction']=='nouvelle_routine_horaire') {
+                            formulaire_nouvelle_routine_horaire();
+                        }else if ($_GET['reaction']=='nouvelle_routine_horaire_rempli') {
+                            if (isset($_POST['jours']) && isset($_POST['debut']) && isset($_POST['fin'])) {
+                                ajout_horaire_routine2($_POST['jours'],$_POST['debut'], $_POST['fin']);
+                            }else {
+                                if (isset($_GET['comprehension'])) {
+                                    routine();
+                                }else{
+                                formulaire_nouvelle_routine_erreur();
+                                }
+                            }  
+                        }else if ($_GET['reaction']=='nouvelle_routine_nom') {
+                            formulaire_nouvelle_routine_nom();
+                        }
+                        else if ($_GET['reaction']=='nouvelle_routine_nom_rempli') {
+                            if ($_POST['nom']!='') {
+                                ajout_nom_routine2($_POST['nom']);
+                            }else {
+                                if (isset($_GET['comprehension'])) {
+                                    routine();
+                                }else{
+                                formulaire_nouvelle_routine_erreur();
+                                }
+                            }  
+                        }else if ($_GET['reaction']=='effacer_routine') {
+                            effacer_routine2();
+                        }else if ($_GET['reaction']=='suppression_routine') {
+                            suppression_routine2();
+                        } else if ($_GET['reaction']=='suppression_routine_confirme') {
+                            suppression_routine_confirme2();
+                        }
+			    else if (isset($_GET['anticipation'])) {
                             if ($_GET['anticipation']=='suppression_onglet') {
                                 accueil_formulaire_suppression();
                             } else if ($_GET['anticipation']=='suppression_onglet_confirme') {
