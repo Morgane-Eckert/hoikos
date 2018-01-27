@@ -31,9 +31,7 @@ function fillInAddress() {
   var place = autocomplete.getPlace();
 
   for (var component in componentForm) {
-	document.getElementById(component).disabled = false;
 	document.getElementById(component).value = '';
-	document.getElementById(component).disabled = true;
   }
 
   // Get each component of the address from the place details
@@ -62,10 +60,5 @@ function geolocate() {
 	  });
 	  autocomplete.setBounds(circle.getBounds());
 	});
-  }
-}
-function activate(){
-  for (var component in componentForm) {
-	document.getElementById(component).disabled = false;
   }
 }
