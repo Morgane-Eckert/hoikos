@@ -212,6 +212,11 @@ section
 	width: 15%;/*Modifier la largeur de l'onglet*/
 }
 
+.editer:hover
+{
+	background-color: #00AAAA;
+}
+
 .m
 {
 	color: red;
