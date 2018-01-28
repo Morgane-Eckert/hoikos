@@ -53,13 +53,13 @@ function verif_mdp(){
             if (isset($_SESSION["respectcriteres"]) && $_SESSION["respectcriteres"]==1)
             {
         ?>
-            <span class='verif'>Les mots de passe doivent contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial.</span><br/><br/>
+            <span class='verif'>Le mots de passe doit contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial.</span><br/><br/>
         <?php
             }
             else
             {
         ?>
-            <span class="NB2">Le mot de passe doit contenir au moins 8 caractères dont une majuscule, une miniscule, un chiffre et un caractère spécial.</span><br/><br/>
+            <span class="NB2">Le mot de passe doit contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial.</span><br/><br/>
         <?php
             }
             $_SESSION["respectcriteres"]=0;
