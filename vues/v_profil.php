@@ -10,14 +10,13 @@
 	</head>
 
 	<body>
-    <?php 
-            include("vues/v_header_bouton.php");
-            //Affichage d'un message d'erreur si un capteur ne fonctionne pas
-            list($erreur_capteur,$erreur_salles,$a) = afficher_erreur_capteur();
-            for($i=0;$i<$a;$i++){
-                echo "<p class='erreur_capteur'>Attention : La fonction ".$erreur_capteur[$i]." de la pièce ".$erreur_salles[$i]." rencontre un dysfonctionnement. <a href='index.php?target=sav' class='lien_message_etat_capteur'>Contactez le SAV en cliquant ici</a>";
-            }
-    ?>
+	<?php include("vues/v_header_bouton.php");		
+-            //Affichage d'un message d'erreur si un capteur ne fonctionne pas		
+-            list($erreur_capteur,$erreur_salles,$a) = afficher_erreur_capteur();		
+-            for($i=0;$i<$a;$i++){		
+-                echo "<p class='erreur_capteur'>Attention : La fonction ".$erreur_capteur[$i]." de la pièce ".$erreur_salles[$i]." rencontre un dysfonctionnement. <a href='index.php?target=sav' class='lien_message_etat_capteur'>Contactez le SAV en cliquant ici</a>";		
+-            }		
+-    	?>
         <nav>
 
             <a href="index.php?target=compte&action=connecte&reaction=home" class="Conso">Home</a>
@@ -34,8 +33,15 @@
             <div class="Vide"></div>
            		 <?php
 					list($ID_logement,$nom,$prenom,$telephone,$adresse_mail,$date_de_naissance,$date_d_ajout) = donnees_utilisateur($_SESSION['adresse_mail_utilisateur']);
+					list($i,$table_nom,$table_prenom,$table_id) = donnees_utilisateur_secondaire($ID_logement,$_SESSION['adresse_mail_utilisateur']);
 					if(isset($_GET['ajout'])){
-						echo "<p class='m'>L'ajout de votre utilisateur secondaire ".$_GET["ajout"]." est un succès !</p><br><br/>";
+					if($_SESSION["mailcheck"]==0 AND $_GET["test"]==0) {
+							echo "<p class='m'>L'ajout de votre utilisateur secondaire ".$_GET["ajout"]." est un succès !</p><br><br/>";
+						} elseif($_SESSION["mailcheck"]==1) {
+							echo "<p class='m'>L'ajout de votre utilisateur secondaire ".$_GET["ajout"]." est un échec !<br>Son adresse mail existe déjà dans notre base de donnée !</p><br><br/>";
+						} else{
+							echo "<p class='m'>L'ajout de votre utilisateur secondaire ".$_GET["ajout"]." est un échec !</p><br><br/>";
+						}
 					} elseif(isset($_GET['suppression'])){
 						echo "<p class='m'>La suppression de votre utilisateur secondaire ".$_GET["suppression"]." est un succès !</p><br><br/>";
 					} elseif(isset($_GET["Mail"])){
@@ -59,16 +65,20 @@
 				</div>
 				<div id='corps'>
 					<br/><!-- Titre dans le bandeau rouge-->
-                        <form method='post' action='index.php?target=compte&action=connecte&reaction=profil&rempli=compte'>
+                        <form method='post' action='index.php?target=compte&action=connecte&reaction=profil&rempli=compte' id='Formulaire'>
                             <label for='nom' class='intitule'> Nom : </label><br>
-                            <input type='text' name='nom' pattern='^[a-zA-Z]+$' id='nom' value ="<?php echo $nom;?>" required><br><br>
-                            <label for='prénom' class='intitule'> Prénom :  </label><br>
+														<span id ="missNom"></span><br>
+                            <input type='text' id='nom1' name='nom' pattern='^[a-zA-Z]+$' value ="<?php echo $nom;?>" required><br><br>
+                            <label for='prénom' class='intitule'> Prénom : </label><br>
+														<span id ="missPrenom"></span><br>
                             <input type='text' name='prenom' pattern='^[a-zA-Z]+$' id='prenom' value="<?php echo $prenom;?>" required><br><br />
                             <label for='telephone' class='intitule'> Téléphone :  </label><br>
+														<span id ="missTel"></span><br>
                             <input type='text' name='telephone1'  pattern='^0[1-9]\d{8}$' id='telephone1' maxlength="10" value ="<?php echo $telephone;?>" required><br><br />
 														<label for='adresse_mail' class='intitule'> Adresse mail :  </label><br>
-                            <input type='email' name='adresse_mail'  id='adresse_mail' value ="<?php echo $adresse_mail;?>" required><br><br />
-                            <label for='date_naissance' class='intitule'> Date de naissance:  </label><br>
+														<span id ="missMail"></span><br>
+														<input type='email' name='adresse_mail'  id='adresse_mail' value ="<?php echo $adresse_mail;?>" required><br><br />
+                            <label for='date_naissance' class='intitule'> Date de naissance:  </label><br><br>
                             <input type='date' name='date_naissance' id='date_naissance' value ="<?php echo $date_de_naissance;?>" required><br />
                             <br/>
 								<span class='intitule'>Date de création du compte :</span>
@@ -77,7 +87,7 @@
 		                        ?>
 														<br><br>
 
-                            <input type='submit' value='Confirmer' id='bouton'>
+                            <input type='submit' value='Confirmer' onclick='verification()'id='modifier'>
                     </form>
                         <br>
                         <a href ="index.php?target=compte&action=connecte&reaction=profil&mdp=<?php echo $adresse_mail;?>"  class="supprimer">Modifier le mot de passe</a>
@@ -361,5 +371,6 @@
 		<?php include("vues/v_footer.php"); ?>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz2XZbaRtoXDEpEBz7QqqmMEORtzrU7Dk&libraries=places&callback=initAutocomplete"
         async defer></script>
+		<script type='text/javascript' src='public/js/profil.js'></script>
 	</body>
 </html>
