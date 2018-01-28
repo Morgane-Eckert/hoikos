@@ -4,12 +4,11 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/page_utilisateur.css">
-		<link rel="stylesheet" href="public/css/base-header-avec-bouton.css">
 		<link rel="stylesheet" href="public/css/footer.css">
 	</head>
 	
 	<body>
-		<?php include("vues/v_base-header-avec-bouton-deconnexion.php"); ?>
+		<?php include("vues/v_header_bouton.php"); ?>
 		<nav>
             <?php if ($_GET['anticipation']=='home') { ?>
                 <a href="index.php?target=compte&action=connecte&reaction=home" class="actuel">Home</a>
