@@ -137,14 +137,14 @@
                         <?php }
                     } ?>
 
-                    <?php if ($_GET['anticipation']=='home' AND $compteur!=0 || $_GET['anticipation']!='home' AND $compteur!=0) { ?>
+                    
                         <article class="Capteurs">
                         <div ><h1 class="Titre">Ajouter une routine</h1><br>
                             <?php if ($_GET['anticipation']== 'home') { ?>
                                 <a href="index.php?target=compte&action=connecte&reaction=nouvelle_routine_salle&anticipation=<?php echo $_GET['anticipation']; ?>" class='plus'>+</a>
                             <?php } else { ?>
                                 <a href="index.php?target=compte&action=connecte&reaction=nouvelle_routine_capteur&anticipation=<?php echo $_GET['anticipation']; ?>" class='plus'>+</a>
-                            <?php } ?>
+                           
                         </div>
                         </article>
                     <?php } ?> 
