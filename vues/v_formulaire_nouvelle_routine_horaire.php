@@ -101,7 +101,7 @@
 				}else{ ?>
 					<div id="titre">Création d'une nouvelle routine</div><br/>
 					<div id="corps">
-						<form method="post" action="index.php?target=compte&action=connecte&reaction=nouvelle_routine_consigne_rempli&anticipation=<?php echo $_GET['anticipation']; ?>">
+						<form method="post" action="index.php?target=compte&action=connecte&reaction=nouvelle_routine_horaire_rempli&anticipation=<?php echo $_GET['anticipation']; ?>">
 							<label for="type">Donner des ordres à vos capteurs :</label><br><br>
 							<label for="type">Sélectionner un ou plusieurs jour(s) :</label><br>
 								<input type="checkbox" name="jours[]" value="Lundi" />Lundi<br>
