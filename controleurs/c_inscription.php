@@ -116,13 +116,14 @@ function inscription_utilisateurs_secondaires(){
 }
 
 function ajout_utilisateurs_secondaires2($type_utilisateur,$nom_utilisateur,$prenom_utilisateur,$telephone_1_utilisateur,$date_de_naissance_utilisateur,$adresse_mail_utilisateur,$mot_de_passe_utilisateur){
+  $test = true;
     $affectedLines = ajout_utilisateurs_secondaires($type_utilisateur,$nom_utilisateur,$prenom_utilisateur,$telephone_1_utilisateur,$date_de_naissance_utilisateur,$adresse_mail_utilisateur,$mot_de_passe_utilisateur);
     if ($affectedLines === false) {
         die('Impossible d\'ajouter le commentaire !');
     }
     else {
       if(isset($_GET["profil"])){
-      header('Location: index.php?target=compte&action=connecte&reaction=profil&ajout='.$prenom_utilisateur);
+      header('Location: index.php?target=compte&action=connecte&reaction=profil&ajout='.$prenom_utilisateur."&test=".$affectedLines);
       } else {
       header('Location: index.php?target=inscription&action=autres_utilisateurs_secondaires');
       }
