@@ -1,4 +1,4 @@
-<?php 
+<?php
 //session_start();
 
 function ajout_utilisateur($type_utilisateur,$nom_utilisateur,$prenom_utilisateur,$telephone_1_utilisateur,$date_de_naissance_utilisateur,$adresse_mail_utilisateur,$mot_de_passe_utilisateur){
@@ -7,8 +7,8 @@ function ajout_utilisateur($type_utilisateur,$nom_utilisateur,$prenom_utilisateu
 	$nom_utilisateur=firstlettertoupper($nom_utilisateur);
 	$_SESSION["mailcheck"]=0;
 	$_SESSION["mdpmatch"]=0;
-	$_SESSION["respectcriteres"]=0;	
-	$count=1;	
+	$_SESSION["respectcriteres"]=0;
+	$count=1;
 	$mailexist=0;
 	$entrees = $bdd->query('SELECT adresse_mail_utilisateur FROM utilisateur');
 	while ($checkmail = $entrees->fetch())
@@ -19,8 +19,8 @@ function ajout_utilisateur($type_utilisateur,$nom_utilisateur,$prenom_utilisateu
 		break;
 	}
 }
-	
-if ((preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#', $_POST["mot_de_passe"])) && ($_POST["mot_de_passe2"] == $_POST["mot_de_passe"]) && ($mailexist == 0)) 
+
+if ((preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#', $_POST["mot_de_passe"])) && ($_POST["mot_de_passe2"] == $_POST["mot_de_passe"]) && ($mailexist == 0))
 	{
 			$requete = $bdd->prepare("INSERT INTO `utilisateur` (`ID_utilisateur`, `ID_logement`, `type_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `telephone_1_utilisateur`, `date_de_naissance_utilisateur`, `adresse_mail_utilisateur`, `mot_de_passe_utilisateur`, `date_d_ajout_utilisateur`) VALUES (NULL, NULL, :type_utilisateur, :nom_utilisateur, :prenom_utilisateur, :telephone_1_utilisateur, :date_de_naissance_utilisateur, :adresse_mail_utilisateur, PASSWORD(:mot_de_passe_utilisateur),NOW());");
 			/*On crée une ligne utilisateur*/
@@ -46,7 +46,7 @@ if ((preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#', $_POST["mo
 else{
 if ($mailexist == 1)
 		{
-			$_SESSION["mailcheck"]=1;	
+			$_SESSION["mailcheck"]=1;
 		}
 		if (!(preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#', $_POST["mot_de_passe"])))
 		{
@@ -73,7 +73,7 @@ function ajout_logement($type_logement,$telephone_fixe,$numero_rue_logement,$nom
 	}
 
 	if ($_POST["type_logement"]=='Maison'){
-   		$type_logement='2'; 
+   		$type_logement='2';
 	}
 	else{
     	$type_logement='1';
@@ -117,8 +117,24 @@ function ajout_logement($type_logement,$telephone_fixe,$numero_rue_logement,$nom
 /*Ajout utilisateurs secondaires*/
 function ajout_utilisateurs_secondaires($type_utilisateur,$nom_utilisateur,$prenom_utilisateur,$telephone_1_utilisateur,$date_de_naissance_utilisateur,$adresse_mail_utilisateur,$mot_de_passe_utilisateur){
 	$bdd=connexion_bdd();
+	$prenom_utilisateur=firstlettertoupper($prenom_utilisateur);
+	$nom_utilisateur=firstlettertoupper($nom_utilisateur);
+	$_SESSION["mailcheck"]=0;
+	$_SESSION["mdpmatch"]=0;
+	$_SESSION["respectcriteres"]=0;
+	$count=1;
 	$mailexist=0;
 	$entrees = $bdd->query('SELECT adresse_mail_utilisateur FROM utilisateur');
+	while ($checkmail = $entrees->fetch())
+{
+	if ($checkmail[0] == $_POST["adresse_mail"])
+	{
+		$mailexist=1;
+		break;
+	}
+}
+if ((preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#', $_POST["mot_de_passe"])) && ($_POST["mot_de_passe2"] == $_POST["mot_de_passe"]) && ($mailexist == 0))
+{
 			$requete = $bdd->prepare("INSERT INTO `utilisateur` (`ID_utilisateur`, `ID_logement`, `type_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `telephone_1_utilisateur`, `date_de_naissance_utilisateur`, `adresse_mail_utilisateur`, `mot_de_passe_utilisateur`, `date_d_ajout_utilisateur`) VALUES (NULL, NULL, :type_utilisateur, :nom_utilisateur, :prenom_utilisateur, :telephone_1_utilisateur, :date_de_naissance_utilisateur, :adresse_mail_utilisateur, PASSWORD(:mot_de_passe_utilisateur),NOW());");
 			/*On crée une ligne utilisateur*/
 			$affectedLines = $requete->execute(array(
@@ -136,10 +152,25 @@ function ajout_utilisateurs_secondaires($type_utilisateur,$nom_utilisateur,$pren
 			$donnees1 = $reponse1->fetch();
 			/*On le met dans une variable session pour qu'il soit accessible depuis da'utres pages du site*/
 			$_SESSION['id_utilisateur_secondaire'] = $donnees1['ID_utilisateur'];
-$req = $bdd->prepare('UPDATE utilisateur SET ID_logement = :ID_logement WHERE ID_utilisateur = :ID_utilisateur');
-$req->execute(array(
+			$req = $bdd->prepare('UPDATE utilisateur SET ID_logement = :ID_logement WHERE ID_utilisateur = :ID_utilisateur');
+			$req->execute(array(
     'ID_logement' => $_SESSION['ID_logement'],
     'ID_utilisateur' => $donnees1['ID_utilisateur'],
     ));
+	return 0;
+}
+else{
+if ($mailexist == 1)
+{
+	$_SESSION["mailcheck"]=1;
+}
+if (!(preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#', $_POST["mot_de_passe"])))
+{
+	$_SESSION["respectcriteres"]=1;
+}
+if (!($_POST["mot_de_passe2"] == $_POST["mot_de_passe"]))
+{
+	$_SESSION["mdpmatch"]=1;
+}}return 1;
 }
 ?>
