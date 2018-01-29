@@ -321,15 +321,25 @@ function afficher_horaire_routine($ID_routine){
 
 function afficher_salle_routine($ID_routine){
 	$bdd=connexion_bdd();
-	$reponse1 = $bdd->prepare('SELECT nom_salle FROM salle INNER JOIN routine_salle ON routine_salle.ID_salle=salle.ID_salle WHERE ID_routine=:ID_routine');
-	$reponse1->execute(array(
+	$reponse0 = $bdd->prepare('SELECT COUNT(*) as nombre FROM salle INNER JOIN routine_salle ON routine_salle.ID_salle=salle.ID_salle WHERE ID_routine=:ID_routine');
+	$reponse0->execute(array(
 		'ID_routine'=> $ID_routine
 	));
-	$i=1;
-	while ($donnees1 = $reponse1->fetch()){
-		$salles[$i] = $donnees1['nom_salle'];
-		$i++;
-		}
+	$reponse0 = $reponse0->fetch();
+	if ($reponse0['nombre']!=0) {
+		$reponse1 = $bdd->prepare('SELECT nom_salle FROM salle INNER JOIN routine_salle ON routine_salle.ID_salle=salle.ID_salle WHERE ID_routine=:ID_routine');
+		$reponse1->execute(array(
+			'ID_routine'=> $ID_routine
+		));
+		$i=1;
+		while ($donnees1 = $reponse1->fetch()){
+			$salles[$i] = $donnees1['nom_salle'];
+			$i++;
+			}
+	}else{
+		$salles['null']=NULL;
+	}
+	
 	return $salles;
 }
 
