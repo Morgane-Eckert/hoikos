@@ -18,9 +18,6 @@
 			<article>
 				<div id="titre">Mon logement</div><br/>
 				<form method='post' action='index.php?target=inscription&action=logement&reaction=rempli' id='corps'>
-						<label for='type_logement'>Vous habitez dans : </label>
-						<input type='radio' id='Maison' name='type_logement' value='Maison' required> Une maison
-						<input type='radio' id='Appartement' name='type_logement' value='Appartement' required> Un appartement<br><br>
 						<?php verif_cemac();?>
 						<label for='numero_de_cemac'> Numéro de série de votre CeMAC (ce numéro vous a été fourni en magasin lors de votre premier achat) : </label><br/>
 						<input type='text' name='numero_de_cemac' maxlength="5" required>
