@@ -69,7 +69,7 @@
                                         ?>
 
                              		       <div class = "BoiteVide">
-                               		         <span class="Titre"></span><h3 class="Affichage"><?php echo $element; ?>
+                               		         <span class="Titre"></span><h3 class="Affichage"><?php echo "Votre consommation d'eau s'élève à ".$element." m<sup>3</sup>"; ?>
                                            </h3>
                                		     </div><br>
 
