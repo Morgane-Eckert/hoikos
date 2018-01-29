@@ -137,7 +137,7 @@ foreach ($table_capteur as $element) {
          <option value="Fermé">Fermé</option>
      </select>
      <?php
-     } elseif($table_valeur_capteur[$i]=="Fermé"){
+     } else{
      ?>
      <select name = "<?php echo $table_id_capteur[$i];?>" id = "<?php echo $table_id_capteur[$i];?>" required>
          <option value="Ouvert">Ouvert</option>
