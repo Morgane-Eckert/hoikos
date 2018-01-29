@@ -24,7 +24,15 @@ function afficher_consommation_eau(){
 	    $consommation_eau[$i]= $donnees['donnee_recue_capteur']; 
 	    $i++; 
 	}
-	return $consommation_eau;
+		
+	if($i==0){
+		return array($i,NULL);
+
+	}
+	else{
+		return array($i,$consommation_eau);
+			
+	}
 }
 function afficher_consommation_elec(){
 	$bdd=connexion_bdd2();
@@ -37,7 +45,13 @@ function afficher_consommation_elec(){
 	    $consommation_elec[$i]= $donnees['donnee_recue_capteur']; 
 	    $i++; 
 	}
-	return $consommation_elec;
+	if($i==0){
+		return array($i,NULL);
+	}
+	else{
+		return array($i,$consommation_elec);
+	}
+	
 }
 
 
