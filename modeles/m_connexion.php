@@ -148,7 +148,7 @@ function accueil_suppression(){
 		'ID_logement' => $_SESSION['ID_logement']
 	    ));
 	/*Suppression des capteurs de la salle dans la routine*/
-	$reponse2 = $bdd->prepare('SELECT ID_capteur FROM capteur INNER JOIN salle ON capteur.nom_salle=salle.nom_salle WHERE capteur.nom_salle=:nom_salle AND capteur.ID_logement=:ID_logement');
+	$reponse2 = $bdd->prepare('SELECT ID_capteur FROM capteur INNER JOIN salle ON capteur.nom_salle=salle.nom_salle WHERE capteur.nom_salle=:nom_salle AND capteur.ID_logement=:ID_logement AND salle.ID_logement=:ID_logement');
 	$reponse2->execute(array(
 		'nom_capteur' => $_GET['comprehension'],
 		'nom_salle' => $_GET['reaction'],
