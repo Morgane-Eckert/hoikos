@@ -33,7 +33,7 @@ if ((preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#', $_POST["mo
 	    	'adresse_mail_utilisateur' => $adresse_mail_utilisateur,
 	    	'mot_de_passe_utilisateur' => $mot_de_passe_utilisateur
 	    	));
-	    	$_SESSION["prenom_utilisateur"]=$_POST["prenom"];
+	    	$_SESSION["prenom_utilisateur"]=$prenom_utilisateur;
 			/*On récupère l'ID de l'utilisateur qui vient d'être ajouté*/
 			$reponse1 = $bdd->query('SELECT * FROM utilisateur ORDER BY ID_utilisateur DESC LIMIT 1');
 			$donnees1 = $reponse1->fetch();
@@ -58,7 +58,7 @@ if ($mailexist == 1)
 		}}return 1;
 }
 /*Ajout logement*/
-function ajout_logement($type_logement,$telephone_fixe,$numero_rue_logement,$nom_rue_logement,$code_postale_logement,$ville_logement,$pays_logement){
+function ajout_logement($telephone_fixe,$numero_rue_logement,$nom_rue_logement,$code_postale_logement,$ville_logement,$pays_logement){
 	$bdd=connexion_bdd();
 	$count=1;
 	$_SESSION["cemac_check"]=0;
@@ -72,18 +72,10 @@ function ajout_logement($type_logement,$telephone_fixe,$numero_rue_logement,$nom
 		}
 	}
 
-	if ($_POST["type_logement"]=='Maison'){
-   		$type_logement='2';
-	}
-	else{
-    	$type_logement='1';
-	}
-
 	if ($_SESSION["cemac_check"]==2){
 		/*On crée une ligne logement*/
-		$requete = $bdd->prepare("INSERT INTO logement (type_logement, telephone_logement, numero_rue_logement, nom_rue_logement, code_postale_logement, ville_logement, pays_logement) VALUES (:type_logement, :telephone_fixe, :numero_rue_logement, :nom_rue_logement, :code_postale_logement, :ville_logement, :pays_logement)");
+		$requete = $bdd->prepare("INSERT INTO logement (type_logement, telephone_logement, numero_rue_logement, nom_rue_logement, code_postale_logement, ville_logement, pays_logement) VALUES (NULL, :telephone_fixe, :numero_rue_logement, :nom_rue_logement, :code_postale_logement, :ville_logement, :pays_logement)");
 		$requete->execute(array(
-		    'type_logement' => $type_logement,
 		    'telephone_fixe' => $telephone_fixe,
 		    'numero_rue_logement' => $numero_rue_logement,
 		    'nom_rue_logement' => $nom_rue_logement,
