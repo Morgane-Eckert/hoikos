@@ -62,7 +62,7 @@
               		
                         		        <div class="consommation">
                        	 		             <?php //Affichage des données de consommation
-                           					list($i,$donnees_recue_donnees = afficher_consommation_eau();
+                           					list($i,$donnees_recue_donnees) = afficher_consommation_eau();
 								     if($i!=0){
                             						foreach($donnees_recue_donnees as $element);
 								     }
@@ -123,7 +123,7 @@
 
                     			<div class="consommation"> 
                           		   <?php //Affichage des données de consommation
-                                		         list($i,$donnees_recue_donnees1 = afficher_consommation_elec();
+                                		         list($i,$donnees_recue_donnees1) = afficher_consommation_elec();
 							      if($i!=0){
                                   		          foreach($donnees_recue_donnees1 as $element1);//On parcourt le tableau
 							      }
