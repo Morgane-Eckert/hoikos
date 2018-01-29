@@ -1,19 +1,8 @@
 <?php
 
-function connexion_bdd2(){
-	try
-	{
-    	$bdd = new PDO('mysql:host=localhost;dbname=hoikos;charset=utf8', 'root', '');
-    	return $bdd;
-	}
-	catch(Exception $e)
-	{
-        die('Erreur : '.$e->getMessage());
-	}
-}
 
 function afficher_consommation_eau(){
-	$bdd=connexion_bdd2();
+	$bdd=connexion_bdd();
 	$reponse=$bdd->prepare('SELECT donnee_recue_capteur from capteur where ID_logement= :ID_logement and ID_type_de_capteur =12');
 	$reponse->execute(array(
 		'ID_logement' => $_SESSION['ID_logement']
@@ -35,7 +24,7 @@ function afficher_consommation_eau(){
 	}
 }
 function afficher_consommation_elec(){
-	$bdd=connexion_bdd2();
+	$bdd=connexion_bdd();
 	$reponse=$bdd->prepare('SELECT donnee_recue_capteur from capteur where ID_logement= :ID_logement and ID_type_de_capteur =11');
 	$reponse->execute(array(
 		'ID_logement' => $_SESSION['ID_logement']
