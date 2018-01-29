@@ -79,11 +79,11 @@
                                             } else if ($element=='Température'){
                                                 echo "°C";
                                             } else if ($element=='Eau'){
-                                                echo "kWh";
+                                                echo "m<sup>3</sup>";
                                             } else if ($element=='CO2'){
                                                 echo "ppm";
                                             } else if ($element=='Electricité'){
-                                                echo "m<sup>3</sup>";
+                                                echo "Whk";
                                             }
                                         }
                                         ?>
