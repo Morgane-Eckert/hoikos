@@ -33,8 +33,8 @@
           $req = $bdd->prepare("INSERT INTO donnees_capteur(ID_capteur,donnee_envoyee_donnees,donnee_recue_donnees) VALUES(:id,:o,:valeur)");
           $req->execute(array(
            'id'=> $table_id_capteur[$i],
-           'o'=>NULL,
-            'valeur'=>$valeur
+           'o'=>0,
+           'valeur'=>$valeur
           ));
 
         #  echo $valeur;
