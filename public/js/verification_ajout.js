@@ -1,4 +1,3 @@
-function verification(){
 var nom = document.getElementById('nom');
 var missNom = document.getElementById('missNom');
 var nomValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
@@ -19,6 +18,7 @@ var missMdp2 = document.getElementById('missMdp2');
 var date = document.getElementById('date_naissance');
 var missDate = document.getElementById('missDate');
 
+function verification(){
 //On reset les champs span
 missNom.textContent = '';
 missPrenom.textContent = '';
