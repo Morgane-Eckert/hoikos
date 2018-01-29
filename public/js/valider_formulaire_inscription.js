@@ -9,7 +9,7 @@ var verification_mot_de_passe = function(e){
 
 var verification_telephone = function(e){
 	var telephone = document.forms['formulaire_inscription']['telephone1'].value;
-    var valide = /^0[1-6]\d{8}$/;
+    var valide = /^0[1-9]\d{8}$/;
     if(!(valide.test(telephone))){
 		alert('Le format du numéro de téléphone entré est incorrect.');
 		e.preventDefault();
