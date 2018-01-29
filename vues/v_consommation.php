@@ -61,9 +61,11 @@
                  		   <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
               		
                         		        <div class="consommation">
-                       	 		             <?php //Affichage des onglets
-                           						 $donnees_recue_donnees = afficher_consommation_eau();
+                       	 		             <?php //Affichage des données de consommation
+                           					list($i,$donnees_recue_donnees = afficher_consommation_eau();
+								     if($i!=0){
                             						foreach($donnees_recue_donnees as $element);
+								     }
                                         ?>
 
                              		       <div class = "BoiteVide">
@@ -120,9 +122,11 @@
                                                                        		
 
                     			<div class="consommation"> 
-                          		   <?php //Affichage des onglets
-                                		         $donnees_recue_donnees1 = afficher_consommation_elec();
+                          		   <?php //Affichage des données de consommation
+                                		         list($i,$donnees_recue_donnees1 = afficher_consommation_elec();
+							      if($i!=0){
                                   		          foreach($donnees_recue_donnees1 as $element1);//On parcourt le tableau
+							      }
                                  		         ?>
                     		 		 <div class = "BoiteVide">
                                   		      <span class="Titre"></span><h3 class="Affichage"><?php echo $element1;?></h3>
