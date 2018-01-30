@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html>
-	
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/inscription.css">
 		<link rel="stylesheet" href="public/css/footer.css">
 	</head>
-	
 	<body>
 		<?php 	include("vues/v_header_no_bouton.php");
 				verif_cond_utilisateur();
 		?>
-		
 		<nav>
 			<a href="index.php" class="Onglet">Retour</a>
 		</nav>
-		
 		<section>
 			<article>
 				<div id="titre">Mon profil</div><br/>
 				<form name='formulaire_inscription' method='post' action='index.php?target=inscription&action=utilisateur&reaction=rempli' id='corps' onsubmit="return verifForm(this)">
 						<label for='nom' id='test'> Nom : </label><br/>
+						<span id='missNom'></span><br>
 						<input type='text' pattern='^[a-zA-Z]+$' name='nom' id='nom' required><br><br>
 						<label for='prénom'> Prénom :  </label><br/>
+						<span id='missPrenom'></span><br>
 						<input type='text' pattern='^[a-zA-Z]+$' name='prenom' id='prenom' required><br><br />
 						<label for='telephone'> Téléphone portable :  </label><br/>
+						<span id='missTel'></span><br>
 						<input type='tel' pattern='^0[1-9]\d{8}$' name='telephone1' id='telephone1' maxlength='10' required><br><br />
 						<?php verif_mail();?>
 						<label for='adresse_mail'> Adresse mail :  </label><br/>
+						<span id='missMail'></span><br>
 						<input type='email' name='adresse_mail' id='adresse_mail' size='30' required><br><br />
 						<label for='date_naissance'> Date de naissance:  </label><br/>
+						<span id='missDate'></span><br>
 						<input type='date' name='date_naissance' id='date_naissance'  required><br><br />
 						<?php verif_mdp();?>
 						<label for='mot_de_passe'>Mot de passe : </label><br/>
+						<span id='missMdp'></span><br>
 						<input type='password' name='mot_de_passe' id='mot_de_passe'  required><br><br />
 
 						<label for='mot_de_passe2'>Confirmation du mot de passe : </label><br/>
+						<span id='missMdp2'></span><br>
 						<input type='password' name='mot_de_passe2' id='mot_de_passe2'  required><br><br />
-	
+
 						<label for='Conditions'></label><input type='checkbox'  id='Conditions' required><a href='index.php?target=conditions_generales' id='Condition' target=_blank>J'ai lu et accepté les conditions générales d'utilisation</a><br><br><br/>
-						<input type='submit' value='Valider' id='bouton'>
+						<input type='submit' value='Valider' onclick="verification()"id='bouton'>
 				</form>
 
 
@@ -57,6 +60,6 @@
 		</section>
 
 		<?php 	include("vues/v_footer.php");?>
-		<script src="public/js/valider_formulaire_inscription.js" ></script>		 
+		<script src="public/js/verification_ajout.js" ></script>
 	</body>
 </html>
