@@ -376,6 +376,7 @@
 		<?php include("vues/v_footer.php"); ?>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz2XZbaRtoXDEpEBz7QqqmMEORtzrU7Dk&libraries=places&callback=initAutocomplete"
         async defer></script>
+		<script type='text/javascript' src='public/js/adresse.js'></script>
 		<script type='text/javascript' src='public/js/verification_adresse.js'></script>
 		<script type='text/javascript' src='public/js/profil.js'></script>
 	</body>
