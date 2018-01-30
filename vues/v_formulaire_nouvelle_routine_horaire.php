@@ -83,9 +83,10 @@
 																<?php $jours[$donnees1['jour_routine']]=$donnees1['jour_routine']; ?>
 															<?php } ?>
 									<?php  } } } } } }?>	
-									<br /><br />
+									<br />
 									<?php 
-								} 
+								}?>
+								<br /><?php 
 								if(!(isset($jours['Lundi']))) { ?>
 									<input type="checkbox" name="jours[]" value="Lundi"  />Lundi<br>
 									<?php $jours['Lundi']='Lundi'; }?>
