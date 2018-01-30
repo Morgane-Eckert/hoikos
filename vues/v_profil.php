@@ -5,7 +5,6 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/profil.css">
 		<link rel="stylesheet" href="public/css/footer.css">
-		<script type='text/javascript' src='public/js/adresse.js'></script>
 		<title>Votre Profil</title>
 	</head>
 
@@ -378,5 +377,6 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz2XZbaRtoXDEpEBz7QqqmMEORtzrU7Dk&libraries=places&callback=initAutocomplete"
         async defer></script>
 		<script type='text/javascript' src='public/js/verification_adresse.js'></script>
+		<script type='text/javascript' src='public/js/profil.js'></script>
 	</body>
 </html>
