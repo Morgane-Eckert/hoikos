@@ -176,20 +176,80 @@ if (isset($_GET['target'])) {
                         if ($_GET['reaction']=='home') {
                             accueil_home_secondaire();
                         } else if ($_GET['reaction']=='profil'){
-													include ('controleurs/c_profil.php');
-													if(isset($_GET["mdp"])){
-														changement($_GET["mdp"]);
-													}
-													if(isset($_GET['rempli'])){
-														if($_GET['rempli']=='compte'){
-															profil_editer_utilisateur_principal($_SESSION['adresse_mail_utilisateur'],$_POST['nom'],$_POST['prenom'],$_POST['telephone1'],$_POST['adresse_mail'],$_POST['date_naissance']);
-														}
-													} else {
-													profil_secondaire();
-													}
-
-												}
-												else {
+				include ('controleurs/c_profil.php');
+				if(isset($_GET["mdp"])){
+					changement($_GET["mdp"]);
+				}
+				if(isset($_GET['rempli'])){
+					if($_GET['rempli']=='compte'){
+						profil_editer_utilisateur_principal($_SESSION['adresse_mail_utilisateur'],$_POST['nom'],$_POST['prenom'],$_POST['telephone1'],$_POST['adresse_mail'],$_POST['date_naissance']);
+					}
+				} else {
+					profil_secondaire();
+				}
+			}else if ($_GET['reaction']=='routine') {
+                            routine();
+                        }else if ($_GET['reaction']=='nouvelle_routine_salle') {
+                            formulaire_nouvelle_routine_salle();
+                        }else if ($_GET['reaction']=='nouvelle_routine_salle_rempli') {
+                            if (isset($_POST['salles'])) {
+                               ajout_salle_routine2($_POST['salles']);
+                            }else {
+                                if (isset($_GET['comprehension'])) {
+                                    routine();
+                                }else{
+                                formulaire_nouvelle_routine_erreur();
+                                }
+                            }    
+                        }else if ($_GET['reaction']=='nouvelle_routine_capteur') {
+                            formulaire_nouvelle_routine_capteur();
+                        }else if ($_GET['reaction']=='nouvelle_routine_capteur_rempli') {
+                            if (isset($_POST['capteurs'])) {
+                                ajout_capteur_routine2($_POST['capteurs']);
+                            }else {
+                                if (isset($_GET['comprehension'])) {
+                                    routine();
+                                }else{
+                                formulaire_nouvelle_routine_erreur();
+                                }
+                            }  
+                        }else if ($_GET['reaction']=='nouvelle_routine_consigne') {
+                            formulaire_nouvelle_routine_consigne();
+                        }else if ($_GET['reaction']=='nouvelle_routine_consigne_rempli') {
+                            ajout_consigne_routine2($_POST['consigne']);
+                        }else if ($_GET['reaction']=='nouvelle_routine_horaire') {
+                            formulaire_nouvelle_routine_horaire();
+                        }else if ($_GET['reaction']=='nouvelle_routine_horaire_rempli') {
+                            if (isset($_POST['jours']) && isset($_POST['debut']) && isset($_POST['fin'])) {
+                                ajout_horaire_routine2($_POST['jours'],$_POST['debut'], $_POST['fin']);
+                            }else {
+                                if (isset($_GET['comprehension'])) {
+                                    routine();
+                                }else{
+                                formulaire_nouvelle_routine_erreur();
+                                }
+                            }  
+                        }else if ($_GET['reaction']=='nouvelle_routine_nom') {
+                            formulaire_nouvelle_routine_nom();
+                        }
+                        else if ($_GET['reaction']=='nouvelle_routine_nom_rempli') {
+                            if ($_POST['nom']!='') {
+                                ajout_nom_routine2($_POST['nom']);
+                            }else {
+                                if (isset($_GET['comprehension'])) {
+                                    routine();
+                                }else{
+                                formulaire_nouvelle_routine_erreur();
+                                }
+                            }  
+                        }else if ($_GET['reaction']=='effacer_routine') {
+                            effacer_routine2();
+                        }else if ($_GET['reaction']=='suppression_routine') {
+                            suppression_routine2();
+                        } else if ($_GET['reaction']=='suppression_routine_confirme') {
+                            suppression_routine_confirme2();
+                        }
+			else {
                         accueil_secondaire();
                     }
                     } else {
