@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="public/css/pagedaide.css">
+		<link rel="stylesheet" href="public/css/mail_sav.css">
 		<link rel="stylesheet" href="public/css/footer.css">
 		<title>Page SAV</title>
 	</head>

@@ -5,16 +5,17 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/profil.css">
 		<link rel="stylesheet" href="public/css/footer.css">
+		<script type='text/javascript' src='public/js/adresse.js'></script>
 		<title>Votre Profil</title>
 	</head>
 
 	<body>
-	<?php include("vues/v_header_bouton.php");
-            //Affichage d'un message d'erreur si un capteur ne fonctionne pas
-            list($erreur_capteur,$erreur_salles,$a) = afficher_erreur_capteur();
-            for($i=0;$i<$a;$i++){
-                echo "<p class='erreur_capteur'>Attention : La fonction ".$erreur_capteur[$i]." de la pièce ".$erreur_salles[$i]." rencontre un dysfonctionnement. <a href='index.php?target=sav' class='lien_message_etat_capteur'>Contactez le SAV en cliquant ici</a>";
-            }
+	<?php include("vues/v_header_bouton.php");		
+            //Affichage d'un message d'erreur si un capteur ne fonctionne pas		
+            list($erreur_capteur,$erreur_salles,$a) = afficher_erreur_capteur();		
+            for($i=0;$i<$a;$i++){		
+                echo "<p class='erreur_capteur'>Attention : La fonction ".$erreur_capteur[$i]." de la pièce ".$erreur_salles[$i]." rencontre un dysfonctionnement. <a href='index.php?target=sav' class='lien_message_etat_capteur'>Contactez le SAV en cliquant ici</a>";		
+            }		
 		?>
         <nav>
 
@@ -201,7 +202,6 @@
                     <div id="corps"> <!-- Tout ce qu'il y a dans le rectangle blanc-->
 						<form method='post' action='index.php?target=compte&action=connecte&reaction=profil&rempli=adresse'>
 							<label for='telephone_fixe' class='intitule'> Téléphone fixe :  </label><br/>
-							<span id ="missTel"></span><br>
 							<input type='text' pattern='^0[1-9]\d{8}$' name='telephone_fixe' id='telephone_fixe' maxlength="10" value = "<?php echo $telephonelogement?>"  required><br><br />
 
 							<label class='intitule'>Addresse</label><br>
@@ -209,23 +209,18 @@
 				 onFocus="geolocate()" type="text" class='adresse' style="width:300px;"><br><br>
 
 							<label for='numero_rue_logement' id='numero_rue_logement' class='intitule'> Numéro de rue : </label><br/>
-							<span id ="missNumrue"></span><br>
 							<input type='text' name='numero_rue_logement' id='street_number' value = "<?php echo $numerorue;?>"required ><br><br>
 							<label for='nom_rue_logement' id='nom_rue_logement' class='intitule'> Nom de rue : </label><br/>
-							<span id ="missRue"></span><br>
 							<input type='text' name='nom_rue_logement' id='route' value="<?php echo $nomrue;?>" required><br><br>
 							<label for="ville_logement" class='intitule'>Ville :</label><br>
-							<span id ="missVille"></span><br>
 							<input type='text' name="ville_logement" id="locality" value ="<?php echo $ville;?>"required >   <br><br>
 							<label for='code_postale_logement' id='code_postale_logement' class='intitule'> Code postal : </label><br/>
-							<span id ="missCp"></span><br>
 							<input type='text' name='code_postale_logement' id='postal_code' value="<?php echo $codepostal;?>" required><br><br>
 							<label for="pays_logement" class='intitule'>Pays :</label><br>
-							<span id ="missPays"></span><br>
-							<input type='text' name="pays_logement" id="country" required value='<?php echo $pays;?>' /><br><br>
-							<label for="id_cemac" class='intitule'>ID nouveau CeMAC :</label><br>
+							<input type='text' name="pays_logement" id="country" value='<?php echo $pays;?>' /><br><br>
+							<label for="id_cemac" class='intitule'>Numéro de série du nouveau CeMac :</label><br>
 							<input type='text' name='id_cemac' id='id_cemac' maxlength="5"><br><br />
-							<input type='submit' value='Confirmer' onclick="validation()" id='bouton' >
+							<input type='submit' value='Confirmer' id='bouton' >
 					</form>
 				</div>
 
@@ -376,8 +371,6 @@
 		<?php include("vues/v_footer.php"); ?>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz2XZbaRtoXDEpEBz7QqqmMEORtzrU7Dk&libraries=places&callback=initAutocomplete"
         async defer></script>
-		<script type='text/javascript' src='public/js/adresse.js'></script>
-		<script type='text/javascript' src='public/js/verification_adresse.js'></script>
 		<script type='text/javascript' src='public/js/profil.js'></script>
 	</body>
 </html>
