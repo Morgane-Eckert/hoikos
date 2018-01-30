@@ -54,7 +54,7 @@ if (isset($_GET['target'])) {
                         if ($_GET['reaction']=='nouvel_onglet') {
                             formulaire_nouvel_onglet();
                         } else if ($_GET['reaction']=='nouvel_onglet_rempli') {
-                            ajout_nouvel_onglet2($_POST["nom_salle"]);
+                            ajout_nouvel_onglet2(htmlspecialchars($_POST["nom_salle"]));
                         } else if ($_GET['reaction']=='home') {
                             accueil_home();
                         } else if ($_GET['reaction']=='nouvelle_fonction') {
