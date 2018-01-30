@@ -113,8 +113,8 @@ if (isset($_GET['target'])) {
                             formulaire_nouvelle_routine_nom();
                         }
                         else if ($_GET['reaction']=='nouvelle_routine_nom_rempli') {
-                            if ($_POST['nom']!='') {
-                                ajout_nom_routine2($_POST['nom']);
+                            if (htmlspecialchars($_POST['nom'])!='') {
+                                ajout_nom_routine2(htmlspecialchars($_POST['nom']));
                             }else {
                                 if (isset($_GET['comprehension'])) {
                                     routine();
@@ -233,8 +233,8 @@ if (isset($_GET['target'])) {
                             formulaire_nouvelle_routine_nom();
                         }
                         else if ($_GET['reaction']=='nouvelle_routine_nom_rempli') {
-                            if ($_POST['nom']!='') {
-                                ajout_nom_routine2($_POST['nom']);
+                            if (htmlspecialchars($_POST['nom'])!='') {
+                                ajout_nom_routine2(htmlspecialchars($_POST['nom']));
                             }else {
                                 if (isset($_GET['comprehension'])) {
                                     routine();
