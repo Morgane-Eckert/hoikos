@@ -19,7 +19,7 @@ if (isset($_GET['target'])) {
                 if (isset($_GET['reaction'])){
                     if ($_GET['reaction']=='rempli') {
                         unset($count);
-                        ajout_logement2($_SESSION['type_logement'],$_POST["telephone_fixe"],$_POST["numero_rue_logement"],$_POST["nom_rue_logement"],$_POST["code_postale_logement"],$_POST["ville_logement"],$_POST["pays_logement"]);
+                        ajout_logement2($_POST["telephone_fixe"],$_POST["numero_rue_logement"],$_POST["nom_rue_logement"],$_POST["code_postale_logement"],$_POST["ville_logement"],$_POST["pays_logement"]);
                     }
                 } else {
                     inscription_logement();
@@ -54,7 +54,7 @@ if (isset($_GET['target'])) {
                         if ($_GET['reaction']=='nouvel_onglet') {
                             formulaire_nouvel_onglet();
                         } else if ($_GET['reaction']=='nouvel_onglet_rempli') {
-                            ajout_nouvel_onglet2(htmlspecialchars($_POST["nom_salle"]));
+                            ajout_nouvel_onglet2($_POST["nom_salle"]);
                         } else if ($_GET['reaction']=='home') {
                             accueil_home();
                         } else if ($_GET['reaction']=='nouvelle_fonction') {
@@ -66,8 +66,7 @@ if (isset($_GET['target'])) {
                         } else if ($_GET['reaction']=='consommation') {
                             include('controleurs/c_consommation.php');
                             consommation();   	    
-			  } 
-			    else if ($_GET['reaction']=='routine') {
+			             }else if ($_GET['reaction']=='routine') {
                             routine();
                         }else if ($_GET['reaction']=='nouvelle_routine_salle') {
                             formulaire_nouvelle_routine_salle();
@@ -113,8 +112,8 @@ if (isset($_GET['target'])) {
                             formulaire_nouvelle_routine_nom();
                         }
                         else if ($_GET['reaction']=='nouvelle_routine_nom_rempli') {
-                            if (htmlspecialchars($_POST['nom'])!='') {
-                                ajout_nom_routine2(htmlspecialchars($_POST['nom']));
+                            if ($_POST['nom']!='') {
+                                ajout_nom_routine2($_POST['nom']);
                             }else {
                                 if (isset($_GET['comprehension'])) {
                                     routine();
@@ -129,7 +128,7 @@ if (isset($_GET['target'])) {
                         } else if ($_GET['reaction']=='suppression_routine_confirme') {
                             suppression_routine_confirme2();
                         }
-			    else if (isset($_GET['anticipation'])) {
+			             else if (isset($_GET['anticipation'])) {
                             if ($_GET['anticipation']=='suppression_onglet') {
                                 accueil_formulaire_suppression();
                             } else if ($_GET['anticipation']=='suppression_onglet_confirme') {
@@ -143,24 +142,24 @@ if (isset($_GET['target'])) {
 				    
                             }
                         } else if ($_GET['reaction']=='profil'){
-            							include ('controleurs/c_profil.php');
-            							if(isset($_GET["mdp"])){
-            								changement($_GET["mdp"]);
-            							}
-            							if(isset($_GET["supprimer"])){
-            								supprimer($_GET["supprimer"]);
-            							}
-            							if(isset($_GET['rempli'])){
-            								if($_GET['rempli']=='compte'){
-            									profil_editer_utilisateur_principal($_SESSION['adresse_mail_utilisateur'],$_POST['nom'],$_POST['prenom'],$_POST['telephone1'],$_POST['adresse_mail'],$_POST['date_naissance']);
-            								} else if($_GET['rempli']=='adresse'){
-                              if(isset($_POST["id_cemac"])){
-                                ajouter_cemac($_POST["id_cemac"],$_SESSION["adresse_mail_utilisateur"]);
-                              }
-            									profil_editer_adresse($_SESSION['adresse_mail_utilisateur'],$_POST['nom_rue_logement'],$_POST['ville_logement'],$_POST['numero_rue_logement'],$_POST['code_postale_logement'],$_POST['telephone_fixe']);
-            								} else if($_GET['rempli']=='secondaire'){
-            									profil_editer_utilisateur_secondaire();
-            								}
+            				include ('controleurs/c_profil.php');
+            				if(isset($_GET["mdp"])){
+            					changement($_GET["mdp"]);
+            				}
+            				if(isset($_GET["supprimer"])){
+            					supprimer($_GET["supprimer"]);
+            				}
+            				if(isset($_GET['rempli'])){
+            					if($_GET['rempli']=='compte'){
+            						profil_editer_utilisateur_principal($_SESSION['adresse_mail_utilisateur'],$_POST['nom'],$_POST['prenom'],$_POST['telephone1'],$_POST['adresse_mail'],$_POST['date_naissance']);
+            					} else if($_GET['rempli']=='adresse'){
+                                    if(isset($_POST["id_cemac"])){
+                                        ajouter_cemac($_POST["id_cemac"],$_SESSION["adresse_mail_utilisateur"]);
+                                    }
+            						profil_editer_adresse($_SESSION['adresse_mail_utilisateur'],$_POST['nom_rue_logement'],$_POST['ville_logement'],$_POST['numero_rue_logement'],$_POST['code_postale_logement'],$_POST['telephone_fixe']);
+            					} else if($_GET['rempli']=='secondaire'){
+            						profil_editer_utilisateur_secondaire();
+            					}
                             } else {
                                 profil();
                             }
@@ -171,87 +170,32 @@ if (isset($_GET['target'])) {
                     } else {
                         accueil_home();
                     }
+
                 } else if ($_SESSION["type_utilisateur"]==2){//Si l'utilisateur est utilisateur secondaire
-                    if (isset($_GET['reaction'])){
-                        if ($_GET['reaction']=='home') {
-                            accueil_home_secondaire();
-                        } else if ($_GET['reaction']=='profil'){
-				include ('controleurs/c_profil.php');
-				if(isset($_GET["mdp"])){
-					changement($_GET["mdp"]);
-				}
-				if(isset($_GET['rempli'])){
-					if($_GET['rempli']=='compte'){
-						profil_editer_utilisateur_principal($_SESSION['adresse_mail_utilisateur'],$_POST['nom'],$_POST['prenom'],$_POST['telephone1'],$_POST['adresse_mail'],$_POST['date_naissance']);
-					}
-				} else {
-					profil_secondaire();
-				}
-			}else if ($_GET['reaction']=='routine') {
-                            routine();
-                        }else if ($_GET['reaction']=='nouvelle_routine_salle') {
-                            formulaire_nouvelle_routine_salle();
-                        }else if ($_GET['reaction']=='nouvelle_routine_salle_rempli') {
-                            if (isset($_POST['salles'])) {
-                               ajout_salle_routine2($_POST['salles']);
-                            }else {
-                                if (isset($_GET['comprehension'])) {
-                                    routine();
-                                }else{
-                                formulaire_nouvelle_routine_erreur();
-                                }
-                            }    
-                        }else if ($_GET['reaction']=='nouvelle_routine_capteur') {
-                            formulaire_nouvelle_routine_capteur();
-                        }else if ($_GET['reaction']=='nouvelle_routine_capteur_rempli') {
-                            if (isset($_POST['capteurs'])) {
-                                ajout_capteur_routine2($_POST['capteurs']);
-                            }else {
-                                if (isset($_GET['comprehension'])) {
-                                    routine();
-                                }else{
-                                formulaire_nouvelle_routine_erreur();
-                                }
-                            }  
-                        }else if ($_GET['reaction']=='nouvelle_routine_consigne') {
-                            formulaire_nouvelle_routine_consigne();
-                        }else if ($_GET['reaction']=='nouvelle_routine_consigne_rempli') {
-                            ajout_consigne_routine2($_POST['consigne']);
-                        }else if ($_GET['reaction']=='nouvelle_routine_horaire') {
-                            formulaire_nouvelle_routine_horaire();
-                        }else if ($_GET['reaction']=='nouvelle_routine_horaire_rempli') {
-                            if (isset($_POST['jours']) && isset($_POST['debut']) && isset($_POST['fin'])) {
-                                ajout_horaire_routine2($_POST['jours'],$_POST['debut'], $_POST['fin']);
-                            }else {
-                                if (isset($_GET['comprehension'])) {
-                                    routine();
-                                }else{
-                                formulaire_nouvelle_routine_erreur();
-                                }
-                            }  
-                        }else if ($_GET['reaction']=='nouvelle_routine_nom') {
-                            formulaire_nouvelle_routine_nom();
+                        if (isset($_GET['reaction'])) {
+                            if ($_GET['reaction']=='home') {
+                                accueil_home();
+                            } else if ($_GET['reaction']=='nouvel_ordre') {
+                                ajout_ordre2();
+                            } else if ($_GET['reaction']=='consommation') {
+                                include('controleurs/c_consommation.php');
+                                consommation(); 
+                            } else if ($_GET['reaction']=='profil'){
+							     include ('controleurs/c_profil.php');
+							     if(isset($_GET["mdp"])){
+								changement($_GET["mdp"]);
+							     }
+							     if(isset($_GET['rempli'])){
+								    if($_GET['rempli']=='compte'){
+									   profil_editer_utilisateur_principal($_SESSION['adresse_mail_utilisateur'],$_POST['nom'],$_POST['prenom'],$_POST['telephone1'],$_POST['adresse_mail'],$_POST['date_naissance']);
+								    }
+							     } else {
+								    profil_secondaire();
+							     }
+						     }
+						else {
+                            accueil_secondaire();
                         }
-                        else if ($_GET['reaction']=='nouvelle_routine_nom_rempli') {
-                            if (htmlspecialchars($_POST['nom'])!='') {
-                                ajout_nom_routine2(htmlspecialchars($_POST['nom']));
-                            }else {
-                                if (isset($_GET['comprehension'])) {
-                                    routine();
-                                }else{
-                                formulaire_nouvelle_routine_erreur();
-                                }
-                            }  
-                        }else if ($_GET['reaction']=='effacer_routine') {
-                            effacer_routine2();
-                        }else if ($_GET['reaction']=='suppression_routine') {
-                            suppression_routine2();
-                        } else if ($_GET['reaction']=='suppression_routine_confirme') {
-                            suppression_routine_confirme2();
-                        }
-			else {
-                        accueil_secondaire();
-                    }
                     } else {
                         accueil_home_secondaire();
 
