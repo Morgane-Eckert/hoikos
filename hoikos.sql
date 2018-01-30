@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 30 jan. 2018 à 20:50
+-- Généré le :  mar. 30 jan. 2018 à 21:02
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -565,8 +565,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`ID_utilisateur`, `ID_logement`, `type_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `telephone_1_utilisateur`, `telephone_2_utilisateur`, `date_de_naissance_utilisateur`, `adresse_mail_utilisateur`, `mot_de_passe_utilisateur`, `date_d_ajout_utilisateur`, `token_mdp`) VALUES
-(1, NULL, '3', 'Hoikos', 'Administrateur', '0123456789', NULL, '1977-01-01', 'administrateur_hoikos@gmail.com', '*1D05FF88D0E82988A8D0DD0200529ECAA0BA78F7', '2018-01-30', NULL),
-(2, NULL, '4', 'Hoikos', 'Commercial', '0123456789', NULL, '1988-01-09', 'commercial_hoikos@gmail.com', '*3290312B4F35C4C56523CAC5E1453AC3783D1EBB', '2018-01-30', NULL),
+(1, NULL, '3', 'Hoikos', 'Administrateur', '0123456789', NULL, '1977-01-01', 'administrateur.hoikos@gmail.com', '*1D05FF88D0E82988A8D0DD0200529ECAA0BA78F7', '2018-01-30', NULL),
+(2, NULL, '4', 'Hoikos', 'Commercial', '0123456789', NULL, '1988-01-09', 'commercial.hoikos@gmail.com', '*3290312B4F35C4C56523CAC5E1453AC3783D1EBB', '2018-01-30', NULL),
 (3, 1, '1', 'Kovarsky', 'Delphine', '0612345678', NULL, '1970-01-13', 'delphine.kovarsky@gmail.com', '*93B6B6309BA1BCC10C4D8840EEA681822DDE5BEB', '2018-01-30', NULL),
 (4, 1, '2', 'Kovarsky', 'Damien', '0612345678', NULL, '1968-01-17', 'damien.kovarsky@gmail.com', '*56BF4968404FCE3B5B4DF473FAF3E6FD9E314603', '2018-01-30', NULL),
 (5, 1, '2', 'Kovarsky', 'Victoria', '0612345678', NULL, '2001-01-09', 'victoria.kovarsky@gmail.com', '*6F2FE8456F5B75CD1AA645013FE6DD381BE313D3', '2018-01-30', NULL);
