@@ -4,7 +4,6 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="public/css/profil.css">
 		<link rel="stylesheet" href="public/css/footer.css">
-		<script type='text/javascript' src='public/js/adresse.js'></script>
 		<title>Votre Profil</title>
 	</head>
 
@@ -46,13 +45,17 @@
 				<div id='corps'>
 					<br/><!-- Titre dans le bandeau rouge-->
                         <form method='post' action='index.php?target=compte&action=connecte&reaction=profil&rempli=compte'>
-                            <label for='nom'> Nom : </label><br>
-                            <input type='text' name='nom' id='nom' value ="<?php echo $nom;?>"required><br><br>
-                            <label for='prénom'> Prénom :  </label><br>
+                            <label for='nom'> Nom : </label>
+														<span id ="missNom"></span><br>
+                            <input type='text' name='nom' id='nom1' value ="<?php echo $nom;?>"required><br><br>
+                            <label for='prénom'> Prénom :  </label>
+														<span id ="missPrenom"></span><br>
                             <input type='text' name='prenom' id='prenom' value="<?php echo $prenom;?>" required><br><br />
-                            <label for='telephone'> Téléphone :  </label><br>
+                            <label for='telephone'> Téléphone :  </label>
+														<span id ="missTel"></span><br>
                             <input type='text' name='telephone1' id='telephone1' maxlenght='10' value ="<?php echo $telephone;?>"required><br><br />
-                            <label for='adresse_mail'> Adresse mail :  </label><br>
+                            <label for='adresse_mail'> Adresse mail :  </label>
+														<span id ="missMail"></span><br>
                             <input type='email' name='adresse_mail' id='adresse_mail' value ="<?php echo $adresse_mail;?>" required><br><br />
                             <label for='date_naissance'> Date de naissance:  </label><br>
                             <input type='date' name='date_naissance' id='date_naissance' value ="<?php echo $date_de_naissance;?>" required><br />
@@ -63,7 +66,7 @@
 		                        ?>
 														<br><br>
 
-                            <input type='submit' value='Confirmer' id='bouton'>
+                            <input type='submit' value='Confirmer'onclick="verification()" id='bouton'>
                     </form>
                         <br>
                         <a href ="index.php?target=compte&action=connecte&reaction=profil&mdp=<?php echo $adresse_mail;?>" onclick="alert(Vous allez recevoir un mail pour changer votre mot de passe)" class="supprimer">Modifier le mot de passe</a>
@@ -166,8 +169,6 @@
 
         </section>
 		<?php include("vues/v_footer.php"); ?>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz2XZbaRtoXDEpEBz7QqqmMEORtzrU7Dk&libraries=places&callback=initAutocomplete"
-        async defer>
-			</script>
+			<script type='text/javascript' src='public/js/profil.js'></script>
 	</body>
 </html>
