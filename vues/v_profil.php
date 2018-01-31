@@ -65,19 +65,19 @@
 				<div id='corps'>
 					<br/><!-- Titre dans le bandeau rouge-->
                         <form method='post' action='index.php?target=compte&action=connecte&reaction=profil&rempli=compte' id='Formulaire'>
-                            <label for='nom' class='intitule'> Nom : </label><br>
+                            <label for='nom' class='intitule'> Nom : </label>
 														<span id ="missNom"></span><br>
                             <input type='text' id='nom1' name='nom' pattern='^[a-zA-Z]+$' value ="<?php echo $nom;?>" required><br><br>
-                            <label for='prénom' class='intitule'> Prénom : </label><br>
+                            <label for='prénom' class='intitule'> Prénom : </label>
 														<span id ="missPrenom"></span><br>
                             <input type='text' name='prenom' pattern='^[a-zA-Z]+$' id='prenom' value="<?php echo $prenom;?>" required><br><br />
-                            <label for='telephone' class='intitule'> Téléphone :  </label><br>
+                            <label for='telephone' class='intitule'> Téléphone :  </label>
 														<span id ="missTel"></span><br>
                             <input type='text' name='telephone1'  pattern='^0[1-9]\d{8}$' id='telephone1' maxlength="10" value ="<?php echo $telephone;?>" required><br><br />
-														<label for='adresse_mail' class='intitule'> Adresse mail :  </label><br>
+														<label for='adresse_mail' class='intitule'> Adresse mail :  </label>
 														<span id ="missMail"></span><br>
 														<input type='email' name='adresse_mail'  id='adresse_mail' value ="<?php echo $adresse_mail;?>" required><br><br />
-                            <label for='date_naissance' class='intitule'> Date de naissance:  </label><br><br>
+                            <label for='date_naissance' class='intitule'> Date de naissance:  </label><br>
                             <input type='date' name='date_naissance' id='date_naissance' value ="<?php echo $date_de_naissance;?>" required><br />
                             <br/>
 								<span class='intitule'>Date de création du compte :</span>
@@ -208,19 +208,19 @@
 							<input id="autocomplete" placeholder="Taper votre adresse..."
 				 onFocus="geolocate()" type="text" class='adresse' style="width:300px;"><br><br>
 
-							<label for='numero_rue_logement' id='numero_rue_logement' class='intitule'> Numéro de rue : </label><br/>
+							<label for='numero_rue_logement' id='numero_rue_logement' class='intitule'> Numéro de rue : </label>
 							<span id ="missNumrue"></span><br>
 							<input type='text' name='numero_rue_logement' id='street_number' value = "<?php echo $numerorue;?>"required ><br><br>
-							<label for='nom_rue_logement' id='nom_rue_logement' class='intitule'> Nom de rue : </label><br/>
+							<label for='nom_rue_logement' id='nom_rue_logement' class='intitule'> Nom de rue : </label>
 							<span id ="missRue"></span><br>
 							<input type='text' name='nom_rue_logement' id='route' value="<?php echo $nomrue;?>" required><br><br>
-							<label for="ville_logement" class='intitule'>Ville :</label><br>
+							<label for="ville_logement" class='intitule'>Ville :</label>
 							<span id ="missVille"></span><br>
 							<input type='text' name="ville_logement" id="locality" value ="<?php echo $ville;?>"required >   <br><br>
-							<label for='code_postale_logement' id='code_postale_logement' class='intitule'> Code postal : </label><br/>
+							<label for='code_postale_logement' id='code_postale_logement' class='intitule'> Code postal : </label>
 							<span id ="missCp"></span><br>
 							<input type='text' name='code_postale_logement' id='postal_code' value="<?php echo $codepostal;?>" required><br><br>
-							<label for="pays_logement" class='intitule'>Pays :</label><br>
+							<label for="pays_logement" class='intitule'>Pays :</label>
 							<span id ="missPays"></span><br>
 							<input type='text' name="pays_logement" id="country" required value='<?php echo $pays;?>' /><br><br>
 							<label for="id_cemac" class='intitule'>Numéro de série de votre nouveau CeMac :</label><br>
