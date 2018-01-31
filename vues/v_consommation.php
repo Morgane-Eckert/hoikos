@@ -62,14 +62,15 @@
               		
                         		        <div class="consommation">
                        	 		             <?php //Affichage des données de consommation
+								$donnees=NULL;
                            					list($i,$donnees_recue_donnees) = afficher_consommation_eau();
 								     if($i!=0){
-                            						foreach($donnees_recue_donnees as $element);
+                            						foreach($donnees_recue_donnees as $donnees);
 								     }
                                         ?>
 
                              		       <div class = "BoiteVide">
-                               		         <span class="Titre"></span><h3 class="Affichage"><?php echo "Votre consommation d'eau s'élève à ".$element." m<sup>3</sup>"; ?>
+                               		         <span class="Titre"></span><h3 class="Affichage"><?php echo "Votre consommation d'eau s'élève à ".$donnees." m<sup>3</sup>"; ?>
                                            </h3>
                                		     </div><br>
 
@@ -123,13 +124,14 @@
 
                     			<div class="consommation"> 
                           		   <?php //Affichage des données de consommation
+							$donnees1=NULL;
                                 		         list($i,$donnees_recue_donnees1) = afficher_consommation_elec();
 							      if($i!=0){
-                                  		          foreach($donnees_recue_donnees1 as $element1);//On parcourt le tableau
+                                  		          foreach($donnees_recue_donnees1 as $donnees1);//On parcourt le tableau
 							      }
                                  		         ?>
                     		 		 <div class = "BoiteVide">
-                                  		      <span class="Titre"></span><h3 class="Affichage"><?php echo $element1;?></h3>
+                                  		      <span class="Titre"></span><h3 class="Affichage"><?php echo $donnees1;?> kWh</h3>
 		                                    </div><br>
                                                        
 								
