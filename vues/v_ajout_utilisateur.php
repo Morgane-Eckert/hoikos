@@ -16,8 +16,8 @@
 			<article>
 				<div id="titre">Mon profil</div><br/>
 				<form name='formulaire_inscription' method='post' action='index.php?target=inscription&action=utilisateur&reaction=rempli' id='corps' onsubmit="return verifForm(this)">
-						<label for='nom' id='test'> Nom : </label><br/>
-						<span id='missNom'></span>
+						<label for='nom' id='test'> Nom : </label>
+						<span id='missNom'></span><br>
 						<input type='text' pattern='^[a-zA-Z]+$' name='nom' id='nom' required><br><br>
 						<label for='prénom'> Prénom :  </label>
 						<span id='missPrenom'></span><br>
