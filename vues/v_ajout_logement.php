@@ -23,27 +23,27 @@
 						<br><br>
 
 
-						<label for='telephone_fixe'> Téléphone fixe :  </label><br/>
+						<label for='telephone_fixe'> Téléphone fixe :  </label>
 						<span id ="missTel"></span><br>
 						<input type='text' name='telephone_fixe' id='telephone_fixe' maxlength='10' required><br><br />
 
-						<label>Adresse</label><br>
+						<label>Adresse : </label><br>
 						<input 	id="autocomplete" placeholder="Taper votre adresse..."
             					onFocus="geolocate()" type="text" class='adresse' style="width:300px;"><br><br>
 
-						<label for='numero_rue_logement' id='numero_rue_logement'> Numéro de rue : </label><br/>
+						<label for='numero_rue_logement' id='numero_rue_logement'> Numéro de rue : </label>
 						<span id ="missNumrue"></span><br>
 						<input type='text' name='numero_rue_logement' id='street_number' class='adresse' required><br><br>
-						<label for='nom_rue_logement' id='nom_rue_logement'> Nom de rue : </label><br/>
+						<label for='nom_rue_logement' id='nom_rue_logement'> Nom de rue : </label>
 						<span id ="missRue"></span><br>
 						<input type='text' name='nom_rue_logement' id='route' class='adresse' required><br><br>
-						<label for='code_postale_logement' id='code_postale_logement'> Code postal : </label><br/>
+						<label for='code_postale_logement' id='code_postale_logement'> Code postal : </label>
 						<span id ="missCp"></span><br>
 						<input type='text' name='code_postale_logement' id='postal_code' class='adresse' required><br><br>
-						<label for="ville_logement">Ville :</label><br>
+						<label for="ville_logement">Ville :</label>
 						<span id ="missVille"></span><br>
 						<input type='text' name="ville_logement" id="locality" class='adresse' required> <br><br>
-						<label for="pays_logement">Pays :</label><br>
+						<label for="pays_logement">Pays :</label>
 						<span id ="missPays"></span><br>
 						<input type='text' name="pays_logement" id="country" class='adresse' required> <br><br>
 						<input type='submit' value='Valider' onclick="validation()" id='bouton'>
