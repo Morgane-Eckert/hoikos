@@ -58,8 +58,7 @@
           <input type="text" id="from_date" size='10' name="from_date" class="form-control"/>
           <label for="to">à</label>
           <input type="text" id="to_date" size='10' name="to_date" class="form-control"/>
-<!-- <button onclick="javascript:randomize();">RANDOM!</button>-->
-         <!-- <input type="button" name="date" id="date" value="Date" class="btn btn-info" /> -->
+
         </form>
             </div>
                 		    <br/><!-- Titre dans le bandeau rouge-->
