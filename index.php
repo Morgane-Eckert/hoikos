@@ -174,7 +174,7 @@ if (isset($_GET['target'])) {
                 } else if ($_SESSION["type_utilisateur"]==2){//Si l'utilisateur est utilisateur secondaire
                         if (isset($_GET['reaction'])) {
                             if ($_GET['reaction']=='home') {
-                                accueil_home();
+                                accueil_home_secondaire();
                             } else if ($_GET['reaction']=='nouvel_ordre') {
                                 ajout_ordre2();
                             } else if ($_GET['reaction']=='consommation') {
