@@ -1,4 +1,3 @@
-function verification(){
   var nom = document.getElementById('nom1');
   var missNom = document.getElementById('missNom');
   var nomValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
@@ -12,11 +11,14 @@ function verification(){
   var missMail = document.getElementById('missMail');
   var mailValid = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 
-      //On reset les champs span
-      missNom.textContent = '';
-      missPrenom.textContent = '';
-      missTel.textContent = '';
-      missMail.textContent = '';
+
+function verification(){
+
+  //On reset les champs span
+  missNom.textContent = '';
+  missPrenom.textContent = '';
+  missTel.textContent = '';
+  missMail.textContent = '';
 
       if (nom.validity.valueMissing){
           event.preventDefault();
