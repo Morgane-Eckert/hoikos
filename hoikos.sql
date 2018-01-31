@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 31 jan. 2018 à 21:49
+-- Généré le :  mer. 31 jan. 2018 à 22:08
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -115,9 +115,7 @@ INSERT INTO `capteur` (`ID_capteur`, `ID_logement`, `ID_cemac`, `ID_type_de_capt
 (7, 1, 1, 4, 'Chambre de Victoria', 'Température', '2018-01-30', 1, '15', '21'),
 (8, 1, 1, 5, 'Chambre de Victoria', 'Lumière', '2018-01-30', 1, 'Eteindre', 'Allumé'),
 (9, 1, 1, 2, 'Chambre de Victoria', 'Volets', '2018-01-30', 2, NULL, NULL),
-(10, 1, 1, 7, 'Chambre de Victoria', 'Mouvement', '2018-01-30', 1, NULL, 'ON'),
-(14, 1, 1, 11, 'Cuisine', 'Electricité', '2018-01-30', 1, 'ON', '1765'),
-(16, 1, 1, 12, 'Cuisine', 'Eau', '2018-01-31', 1, NULL, '339');
+(10, 1, 1, 7, 'Chambre de Victoria', 'Mouvement', '2018-01-30', 1, NULL, 'ON');
 
 -- --------------------------------------------------------
 
@@ -144,10 +142,10 @@ CREATE TABLE IF NOT EXISTS `cemac` (
 INSERT INTO `cemac` (`ID_cemac`, `ID_salle`, `ID_logement`, `etat_cemac`, `numero_de_cemac`) VALUES
 (1, NULL, 1, 2, 'ADRC4'),
 (2, NULL, 1, 1, 'RDH7T'),
-(3, NULL, 2, 2, 'ROBGU'),
-(4, NULL, 2, 1, '57T4D'),
-(5, NULL, NULL, 2, '8HOD5'),
-(6, NULL, NULL, 2, '7HJ9G');
+(3, NULL, NULL, 2, 'ASEDR'),
+(4, NULL, NULL, 2, '45RF3'),
+(5, NULL, NULL, 2, '8JHUY'),
+(6, NULL, NULL, 2, '8JCF0');
 
 -- --------------------------------------------------------
 
@@ -566,7 +564,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `token_mdp` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`ID_utilisateur`),
   KEY `cle_etrangere_logement_utilisateur` (`ID_logement`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -577,7 +575,8 @@ INSERT INTO `utilisateur` (`ID_utilisateur`, `ID_logement`, `type_utilisateur`, 
 (2, NULL, '4', 'Hoikos', 'Commercial', '0123456789', NULL, '1988-01-09', 'commercial.hoikos@gmail.com', '*3290312B4F35C4C56523CAC5E1453AC3783D1EBB', '2018-01-30', NULL),
 (3, 1, '1', 'Kovarsky', 'Delphine', '0612345678', NULL, '1970-01-13', 'delphine.kovarsky@gmail.com', '*93B6B6309BA1BCC10C4D8840EEA681822DDE5BEB', '2018-01-30', NULL),
 (4, 1, '2', 'Kovarsky', 'Damien', '0612345678', NULL, '1968-01-17', 'damien.kovarsky@gmail.com', '*56BF4968404FCE3B5B4DF473FAF3E6FD9E314603', '2018-01-30', NULL),
-(5, 1, '2', 'Kovarsky', 'Victoria', '0612345678', NULL, '2001-01-09', 'victoria.kovarsky@gmail.com', '*6F2FE8456F5B75CD1AA645013FE6DD381BE313D3', '2018-01-30', NULL);
+(5, 1, '2', 'Kovarsky', 'Victoria', '0612345678', NULL, '2001-01-09', 'victoria.kovarsky@gmail.com', '*6F2FE8456F5B75CD1AA645013FE6DD381BE313D3', '2018-01-30', 'd29abae3748bd2d05516bcee498ccdf0'),
+(6, 2, '1', 'Isambert', 'Charlotte', '0612345678', NULL, '2018-01-09', 'charlotte.isambert@gmail.com', '*7C3810E94507201293474095BF51A77DF3CD4794', '2018-01-31', '1432befeb224d239b9463faf28df6f30');
 
 --
 -- Contraintes pour les tables déchargées
