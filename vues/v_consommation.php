@@ -76,7 +76,7 @@
                              		       <div class = "BoiteVide">
                                		         <span class="Titre"></span><h3 class="Affichage"><?php
 								     if($i!=0){
-																					 echo "Votre consommation d'eau s'élève à ".$donnees." ";
+																					 echo "Votre consommation d'eau s'élève à ".$donnees." L";
 								     }
 																					 ?>
                                            </h3>
@@ -141,7 +141,7 @@
                     		 		 <div class = "BoiteVide">
                                   		      <span class="Titre"></span><h3 class="Affichage"> <?php
 																														     if($i!=0){
-																						echo "Votre consommation d'électricité s'élève à ".$donnees1."" ;
+																						echo "Votre consommation d'électricité s'élève à ".$donnees1." kWh" ;
 																							}
 																						?>
                                            </h3>

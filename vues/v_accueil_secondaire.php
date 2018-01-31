@@ -83,7 +83,7 @@ include("accueil_onglets.php");
                                                 } else if ($element=='Température'){
                                                     echo "°C";
                                                 } else if ($element=='Eau'){
-                                                    echo "m<sup>3</sup>";
+                                                    echo "L";
                                                 } else if ($element=='CO2'){
                                                     echo "ppm";
                                                 } else if ($element=='Electricité'){
