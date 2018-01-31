@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 30 jan. 2018 à 21:02
+-- Généré le :  mer. 31 jan. 2018 à 21:49
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `capteur` (
   PRIMARY KEY (`ID_capteur`),
   KEY `cle_etrangere_cemac_capteur` (`ID_cemac`),
   KEY `cle_etrangere_type_capteur_capteur` (`ID_type_de_capteur`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `capteur`
@@ -107,19 +107,17 @@ CREATE TABLE IF NOT EXISTS `capteur` (
 
 INSERT INTO `capteur` (`ID_capteur`, `ID_logement`, `ID_cemac`, `ID_type_de_capteur`, `nom_salle`, `nom_capteur`, `date_d_ajout_capteur`, `etat_capteur`, `donnee_envoyee_capteur`, `donnee_recue_capteur`) VALUES
 (1, 1, 1, 1, 'Salon', 'Présence', '2018-01-30', 1, NULL, 'ON'),
-(2, 1, 1, 3, 'Salon', 'Humidité', '2018-01-30', 1, '41', '59'),
-(3, 1, 1, 4, 'Salon', 'Température', '2018-01-30', 1, NULL, '19'),
+(2, 1, 1, 3, 'Salon', 'Humidité', '2018-01-30', 1, '73', '59'),
+(3, 1, 1, 4, 'Salon', 'Température', '2018-01-30', 1, '15', '19'),
 (4, 1, 1, 5, 'Salon', 'Lumière', '2018-01-30', 1, 'Eteindre', 'Allumé'),
-(5, 1, 1, 4, 'Cuisine', 'Température', '2018-01-30', 1, NULL, '20'),
+(5, 1, 1, 4, 'Cuisine', 'Température', '2018-01-30', 1, '15', '20'),
 (6, 1, 1, 5, 'Cuisine', 'Lumière', '2018-01-30', 1, NULL, 'Eteint'),
-(7, 1, 1, 4, 'Chambre de Victoria', 'Température', '2018-01-30', 1, NULL, '21'),
-(8, 1, 1, 5, 'Chambre de Victoria', 'Lumière', '2018-01-30', 1, NULL, 'Allumé'),
+(7, 1, 1, 4, 'Chambre de Victoria', 'Température', '2018-01-30', 1, '15', '21'),
+(8, 1, 1, 5, 'Chambre de Victoria', 'Lumière', '2018-01-30', 1, 'Eteindre', 'Allumé'),
 (9, 1, 1, 2, 'Chambre de Victoria', 'Volets', '2018-01-30', 2, NULL, NULL),
 (10, 1, 1, 7, 'Chambre de Victoria', 'Mouvement', '2018-01-30', 1, NULL, 'ON'),
-(11, 1, 1, 12, 'Chambre de Victoria', 'Eau', '2018-01-30', 1, 'ON', NULL),
-(12, 1, 1, 11, 'Chambre de Victoria', 'Electricité', '2018-01-30', 1, 'ON', NULL),
-(13, 1, 1, 12, 'Cuisine', 'Eau', '2018-01-30', 1, 'ON', NULL),
-(14, 1, 1, 11, 'Cuisine', 'Electricité', '2018-01-30', 1, 'ON', NULL);
+(14, 1, 1, 11, 'Cuisine', 'Electricité', '2018-01-30', 1, 'ON', '1765'),
+(16, 1, 1, 12, 'Cuisine', 'Eau', '2018-01-31', 1, NULL, '339');
 
 -- --------------------------------------------------------
 
@@ -146,8 +144,8 @@ CREATE TABLE IF NOT EXISTS `cemac` (
 INSERT INTO `cemac` (`ID_cemac`, `ID_salle`, `ID_logement`, `etat_cemac`, `numero_de_cemac`) VALUES
 (1, NULL, 1, 2, 'ADRC4'),
 (2, NULL, 1, 1, 'RDH7T'),
-(3, NULL, NULL, 2, 'ROBGU'),
-(4, NULL, NULL, 2, '57T4D'),
+(3, NULL, 2, 2, 'ROBGU'),
+(4, NULL, 2, 1, '57T4D'),
 (5, NULL, NULL, 2, '8HOD5'),
 (6, NULL, NULL, 2, '7HJ9G');
 
@@ -224,14 +222,15 @@ CREATE TABLE IF NOT EXISTS `logement` (
   `ville_logement` varchar(20) DEFAULT NULL,
   `pays_logement` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`ID_logement`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `logement`
 --
 
 INSERT INTO `logement` (`ID_logement`, `type_logement`, `telephone_logement`, `superficie_totale_logement`, `numero_rue_logement`, `nom_rue_logement`, `code_postale_logement`, `ville_logement`, `pays_logement`) VALUES
-(1, NULL, '0123456789', NULL, 55, 'Rue du Faubourg Saint-Honoré', 75008, 'Paris', 'France');
+(1, NULL, '0123456789', NULL, 55, 'Rue du Faubourg Saint-Honoré', 75008, 'Paris', 'France'),
+(2, NULL, '0923456789', NULL, 60, 'Rue de Sèvres', 75007, 'Paris', 'France');
 
 -- --------------------------------------------------------
 
@@ -281,7 +280,7 @@ CREATE TABLE IF NOT EXISTS `ordre` (
   KEY `cle_etrangere_utilisateur_ordre` (`ID_utilisateur`),
   KEY `cle_etrangere_logement_ordre` (`ID_logement`) USING BTREE,
   KEY `cle_etrangere_type_capteur_ordre` (`ID_type_de_capteur`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `ordre`
@@ -289,7 +288,16 @@ CREATE TABLE IF NOT EXISTS `ordre` (
 
 INSERT INTO `ordre` (`ID_ordre`, `ID_utilisateur`, `ID_logement`, `ID_type_de_capteur`, `nom_salle`, `valeur_ordre`, `etat_ordre`, `date_d_ajout_ordre`) VALUES
 (4, 3, 1, 12, 'home', 'ON', 1, '2018-01-30'),
-(5, 3, 1, 11, 'home', 'ON', 1, '2018-01-30');
+(5, 3, 1, 11, 'home', 'ON', 1, '2018-01-30'),
+(6, 5, 1, 3, 'Salon', '68', 1, '2018-01-30'),
+(7, 5, 1, 3, 'Salon', '71', 1, '2018-01-30'),
+(8, 5, 1, 4, 'home', '15', 1, '2018-01-30'),
+(9, 5, 1, 3, 'Salon', '98', 1, '2018-01-30'),
+(10, 5, 1, 3, 'Salon', '34', 1, '2018-01-30'),
+(11, 5, 1, 3, 'Salon', '1', 1, '2018-01-30'),
+(12, 5, 1, 5, 'Chambre de Victoria', 'Eteindre', 1, '2018-01-30'),
+(13, 3, 1, 3, 'home', '87', 1, '2018-01-31'),
+(14, 5, 1, 3, 'home', '73', 1, '2018-01-31');
 
 -- --------------------------------------------------------
 
