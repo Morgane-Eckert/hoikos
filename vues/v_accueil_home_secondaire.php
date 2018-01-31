@@ -157,5 +157,13 @@ include("accueil_onglets.php");
 			</article>
 		</section>
 		<?php include("vues/v_footer.php"); ?>
+        <script>
+            function updateTextInput(val) {
+                document.getElementById('textInput').value=val; 
+            }
+            function updateTextInput2(val) {
+                document.getElementById('textInput2').value=val; 
+            }
+        </script>
 	</body>
 </html>
