@@ -70,7 +70,7 @@
                                         ?>
 
                              		       <div class = "BoiteVide">
-                               		         <span class="Titre"></span><h3 class="Affichage"><?php echo "Votre consommation d'eau s'élève à ".$donnees." m<sup>3</sup>"; ?>
+                               		         <span class="Titre"></span><h3 class="Affichage"><?php echo "Votre consommation d'eau s'élève à ".$donnees." ; ?>
                                            </h3>
                                		     </div><br>
 
@@ -131,7 +131,8 @@
 							      }
                                  		         ?>
                     		 		 <div class = "BoiteVide">
-                                  		      <span class="Titre"></span><h3 class="Affichage"><?php echo $donnees1;?> kWh</h3>
+                                  		      <span class="Titre"></span><h3 class="Affichage"><?php echo "Votre consommation d'eau s'élève à ".$donnees." ; ?>
+                                           </h3>
 		                                    </div><br>
                                                        
 								
