@@ -164,7 +164,6 @@ include("accueil_onglets.php");
                                         <?php
                                         } 
                                         ?>
-                                        <span class="supprimer_conteneur"><a href="index.php?target=compte&action=connecte&reaction=<?php echo $_GET['reaction']; ?>&anticipation=suppression_fonction&comprehension=<?php echo $element; ?>" class="supprimer">Supprimer cette fonction</a></span>
                                     </div>
                                     <?php      
                                     }
