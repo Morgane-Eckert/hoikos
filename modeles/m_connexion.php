@@ -13,7 +13,7 @@ function verification($email,$password){
 	if ($count == 1){
 		$reponse = $bdd->prepare('SELECT * FROM utilisateur WHERE adresse_mail_utilisateur = :adresse_mail_utilisateur AND mot_de_passe_utilisateur = PASSWORD(:password)');
 		$reponse->execute(array(
-			'adresse_mail_utilisateur'=> $email, 
+			'adresse_mail_utilisateur'=> $email,
 			'password'=> $password
 			));
 
@@ -90,14 +90,39 @@ function ajout_nouveau_capteur(){
     ));
 }
 
+// En cours de fesation
+function recupererTrame(){
+	$url ='http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=004C';
+
+	// Création d'une ressource CURL
+			$ch = curl_init();
+			 curl_setopt($ch, CURLOPT_USERAGENT, 'Récupère IP');
+
+	// Définition de l'URL et autres options appropriées
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_HEADER, false);
+
+	// Récupération du contenu :
+			$data = curl_exec($ch);
+		curl_close(@$ch);
+
+		$data_tab = str_split($data,33);
+		$last = $data_tab[count($data_tab)];
+		$valeur = substr($last,9,13);
+		return $valeur;
+}
+
 function ajout_ordre(){
+	$content = '';
+
 	$bdd=connexion_bdd();
 	$reponsec = $bdd->prepare('SELECT ID_type_de_capteur FROM type_de_capteur WHERE nom_type_de_capteur=:nom_type_de_capteur');
 	$reponsec->execute(array(
 		'nom_type_de_capteur' => $_GET['comprehension']
 		));
 	$donneesc = $reponsec->fetch();
-	
+
 	$requeted = $bdd->prepare("INSERT INTO ordre (ID_ordre, ID_utilisateur, ID_logement, ID_type_de_capteur, nom_salle, valeur_ordre, etat_ordre, date_d_ajout_ordre) VALUES (NULL, :ID_utilisateur, :ID_logement, :ID_type_de_capteur, :nom_salle, :valeur_ordre, :etat_ordre, NOW())");
 	$requeted->execute(array(
 		'ID_utilisateur' => (int)$_SESSION['ID_utilisateur'],
@@ -121,10 +146,77 @@ function ajout_ordre(){
 	    'ID_logement' => $_SESSION['ID_logement'],
 	    'nom_salle' => $_GET['anticipation'],
 	    'nom_capteur' => $_GET['comprehension']
-	
+
     ));
 	}
 
+	if((int)$donneesc['ID_type_de_capteur']==13 && $_POST['ordre'] == 'ON'){ //Trame pour allumer la clim
+		$url ='http://projets-tomcat.isep.fr:8080/appService?ACTION=COMMAND&TEAM=004C&TRAME=1004C2102000113009020180611000000';
+
+		// Création d'une ressource CURL
+				$ch = curl_init();
+				 curl_setopt($ch, CURLOPT_USERAGENT, 'Récupère IP');
+
+		// Définition de l'URL et autres options appropriées
+				curl_setopt($ch, CURLOPT_URL, $url);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($ch, CURLOPT_HEADER, false);
+
+		// Récupération du contenu :
+				$content = curl_exec($ch);
+		curl_close(@$ch);
+	}elseif((int)$donneesc['ID_type_de_capteur']==13 && $_POST['ordre'] == 'OFF'){ //Trame pour éteindre la clim
+		$url ='http://projets-tomcat.isep.fr:8080/appService?ACTION=COMMAND&TEAM=004C&TRAME=1004C2102000013009020180611000000';
+
+		// Création d'une ressource CURL
+				$ch = curl_init();
+				 curl_setopt($ch, CURLOPT_USERAGENT, 'Récupère IP');
+
+		// Définition de l'URL et autres options appropriées
+				curl_setopt($ch, CURLOPT_URL, $url);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($ch, CURLOPT_HEADER, false);
+
+		// Récupération du contenu :
+				$content = curl_exec($ch);
+		curl_close(@$ch);
+	}elseif((int)$donneesc['ID_type_de_capteur']==1){ // présence
+
+	}elseif((int)$donneesc['ID_type_de_capteur']==5 &&  $_POST['ordre'] == 'Allumer'){ //Trame pour allumer la lumière/LED
+			$url ='http://projets-tomcat.isep.fr:8080/appService?ACTION=COMMAND&TEAM=004C&TRAME=1004C21020001050709019970611000000';
+
+			// Création d'une ressource CURL
+					$ch = curl_init();
+					 curl_setopt($ch, CURLOPT_USERAGENT, 'Récupère IP');
+
+			// Définition de l'URL et autres options appropriées
+					curl_setopt($ch, CURLOPT_URL, $url);
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+					curl_setopt($ch, CURLOPT_HEADER, false);
+
+			// Récupération du contenu :
+					$content = curl_exec($ch);
+			curl_close(@$ch);
+	} elseif((int)$donneesc['ID_type_de_capteur']==5 &&  $_POST['ordre'] == 'Eteindre') { //Trame pour éteindre la lumière/LED
+		$url ='http://projets-tomcat.isep.fr:8080/appService?ACTION=COMMAND&TEAM=004C&TRAME=1004C21020000050709019970611000000';
+
+		// Création d'une ressource CURL
+				$ch = curl_init();
+				 curl_setopt($ch, CURLOPT_USERAGENT, 'Récupère IP');
+
+		// Définition de l'URL et autres options appropriées
+				curl_setopt($ch, CURLOPT_URL, $url);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($ch, CURLOPT_HEADER, false);
+
+		// Récupération du contenu :
+				$content = curl_exec($ch);
+		curl_close(@$ch);
+	}
+	elseif((int)$donneesc['ID_type_de_capteur']==13){ //Volet
+
+	}
+	return $content;
 }
 
 function accueil_suppression(){
@@ -221,17 +313,17 @@ function ajout_salle_routine($salles){
 		$affectedLines = $requete1->execute(array(
 			'ID_routine' => $donnees0['ID_routine']
 		));
-		while ($donnees1 = $requete1->fetch()){ 
+		while ($donnees1 = $requete1->fetch()){
 			$requete2 = $bdd->prepare("SELECT nom_salle FROM capteur WHERE ID_capteur=:ID_capteur");
 			$affectedLines = $requete2->execute(array(
 				'ID_capteur' => $donnees1['ID_capteur']
-			)); 
+			));
 			$donnees2 = $requete2->fetch();
 			$requete3 = $bdd->prepare("SELECT ID_salle FROM salle WHERE nom_salle=:nom_salle AND ID_logement=:ID_logement");
 			$affectedLines = $requete3->execute(array(
 				'nom_salle' => $donnees2['nom_salle'],
 				'ID_logement' =>$_SESSION['ID_logement']
-			)); 
+			));
 			$donnees3 = $requete3->fetch();
 			$compteur=0;
 			foreach ($salles as $elements){
@@ -248,7 +340,7 @@ function ajout_salle_routine($salles){
 					$affectedLines = $requete4->execute(array(
 						'ID_salle' => $elements,
 						'ID_logement' =>$_SESSION['ID_logement']
-					)); 
+					));
 					while ($donnees4 = $requete4->fetch()) {
 						if ($donnees4['nom_capteur']==$donnees1['nom_capteur']) {
 							$requete2 = $bdd->prepare("INSERT INTO routine_capteur (ID_routine_capteur, ID_routine, ID_capteur, ordre) VALUES (NULL, :ID_routine, :ID_capteur, :ordre)");
@@ -262,7 +354,7 @@ function ajout_salle_routine($salles){
 							$requetea->execute(array(
 								'ID_routine' => $donnees0['ID_routine'],
 								'ID_capteur' => $donnees4['ID_capteur']
-							)); 
+							));
 							$requetea = $requetea->fetch();
 							if ($requetea['nombre']>1) {
 								$supprime1 = $bdd->prepare("DELETE FROM routine_capteur WHERE ID_routine=:ID_routine AND ID_capteur=:ID_capteur ORDER BY ID_routine_capteur DESC LIMIT 1");
@@ -275,9 +367,9 @@ function ajout_salle_routine($salles){
 					}
 			}
 		}
-			
-			
-	}else{ 
+
+
+	}else{
 		if ($_GET['anticipation']== 'home'){
 			$donneesb = $bdd->prepare("INSERT INTO routine (ID_routine, ID_utilisateur, ID_logement, date_d_ajout_routine, nom_routine) VALUES (NULL, :ID_utilisateur, :ID_logement, NOW(), NULL)");
 			$affectedLines = $donneesb->execute(array(
@@ -329,7 +421,7 @@ function ajout_capteur_routine($capteurs){
 				}
 			}
 		}
-		
+
 		$requete4 = $bdd->prepare("SELECT * FROM capteur INNER JOIN routine_capteur ON routine_capteur.ID_capteur=capteur.ID_capteur WHERE ID_routine=:ID_routine");
 		$affectedLines = $requete4->execute(array(
 			'ID_routine' => $donnees0['ID_routine']
@@ -339,7 +431,7 @@ function ajout_capteur_routine($capteurs){
 			$requetea->execute(array(
 				'ID_routine' => $donnees0['ID_routine'],
 				'nom_capteur' => $donnees4['nom_capteur']
-			)); 
+			));
 			$requetea = $requetea->fetch();
 			if ($requetea['nombre']>1) {
 				$supprime1 = $bdd->prepare("DELETE FROM routine_capteur WHERE ID_capteur=:ID_capteur AND ID_routine=:ID_routine AND ordre='non' ");
@@ -358,7 +450,7 @@ function ajout_capteur_routine($capteurs){
 			$requetea->execute(array(
 				'ID_routine' => $donnees0['ID_routine'],
 				'nom_capteur' => $donnees5['nom_capteur']
-			)); 
+			));
 			$requetea = $requetea->fetch();
 			if ($requetea['nombre']==1) {
 				$supprime1 = $bdd->prepare("DELETE FROM routine_capteur WHERE ID_capteur=:ID_capteur AND ID_routine=:ID_routine AND ordre!='non' ");
@@ -369,7 +461,7 @@ function ajout_capteur_routine($capteurs){
 			}
 		}
 
-		
+
 	}else{
 		if ($_GET['anticipation']!= 'home'){
 			$donneesb = $bdd->prepare("INSERT INTO routine (ID_routine, ID_utilisateur, ID_logement, date_d_ajout_routine, nom_routine) VALUES (NULL, :ID_utilisateur,:ID_logement, NOW(), NULL)");
@@ -450,7 +542,7 @@ function ajout_consigne_routine($consignes){
 				'ordre' => $elements,
 				'ID_routine_capteur' => $donnees1['ID_routine_capteur'],
 				'ID_routine' => $donnees0['ID_routine']
-				));	
+				));
 			}
 		}
 	}else{
@@ -466,7 +558,7 @@ function ajout_consigne_routine($consignes){
 				'ordre' => $elements,
 				'ID_routine_capteur' => $donnees1['ID_routine_capteur'],
 				'ID_routine' => $_SESSION['ID_routine']
-				));	
+				));
 			}
 		}
 	}
@@ -513,7 +605,7 @@ function ajout_nom_routine($nom){
 	$requete->execute(array(
 		'nom_routine' =>$nom,
 		'ID_logement' => $_SESSION['ID_logement']
-	)); 
+	));
 	$requete = $requete->fetch();
 	if ($requete['nombre']==0) {
 		$donnee = $bdd->prepare("UPDATE routine SET nom_routine = :nom_routine WHERE ID_routine = :ID_routine");
@@ -525,7 +617,7 @@ function ajout_nom_routine($nom){
 		$erreur = 'nom déjà existant';
 		return $erreur;
 	}
-	  
+
 }
 
 function effacer_routine(){
@@ -553,7 +645,7 @@ function suppression_routine_confirme(){
 	$requete = $bdd->prepare("SELECT ID_routine FROM routine WHERE nom_routine=:nom_routine");
 	$requete->execute(array(
 		'nom_routine' =>$_GET['comprehension']
-	)); 
+	));
 	$requete = $requete->fetch();
 
 	$supprime1 = $bdd->prepare("DELETE FROM routine_salle WHERE ID_routine=:ID_routine");
